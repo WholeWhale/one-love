@@ -95,7 +95,7 @@ gulp.task('browser-sync', ['build'], function() {
 
   var files = [
             '**/*.php',
-            'assets/images/**/*.{png,jpg,gif}',
+            ONELOVE_PATH + '/assets/images/**/*.{png,jpg,gif}',
           ];
 
   browserSync.init(files, {
@@ -131,7 +131,7 @@ gulp.task('sass', function() {
 
 // Lint all JS files in custom directory
 gulp.task('lint', function() {
-  return gulp.src('assets/javascript/custom/*.js')
+  return gulp.src(ONELOVE_PATH + '/assets/javascript/custom/*.js')
     .pipe($.jshint())
     .pipe($.notify(function (file) {
       if (file.jshint.success) {
@@ -159,20 +159,20 @@ gulp.task('javascript', function() {
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
     .pipe($.babel())
-    .pipe($.concat('foundation.js', {
+    .pipe($.concat('onelove.js', {
       newLine:'\n;'
     }))
     .pipe($.if(isProduction, uglify))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('assets/javascript'))
+    .pipe(gulp.dest(ONELOVE_PATH + '/assets/javascript'))
     .pipe(browserSync.stream());
 });
 
 // Copy task
 gulp.task('copy', function() {
   // Font Awesome
-  var fontAwesome = gulp.src('assets/components/fontawesome/fonts/**/*.*')
-      .pipe(gulp.dest('assets/fonts'));
+  var fontAwesome = gulp.src(FOUNDATION_PATH + '/assets/components/fontawesome/fonts/**/*.*')
+      .pipe(gulp.dest(ONELOVE_PATH + '/assets/fonts'));
 
   return merge(fontAwesome);
 });
@@ -229,15 +229,15 @@ gulp.task('clean', function(done) {
 // Clean JS
 gulp.task('clean:javascript', function() {
   return del([
-      'assets/javascript/foundation.js'
+      ONELOVE_PATH + '/assets/javascript/onelove.js'
     ]);
 });
 
 // Clean CSS
 gulp.task('clean:css', function() {
   return del([
-      'assets/stylesheets/foundation.css',
-      'assets/stylesheets/foundation.css.map'
+      ONELOVE_PATH + '/assets/stylesheets/onelove.css',
+      ONELOVE_PATH + '/assets/stylesheets/onelove.css.map'
     ]);
 });
 
@@ -251,13 +251,13 @@ gulp.task('default', ['build', 'browser-sync'], function() {
   }
 
   // Sass Watch
-  gulp.watch(['assets/scss/**/*.scss'], ['clean:css', 'sass'])
+  gulp.watch([ONELOVE_PATH + '/assets/scss/**/*.scss'], ['clean:css', 'sass'])
     .on('change', function(event) {
       logFileChange(event);
     });
 
   // JS Watch
-  gulp.watch(['assets/javascript/custom/**/*.js'], ['clean:javascript', 'javascript', 'lint'])
+  gulp.watch([ONELOVE_PATH + '/assets/javascript/custom/**/*.js'], ['clean:javascript', 'javascript', 'lint'])
     .on('change', function(event) {
       logFileChange(event);
     });
