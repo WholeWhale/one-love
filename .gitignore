@@ -30,6 +30,7 @@ web/wp-content/plugins/*
 !web/wp-content/themes
 web/wp-content/themes/*
 !web/wp-content/themes/twentyseventeen-child/
+!web/wp-content/themes/onelove/
 !web/private/
 web/private/*
 !web/private/config/
