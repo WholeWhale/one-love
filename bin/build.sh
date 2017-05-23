@@ -72,7 +72,7 @@ do
 
 	# Run gulp
 	echo -e "\n${txtylw}Running 'gulp' ${txtrst}"
-	$FOUND
+	# $FOUND
 
 	# Change back again
 	echo -e "\n${txtylw}changed directories back into: ${txtrst}"
