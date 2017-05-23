@@ -31,6 +31,7 @@ dependencies:
     - /usr/local/bin/terminus
     - ~/.yarn
     - ~/.cache/yarn
+    - ~/.cache/bower
     - ~/terminus
 
   pre:
