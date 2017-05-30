@@ -31,6 +31,7 @@ dependencies:
     - /usr/local/bin/terminus
     - ~/.yarn
     - ~/.cache/yarn
+    - ~/.cache/bower
     - ~/terminus
 
   pre:
@@ -38,6 +39,9 @@ dependencies:
     # that we mean to connect to an unknown host. We ignore those here.
     - echo Disabling strict host checking
     - echo "StrictHostKeyChecking no" > ~/.ssh/config
+
+    # Remove the default gitconfig because it rewrites https to ssh
+    - rm -f ~/.gitconfig
 
     # Set the PHP timezone so that Behat script does not fail.
     #- echo "date.timezone = 'US/Central'"  >  /opt/circleci/php/5.6.14/etc/conf.d/xdebug.ini
