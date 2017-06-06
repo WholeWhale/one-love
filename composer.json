@@ -51,7 +51,9 @@
     "wpackagist-theme/twentyseventeen": "^1.1",
     "pantheon-systems/wordpress": "^4.7.4",
     "roots/wp-password-bcrypt": "^1.0.0",
-    "olefredrik/foundationpress": "~2.9"
+    "olefredrik/foundationpress": "~2.9",
+    "koodimonni/composer-dropin-installer": "*",
+    "wpackagist-plugin/wp-redis": "^0.6.2"
   },
   "require-dev": {
     "behat/behat": "^3.1",
@@ -72,6 +74,11 @@
       ],
       "web/wp-content/themes/{$name}/": [
         "type:wordpress-theme"
+      ]
+    },
+    "dropin-paths": {
+      "web/wp-content/": [
+        "package:wpackagist-plugin/wp-redis:object-cache.php"
       ]
     }
   }
