@@ -32,7 +32,7 @@ web/wp-content/themes/*
 web/private/*
 !web/private/config/
 !web/private/scripts/
-
+!web/wp-content/plugins/js_composer/
 # Packages #
 ############
 *.7z

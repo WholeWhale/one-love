@@ -53,7 +53,11 @@
     "roots/wp-password-bcrypt": "^1.0.0",
     "olefredrik/foundationpress": "~2.9",
     "koodimonni/composer-dropin-installer": "*",
-    "wpackagist-plugin/wp-redis": "^0.6.2"
+    "wpackagist-plugin/wp-redis": "^0.6.2",
+    "wpackagist-plugin/tiny-compress-images": "^2.2.2",
+    "wpackagist-plugin/wordpress-seo": "^4.8",
+    "wpackagist-plugin/simple-301-redirects": "^1.07",
+    "wpackagist-plugin/simple-301-redirects-addon-bulk-uploader": "^1.0.14"
   },
   "require-dev": {
     "behat/behat": "^3.1",

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cda55b596c5d0f1d2a05cb24979355fd",
-    "content-hash": "ac23ceab0b18a41722ddeceb707b7b9d",
+    "hash": "e8090461c00a17cf2ed3ec700c3ef8dd",
+    "content-hash": "62a3a4c78d4851a00737e9f2f6e59540",
     "packages": [
         {
             "name": "composer/installers",
@@ -393,6 +393,86 @@
             "homepage": "https://wordpress.org/plugins/pantheon-advanced-page-cache/"
         },
         {
+            "name": "wpackagist-plugin/simple-301-redirects",
+            "version": "1.07",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/simple-301-redirects/",
+                "reference": "tags/1.07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/simple-301-redirects.1.07.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/simple-301-redirects/"
+        },
+        {
+            "name": "wpackagist-plugin/simple-301-redirects-addon-bulk-uploader",
+            "version": "1.0.14",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/simple-301-redirects-addon-bulk-uploader/",
+                "reference": "tags/1.0.14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/simple-301-redirects-addon-bulk-uploader.1.0.14.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/simple-301-redirects-addon-bulk-uploader/"
+        },
+        {
+            "name": "wpackagist-plugin/tiny-compress-images",
+            "version": "2.2.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/tiny-compress-images/",
+                "reference": "tags/2.2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.2.2.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/tiny-compress-images/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "4.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/4.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.4.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
+        },
+        {
             "name": "wpackagist-plugin/wp-cfm",
             "version": "1.4.5",
             "source": {
@@ -414,15 +494,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-native-php-sessions",
-            "version": "0.6.1",
+            "version": "0.6.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-native-php-sessions/",
-                "reference": "tags/0.6.1"
+                "reference": "tags/0.6.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-native-php-sessions.0.6.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-native-php-sessions.0.6.2.zip",
                 "reference": null,
                 "shasum": null
             },
