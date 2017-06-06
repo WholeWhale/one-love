@@ -17,6 +17,6 @@ kbox restart
 popd
 popd
 
-rsync -a web/wp/wp-content/mu-plugins/* web/wp-content/mu-plugins/
+[ -d 'web/wp-wp-content/mu-plugins' ] && rsync -a web/wp/wp-content/mu-plugins/* web/wp-content/mu-plugins/
 [ -f 'web/wp/wp-config.php' ] && rm -rf ./web/wp/wp-config.php
 [ -d 'web/wp/wp-content' ] && rm -rf ./web/wp/wp-content
