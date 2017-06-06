@@ -5,3 +5,13 @@ function enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueue_styles' );
+
+function register_post_types() {
+  foreach (glob(get_stylesheet_directory() . '/post_types/*.type.php') as $type) {
+    $typeName = basename($type, '.type.php') . '_post_type';
+    $definition = include $type;
+    register_post_type($typeName, $definition);
+  }
+}
+
+add_action('init', 'register_post_types');
