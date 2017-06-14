@@ -22,3 +22,16 @@ function register_post_types() {
   }
 }
 add_action('init', 'register_post_types');
+
+function update_admin_menu_pos() {
+    global $menu;
+    $post_types = array( 5 => 'Posts', 25 => 'Comments' );
+    $new_position = 50;
+    foreach ($post_types as $key => $value) {
+      $copy = $menu[$key];
+      unset( $menu[$key] );
+      $menu[$new_position] = $copy;
+      $new_position++;
+    }
+}
+add_action( 'admin_menu', 'update_admin_menu_pos');
