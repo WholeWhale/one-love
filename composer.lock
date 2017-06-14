@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a2ee3282cce4de76e9dcc27aa6b1886",
+    "content-hash": "6161abf93fff2c2986a43a1c1a75bdd7",
     "packages": [
         {
             "name": "composer/installers",
@@ -390,6 +390,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/pantheon-advanced-page-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/really-simple-csv-importer",
+            "version": "1.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/really-simple-csv-importer/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/really-simple-csv-importer.zip?timestamp=1438671240",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/really-simple-csv-importer/"
         },
         {
             "name": "wpackagist-plugin/simple-301-redirects",
@@ -2007,12 +2027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "b94c58a582ab903c712657dd611f6bf4a2d88d88"
+                "reference": "25f7a9a82ffe5ace820dc26faf8c735c817b07d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b94c58a582ab903c712657dd611f6bf4a2d88d88",
-                "reference": "b94c58a582ab903c712657dd611f6bf4a2d88d88",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/25f7a9a82ffe5ace820dc26faf8c735c817b07d8",
+                "reference": "25f7a9a82ffe5ace820dc26faf8c735c817b07d8",
                 "shasum": ""
             },
             "require": {
@@ -2069,7 +2089,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-12T16:03:21+00:00"
+            "time": "2017-06-13T11:14:06+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2245,12 +2265,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
                 "shasum": ""
             },
             "require": {
@@ -2262,7 +2282,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -2296,7 +2316,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T14:24:12+00:00"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/translation",
@@ -2369,12 +2389,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "02878ee742708dd663c129a1bd3ad1b628098b00"
+                "reference": "c58111d731049b9085e97deaa09797b7c13ec0d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/02878ee742708dd663c129a1bd3ad1b628098b00",
-                "reference": "02878ee742708dd663c129a1bd3ad1b628098b00",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c58111d731049b9085e97deaa09797b7c13ec0d5",
+                "reference": "c58111d731049b9085e97deaa09797b7c13ec0d5",
                 "shasum": ""
             },
             "require": {
@@ -2416,7 +2436,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-12T16:03:21+00:00"
+            "time": "2017-06-14T07:34:46+00:00"
         },
         {
             "name": "zendframework/zend-code",

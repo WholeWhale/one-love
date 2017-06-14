@@ -3,14 +3,14 @@
  * Rally Post Type
  */
 $labels = array(
-	'name'                  => _x( 'Rallies', 'Post Type General Name', 'text_domain' ),
+	'name'                  => _x( 'Rally', 'Post Type General Name', 'text_domain' ),
 	'singular_name'         => _x( 'Rally', 'Post Type Singular Name', 'text_domain' ),
-	'menu_name'             => __( 'Rallies', 'text_domain' ),
+	'menu_name'             => __( 'Rally', 'text_domain' ),
 	'name_admin_bar'        => __( 'Rally', 'text_domain' ),
 	'archives'              => __( 'Rally Archives', 'text_domain' ),
 	'attributes'            => __( 'Rally Attributes', 'text_domain' ),
 	'parent_item_colon'     => __( 'Parent Rally:', 'text_domain' ),
-	'all_items'             => __( 'All Rallies', 'text_domain' ),
+	'all_items'             => __( 'All Rally', 'text_domain' ),
 	'add_new_item'          => __( 'Add New Rally', 'text_domain' ),
 	'add_new'               => __( 'Add New', 'text_domain' ),
 	'new_item'              => __( 'New Rally', 'text_domain' ),
@@ -27,9 +27,9 @@ $labels = array(
 	'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
 	'insert_into_item'      => __( 'Insert into Rally', 'text_domain' ),
 	'uploaded_to_this_item' => __( 'Uploaded to this Rally', 'text_domain' ),
-	'items_list'            => __( 'Rallies list', 'text_domain' ),
-	'items_list_navigation' => __( 'Rallies list navigation', 'text_domain' ),
-	'filter_items_list'     => __( 'Filter Rallies list', 'text_domain' ),
+	'items_list'            => __( 'Rally list', 'text_domain' ),
+	'items_list_navigation' => __( 'Rally list navigation', 'text_domain' ),
+	'filter_items_list'     => __( 'Filter Rally list', 'text_domain' ),
 );
 
 $rewrite = array(
@@ -41,7 +41,7 @@ $rewrite = array(
 
 $args = array(
 	'label'                 => __( 'Rally', 'text_domain' ),
-	'description'           => __( 'Post Type for Rallies', 'text_domain' ),
+	'description'           => __( 'Post Type for Rally', 'text_domain' ),
 	'labels'                => $labels,
 	'supports'              => array( 'title', 'editor', 'thumbnail',  ),
 	'taxonomies'            => array( 'category' ),
