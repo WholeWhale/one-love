@@ -1,9 +1,10 @@
 <?php
 
-function enqueue_styles() {
+function enqueue_assets() {
   wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/assets/stylesheets/onelove.css' );
+  wp_enqueue_script( 'main-js', get_stylesheet_directory_uri() . '/assets/javascript/onelove.js', array('jquery'), '2.9.0', true);
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'enqueue_assets' );
 
 /**
  * Allow loading of svg images within media library
@@ -35,3 +36,24 @@ function update_admin_menu_pos() {
     }
 }
 add_action( 'admin_menu', 'update_admin_menu_pos');
+
+function remove_bloat_assets() {
+  wp_dequeue_style('main-stylesheet');
+  wp_dequeue_script('foundation');
+}
+add_action('wp_enqueue_scripts', 'remove_bloat_assets', 100);
+
+/**
+ * having a version number attached to files is a cache-buster. No need for a
+ * cache-buster for development when FF and Chrome already have cache-busting
+ * capabilities. 
+ */
+function remove_assets_version_num( $src ) {
+	if ( strpos( $src, 'ver=' ) )
+		$src = remove_query_arg( 'ver', $src );
+	return $src;
+}
+// Remove WP Version From Styles
+add_filter( 'style_loader_src', 'remove_assets_version_num', 9999 );
+// Remove WP Version From Scripts
+add_filter( 'script_loader_src', 'remove_assets_version_num', 9999 );
