@@ -64,7 +64,7 @@ $white: #fefefe;
 $outer-space: #2c3840;
 $body-background: $snow;
 $body-font-color: $grey;
-$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$body-font-family: $lato;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -108,26 +108,26 @@ $block-grid-max: 8;
 $header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
-$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+$font-family-monospace: $lato, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': rem-calc($main-font-size)),
+    'h2': ('font-size': rem-calc($main-font-size - 3)),
+    'h3': ('font-size': rem-calc($main-font-size - 7)),
+    'h4': ('font-size': rem-calc($main-font-size - 8)),
+    'h5': ('font-size': rem-calc($main-font-size - 11)),
+    'h6': ('font-size': rem-calc($main-font-size - 13)),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+  'h1': ('font-size': rem-calc($main-font-size)),
+  'h2': ('font-size': rem-calc($main-font-size - 3)),
+  'h3': ('font-size': rem-calc($main-font-size - 7)),
+  'h4': ('font-size': rem-calc($main-font-size - 8)),
+  'h5': ('font-size': rem-calc($main-font-size - 11)),
+  'h6': ('font-size': rem-calc($main-font-size - 13)),
   ),
 );
 $header-text-rendering: optimizeLegibility;
@@ -158,15 +158,15 @@ $list-nested-side-margin: 1.25rem;
 $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
-$blockquote-color: $dark-gray;
+$blockquote-color: $grey;
 $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $medium-gray;
 $cite-font-size: rem-calc(13);
-$cite-color: $dark-gray;
+$cite-color: $grey;
 $cite-pseudo-content: '\2014 \0020';
 $keystroke-font: $font-family-monospace;
 $keystroke-color: $black;
-$keystroke-background: $light-gray;
+$keystroke-background: $grey;
 $keystroke-padding: rem-calc(2 4 0);
 $keystroke-radius: $global-radius;
 $abbr-underline: 1px dotted $black;
@@ -177,7 +177,7 @@ $abbr-underline: 1px dotted $black;
 $lead-font-size: $global-font-size * 1.25;
 $lead-lineheight: 1.6;
 $subheader-lineheight: 1.4;
-$subheader-color: $dark-gray;
+$subheader-color: $grey;
 $subheader-font-weight: $global-weight-normal;
 $subheader-margin-top: 0.2rem;
 $subheader-margin-bottom: 0.5rem;
@@ -312,7 +312,7 @@ $closebutton-size: (
   medium: 2em,
 );
 $closebutton-lineheight: 1;
-$closebutton-color: $dark-gray;
+$closebutton-color: $grey;
 $closebutton-color-hover: $black;
 
 // 16. Drilldown
@@ -369,7 +369,7 @@ $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
-$select-triangle-color: $dark-gray;
+$select-triangle-color: $grey;
 $select-radius: $global-radius;
 $input-color: $black;
 $input-placeholder-color: $medium-gray;
@@ -380,7 +380,7 @@ $input-background: $white;
 $input-background-focus: $white;
 $input-background-disabled: $light-gray;
 $input-border: 1px solid $medium-gray;
-$input-border-focus: 1px solid $dark-gray;
+$input-border-focus: 1px solid $grey;
 $input-shadow: inset 0 1px 2px rgba($black, 0.1);
 $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: not-allowed;
@@ -449,7 +449,7 @@ $maincontent-class: 'off-canvas-content';
 // ---------
 
 $orbit-bullet-background: $medium-gray;
-$orbit-bullet-background-active: $dark-gray;
+$orbit-bullet-background-active: $grey;
 $orbit-bullet-diameter: 1.2rem;
 $orbit-bullet-margin: 0.1rem;
 $orbit-bullet-margin-top: 0.8rem;
@@ -601,7 +601,7 @@ $titlebar-icon-spacing: 0.25rem;
 // -----------
 
 $has-tip-font-weight: $global-weight-bold;
-$has-tip-border-bottom: dotted 1px $dark-gray;
+$has-tip-border-bottom: dotted 1px $grey;
 $tooltip-background-color: $black;
 $tooltip-color: $white;
 $tooltip-padding: 0.75rem;
