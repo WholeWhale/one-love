@@ -16,6 +16,9 @@
 *  mixins     ................. Complete list of theme mixins.
 *  settings   ................. Foundation variables that can be overwritten
 *
+* LAYOUT
+*   header    ................. Styling for the header menus
+*
 */
 
 
@@ -25,4 +28,5 @@
 @import "settings/foundation";
 @import "settings/mixins";
 
+@import "layout/header";
 @import "main";
