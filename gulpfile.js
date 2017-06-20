@@ -12,9 +12,15 @@ var dateFormat  = require('dateformat');
 var del         = require('del');
 var cleanCSS    = require('gulp-clean-css');
 
-// Enter URL of your local server here
-// Example: 'http://localwebsite.dev'
-var URL = '';
+// Create a localsite.js file and enter the url
+// for your server there
+// e.g
+// module.exports = {
+//  url: "http://mysite.local/"
+// };
+
+var localinfo = require('./localsite');
+var URL = localinfo.url;
 
 // Check for --production flag
 var isProduction = !!(argv.production);
