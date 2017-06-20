@@ -17,6 +17,7 @@ PANTHEON_ENVS="$(terminus multidev:list $PANTHEON_SITE_UUID --format=list --fiel
 GITHUB_API_URL="https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME"
 PANTHEON_SITE_NAME="$(terminus site:info $PANTHEON_SITE_UUID --fields=name --format=string)"
 SLACK_MESSAGE=""
+THEME="onelove"
 
 cd $HOME
 
@@ -156,6 +157,7 @@ then
 fi
 
 echo -e "\n${txtylw}Forcibly adding all files and committing${txtrst}"
+rm web/wp-content/themes/$THEME/assets/.gitignore
 git add -A --force .
 git commit -m "Circle CI build $CIRCLE_BUILD_NUM by $CIRCLE_PROJECT_USERNAME" -m "$COMMIT_MESSAGE"
 
