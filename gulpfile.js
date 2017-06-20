@@ -19,8 +19,18 @@ var cleanCSS    = require('gulp-clean-css');
 //  url: "http://mysite.local/"
 // };
 
-var localinfo = require('./localsite');
-var URL = localinfo.url;
+
+try {
+  var localinfo = require('./localsite');
+  console.log("[" + "SUCCESS".green + "] localsite.js found");
+  var URL = localinfo.url;
+} catch (e) {
+  console.log("[" + "FAILURE".red + "] localsite.js not found");
+  var URL = '';
+}
+
+
+
 
 // Check for --production flag
 var isProduction = !!(argv.production);
