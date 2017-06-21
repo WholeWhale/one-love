@@ -99,6 +99,7 @@ function unique_categories() {
           'labels'             => $labels,
           'publicly_queryable' => true,
           'rewrite'            => array( 'slug' => $post_type_base_name .'-category' ),
+          'hierarchical'      =>  true,
         )
       );
     }
