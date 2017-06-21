@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6161abf93fff2c2986a43a1c1a75bdd7",
+    "content-hash": "29e39e86b5ed83d1c3269c9f6cede011",
     "packages": [
         {
             "name": "composer/installers",
@@ -372,6 +372,22 @@
             "time": "2017-02-03T22:05:04+00:00"
         },
         {
+            "name": "warfare-plugins/social-warfare-pro",
+            "version": "2.2.7",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:warfare-plugins/social-warfare-pro.git",
+                "reference": "2.2.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/master.zip",
+                "reference": "2.2.7",
+                "shasum": null
+            },
+            "type": "wordpress-plugin"
+        },
+        {
             "name": "wpackagist-plugin/pantheon-advanced-page-cache",
             "version": "0.1.5",
             "source": {
@@ -452,16 +468,36 @@
             "homepage": "https://wordpress.org/plugins/simple-301-redirects-addon-bulk-uploader/"
         },
         {
-            "name": "wpackagist-plugin/tiny-compress-images",
-            "version": "2.2.2",
+            "name": "wpackagist-plugin/social-warfare",
+            "version": "2.2.7",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/tiny-compress-images/",
-                "reference": "tags/2.2.2"
+                "url": "https://plugins.svn.wordpress.org/social-warfare/",
+                "reference": "tags/2.2.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.2.2.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/social-warfare.2.2.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/social-warfare/"
+        },
+        {
+            "name": "wpackagist-plugin/tiny-compress-images",
+            "version": "2.2.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/tiny-compress-images/",
+                "reference": "tags/2.2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.2.2.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1187,12 +1223,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "8dfe52c2d14a68ff3dce6af82058391c6c4eb9b3"
+                "reference": "526d8ef63e8701e02216b621e4a3a16085e2286f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/8dfe52c2d14a68ff3dce6af82058391c6c4eb9b3",
-                "reference": "8dfe52c2d14a68ff3dce6af82058391c6c4eb9b3",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/526d8ef63e8701e02216b621e4a3a16085e2286f",
+                "reference": "526d8ef63e8701e02216b621e4a3a16085e2286f",
                 "shasum": ""
             },
             "require": {
@@ -1244,7 +1280,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-06-10T19:55:42+00:00"
+            "time": "2017-06-19T13:30:27+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -1403,12 +1439,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "1f8ce217fc8b6665bc406663dec2a03efeb8fa36"
+                "reference": "9ff03132f2eb9eca9ffa97c09ce5f97e20e6dd45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/1f8ce217fc8b6665bc406663dec2a03efeb8fa36",
-                "reference": "1f8ce217fc8b6665bc406663dec2a03efeb8fa36",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/9ff03132f2eb9eca9ffa97c09ce5f97e20e6dd45",
+                "reference": "9ff03132f2eb9eca9ffa97c09ce5f97e20e6dd45",
                 "shasum": ""
             },
             "require": {
@@ -1454,7 +1490,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-06-07T14:14:44+00:00"
+            "time": "2017-06-20T08:47:57+00:00"
         },
         {
             "name": "psr/container",
@@ -2324,12 +2360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "b6d9301458e2a3ffee06ec7a44769b80671c2803"
+                "reference": "0c12c0c5c8349f519d64d52624fbc9e9b9455974"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/b6d9301458e2a3ffee06ec7a44769b80671c2803",
-                "reference": "b6d9301458e2a3ffee06ec7a44769b80671c2803",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/0c12c0c5c8349f519d64d52624fbc9e9b9455974",
+                "reference": "0c12c0c5c8349f519d64d52624fbc9e9b9455974",
                 "shasum": ""
             },
             "require": {
@@ -2381,7 +2417,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-24T09:02:43+00:00"
+            "time": "2017-06-16T10:53:40+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2389,12 +2425,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c58111d731049b9085e97deaa09797b7c13ec0d5"
+                "reference": "08c644988dba9d608d18bb8ad8dd633f276137f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c58111d731049b9085e97deaa09797b7c13ec0d5",
-                "reference": "c58111d731049b9085e97deaa09797b7c13ec0d5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/08c644988dba9d608d18bb8ad8dd633f276137f7",
+                "reference": "08c644988dba9d608d18bb8ad8dd633f276137f7",
                 "shasum": ""
             },
             "require": {
@@ -2436,7 +2472,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-14T07:34:46+00:00"
+            "time": "2017-06-14T20:38:21+00:00"
         },
         {
             "name": "zendframework/zend-code",
