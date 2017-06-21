@@ -46,7 +46,7 @@ add_action('wp_enqueue_scripts', 'remove_bloat_assets', 100);
 /**
  * having a version number attached to files is a cache-buster. No need for a
  * cache-buster for development when FF and Chrome already have cache-busting
- * capabilities. 
+ * capabilities.
  */
 function remove_assets_version_num( $src ) {
 	if ( strpos( $src, 'ver=' ) )
@@ -57,3 +57,10 @@ function remove_assets_version_num( $src ) {
 add_filter( 'style_loader_src', 'remove_assets_version_num', 9999 );
 // Remove WP Version From Scripts
 add_filter( 'script_loader_src', 'remove_assets_version_num', 9999 );
+
+function register_meta_boxes() {
+  foreach (glob(get_stylesheet_directory() . '/meta_boxes/*.box.php') as $type) {
+    include $type;
+  }
+}
+add_action('after_setup_theme', 'register_meta_boxes');
