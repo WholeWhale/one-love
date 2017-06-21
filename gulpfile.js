@@ -12,9 +12,23 @@ var dateFormat  = require('dateformat');
 var del         = require('del');
 var cleanCSS    = require('gulp-clean-css');
 
-// Enter URL of your local server here
-// Example: 'http://localwebsite.dev'
-var URL = '';
+// Create a localsite.js file and enter the url
+// for your server there
+// e.g
+// module.exports = {
+//  url: "http://mysite.local/"
+// };
+
+
+try {
+  var localinfo = require('./localsite');
+  console.log("[" + "SUCCESS".green + "] localsite.js found");
+  var URL = localinfo.url;
+} catch (e) {
+  console.log("[" + "FAILURE".red + "] localsite.js not found");
+  var URL = '';
+}
+
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -69,6 +83,7 @@ var PATHS = {
 
     // Include your own custom scripts (located in the custom folder)
     FOUNDATION_PATH + '/assets/javascript/custom/*.js',
+    ONELOVE_PATH + '/assets/javascript/custom/*.js'
   ],
   phpcs: [
     '**/*.php',

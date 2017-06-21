@@ -1,0 +1,106 @@
+// Font partial
+// --------------
+//
+// Table of Contents:
+//
+// 1. Fonts
+// 2. Font weights
+// 3. Line heights
+// 4. Font sizes
+
+
+
+// 1. Fonts
+// ---------
+
+$overpass: 'Overpass', sans-serif; // header font
+$lato: 'Lato', sans-serif; // body font
+
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .entry-title,
+  .title {
+    font-family: $overpass;
+  }
+}
+
+
+// 2. Font weights
+// ---------
+
+$bold: 700;
+$extra-bold: 800;
+$extra-light: 200;
+
+body {
+  h1,
+  h2,
+  .entry-title {
+    font-weight: $extra-bold;
+  }
+
+  h3,
+  h4 {
+    font-weight: $bold;
+  }
+
+  h5 {
+    font-weight: $extra-light;
+    color: $coral;
+    letter-spacing: .01875rem;
+  }
+}
+
+
+
+// 3. Line Heights
+// ---------
+
+$title-line-height: 3.125rem; //50px
+
+body {
+
+  .entry-title,
+  .title {
+    line-height: $title-line-height;
+  }
+
+  h1,
+  blockquote {
+    line-height: $title-line-height * .7 ;
+  }
+
+  h2 {
+    line-height: $title-line-height * .62;
+  }
+  h3 {
+    line-height: $title-line-height * .54;
+  }
+  h4 {
+    line-height: $title-line-height * .48;
+  }
+  p {
+    line-height: $title-line-height * .52;
+  }
+}
+
+// 4. Font sizes
+// ---------
+
+body {
+  blockquote {
+    font-size: 1.5625rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
+  .entry-title,
+  html & .title {
+    font-size: 2.8125rem;
+  }
+}

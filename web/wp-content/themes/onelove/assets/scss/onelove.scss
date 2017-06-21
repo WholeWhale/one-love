@@ -1,2 +1,32 @@
-// Inherit from foundation
-@import "../../../foundationpress/assets/scss/foundation";
+/* ============================================================ *\
+
+  #MAIN
+
+  Author:  Whole Whale
+  Website: https://www.wholewhale.com
+
+/* ============================================================ */
+
+/**
+* CONTENTS
+*
+* SETTINGS
+*  foundation ................. Complete list of theme mixins.
+*  colors     ................. Manage our color palette in isolation.
+*  mixins     ................. Complete list of theme mixins.
+*  settings   ................. Foundation variables that can be overwritten
+*
+* LAYOUT
+*   header    ................. Styling for the header menus
+*
+*/
+
+
+@import "settings/colors";
+@import "settings/fonts";
+@import "settings/settings";
+@import "settings/foundation";
+@import "settings/mixins";
+
+@import "layout/header";
+@import "main";

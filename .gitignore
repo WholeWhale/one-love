@@ -5,7 +5,7 @@ vendor/
 # Hidden Files #
 ################
 .env
-
+localsite.js
 # NPM Modules #
 ###############
 node_modules/

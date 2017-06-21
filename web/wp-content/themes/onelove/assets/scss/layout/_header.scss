@@ -1,0 +1,40 @@
+// header stylesheet
+// --------------
+//
+// Table of Contents:
+//
+// 1. Global
+// 2. Mobile
+
+
+
+// 1. Global
+// ---------
+
+#masthead {
+  .title-bar {
+    @include dimensions(null,rem-calc(70));
+    @include border('yes');
+    &:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+    .menu-icon {
+      @include dimensions(rem-calc(35),rem-calc(35));
+      vertical-align: middle;
+      &:after {
+        @include dimensions(null,rem-calc(3));
+        box-shadow: 0 11px 0 $sky, 0 22px 0 $sky;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+  }
+}
+
+// 2. Mobile
+// ---------

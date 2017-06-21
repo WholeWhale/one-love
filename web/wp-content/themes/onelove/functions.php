@@ -1,6 +1,7 @@
 <?php
 
 function enqueue_assets() {
+  wp_enqueue_style( 'main-fonts','https://fonts.googleapis.com/css?family=Lato|Overpass',false );
   wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/assets/stylesheets/onelove.css' );
   wp_enqueue_script( 'main-js', get_stylesheet_directory_uri() . '/assets/javascript/onelove.js', array('jquery'), '2.9.0', true);
 }
