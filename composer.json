@@ -39,6 +39,23 @@
           "wordpress-install-dir": "web/wp"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "warfare-plugins/social-warfare-pro",
+        "type": "wordpress-plugin",
+        "version": "2.2.7",
+        "dist": {
+          "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/master.zip",
+          "type": "zip"
+        },
+        "source": {
+          "url": "git@github.com:warfare-plugins/social-warfare-pro.git",
+          "type": "git",
+          "reference": "2.2.7"
+        }
+      }
     }
   ],
   "require": {
@@ -58,7 +75,9 @@
     "wpackagist-plugin/wordpress-seo": "^4.8",
     "wpackagist-plugin/simple-301-redirects": "^1.07",
     "wpackagist-plugin/simple-301-redirects-addon-bulk-uploader": "^1.0.14",
-    "wpackagist-plugin/really-simple-csv-importer": "^1.3"
+    "wpackagist-plugin/really-simple-csv-importer": "^1.3",
+    "wpackagist-plugin/social-warfare": "^2.2.7",
+    "warfare-plugins/social-warfare-pro": "^2.2.7"
   },
   "require-dev": {
     "behat/behat": "^3.1",
