@@ -112,6 +112,7 @@ $font-family-monospace: $lato, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
+$main-font-size: 25;
 $header-styles: (
   small: (
     'h1': ('font-size': rem-calc($main-font-size)),

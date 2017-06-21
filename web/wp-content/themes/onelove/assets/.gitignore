@@ -1,4 +1,5 @@
 stylesheets
 components
 fonts
-javascript
+javascript/*
+!javascript/custom

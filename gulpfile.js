@@ -30,8 +30,6 @@ try {
 }
 
 
-
-
 // Check for --production flag
 var isProduction = !!(argv.production);
 
@@ -85,6 +83,7 @@ var PATHS = {
 
     // Include your own custom scripts (located in the custom folder)
     FOUNDATION_PATH + '/assets/javascript/custom/*.js',
+    ONELOVE_PATH + '/assets/javascript/custom/*.js'
   ],
   phpcs: [
     '**/*.php',

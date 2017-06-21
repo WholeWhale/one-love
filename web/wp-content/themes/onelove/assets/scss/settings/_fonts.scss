@@ -22,7 +22,9 @@ body {
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  .entry-title,
+  .title {
     font-family: $overpass;
   }
 }
@@ -63,11 +65,13 @@ $title-line-height: 3.125rem; //50px
 
 body {
 
-  .entry-title {
+  .entry-title,
+  .title {
     line-height: $title-line-height;
   }
 
-  h1 {
+  h1,
+  blockquote {
     line-height: $title-line-height * .7 ;
   }
 
@@ -80,17 +84,23 @@ body {
   h4 {
     line-height: $title-line-height * .48;
   }
+  p {
+    line-height: $title-line-height * .52;
+  }
 }
 
 // 4. Font sizes
 // ---------
-$main-font-size: 25;
 
 body {
-  p {
-    font-size: rem-calc($main-font-size - 7);
-  }
   blockquote {
-    font-size: rem-calc($main-font-size);
+    font-size: 1.5625rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
+  .entry-title,
+  html & .title {
+    font-size: 2.8125rem;
   }
 }
