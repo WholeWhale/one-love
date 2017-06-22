@@ -41,6 +41,7 @@ var COMPATIBILITY = [
 ];
 
 var FOUNDATION_PATH = 'web/wp-content/themes/foundationpress';
+var FOUNDATION_MATERIAL_PATH = 'web/wp-content/themes/material-foundation';
 var ONELOVE_PATH = 'web/wp-content/themes/onelove'
 
 // File paths to various assets are defined here.
@@ -83,7 +84,10 @@ var PATHS = {
 
     // Include your own custom scripts (located in the custom folder)
     FOUNDATION_PATH + '/assets/javascript/custom/*.js',
-    ONELOVE_PATH + '/assets/javascript/custom/*.js'
+    ONELOVE_PATH + '/assets/javascript/custom/*.js',
+
+    FOUNDATION_MATERIAL_PATH + 'js/src/ripple.js',
+    FOUNDATION_MATERIAL_PATH + 'js/src/switches.js'
   ],
   phpcs: [
     '**/*.php',
