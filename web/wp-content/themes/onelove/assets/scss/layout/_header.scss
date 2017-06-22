@@ -38,7 +38,7 @@ $header-height: 70;
     }
     // max-width: large;
     .menu li:not(.home) a:hover:not(.button) {
-      background-color: $sky;
+      background-color: inherit;
     }
   }
   .title-bar {
@@ -52,15 +52,28 @@ $header-height: 70;
       @include dimensions(rem-calc(35),rem-calc(35));
     }
 
+    h3.head-menu-item {
+      color: $sky;
+    }
+
   }
   .menu li {
     &:not(:last-child) {
       border-right: initial;
     }
-    & a {
+    &.current-menu-item a h3,
+    a:hover h3,
+    a:active h3 {
+      color: $midnight;
+    }
+    & a  {
       display: flex;
       justify-content: left;
       align-items: center;
+      h3 {
+        margin-bottom: 0;
+        margin-top: 14px;
+      }
     }
   }
 
