@@ -25,8 +25,9 @@
 @import "settings/colors";
 @import "settings/fonts";
 @import "settings/settings";
+@import "settings/global";
 @import "settings/foundation";
+@import "settings/foundation-material";
 @import "settings/mixins";
-
 @import "layout/header";
 @import "main";

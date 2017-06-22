@@ -1,0 +1,40 @@
+// Material Design color libarary
+@import
+ "../../../material-foundation/scss/style/color";
+
+
+// // Global variables and styles
+// @import
+//   "../../../material-foundation/scss/global";
+
+// // Foundation Files
+// @import
+//  "../../../material-foundation/scss/foudation";
+
+// Material Design - Core
+@import
+ "../../../material-foundation/scss/core/material",
+ "../../../material-foundation/scss/core/animation";
+
+// Material Design - Style
+// @import
+//  "../../../material-foundation/scss/style/icons",
+//  "../../../material-foundation/scss/style/imagery",
+//  "../../../material-foundation/scss/style/typography";
+
+// Material Design - Components
+@import
+ "../../../material-foundation/scss/components/tabs",
+ "../../../material-foundation/scss/components/buttons",
+ "../../../material-foundation/scss/components/menus",
+ "../../../material-foundation/scss/components/cards",
+ // "../../../material-foundation/scss/components/chips",
+ // "../../../material-foundation/scss/components/data-tables",
+ "../../../material-foundation/scss/components/lists",
+ // "../../../material-foundation/scss/components/toolbars",
+ "../../../material-foundation/scss/components/text-fields",
+ "../../../material-foundation/scss/components/progress-activity",
+ // "../../../material-foundation/scss/components/sliders",
+ "../../../material-foundation/scss/components/selection-controls",
+ // "../../../material-foundation/scss/components/tooltips",
+ "../../../material-foundation/scss/components/summary";
