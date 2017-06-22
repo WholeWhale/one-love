@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "29e39e86b5ed83d1c3269c9f6cede011",
+    "content-hash": "1ae8d639a0e0628b19effc7efcc1aca3",
     "packages": [
         {
             "name": "composer/installers",
@@ -119,6 +119,22 @@
                 "zikula"
             ],
             "time": "2017-04-24T06:37:16+00:00"
+        },
+        {
+            "name": "eucalyptuss/material-foundation",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:eucalyptuss/material-foundation.git",
+                "reference": "master"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/eucalyptuss/material-foundation/archive/master.zip",
+                "reference": "master",
+                "shasum": null
+            },
+            "type": "wordpress-theme"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -1439,12 +1455,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "9ff03132f2eb9eca9ffa97c09ce5f97e20e6dd45"
+                "reference": "fc65330f325fc3a294e56a9ed4f9a724d71a1c59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/9ff03132f2eb9eca9ffa97c09ce5f97e20e6dd45",
-                "reference": "9ff03132f2eb9eca9ffa97c09ce5f97e20e6dd45",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/fc65330f325fc3a294e56a9ed4f9a724d71a1c59",
+                "reference": "fc65330f325fc3a294e56a9ed4f9a724d71a1c59",
                 "shasum": ""
             },
             "require": {
@@ -1490,7 +1506,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-06-20T08:47:57+00:00"
+            "time": "2017-06-21T08:46:25+00:00"
         },
         {
             "name": "psr/container",
@@ -1764,7 +1780,7 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "3.4.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
