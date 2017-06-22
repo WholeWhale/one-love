@@ -95,7 +95,8 @@
     "wpackagist-plugin/really-simple-csv-importer": "^1.3",
     "wpackagist-plugin/social-warfare": "^2.2.7",
     "warfare-plugins/social-warfare-pro": "^2.2.7",
-    "eucalyptuss/material-foundation": "master"
+    "eucalyptuss/material-foundation": "master",
+    "wpackagist-plugin/pardot": "^1.4.3"
   },
   "require-dev": {
     "behat/behat": "^3.1",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ae8d639a0e0628b19effc7efcc1aca3",
+    "content-hash": "8015b9f6c6de4196c08092263fd7524b",
     "packages": [
         {
             "name": "composer/installers",
@@ -422,6 +422,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/pantheon-advanced-page-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/pardot",
+            "version": "1.4.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/pardot/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1483459542",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/pardot/"
         },
         {
             "name": "wpackagist-plugin/really-simple-csv-importer",
@@ -1455,12 +1475,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "fc65330f325fc3a294e56a9ed4f9a724d71a1c59"
+                "reference": "84d41a35bc13160c1bdaac39eca28dbfe8842401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/fc65330f325fc3a294e56a9ed4f9a724d71a1c59",
-                "reference": "fc65330f325fc3a294e56a9ed4f9a724d71a1c59",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/84d41a35bc13160c1bdaac39eca28dbfe8842401",
+                "reference": "84d41a35bc13160c1bdaac39eca28dbfe8842401",
                 "shasum": ""
             },
             "require": {
@@ -1506,7 +1526,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-06-21T08:46:25+00:00"
+            "time": "2017-06-22T13:37:50+00:00"
         },
         {
             "name": "psr/container",
