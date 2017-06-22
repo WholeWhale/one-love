@@ -30,16 +30,17 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="title-bar" data-responsive-toggle="mobile-menu">
 
-			<div class="title-bar-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-			</div>
-      <button class="menu-icon float-right" type="button" data-toggle="mobile-menu"></button>
+			<div class="title-bar-title row align-justify">
+				<a class="header-logo-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="header logo"></a>
+        <img class="menu-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/burger-menu.svg" alt="mobile menu icon" data-toggle="mobile-menu">
+      </div>
+
 		</div>
 
-		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+		<nav id="site-navigation" class="main-navigation top-bar align-middle" role="navigation">
 			<div class="top-bar-left">
 				<ul class="menu">
-					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+					<li class="home"><a class="header-logo-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="header logo"></a></li>
 				</ul>
 			</div>
 			<div class="top-bar-right">

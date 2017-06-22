@@ -11,28 +11,61 @@
 // 1. Global
 // ---------
 
+$header-height: 70;
+
 #masthead {
-  .title-bar {
-    @include dimensions(null,rem-calc(70));
-    @include border('yes');
-    &:before {
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%;
+
+  @include border('yes');
+  background-color: $white;
+
+  #site-navigation {
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+
+  .title-bar-title {
+    width: 98%;
+    display: flex;
+  }
+  #menu-main-nav {
+    &, &>li a  {
+      height: rem-calc($header-height);
     }
+  }
+  .top-bar {
+    .home > a:hover {
+      background-color: inherit;
+    }
+    // max-width: large;
+    .menu li:not(.home) a:hover:not(.button) {
+      background-color: $sky;
+    }
+  }
+  .title-bar {
+    @include dimensions(null,rem-calc($header-height));
+  }
+
+  .title-bar,
+  .top-bar {
+    display: flex;
     .menu-icon {
       @include dimensions(rem-calc(35),rem-calc(35));
-      vertical-align: middle;
-      &:after {
-        @include dimensions(null,rem-calc(3));
-        box-shadow: 0 11px 0 $sky, 0 22px 0 $sky;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-      }
     }
 
+  }
+  .menu li {
+    &:not(:last-child) {
+      border-right: initial;
+    }
+    & a {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+  }
+
+  .header-logo-home img {
+    height: 2.1875rem;
   }
 }
 

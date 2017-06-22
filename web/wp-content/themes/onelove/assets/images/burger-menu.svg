@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="27px" viewBox="0 0 37 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>burger menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Header" transform="translate(-307.000000, -23.000000)" stroke="#2FB1EB" stroke-width="3">
+            <g id="burger-menu" transform="translate(309.000000, 23.000000)">
+                <path d="M0.350240072,1.5 L33.2802567,1.5" id="Line"></path>
+                <path d="M0.350240072,13.5 L33.2802567,13.5" id="Line-Copy"></path>
+                <path d="M1.71695991e-13,25.5 L32.9300166,25.5" id="Line-Copy-2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,7 +3,7 @@
 @mixin border($shadow: null) {
   border-bottom: 1px solid $border;
   @if ($shadow) {
-    box-shadow: 2px 3px 15px rgba(288,288,288,.5);
+    box-shadow: 2px 3px 15px rgba(228,228,228,.5);
   }
 }
 
