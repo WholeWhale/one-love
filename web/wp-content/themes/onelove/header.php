@@ -28,10 +28,11 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="title-bar" data-responsive-toggle="mobile-menu">
+  <div id="style-mobile-menu">
+    <div class="title-bar" data-responsive-toggle="mobile-menu">
 
-			<div class="title-bar-title row align-justify">
-				<a class="header-logo-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+      <div class="title-bar-title row align-justify">
+        <a class="header-logo-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
           <svg width="162px" height="35px" viewBox="0 0 162 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
               <title>OneLove_Horizontal_Blue</title>
@@ -51,13 +52,13 @@
         <a class="menu-icon-close" style="display:none;"><h1 aria-hidden="true">X</h1></a>
       </div>
 
-		</div>
+    </div>
 
 
-		<nav id="site-navigation" class="main-navigation top-bar align-middle" role="navigation">
-			<div class="top-bar-left">
-				<ul class="menu">
-					<li class="home"><a class="header-logo-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+    <nav id="site-navigation" class="main-navigation top-bar align-middle" role="navigation">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="home"><a class="header-logo-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
             <svg width="162px" height="35px" viewBox="0 0 162 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
                 <title>OneLove_Horizontal_Blue</title>
@@ -73,16 +74,17 @@
                 </g>
             </svg>
           </a></li>
-				</ul>
-			</div>
-			<div class="top-bar-right">
-				<?php foundationpress_top_bar_r(); ?>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <?php foundationpress_top_bar_r(); ?>
 
-				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
-					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
-				<?php endif; ?>
-			</div>
-		</nav>
+        <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
+          <?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
+        <?php endif; ?>
+      </div>
+    </nav>
+  </div>
 	</header>
 
 	<section class="container">

@@ -10,4 +10,9 @@ jQuery(function($){
     $('.menu-icon').toggle();
     $('body').toggleClass('display-mobile-menu');
   }
+  $(window).resize(function(){
+    if( $('body').hasClass('display-mobile-menu') && $(window).width() >= 800 ) {
+      $('.menu-icon').click();
+    }
+  });
 });

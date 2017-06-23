@@ -88,20 +88,35 @@ $header-height: 70;
 
 .display-mobile-menu {
   overflow: hidden;
+  position: fixed;
+
+  #style-mobile-menu {
+    position: fixed;
+    @include dimensions(100%,100%);
+    background-color: $sky;
+    overflow-y: scroll;
+    margin-left: -1%;
+    z-index: 100;
+
+    #site-navigation {
+      background-color: transparent;
+    }
+  }
+
   header#masthead,
   .title-bar {
-    background-color: $sky
+    background-color: transparent;
+    width: 98%;
+    margin: 0 auto;
+
   }
   #mobile-menu {
-    position: fixed;
-    height: 100%;
-    align-items: flex-start;
-    z-index: 100;
-    padding-top: 5%;
+    padding: 1.25rem .5rem;
 
     &,
     & > ul.vertical.menu {
-      background-color: $sky;
+      background-color: transparent;
+      top: rem-calc(70);
       li {
         margin: .625rem 0;
       }
@@ -112,8 +127,7 @@ $header-height: 70;
     color:#fff;
     @include dimensions(2.1875rem,2.1875rem);
     text-align:center;
-    line-height:3.1875rem;
-    margin-right:1.25rem;
+    line-height:3.05rem;
   }
   .header-logo-home #Header {
     fill: #fff !important;
@@ -121,7 +135,7 @@ $header-height: 70;
   #searchform {
     width: 100%;
     input {
-      max-width: 100%;
+      max-width: 98%;
       border-bottom: 2px solid $white;
     }
   }
