@@ -102,6 +102,10 @@ $header-height: 70;
       background-color: transparent;
     }
   }
+  .header-logo-home svg {
+    margin-top: rem-calc(1);
+    margin-left: rem-calc(-7);
+  }
 
   header#masthead,
   .title-bar {
@@ -128,6 +132,7 @@ $header-height: 70;
     @include dimensions(2.1875rem,2.1875rem);
     text-align:center;
     line-height:3.05rem;
+    margin-right: rem-calc(-2);
   }
   .header-logo-home #Header {
     fill: #fff !important;
