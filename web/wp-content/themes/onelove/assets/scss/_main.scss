@@ -21,4 +21,60 @@ html head + body .blue {
   & * {
     color: $white;
   }
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  input[type="color"],
+  textarea {
+    border-bottom: 2px solid $white;
+  }
+}
+
+#searchform {
+  padding: 1rem;
+  input {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $white;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $white;
+    }
+    &::-ms-input-placeholder { /* IE 10+ */
+      color: $white;
+    }
+    &::-moz-placeholder { /* Firefox 18- */
+      color: $white;
+    }
+    &[type="text"]:focus {
+      color: $white;
+      border-bottom: 2px solid $midnight;
+    }
+  }
+}
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+  border-bottom: 2px solid $grey-300;
 }
