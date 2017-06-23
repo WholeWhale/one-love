@@ -107,3 +107,8 @@ function unique_categories() {
 
 }
 add_action( 'init', 'unique_categories' );
+
+
+foreach (glob(get_stylesheet_directory() . '/library/*.php') as $file) {
+  include $file;
+}
