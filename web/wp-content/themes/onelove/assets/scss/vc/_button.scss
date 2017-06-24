@@ -1,0 +1,66 @@
+body {
+  .ol_button {
+
+    &.vc_btn3-default {
+      text-align: center;
+    }
+    .vc_btn3-style-onelove {
+      border-radius: rem-calc(2);
+      text-transform: uppercase;
+      letter-spacing: .06875rem;
+    }
+    .vc_btn3-color-default {
+      background-color: $moss;
+      color: $white;
+      &, & h4 {
+        transition: all .5s ease-in-out;
+      }
+      &:hover {
+        background-color: $coral;
+        color: $white;
+
+      }
+    }
+
+    @at-root {
+      body .blue,
+      body .green,
+      body .navy {
+        .ol_button {
+          .vc_btn3-color-default {
+            background-color: $white;
+            h4 {
+              color: $midnight;
+            }
+            &:hover {
+              background-color: $midnight;
+              h4 {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+      html body .navy .ol_button .vc_btn3-color-default:hover {
+        background-color: $moss;
+      }
+    }
+    .vc_btn3-size-default {
+      height: 3.125rem;
+      padding-left: 1.875rem;
+      padding-right: 1.875rem;
+      max-width: 100%;
+      @include breakpoint(medium) {
+        max-width: 21.875rem;
+      }
+    }
+  }
+}
+
+//
+// height: 50px;
+// border-radius: 2px;
+// padding-left and right: 30px;
+// background-color: @moss;
+// max-width on mobile: 100%;
+// max-width on desktop: 350px;
