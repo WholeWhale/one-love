@@ -12,9 +12,13 @@ body {
     .vc_btn3-color-default {
       background-color: $moss;
       color: $white;
+      &, & h4 {
+        transition: all .5s ease-in-out;
+      }
       &:hover {
         background-color: $coral;
         color: $white;
+
       }
     }
 
