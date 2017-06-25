@@ -42,6 +42,9 @@ html head + body .navy {
   textarea {
     border-bottom: 2px solid $white;
   }
+  .social-media-icon:hover * {
+    color: $midnight
+  }
 }
 
 #searchform {
@@ -110,6 +113,17 @@ textarea {
       left: 0;
       right: 0;
       margin: 0;
+    }
+  }
+}
+
+.social-media-icons-container {
+  width: 100%;
+  a.column.social-media-icon {
+    font-size: 1.875rem;
+    max-width: 4.375rem;
+    &:hover {
+      background-color: transparent;
     }
   }
 }
