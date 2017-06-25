@@ -93,6 +93,9 @@ textarea {
     overflow: hidden;
     article.main-content {
       width: 100%;
+      .entry-title {
+        margin-bottom: 1.875rem;
+      }
     }
   }
   #featured-hero {
