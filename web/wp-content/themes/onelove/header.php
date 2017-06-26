@@ -49,7 +49,7 @@
           </svg>
         </a>
         <img class="menu-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/burger-menu.svg" alt="mobile menu icon" data-toggle="mobile-menu">
-        <a class="menu-icon-close" style="display:none;"><h1 aria-hidden="true">X</h1></a>
+        <a class="menu-icon-close" style="display:none;"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close.svg" alt="close-button"></a>
       </div>
 
     </div>

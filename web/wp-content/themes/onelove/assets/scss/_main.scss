@@ -42,6 +42,9 @@ html head + body .navy {
   textarea {
     border-bottom: 2px solid $white;
   }
+  .social-media-icon:hover * {
+    color: $midnight
+  }
 }
 
 #searchform {
@@ -81,4 +84,46 @@ input[type="url"],
 input[type="color"],
 textarea {
   border-bottom: 2px solid $grey-300;
+}
+
+#display-post-category {
+  margin-bottom: 1.25rem;
+}
+
+.single-learn_post_type {
+  #single-post {
+    margin-top: 1.875rem;
+    overflow: hidden;
+    article.main-content {
+      width: 100%;
+    }
+  }
+  #featured-hero {
+    height: 14.0625rem;
+    background-position: center top;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    @include breakpoint(medium) {
+      height: 25rem;
+      width: 100%;
+      left: 0;
+      right: 0;
+      margin: 0;
+    }
+  }
+}
+
+.social-media-icons-container {
+  width: 100%;
+  a.column.social-media-icon {
+    font-size: 1.875rem;
+    max-width: 4.375rem;
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
