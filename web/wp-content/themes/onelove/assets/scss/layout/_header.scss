@@ -49,7 +49,10 @@ $header-height: 70;
   .top-bar {
     display: flex;
     .menu-icon {
-      @include dimensions(rem-calc(35),rem-calc(35));
+      @include dimensions(rem-calc(37),rem-calc(27));
+      display: flex;
+      align-self: center;
+
     }
 
     h3.head-menu-item {
@@ -93,7 +96,6 @@ $header-height: 70;
   #style-mobile-menu {
     position: fixed;
     @include dimensions(100%,100%);
-    background-color: $sky;
     overflow-y: scroll;
     margin-left: -1%;
     z-index: 100;
@@ -126,13 +128,9 @@ $header-height: 70;
       }
     }
   }
-  .menu-icon-close h1 {
-    font-size:2.1875rem;
-    color:#fff;
-    @include dimensions(2.1875rem,2.1875rem);
-    text-align:center;
-    line-height:3.05rem;
-    margin-right: rem-calc(-2);
+  .menu-icon-close {
+    width: 37px;
+    justify-content: center;
   }
   .header-logo-home #Header {
     fill: #fff !important;

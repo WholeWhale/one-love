@@ -112,3 +112,57 @@ add_action( 'init', 'unique_categories' );
 foreach (glob('{'. get_stylesheet_directory() . '/library/*.php,'.get_stylesheet_directory() . '/library/vc-addons/*.addon.php}',GLOB_BRACE) as $file) {
   include $file;
 }
+
+
+
+add_filter( 'vc_grid_item_shortcodes', 'my_module_add_grid_shortcodes' );
+function my_module_add_grid_shortcodes( $shortcodes ) {
+   $shortcodes['vc_say_hello'] = array(
+     'name' => __( 'Say Hello', 'my-text-domain' ),
+     'base' => 'vc_say_hello',
+     'category' => __( 'Content', 'my-text-domain' ),
+     'description' => __( 'Just outputs Hello World', 'my-text-domain' ),
+     'post_type' => Vc_Grid_Item_Editor::postType(),
+  );
+   return $shortcodes;
+}
+
+add_shortcode( 'vc_say_hello', 'vc_say_hello_render' );
+function vc_say_hello_render() {
+   return '<h2>Hello, World!</h2>';
+}
+
+
+
+add_shortcode('social_media','social_media_icons');
+
+function social_media_icons( $args ) {
+
+  extract(shortcode_atts(array(
+      'facebook_url'  => 'https://www.facebook.com/JoinOneLove',
+      'youtube_url'   => 'https://www.youtube.com/user/JoinOneLove',
+      'twitter_url'   => 'https://twitter.com/Join1Love',
+      'instagram_url' => 'https://www.instagram.com/join1love/'
+   ), $atts));
+
+  ob_start(); ?>
+
+  <div class="row social-media-icons-container align-left">
+    <a class="column facebook-anchor social-media-icon" href="<?php echo $facebook_url; ?>" target="_blank">
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+    </a>
+    <a class="column youtube-anchor social-media-icon" href="<?php echo $youtube_url; ?>" target="_blank">
+      <i class="fa fa-youtube" aria-hidden="true"></i>
+    </a>
+    <a class="column youtube-anchor social-media-icon" href="<?php echo $twitter_url; ?>" target="_blank">
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+    </a>
+    <a class="column youtube-anchor social-media-icon" href="<?php echo $instagram_url; ?>" target="_blank">
+      <i class="fa fa-instagram" aria-hidden="true"></i>
+    </a>
+  </div>
+
+
+  <?php
+  return ob_get_clean();
+}
