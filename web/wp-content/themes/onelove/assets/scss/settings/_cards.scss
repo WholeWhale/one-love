@@ -1,0 +1,9 @@
+
+body .card {
+  border: 1px solid $border;
+  border-top: none;
+  &:hover {
+    box-shadow: 2px 3px 15px 0 rgba(228,228,228,0.50);
+  }
+  height: 145px;
+}
