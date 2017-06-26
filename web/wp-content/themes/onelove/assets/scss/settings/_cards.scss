@@ -1,9 +1,73 @@
+body {
 
-body .card {
-  border: 1px solid $border;
-  border-top: none;
-  &:hover {
-    box-shadow: 2px 3px 15px 0 rgba(228,228,228,0.50);
+  $callout-border: 0;
+
+  @include foundation-callout;
+
+  .card,
+  .callout,
+  .action-card {
+    border-radius: $global-radius;
+    @extend .z-depth-1;
+    background: $white;
+    border: 1px solid $border;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    .link-icon i {
+      margin-top: 13px;
+    }
+    .bottom-button {
+      margin-left: -1em;
+      margin-bottom: -0.85em;
+    }
+    .text-caption {
+      color: $black-26;
+    }
+    &:hover {
+      box-shadow: 2px 3px 15px 0 rgba(228,228,228,0.50);
+    }
   }
-  height: 145px;
+  .card {
+    border-top: none;
+    padding-top: 30px;
+  }
+  .default-card {
+    height: 145px;
+  }
+  .action-card {
+    border-top: 7px solid $moss;
+    padding-top: 45px;
+    position: relative;
+    &:before {
+
+      content: "";
+      font: normal normal normal 25px/1 "Material-Design-Iconic-Font";
+      @include dimensions(60px,60px);
+      position: absolute;
+      transform: translateY(-50%);
+      background: $moss;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.25rem;
+      font-weight: bold;
+      top: -3.5px;
+      margin-left: -5px;
+      text-align: center;
+      color: $white;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.sites-button {
+  background: #FF6908;
+  font-size: 1.25rem;
+  font-weight: bold;
+  box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+  border: none;
 }
