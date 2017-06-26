@@ -96,7 +96,8 @@
     "wpackagist-plugin/social-warfare": "^2.2.7",
     "warfare-plugins/social-warfare-pro": "^2.2.7",
     "eucalyptuss/material-foundation": "master",
-    "wpackagist-plugin/pardot": "^1.4.3"
+    "wpackagist-plugin/pardot": "^1.4.3",
+    "wpackagist-plugin/404page": "^2.5"
   },
   "require-dev": {
     "behat/behat": "^3.1",
