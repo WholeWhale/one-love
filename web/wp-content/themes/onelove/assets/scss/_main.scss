@@ -122,9 +122,6 @@ textarea {
 }
 
 .single-start_post_type {
-  #featured-hero {
-    height: calc(100vh - 4.375rem);
-  }
   #single-post {
     margin-top: 0;
     max-width: 960px;
@@ -138,6 +135,13 @@ textarea {
   }
 }
 
+.page-template-page-full-width,
+.single-start_post_type {
+  #featured-hero {
+    height: calc(100vh - 4.375rem);
+  }
+}
+
 .social-media-icons-container {
   width: 100%;
   a.column.social-media-icon {
@@ -145,6 +149,23 @@ textarea {
     max-width: 4.375rem;
     &:hover {
       background-color: transparent;
+    }
+  }
+}
+
+
+.overlay {
+  background-image:  linear-gradient(-180deg, rgba(0,0,0,0.00) 38%, #333333 100%);
+  height: 100%;
+  width: 100%;
+  .full-page-header-content {
+    color: $white;
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 3.5625rem;
+    .entry-title {
+      margin-bottom: 1.25rem;
     }
   }
 }
