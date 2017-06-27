@@ -54,27 +54,6 @@ get_template_part( 'template-parts/featured-image' );
     <?php endif; ?>
 
   </div>
-  <script type="text/javascript">
-    jQuery(function($){
-
-      // set stacked divs to be equal height
-      function matchHeights() {
-        var maxHeight = 0;
-        $(".card-half").each(function(){
-           if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
-        });
-        $(".card-half").height(maxHeight);
-      }
-      matchHeights();
-
-      // on resize, recalculate the natural height of the
-      // of each div then rematch the heights.
-      $(window).resize(function(){
-        $(".card-half").height('100%'); // matchHeights logic fails if it already set the height of both to be equal
-        matchHeights();
-      });
-    });
-  </script>
 
 <?php }
 else { ?>
