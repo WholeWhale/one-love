@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "abb0cf5203004454f5f1ec488b912542",
+    "content-hash": "9d851acbe94066bf1c271a054e33048a",
     "packages": [
         {
             "name": "composer/installers",
@@ -121,6 +121,49 @@
             "time": "2017-04-24T06:37:16+00:00"
         },
         {
+            "name": "davispeixoto/force-dot-com-toolkit-for-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davispeixoto/Force.com-Toolkit-for-PHP.git",
+                "reference": "7364b8e1fc9b0d027e1068ad19541141f9e79d4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davispeixoto/Force.com-Toolkit-for-PHP/zipball/7364b8e1fc9b0d027e1068ad19541141f9e79d4e",
+                "reference": "7364b8e1fc9b0d027e1068ad19541141f9e79d4e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-soap": "*",
+                "lib-libxml": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Davispeixoto\\ForceDotComToolkitForPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Davis Peixoto",
+                    "email": "davis.peixoto@gmail.com"
+                }
+            ],
+            "description": "A wrapper for the Force.com Web Services SOAP API",
+            "keywords": [
+                "crm",
+                "force.com toolkit",
+                "salesforce"
+            ],
+            "time": "2016-01-26 15:13:52"
+        },
+        {
             "name": "eucalyptuss/material-foundation",
             "version": "master",
             "source": {
@@ -135,6 +178,52 @@
                 "shasum": null
             },
             "type": "wordpress-theme"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "8becb3b775a2288bda7259f6d13fce89999a4a14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/8becb3b775a2288bda7259f6d13fce89999a4a14",
+                "reference": "8becb3b775a2288bda7259f6d13fce89999a4a14",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-22 02:51:13"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -453,7 +542,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1483459542",
+                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1498156231",
                 "reference": null,
                 "shasum": null
             },
@@ -594,7 +683,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-cfm.zip?timestamp=1467943964",
-                "reference": null,
+                "reference": "trunk",
                 "shasum": null
             },
             "require": {
@@ -662,6 +751,28 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/twentyseventeen/"
+        },
+        {
+            "name": "ww-composer/cf7-multistep",
+            "version": "2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/contact-form-7-multi-step-module.2.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "wordpress-plugin"
+        },
+        {
+            "name": "ww-composer/contact-form-7",
+            "version": "7.4.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "wordpress-plugin"
         }
     ],
     "packages-dev": [
@@ -1388,33 +1499,29 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.1.x-dev",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7"
+                "reference": "a55d08229f4f614bf335759ed0cf63378feeb2e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
-                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/a55d08229f4f614bf335759ed0cf63378feeb2e6",
+                "reference": "a55d08229f4f614bf335759ed0cf63378feeb2e6",
                 "shasum": ""
             },
             "require": {
-                "ocramius/package-versions": "^1.1.1",
-                "php": "^7.1.0",
-                "zendframework/zend-code": "^3.1.0"
+                "ocramius/package-versions": "^1.0",
+                "php": "7.0.0 - 7.0.5 || ^7.0.7",
+                "zendframework/zend-code": "3.0.0 - 3.0.2 || ^3.0.4"
             },
             "require-dev": {
-                "couscous/couscous": "^1.5.2",
+                "couscous/couscous": "^1.4.0",
                 "ext-phar": "*",
-                "humbug/humbug": "dev-master@DEV",
-                "nikic/php-parser": "^3.0.4",
-                "phpbench/phpbench": "^0.12.2",
-                "phpstan/phpstan": "^0.6.4",
-                "phpunit/phpunit": "^5.6.4",
-                "phpunit/phpunit-mock-objects": "^3.4.1",
-                "squizlabs/php_codesniffer": "^2.7.0"
+                "phpbench/phpbench": "^0.11.2",
+                "phpunit/phpunit": "^5.4.6",
+                "squizlabs/php_codesniffer": "^2.6.0"
             },
             "suggest": {
                 "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects",
@@ -1453,7 +1560,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2017-05-04T11:12:50+00:00"
+            "time": "2016-11-04T15:53:15+00:00"
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-upstream-tests",
@@ -2061,32 +2168,32 @@
         },
         {
             "name": "symfony/debug",
-            "version": "dev-master",
+            "version": "3.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "2b1c9fd1e392071fcecdbff2f11f0b9321d7dbab"
+                "reference": "9d40ad561ed0ca824de0c514077dc39e5d6b2605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/2b1c9fd1e392071fcecdbff2f11f0b9321d7dbab",
-                "reference": "2b1c9fd1e392071fcecdbff2f11f0b9321d7dbab",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/9d40ad561ed0ca824de0c514077dc39e5d6b2605",
+                "reference": "9d40ad561ed0ca824de0c514077dc39e5d6b2605",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": ">=5.5.9",
                 "psr/log": "~1.0"
             },
             "conflict": {
-                "symfony/http-kernel": "<3.4"
+                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
             },
             "require-dev": {
-                "symfony/http-kernel": "~3.4|~4.0"
+                "symfony/http-kernel": "~2.8|~3.0|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -2113,7 +2220,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-07T14:10:47+00:00"
+            "time": "2017-06-07T14:09:28+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2302,29 +2409,29 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-12T16:03:21+00:00"
+            "time": "2017-06-12 16:03:21"
         },
         {
             "name": "symfony/filesystem",
-            "version": "dev-master",
+            "version": "3.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "2f3f8cb2e4525a8cb714f52e0984268522ba2cc1"
+                "reference": "b8f565808330129d4475d108d0129e897cde9f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2f3f8cb2e4525a8cb714f52e0984268522ba2cc1",
-                "reference": "2f3f8cb2e4525a8cb714f52e0984268522ba2cc1",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b8f565808330129d4475d108d0129e897cde9f54",
+                "reference": "b8f565808330129d4475d108d0129e897cde9f54",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -2351,7 +2458,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-24T12:58:08+00:00"
+            "time": "2017-06-24T09:47:31+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2643,6 +2750,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "davispeixoto/force-dot-com-toolkit-for-php": 20,
+        "firebase/php-jwt": 20,
         "pantheon-systems/pantheon-wordpress-upstream-tests": 20,
         "paulgibbs/behat-wordpress-extension": 20
     },

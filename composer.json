@@ -73,7 +73,31 @@
           "reference": "master"
         }
       }
-    }
+    },
+    {
+     "type": "package",
+     "package": {
+       "name": "ww-composer/contact-form-7",
+       "type": "wordpress-plugin",
+       "version": "7.4.8",
+       "dist": {
+         "type": "zip",
+         "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.8.zip"
+       }
+     }
+   },
+   {
+     "type": "package",
+     "package": {
+       "name": "ww-composer/cf7-multistep",
+       "type": "wordpress-plugin",
+       "version": "2.1",
+       "dist": {
+         "type": "zip",
+         "url": "https://downloads.wordpress.org/plugin/contact-form-7-multi-step-module.2.1.zip"
+       }
+     }
+   }
   ],
   "require": {
     "php": ">=5.2",
@@ -97,7 +121,11 @@
     "warfare-plugins/social-warfare-pro": "^2.2.7",
     "eucalyptuss/material-foundation": "master",
     "wpackagist-plugin/pardot": "^1.4.3",
-    "wpackagist-plugin/404page": "^2.5"
+    "wpackagist-plugin/404page": "^2.5",
+    "davispeixoto/force-dot-com-toolkit-for-php": "dev-master",
+    "firebase/php-jwt": "dev-master",
+    "ww-composer/contact-form-7": "^7.4",
+    "ww-composer/cf7-multistep": "^2.1"
   },
   "require-dev": {
     "behat/behat": "^3.1",
