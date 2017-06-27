@@ -24,10 +24,6 @@ class CF7Salesforce {
     add_action('admin_menu', array($this, 'adminSettings'));
     add_action('admin_post', array(new CF7SF_Settings, 'save'));
 
-    if (!defined(SALESFORCE_LOGIN) || !defined(SALESFORCE_PASSWORD) || !defined(SALESFORCE_TOKEN)) {
-      return;
-    }
-
     add_action('wpcf7_before_send_mail', array($this, 'sync'));
   }
 
@@ -52,6 +48,10 @@ class CF7Salesforce {
   }
 
   public function sync($cf7) {
+    if (!defined('SALESFORCE_LOGIN') || !defined('SALESFORCE_PASSWORD') || !defined('SALESFORCE_TOKEN')) {
+      return;
+    }
+
     $options = CF7SF_Settings::getOption($cf7->id);
     $submission = WPCF7_Submission::get_instance();
     $data = $submission->get_posted_data();

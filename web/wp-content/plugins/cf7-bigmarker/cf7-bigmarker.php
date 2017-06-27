@@ -15,10 +15,6 @@ class CF7Bigmarker {
   const DATE_FORMAT = 'l, F j, Y g:ia T';
 
   function __construct() {
-    if (!defined(BIGMARKER_API_KEY)) {
-      return;
-    }
-
     add_action('wpcf7_init', array($this, 'addTag'));
     add_action('wpcf7_before_send_mail', array($this, 'submissionHandler'));
   }
@@ -73,6 +69,10 @@ class CF7Bigmarker {
   }
 
   public function submissionHandler($cf7) {
+    if (!defined(BIGMARKER_API_KEY)) {
+      return;
+    }
+
     $data = WPCF7_Submission::get_instance()->get_posted_data();
 
     $tag = null;

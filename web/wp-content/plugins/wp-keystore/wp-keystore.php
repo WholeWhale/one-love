@@ -14,7 +14,7 @@ class WPKeystore {
   public function __construct() {
     add_action('admin_menu', array($this, 'settings'));
     add_action('admin_post', array(new WPKeystore_SettingsPage, 'save'));
-    add_action('init', array(new WPKeystore_Settings, 'toGlobals'), -1);
+    add_action('init', array(new WPKeystore_Settings, 'toGlobals'), 0);
   }
 
   public function settings() {
