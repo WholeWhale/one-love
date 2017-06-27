@@ -44,9 +44,9 @@ class ContactChecker {
       try {
         // FIXME (cjcodes): is there a better way to do this?
         $this->sfDir = ABSPATH . '../../vendor/davispeixoto/force-dot-com-toolkit-for-php';
-
-        $this->conn = new SforceEnterpriseClient();
-        $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/enterprise.wsdl.xml");
+        $this->conn = new SforcePartnerClient();
+        $this->conn->SforcePartnerClient();
+        $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/partner.wsdl.xml");
         $this->auth = $this->conn->login(SALESFORCE_LOGIN, SALESFORCE_PASSWORD . SALESFORCE_TOKEN);
       } catch (Exception $e) {
         // noop
