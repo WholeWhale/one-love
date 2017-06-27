@@ -24,6 +24,10 @@ web/wp-content/mu-plugins/*
 !web/wp-content/mu-plugins/alter_wpcfm_config_path.php
 !web/wp-content/plugins/
 web/wp-content/plugins/*
+!web/wp-content/plugins/onelove-salesforce/
+!web/wp-content/plugins/cf7-bigmarker/
+!web/wp-content/plugins/cf7-salesforce/
+!web/wp-content/plugins/wp-keystore/
 !web/wp-content/themes
 web/wp-content/themes/*
 !web/wp-content/themes/twentyseventeen-child/
@@ -33,6 +37,7 @@ web/private/*
 !web/private/config/
 !web/private/scripts/
 !web/wp-content/plugins/js_composer/
+
 # Packages #
 ############
 *.7z
