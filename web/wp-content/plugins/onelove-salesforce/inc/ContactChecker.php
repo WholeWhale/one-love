@@ -33,17 +33,25 @@ class ContactChecker {
    * Constructor.
    */
   public function __construct() {
-    // FIXME (cjcodes): is there a better way to do this?
-    $this->sfDir = ABSPATH . '../../vendor/davispeixoto/force-dot-com-toolkit-for-php';
-
-    $this->conn = new SforceEnterpriseClient();
-    $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/enterprise.wsdl.xml");
-    $this->auth = $this->conn->login(SALESFORCE_LOGIN, SALESFORCE_PASSWORD . SALESFORCE_TOKEN);
-
     add_action('the_content', array($this, 'validatePost'));
 
     add_action('admin_post_nopriv_sf_email_validate', array($this, 'processEmailForm'));
     add_action('admin_post_sf_email_validate', array($this, 'processEmailForm'));
+  }
+
+  public function initializeSalesforce() {
+    if (!$this->client) {
+      try {
+        // FIXME (cjcodes): is there a better way to do this?
+        $this->sfDir = ABSPATH . '../../vendor/davispeixoto/force-dot-com-toolkit-for-php';
+
+        $this->conn = new SforceEnterpriseClient();
+        $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/enterprise.wsdl.xml");
+        $this->auth = $this->conn->login(SALESFORCE_LOGIN, SALESFORCE_PASSWORD . SALESFORCE_TOKEN);
+      } catch (Exception $e) {
+        // noop
+      }
+    }
   }
 
   public function findByEmail($email, $return = ['CONTACT' => ['ID', 'EMAIL', 'FIRSTNAME', 'LASTNAME']]) {
@@ -73,6 +81,8 @@ class ContactChecker {
     if (!$shouldValidate || $shouldValidate == 0) {
       return $content;
     }
+
+    $this->initializeSalesforce();
 
     $error = false;
     $email = null;
