@@ -100,6 +100,12 @@ textarea {
         margin-bottom: 1.875rem;
       }
     }
+    #featured-hero {
+      height: 225px;
+      @include breakpoint(medium) {
+        height: 400px;
+      }
+    }
   }
   #featured-hero {
     height: 14.0625rem;
