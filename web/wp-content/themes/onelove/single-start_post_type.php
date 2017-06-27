@@ -21,15 +21,33 @@ get_template_part( 'template-parts/featured-image' );
   <div class="conversation-card">
     <div class="card-half">
       <h1 class="entry-title"><?php the_title(); ?></h1>
-      <div class="vc_btn3-container ol_button vc_btn3-left">
-        <a href="#" class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default" data-open="campaign-popup">
-          <h4><?php echo $button_text; ?></h4>
-        </a>
+      <?php if ($button_text): ?>
+        <div class="vc_btn3-container ol_button vc_btn3-left">
+          <?php if ($button_modal): ?>
+                      <a href="#" class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default" data-open="campaign-popup">
+                      <div id="campaign-popup" class="reveal" data-reveal>
+                        <p>
+                          <?php echo do_shortcode($button_modal); ?>
+                        </p>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+          <?php else: ?>
+                      <a href="#" class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default">
+          <?php endif; ?>
+            <h4><?php echo $button_text; ?></h4>
+          </a>
+        </div>
+      <?php endif; ?>
+
+    </div>
+    <?php if ($description): ?>
+      <div class="card-half">
+        <h3><?php echo $description; ?></h3>
       </div>
-    </div>
-    <div class="card-half">
-      <h3><?php echo $description; ?></h3>
-    </div>
+    <?php endif; ?>
+
   </div>
   <script type="text/javascript">
     jQuery(function($){
@@ -48,14 +66,6 @@ get_template_part( 'template-parts/featured-image' );
     });
   </script>
 
-  <div id="campaign-popup" class="reveal" data-reveal>
-    <p>
-      <?php echo $button_modal; ?>
-    </p>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
