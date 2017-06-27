@@ -140,9 +140,9 @@ class ContactChecker {
       $error = true;
     }
 
-    $content = include dirname(__FILE__) . '/../form.html.php';
-
-    return $content;
+    ob_start();
+    include dirname(__FILE__) . '/../form.html.php';
+    return ob_get_clean();
   }
 
   public function processEmailForm() {
