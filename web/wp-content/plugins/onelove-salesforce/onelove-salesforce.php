@@ -27,7 +27,9 @@ class OneloveSalesforce {
    * add_action('init')
    */
   public function init() {
-    $cc = new ContactChecker();
+    if (defined(SALESFORCE_LOGIN) && defined(SALESFORCE_PASSWORD) && defined(SALESFORCE_TOKEN)) {
+      $cc = new ContactChecker();
+    }
   }
 }
 
