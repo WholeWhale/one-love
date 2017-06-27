@@ -140,10 +140,14 @@ class ContactChecker {
       $error = true;
     }
 
-    include dirname(__FILE__) . '/../form.html.php';
+    $content = include dirname(__FILE__) . '/../form.html.php';
+
+    return $content;
   }
 
   public function processEmailForm() {
+    $this->initializeSalesforce();
+
     $email = sanitize_email($_POST['email']);
 
     $results = $this->findByEmail($email);
