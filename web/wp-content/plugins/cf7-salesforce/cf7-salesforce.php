@@ -21,12 +21,12 @@ class CF7Salesforce {
   private $auth;
 
   function __construct() {
+    add_action('admin_menu', array($this, 'adminSettings'));
+    add_action('admin_post', array(new CF7SF_Settings, 'save'));
+
     if (!defined(SALESFORCE_LOGIN) || !defined(SALESFORCE_PASSWORD) || !defined(SALESFORCE_TOKEN)) {
       return;
     }
-
-    add_action('admin_menu', array($this, 'adminSettings'));
-    add_action('admin_post', array(new CF7SF_Settings, 'save'));
 
     add_action('wpcf7_before_send_mail', array($this, 'sync'));
   }
