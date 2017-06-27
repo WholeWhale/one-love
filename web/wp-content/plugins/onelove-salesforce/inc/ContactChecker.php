@@ -1,6 +1,6 @@
 <?php
 
-use Davispeixoto\ForceDotComToolkitForPhp\SforceEnterpriseClient;
+use Davispeixoto\ForceDotComToolkitForPhp\SforcePartnerClient;
 use Firebase\JWT\JWT;
 
 class ContactChecker {
@@ -10,7 +10,7 @@ class ContactChecker {
   public static $COOKIE_NAME = 'ol-email-cookie';
 
   /**
-   * @var SforceEnterpriseClient Salesforce connection
+   * @var SforcePartnerClient Salesforce connection
    */
   protected $conn;
 
