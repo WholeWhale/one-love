@@ -19,6 +19,7 @@ web/*
 !web/wp-config.php
 !web/wp-content/
 web/wp-content/*
+!web/wp-content/object-cache.php
 !web/wp-content/mu-plugins/
 web/wp-content/mu-plugins/*
 !web/wp-content/mu-plugins/alter_wpcfm_config_path.php

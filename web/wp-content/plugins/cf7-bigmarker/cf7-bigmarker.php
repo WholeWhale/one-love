@@ -69,7 +69,7 @@ class CF7Bigmarker {
   }
 
   public function submissionHandler($cf7) {
-    if (!defined(BIGMARKER_API_KEY)) {
+    if (!defined('BIGMARKER_API_KEY')) {
       return;
     }
 
