@@ -68,11 +68,21 @@ function create_campaign_card_metabox() {
         'campaign_card_meta',
         __( 'Header: Campaign Card', 'prfx-textdomain' ),
         'campaign_card_metabox_markup',
-        $post_type
+        $post_type,
+        'after_title',
+        'high'
       );
     }
 }
   add_action( 'add_meta_boxes', 'create_campaign_card_metabox' );
+
+  function move_advance_pos_after_title() {
+    global $post, $wp_meta_boxes;
+
+    do_meta_boxes( get_current_screen(), 'after_title',$post );
+    unset($wp_meta_boxes[get_post_type($post)]['after_title']);
+  }
+  add_action('edit_form_after_title','move_advance_pos_after_title');
 
   /**
    * Saves the custom meta input

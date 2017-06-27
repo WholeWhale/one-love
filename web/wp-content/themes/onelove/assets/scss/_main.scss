@@ -127,6 +127,14 @@ textarea {
   }
   #single-post {
     margin-top: 0;
+    max-width: 960px;
+    width: 94%;
+    @include breakpoint(medium) {
+      width: 80%;
+    }
+    @include breakpoint(xlarge) {
+      width: 100%;
+    }
   }
 }
 
