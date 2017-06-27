@@ -142,8 +142,8 @@ gulp.task('sass', function() {
       browsers: COMPATIBILITY
     }))
     // Minify CSS if run with --production flag
-    .pipe($.if(isProduction, cleanCSS()))
-    .pipe($.if(!isProduction, $.sourcemaps.write('.')))
+    .pipe(cleanCSS())
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(ONELOVE_PATH + '/assets/stylesheets'))
     .pipe(browserSync.stream({match: '**/*.css'}));
 });
@@ -181,8 +181,8 @@ gulp.task('javascript', function() {
     .pipe($.concat('onelove.js', {
       newLine:'\n;'
     }))
-    .pipe($.if(isProduction, uglify))
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
+    .pipe(uglify)
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest(ONELOVE_PATH + '/assets/javascript'))
     .pipe(browserSync.stream());
 });
