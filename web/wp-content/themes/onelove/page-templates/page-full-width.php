@@ -8,16 +8,17 @@ get_header();
 
 $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
 
-  if ( has_post_thumbnail( $post->ID ) ) : ?>
-  	<header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
-      <div class="overlay">
-        <header class="full-page-header-content">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <p><?php echo $subtitle; ?></p>
-        </header>
-      </div>
-    </header>
-  <?php endif; ?>
+
+    if ( has_post_thumbnail( $post->ID ) ) : ?>
+    	<header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
+        <div class="overlay">
+          <header class="full-page-header-content">
+              <h1 class="entry-title"><?php the_title(); ?></h1>
+              <p><?php echo $subtitle; ?></p>
+          </header>
+        </div>
+      </header>
+    <?php endif; ?>
 
 
 <div id="page-full-width" role="main">
@@ -26,6 +27,10 @@ $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
 <?php while ( have_posts() ) : the_post(); ?>
   <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
       <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+      <?php if ( !has_post_thumbnail( $post->ID ) ): ?>
+        <h1 class="entry-title"><?php the_title(); ?></h1>
+        <p><?php echo $subtitle; ?></p>
+      <?php endif; ?>
       <div class="entry-content">
           <?php the_content(); ?>
       </div>
