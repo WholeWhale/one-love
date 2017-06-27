@@ -6,7 +6,8 @@ body {
 
   .card,
   .callout,
-  .action-card {
+  .action-card,
+  .conversation-card {
     border-radius: $global-radius;
     @extend .z-depth-1;
     background: $white;
@@ -31,15 +32,21 @@ body {
   }
   .card {
     border-top: none;
+  }
+  .card,
+  .conversation-card {
     padding-top: 30px;
   }
   .default-card {
     height: 145px;
   }
-  .action-card {
+  .action-card,
+  .conversation-card {
     border-top: 7px solid $moss;
-    padding-top: 45px;
     position: relative;
+  }
+  .action-card {
+    padding-top: 45px;
     &:before {
 
       content: "";
@@ -60,6 +67,27 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+  .conversation-card {
+    background: rgba(255,255,255,0.90);
+    transform: translateY(-51%);
+    display: flex;
+    flex-direction: column;
+
+    .card-half {
+      line-height: 1em;
+      flex: 1;
+      .ol_button {
+        margin-bottom: 30px;
+      }
+      h3 {
+        margin-top: 20px;
+      }
+    }
+
+    h1 {
+      margin-bottom: 20px;
     }
   }
 }

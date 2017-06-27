@@ -90,17 +90,18 @@ textarea {
   margin-bottom: 1.25rem;
 }
 
-.single-learn_post_type {
-  #single-post {
-    margin-top: 1.875rem;
-    overflow: hidden;
-    article.main-content {
-      width: 100%;
-      .entry-title {
-        margin-bottom: 1.875rem;
-      }
+#single-post {
+  margin-top: 1.875rem;
+  article.main-content {
+    width: 100%;
+    .entry-title {
+      margin-bottom: 1.875rem;
     }
   }
+}
+
+.single-learn_post_type {
+
   #featured-hero {
     height: 14.0625rem;
     background-position: center top;
@@ -117,6 +118,15 @@ textarea {
       right: 0;
       margin: 0;
     }
+  }
+}
+
+.single-start_post_type {
+  #featured-hero {
+    height: calc(100vh - 4.375rem);
+  }
+  #single-post {
+    margin-top: 0;
   }
 }
 
