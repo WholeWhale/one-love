@@ -248,7 +248,8 @@ gulp.task('clean', function(done) {
 // Clean JS
 gulp.task('clean:javascript', function() {
   return del([
-      ONELOVE_PATH + '/assets/javascript/onelove.js'
+      ONELOVE_PATH + '/assets/javascript/onelove.js',
+      ONELOVE_PATH + '/assets/javascript/onelove.js.map'
     ]);
 });
 
