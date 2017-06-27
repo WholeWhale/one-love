@@ -40,17 +40,18 @@ class ContactChecker {
   }
 
   public function initializeSalesforce() {
-    if (!$this->client) {
-      try {
-        // FIXME (cjcodes): is there a better way to do this?
-        $this->sfDir = ABSPATH . '../../vendor/davispeixoto/force-dot-com-toolkit-for-php';
-        $this->conn = new SforcePartnerClient();
-        $this->conn->SforcePartnerClient();
-        $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/partner.wsdl.xml");
-        $this->auth = $this->conn->login(SALESFORCE_LOGIN, SALESFORCE_PASSWORD . SALESFORCE_TOKEN);
-      } catch (Exception $e) {
-        // noop
+    if (!$this->conn) {
+      // FIXME (cjcodes): is there a better way to do this?
+      $this->sfDir = ABSPATH . '../../vendor/davispeixoto/force-dot-com-toolkit-for-php';
+      $this->conn = new SforcePartnerClient();
+      $this->conn->SforcePartnerClient();
+      $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/partner.wsdl.xml");
+
+      if (defined('SALESFORCE_USE_SANDBOX') && SALESFORCE_USE_SANDBOX == '1') {
+        $this->conn->setEndpoint('https://test.salesforce.com/services/Soap/u/27.0');
       }
+
+      $this->auth = $this->conn->login(SALESFORCE_LOGIN, SALESFORCE_PASSWORD . SALESFORCE_TOKEN);
     }
   }
 
@@ -106,7 +107,7 @@ class ContactChecker {
       }
     }
 
-    return $this->generateEmailForm($email, $error);
+    return $this->generateEmailForm($error);
   }
 
   protected function generateJWT($sfUser, $campaign = null) {
@@ -135,9 +136,9 @@ class ContactChecker {
     return $decoded->data;
   }
 
-  protected function generateEmailForm($email, $error = false) {
-    if ($_GET['failed'] == 'true') {
-      $error = true;
+  protected function generateEmailForm($error = false) {
+    if ($error = isset($_GET['failed'])) {
+      $email = $_GET['failed'];
     }
 
     ob_start();
@@ -162,7 +163,7 @@ class ContactChecker {
       } else {
         $redirect .= '?';
       }
-      $redirect .= 'failed=true';
+      $redirect .= 'failed='.$email;
       wp_redirect($redirect);
     }
   }

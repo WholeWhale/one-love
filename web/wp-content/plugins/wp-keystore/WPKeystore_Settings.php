@@ -63,11 +63,15 @@ class WPKeystore_Settings {
   }
 
   private static function clean($value) {
-    $first = $value[0];
-    $last = substr($value, -3);
-    $numMiddle = strlen($value) - 4;
+    if (strlen($value) < 6) {
+      return str_repeat('X', strlen($value));
+    } else {
+      $first = $value[0];
+      $last = substr($value, -3);
+      $numMiddle = strlen($value) - 4;
 
-    return $first . str_repeat('X', $numMiddle) . $last;
+      return $first . str_repeat('X', $numMiddle) . $last;
+    }
   }
 
   private static function encrypt($value) {
