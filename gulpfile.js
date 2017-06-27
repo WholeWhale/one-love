@@ -182,7 +182,7 @@ gulp.task('javascript', function() {
       newLine:'\n;'
     }))
     .pipe(uglify)
-    .pipe($.sourcemaps.write())
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(ONELOVE_PATH + '/assets/javascript'))
     .pipe(browserSync.stream());
 });
