@@ -9,7 +9,7 @@ function subtitle_metabox_markup( $post ) {
     ?>
 
     <p>
-        <input id="full-page-temp-subtitle" type="text" name="subtitle" style="width: 100%;" maxlength="100" value="<?php if ( isset ( $prfx_stored_meta['subtitle'] ) ) echo $prfx_stored_meta['subtitle'][0]; ?>">
+        <input id="full-page-temp-subtitle" type="text" name="subtitle" style="width: 100%;" maxlength="150" value="<?php if ( isset ( $prfx_stored_meta['subtitle'] ) ) echo $prfx_stored_meta['subtitle'][0]; ?>">
         <p id="count"></p>
     </p>
 
@@ -17,7 +17,7 @@ function subtitle_metabox_markup( $post ) {
 
     <script type="text/javascript">
     jQuery(function(){
-      var maxchar = 100;
+      var maxchar = 150;
       var i = document.getElementById("full-page-temp-subtitle");
       var c = document.getElementById("count");
       if (i.value) {
@@ -42,6 +42,52 @@ function subtitle_metabox_markup( $post ) {
     <?php
 }
 
+
+
+add_action( 'admin_head-post.php', 'metabox_switcher' );
+add_action( 'admin_head-post-new.php', 'metabox_switcher' );
+
+function metabox_switcher( $post ){
+
+        #Locate the ID of your metabox with Developer tools
+        $metabox_selector_id = 'subtitle_meta';
+        echo '
+            <style type="text/css">
+                /* Hide your metabox so there is no latency flash of your metabox before being hidden */
+                #'.$metabox_selector_id.'{display:none;}
+            </style>
+            <script type="text/javascript">
+                jQuery(document).ready(function($){
+
+                    //You can find this in the value of the Page Template dropdown
+                    var templateName = "page-templates/page-full-width.php";
+
+                    //Page template in the publishing options
+                    var currentTemplate = $("#page_template");
+
+                    //Identify your metabox
+                    var metabox = $("#'.$metabox_selector_id.'");
+
+                    //On DOM ready, check if your page template is selected
+                    if(currentTemplate.val() === templateName){
+                        metabox.show();
+                    }
+
+                    //Bind a change event to make sure we show or hide the metabox based on user selection of a template
+                    currentTemplate.change(function(e){
+                        if(currentTemplate.val() === templateName){
+                            metabox.show();
+                        }
+                        else{
+                            //You should clear out all metabox values here;
+                            metabox.hide();
+                        }
+                    });
+                });
+            </script>
+        ';
+}
+
 /**
  * Adds a meta box to the post editing screen
  */
@@ -54,10 +100,10 @@ function create_subtitle_metabox() {
     foreach ($post_types as $post_type) {
       add_meta_box(
         'subtitle_meta',
-        __( 'Subtitle ( Full Page Template )', 'prfx-textdomain' ),
+        __( 'Subtitle', 'prfx-textdomain' ),
         'subtitle_metabox_markup',
         $post_type,
-        'normal',
+        'after_title',
         'high'
       );
     }

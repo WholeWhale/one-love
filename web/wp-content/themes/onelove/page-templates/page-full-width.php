@@ -14,7 +14,7 @@ $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
         <div class="overlay">
           <header class="full-page-header-content">
               <h1 class="entry-title"><?php the_title(); ?></h1>
-              <p><?php echo $subtitle; ?></p>
+              <h3><?php echo $subtitle; ?></h3>
           </header>
         </div>
       </header>
@@ -29,7 +29,7 @@ $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
       <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
       <?php if ( !has_post_thumbnail( $post->ID ) ): ?>
         <h1 class="entry-title"><?php the_title(); ?></h1>
-        <p><?php echo $subtitle; ?></p>
+        <h3><?php echo $subtitle; ?></h3>
       <?php endif; ?>
       <div class="entry-content">
           <?php the_content(); ?>
