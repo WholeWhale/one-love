@@ -68,11 +68,15 @@ function create_campaign_card_metabox() {
         'campaign_card_meta',
         __( 'Header: Campaign Card', 'prfx-textdomain' ),
         'campaign_card_metabox_markup',
-        $post_type
+        $post_type,
+        'after_title',
+        'high'
       );
     }
 }
   add_action( 'add_meta_boxes', 'create_campaign_card_metabox' );
+
+
 
   /**
    * Saves the custom meta input

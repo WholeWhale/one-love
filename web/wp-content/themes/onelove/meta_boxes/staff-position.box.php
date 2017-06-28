@@ -29,7 +29,9 @@ function create_staff_position_metabox() {
         'staff_position_meta',
         __( 'Staff Member Position/Title', 'prfx-textdomain' ),
         'staff_position_metabox_markup',
-        $post_type
+        $post_type,
+        'after_title',
+        'high'
       );
     }
 }
