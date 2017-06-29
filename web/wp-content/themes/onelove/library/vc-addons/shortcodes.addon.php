@@ -103,7 +103,8 @@ function action_card( $atts, $content = null ) {
       'extra_classes' => ''
    ), $atts ) );
 
-  if ($font_family == 'FontAwesome') {
+
+  if ($font_family == 'FontAwesome' || 'Material-Design-Iconic-Font') {
     $icon =  '\f'.$icon;
   }
 
