@@ -1,0 +1,19 @@
+body {
+  ul.vc_general.vc_pagination li.vc_pagination-item {
+
+    a.vc_pagination-trigger {
+      background-image: url('/wp-content/themes/onelove/assets/images/inactive.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      @include dimensions(2.5rem,2.5rem);
+      border: none;
+      &:hover {
+        background-color: initial;
+      }
+    }
+    &.vc_active a.vc_pagination-trigger {
+        background-image: url('/wp-content/themes/onelove/assets/images/active.svg');
+        background-color: initial;
+    }
+  }
+}
