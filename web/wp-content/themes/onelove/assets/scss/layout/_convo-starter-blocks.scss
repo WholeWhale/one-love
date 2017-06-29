@@ -1,0 +1,34 @@
+.escalation-block {
+  background-image: url('/wp-content/themes/onelove/assets/images/projector.svg');
+  background-color: $sky;
+}
+
+.tnl-block {
+  background-image: url('/wp-content/themes/onelove/assets/images/not-love.svg');
+  background-color: $moss;
+}
+
+.stories-block {
+  background-image: url('/wp-content/themes/onelove/assets/images/stories.svg');
+  background-color: $coral;
+}
+
+
+.escalation-block,
+.tnl-block,
+.stories-block {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 21.875rem;
+  max-width: 21.875rem;
+  padding: $default-spacing;
+  margin: $default-spacing/2;
+  position: relative;
+  .ol_button {
+    position: absolute;
+    margin-bottom: $default-spacing;
+    bottom: 0;
+  }
+
+}
