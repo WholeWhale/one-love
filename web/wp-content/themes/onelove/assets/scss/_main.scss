@@ -98,9 +98,9 @@ textarea {
       margin-bottom: 1.875rem;
     }
     #featured-hero {
-      height: 225px;
+      height: 14.0625rem;
       @include breakpoint(medium) {
-        height: 400px;
+        height: 25rem;
       }
     }
   }
@@ -128,22 +128,33 @@ textarea {
   }
 }
 
+
 .page-template-single-start_post_type,
-.single-start_post_type {
-  #single-post {
-    margin-top: 0;
-    max-width: 960px;
-    width: 94%;
-    @include breakpoint(medium) {
-      width: 80%;
-    }
-    @include breakpoint(xlarge) {
-      width: 100%;
-    }
+.single-start_post_type  #single-post,
+.page-template-page-full-width #page-full-width,
+.single-learn_post_type #single-post {
+  width: 94%;
+}
+
+.single-start_post_type  #single-post,
+.page-template-page-full-width #page-full-width {
+  margin-top: 0;
+  max-width: 60rem;
+  @include breakpoint(medium) {
+    width: 80%;
+  }
+  @include breakpoint(xlarge) {
+    width: 100%;
   }
 }
 
-.page-template-single-start_post_type,
+
+.single-learn_post_type #single-post {
+  @include breakpoint(48rem) {
+    max-width: 48rem;
+  }
+}
+
 .page-template-page-full-width,
 .single-start_post_type {
   #featured-hero {
