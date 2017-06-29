@@ -1,5 +1,6 @@
 <?php
 /**
+ *  * Template Name: Conversation
  * The template for displaying all single posts and attachments
  *
  * @package FoundationPress

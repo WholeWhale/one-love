@@ -175,3 +175,59 @@ function move_advance_pos_after_title() {
   unset($wp_meta_boxes[get_post_type($post)]['after_title']);
 }
 add_action('edit_form_after_title','move_advance_pos_after_title');
+
+function metabox_switcher( $post ){
+
+        #Locate the ID of your metabox with Developer tools
+        $metabox_selector_id = 'subtitle_meta';
+        $conversation_metabox_id = 'campaign_card_meta';
+        echo '
+            <style type="text/css">
+                /* Hide your metabox so there is no latency flash of your metabox before being hidden */
+                #'.$metabox_selector_id.',#'.$conversation_metabox_id.'{display:none;}
+            </style>
+            <script type="text/javascript">
+                jQuery(document).ready(function($){
+
+                    //You can find this in the value of the Page Template dropdown
+                    var templateName = "page-templates/page-full-width.php";
+                    var convoTemplateName = "single-start_post_type.php";
+
+                    //Page template in the publishing options
+                    var currentTemplate = $("#page_template");
+
+                    //Identify your metabox
+                    var metabox = $("#'.$metabox_selector_id.'");
+                    var convometabox = $("#'.$conversation_metabox_id.'");
+
+                    //On DOM ready, check if your page template is selected
+                    if(currentTemplate.val() === templateName){
+                        metabox.show();
+                    }
+                    if(currentTemplate.val() === convoTemplateName){
+                        convometabox.show();
+                    }
+
+                    //Bind a change event to make sure we show or hide the metabox based on user selection of a template
+                    currentTemplate.change(function(e){
+                        if(currentTemplate.val() === templateName){
+                            metabox.show();
+                        }
+                        else{
+                            //You should clear out all metabox values here;
+                            metabox.hide();
+                        }
+                        if(currentTemplate.val() === convoTemplateName){
+                            convometabox.show();
+                        }
+                        else{
+                            //You should clear out all metabox values here;
+                            convometabox.hide();
+                        }
+                    });
+                });
+            </script>
+        ';
+}
+add_action( 'admin_head-post.php', 'metabox_switcher' );
+add_action( 'admin_head-post-new.php', 'metabox_switcher' );

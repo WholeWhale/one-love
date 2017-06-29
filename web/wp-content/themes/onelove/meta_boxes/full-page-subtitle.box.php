@@ -44,50 +44,6 @@ function subtitle_metabox_markup( $post ) {
 
 
 
-add_action( 'admin_head-post.php', 'metabox_switcher' );
-add_action( 'admin_head-post-new.php', 'metabox_switcher' );
-
-function metabox_switcher( $post ){
-
-        #Locate the ID of your metabox with Developer tools
-        $metabox_selector_id = 'subtitle_meta';
-        echo '
-            <style type="text/css">
-                /* Hide your metabox so there is no latency flash of your metabox before being hidden */
-                #'.$metabox_selector_id.'{display:none;}
-            </style>
-            <script type="text/javascript">
-                jQuery(document).ready(function($){
-
-                    //You can find this in the value of the Page Template dropdown
-                    var templateName = "page-templates/page-full-width.php";
-
-                    //Page template in the publishing options
-                    var currentTemplate = $("#page_template");
-
-                    //Identify your metabox
-                    var metabox = $("#'.$metabox_selector_id.'");
-
-                    //On DOM ready, check if your page template is selected
-                    if(currentTemplate.val() === templateName){
-                        metabox.show();
-                    }
-
-                    //Bind a change event to make sure we show or hide the metabox based on user selection of a template
-                    currentTemplate.change(function(e){
-                        if(currentTemplate.val() === templateName){
-                            metabox.show();
-                        }
-                        else{
-                            //You should clear out all metabox values here;
-                            metabox.hide();
-                        }
-                    });
-                });
-            </script>
-        ';
-}
-
 /**
  * Adds a meta box to the post editing screen
  */
