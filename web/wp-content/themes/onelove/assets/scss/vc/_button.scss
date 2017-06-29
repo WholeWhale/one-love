@@ -25,7 +25,10 @@ body {
     @at-root {
       body .blue,
       body .green,
-      body .navy {
+      body .navy,
+      .escalation-block,
+      .tnl-block,
+      .stories-block {
         .ol_button {
           .vc_btn3-color-default {
             background-color: $white;
@@ -47,8 +50,8 @@ body {
     }
     .vc_btn3-size-default {
       height: 3.125rem;
-      padding-left: 1.875rem;
-      padding-right: 1.875rem;
+      padding-left: $default-spacing;
+      padding-right: $default-spacing;
       max-width: 100%;
       @include breakpoint(medium) {
         max-width: 21.875rem;

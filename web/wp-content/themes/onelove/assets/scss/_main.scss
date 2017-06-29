@@ -21,7 +21,10 @@ html head + body .navy {
 
 html head + body .green,
 html head + body .blue,
-html head + body .navy {
+html head + body .navy,
+.escalation-block,
+.tnl-block,
+.stories-block {
   & * {
     color: $white;
   }
@@ -91,11 +94,11 @@ textarea {
 }
 
 #single-post {
-  margin-top: 1.875rem;
+  margin-top: $default-spacing;
   article.main-content {
     width: 100%;
     .entry-title {
-      margin-bottom: 1.875rem;
+      margin-bottom: $default-spacing;
     }
     #featured-hero {
       height: 225px;
@@ -154,7 +157,7 @@ textarea {
 .social-media-icons-container {
   width: 100%;
   a.column.social-media-icon {
-    font-size: 1.875rem;
+    font-size: $default-spacing;
     max-width: 4.375rem;
     &:hover {
       background-color: transparent;
