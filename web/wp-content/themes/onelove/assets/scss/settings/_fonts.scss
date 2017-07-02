@@ -24,7 +24,8 @@ body {
   h5,
   h6,
   .entry-title,
-  .title {
+  .title,
+  div.vc_gitem-post-category-name span {
     font-family: $overpass;
   }
 }
@@ -49,7 +50,8 @@ body {
     font-weight: $bold;
   }
 
-  h5 {
+  h5,
+  div.vc_gitem-post-category-name span {
     font-weight: $extra-light;
     color: $coral;
     letter-spacing: .01875rem;
