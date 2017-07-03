@@ -36,4 +36,10 @@ body {
   .vc_pageable-slide-wrapper {
     text-align: center;
   }
+  .vc_gitem-post-data:hover {
+    h3 a {
+      opacity: 1;
+      color: $midnight;
+    }
+  }
 }
