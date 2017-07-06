@@ -104,7 +104,7 @@ function action_card( $atts, $content = null ) {
    ), $atts ) );
 
 
-  if ($font_family == 'FontAwesome' || 'Material-Design-Iconic-Font') {
+  if ($font_family == 'FontAwesome' || $font_family == 'Material-Design-Iconic-Font') {
     $icon =  '\f'.$icon;
   }
 
