@@ -28,7 +28,8 @@ body {
       body .navy,
       .escalation-block,
       .tnl-block,
-      .stories-block {
+      .stories-block,
+      .main-video-slide {
         .ol_button {
           .vc_btn3-color-default {
             background-color: $white;
@@ -46,6 +47,9 @@ body {
       }
       html body .navy .ol_button .vc_btn3-color-default:hover {
         background-color: $moss;
+      }
+      .main-video-slide .ol_button.vc_btn3-default {
+        text-align: left;
       }
     }
     .vc_btn3-size-default {

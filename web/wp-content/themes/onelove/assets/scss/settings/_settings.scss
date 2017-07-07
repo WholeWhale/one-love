@@ -116,7 +116,7 @@ $header-margin-bottom: 0.5rem;
 $main-font-size: 25;
 $header-styles: (
   small: (
-    'h1': ('font-size': rem-calc($main-font-size)),
+    'h1': ('font-size': rem-calc($main-font-size + 3)),
     'h2': ('font-size': rem-calc($main-font-size - 3)),
     'h3': ('font-size': rem-calc($main-font-size - 7)),
     'h4': ('font-size': rem-calc($main-font-size - 8)),

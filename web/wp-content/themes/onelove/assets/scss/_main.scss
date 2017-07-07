@@ -24,7 +24,8 @@ html head + body .blue,
 html head + body .navy,
 .escalation-block,
 .tnl-block,
-.stories-block {
+.stories-block,
+.main-video-slide {
   & * {
     color: $white;
   }
@@ -159,10 +160,17 @@ textarea {
 }
 
 .page-template-page-full-width,
+.page-template-page-home,
 .single-start_post_type {
-  #featured-hero {
+  #featured-hero,
+  .cycloneslider-slide > * {
     height: calc(100vh - 4.375rem);
+    width: 100vw;
   }
+}
+
+#page-full-width.homepage {
+  margin-top: 0;
 }
 
 .social-media-icons-container {
@@ -191,4 +199,67 @@ textarea {
       margin-bottom: 1.25rem;
     }
   }
+}
+
+.ol-slider {
+  overflow: hidden;
+  .title {
+    font-size: rem-calc($main-font-size + 3);
+    line-height: $title-line-height*.7;
+    @include breakpoint(28rem) {
+      font-size: $title_font_size;
+      line-height: $title-line-height;
+    }
+  }
+  .main-video-slide {
+    .overlay-content {
+      position: absolute;
+      z-index: 3;
+      bottom: 0;
+      max-width: 75rem;
+      margin-left: auto;
+      margin-right: auto;
+      left: $default-spacing/2;
+      right: $default-spacing/2;
+      & > * {
+        margin-bottom: $default-spacing;
+      }
+    }
+    .featured-video-overlay {
+      position: relative;
+      z-index: 2;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        @include dimensions(100%,calc(100vh - 4.375rem));
+        opacity: .77;
+        background-color: $sky;
+
+
+        video {
+          z-index: 1;
+          position: absolute;
+        }
+      }
+    }
+  }
+  div.slider-image {
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: visible;
+  }
+
+  .featured-video-overlay,
+  div.slider-image,
+  .prevent-touch {
+    @include dimensions(100%,100%);
+  }
+}
+
+.prevent-touch {
+  pointer-events: none;
 }
