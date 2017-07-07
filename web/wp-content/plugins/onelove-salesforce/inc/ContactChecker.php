@@ -1,33 +1,12 @@
 <?php
 
-use Davispeixoto\ForceDotComToolkitForPhp\SforcePartnerClient;
 use Firebase\JWT\JWT;
 
-class ContactChecker {
+class ContactChecker extends Salesforce {
 
   // public static $COOKIE_DURATION = DAYS_IN_SECONDS; // 1 day
   public static $COOKIE_DURATION = 0; // for the session
   public static $COOKIE_NAME = 'ol-email-cookie';
-
-  /**
-   * @var SforcePartnerClient Salesforce connection
-   */
-  protected $conn;
-
-  /**
-   * @var
-   */
-  protected $client;
-
-  /**
-   * @var
-   */
-  protected $auth;
-
-  /**
-   * string Directory of ForceDotComToolkitForPhp
-   */
-  protected $sfDir;
 
   /**
    * Constructor.
@@ -37,22 +16,6 @@ class ContactChecker {
 
     add_action('admin_post_nopriv_sf_email_validate', array($this, 'processEmailForm'));
     add_action('admin_post_sf_email_validate', array($this, 'processEmailForm'));
-  }
-
-  public function initializeSalesforce() {
-    if (!$this->conn) {
-      // FIXME (cjcodes): is there a better way to do this?
-      $this->sfDir = ABSPATH . '../../vendor/davispeixoto/force-dot-com-toolkit-for-php';
-      $this->conn = new SforcePartnerClient();
-      $this->conn->SforcePartnerClient();
-      $this->client = $this->conn->createConnection($this->sfDir . "/wsdl/partner.wsdl.xml");
-
-      if (defined('SALESFORCE_USE_SANDBOX') && SALESFORCE_USE_SANDBOX == '1') {
-        $this->conn->setEndpoint('https://test.salesforce.com/services/Soap/u/27.0');
-      }
-
-      $this->auth = $this->conn->login(SALESFORCE_LOGIN, SALESFORCE_PASSWORD . SALESFORCE_TOKEN);
-    }
   }
 
   public function findByEmail($email, $return = ['CONTACT' => ['ID', 'EMAIL', 'FIRSTNAME', 'LASTNAME']]) {

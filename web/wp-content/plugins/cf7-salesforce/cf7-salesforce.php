@@ -70,6 +70,10 @@ class CF7Salesforce {
     foreach ($options as $field_name => $fields) {
       list($object, $field) = explode('.', $fields);
 
+      if ($object == '' || $field == '') {
+        continue;
+      }
+
       if (!isset($objects[$object])) {
         $objects[$object] = [];
       }
