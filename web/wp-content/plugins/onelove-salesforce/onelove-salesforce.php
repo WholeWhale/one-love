@@ -48,7 +48,12 @@ class OneloveSalesforce {
    * wpcf7_add_form_tag('bigmarker')
    */
   public function tagHandler($tag) {
-    return '<input type="text" class="school-autocomplete" /><input type="hidden" name="school" />';
+    $name = $tag->name;
+    if (!$name) {
+      $name = 'school';
+    }
+
+    return '<input type="text" class="school-autocomplete" /><input type="hidden" name="'.$tag->name.'" class="school-autocomplete-hidden" />';
   }
 
   /**

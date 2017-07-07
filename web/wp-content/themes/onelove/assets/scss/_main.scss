@@ -192,3 +192,18 @@ textarea {
     }
   }
 }
+
+.easy-autocomplete {
+  .easy-autocomplete-container ul {
+    margin: 0;
+  }
+
+  input {
+    @extend input[type="text"];
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    box-shadow: none;
+    color: $black;
+  }
+}

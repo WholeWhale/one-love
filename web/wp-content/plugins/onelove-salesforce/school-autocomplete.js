@@ -12,7 +12,7 @@ jQuery(function($){
 			onSelectItemEvent: function () {
 				var data = $('.school-autocomplete').getSelectedItemData();
 
-				$('input[name="school"]').val(data.id);
+				$('.school-autocomplete-hidden').val(data.id);
 			}
 		}
 	});
