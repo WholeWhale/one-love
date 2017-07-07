@@ -1,4 +1,8 @@
 <?php if(!defined('ABSPATH')) die('Direct access denied.'); ?>
+<style media="screen">
+  #postbox-container-2.postbox-container {width: 82%;}
+  #wpfooter{display: none;}
+</style>
 <div class="cs-slide" data-slide-type="<?php echo esc_attr( $slide['type'] ); ?>" data-slide-hidden="<?php echo esc_attr( $slide['hidden'] ); ?>">
 	<div class="cs-header">
 		<div class="cs-slide-type">
@@ -122,35 +126,37 @@
             <label for=""><?php _e('Image that will be used on mobile or when user connection is slow:', 'cycloneslider'); ?></label> <br>
             <div class="cs-image-preview" style="float: none;width:100%;">
           		<div class="cs-image-field">
-          			<div class="cs-image-thumb fallback">
-          				<?php if($image_url): ?>
-          					<img src="<?php echo esc_url($image_url); ?>" alt="<?php _e('Thumbnail', 'cycloneslider'); ?>">
+                <div class="cs-image-thumb fallback">
+          				<?php if($slide['id_img']): ?>
+          					<img src="<?php echo esc_url($slide['id_img']); ?>" alt="<?php _e('Thumbnail', 'cycloneslider'); ?>">
           				<?php endif; ?>
           			</div>
-          			<input class="button-secondary cs-media-gallery-show fallback" type="button" value="<?php _e('Get Image', 'cycloneslider'); ?>" />
-          			<?php if($image_url): ?>
-          				<a target="_blank" class="button-secondary view_img" href="<?php echo esc_url($full_image_url); ?>"><?php _e('View Image', 'cycloneslider'); ?></a>
+                <input class="cs-image-id-img" name="cycloneslider_metas[<?php echo esc_attr($i); ?>][id_img]" type="hidden" value="<?php echo esc_attr($slide['id_img']); ?>" />
+          			<input class="button-secondary cs-media-gallery-show" type="button" value="<?php _e('Get Image', 'cycloneslider'); ?>" />
+          			<?php if($slide['id_img']): ?>
+          				<a target="_blank" class="button-secondary view_img" href="<?php echo esc_url($slide['id_img']); ?>"><?php _e('View Image', 'cycloneslider'); ?></a>
           			<?php endif; ?>
-                <?php if($image_url): ?>
+                <?php if($slide['id_img']): ?>
                   <input class="button-secondary cs-media-gallery-delete" type="button" value="<?php _e('Remove Image', 'cycloneslider'); ?>" />
                 <?php endif; ?>
                 <script type="text/javascript">
                   jQuery(function($){
 
-                    var id_selector   = $("input[name*='cycloneslider_metas[<?php echo esc_attr($i); ?>][id]']");
+                    var id_selector   = $("input[name*='cycloneslider_metas[<?php echo esc_attr($i); ?>][id_img]']");
                     var delete_button = $('.cs-media-gallery-delete');
                     var view_img      = $('.button-secondary.view_img');
                     var selected_img  = $('.cs-image-thumb.fallback');
 
                     delete_button.click(function(){
                       selected_img.children().remove();
-                      id_selector.closest.val('');
+                      id_selector.val('0');
                       view_img.hide();
                       $(this).hide();
                     });
                     selected_img.on('DOMNodeInserted',function(){
                       delete_button.show();
                       view_img.show();
+                      id_selector.val(selected_img.find('img').attr('src'));
                     });
                   });
                 </script>

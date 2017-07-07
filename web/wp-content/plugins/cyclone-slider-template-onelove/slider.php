@@ -78,23 +78,22 @@
                     </div>
                     <?php if ($i == 0 ): ?>
                       <div class="featured-video-overlay">
-                        <?php if ($slide['id']): ?>
-                          <div class="slider-image hide-for-medium" style="background-image: url('<?php print_r(wp_get_attachment_image_src($slide['id'],'full')['0']); ?>');"></div>
+                        <?php if ($slide['id_img']): ?>
+                          <div class="slider-image hide-for-medium" style="background-image: url('<?php echo $slide['id_img']; ?>');"></div>
                         <?php endif; ?>
 
-                        <div class="prevent-touch <?php if ($slide['id']) echo "show-for-medium"; ?>"><div id="<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>"></div></div>
+                        <div class="prevent-touch <?php if ($slide['id_img']) echo "show-for-medium"; ?>"><div id="<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>"></div></div>
                       </div>
                     <?php else: ?>
                       <div>
-                        <?php if ($slide['id']): ?>
-                          <div class="slider-image hide-for-medium" style="background-image: url('<?php print_r(wp_get_attachment_image_src($slide['id'],'full')['0']); ?>');"></div>
+                        <?php if ($slide['id_img']): ?>
+                          <div class="slider-image hide-for-medium" style="background-image: url('<?php echo $slide['id_img']; ?>');"></div>
                         <?php endif; ?>
 
-                        <div class="prevent-touch <?php if ($slide['id']) echo "show-for-medium"; ?>"><div id="<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>"></div></div>
+                        <div class="prevent-touch <?php if ($slide['id_img']) echo "show-for-medium"; ?>"><div id="<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>"></div></div>
                       </div>
                     <?php endif; ?>
                   </div>
-
                   <script>
                         <?php if ($i == 0 & 'youtube' == $slide['type']): ?>
                         jQuery(function($){
@@ -111,8 +110,8 @@
                         var player;
                         function onYouTubePlayerAPIReady() {
                           player = new YT.Player("<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>", {
-                            height: '100%',
                             width: '100%',
+                            height: '100%',
                             playerVars: {
                               'autoplay'      : 1,
                               'showinfo'      : 0,

@@ -316,7 +316,10 @@ class CycloneSlider_Data_Mod extends CycloneSlider_Data {
               $slide,
               $this->get_slide_defaults()
           );
+
+          $removeprotocols = array('http:', 'https:');
           $slides_to_save[$i]['id']                      = (int) ($slide['id']);
+          $slides_to_save[$i]['id_img']                  = wp_parse_url($slide['id_img'],PHP_URL_PATH);
           $slides_to_save[$i]['type']                    = sanitize_text_field($slide['type']);
           $slides_to_save[$i]['hidden']                  = (int) ($slide['hidden']);
 
