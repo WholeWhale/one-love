@@ -113,9 +113,6 @@ foreach (glob('{'. get_stylesheet_directory() . '/library/*.php,'.get_stylesheet
   include $file;
 }
 
-
-
-add_filter( 'vc_grid_item_shortcodes', 'my_module_add_grid_shortcodes' );
 function my_module_add_grid_shortcodes( $shortcodes ) {
    $shortcodes['vc_say_hello'] = array(
      'name' => __( 'Say Hello', 'my-text-domain' ),
@@ -126,28 +123,28 @@ function my_module_add_grid_shortcodes( $shortcodes ) {
   );
    return $shortcodes;
 }
+add_filter( 'vc_grid_item_shortcodes', 'my_module_add_grid_shortcodes' );
 
-add_shortcode( 'vc_say_hello', 'vc_say_hello_render' );
+
 function vc_say_hello_render() {
    return '<h2>Hello, World!</h2>';
 }
+add_shortcode( 'vc_say_hello', 'vc_say_hello_render' );
 
 
-
-add_shortcode('social_media','social_media_icons');
-
-function social_media_icons( $args ) {
+function social_media_icons( $atts ) {
 
   extract(shortcode_atts(array(
       'facebook_url'  => 'https://www.facebook.com/JoinOneLove',
       'youtube_url'   => 'https://www.youtube.com/user/JoinOneLove',
       'twitter_url'   => 'https://twitter.com/Join1Love',
-      'instagram_url' => 'https://www.instagram.com/join1love/'
+      'instagram_url' => 'https://www.instagram.com/join1love/',
+      'alignment'     => 'left',
    ), $atts));
 
   ob_start(); ?>
 
-  <div class="row social-media-icons-container align-left">
+  <div class="row social-media-icons-container align-<?php echo $alignment; ?>">
     <a class="column facebook-anchor social-media-icon" href="<?php echo $facebook_url; ?>" target="_blank">
       <i class="fa fa-facebook" aria-hidden="true"></i>
     </a>
@@ -166,7 +163,7 @@ function social_media_icons( $args ) {
   <?php
   return ob_get_clean();
 }
-
+add_shortcode('social_media','social_media_icons');
 
 function move_advance_pos_after_title() {
   global $post, $wp_meta_boxes;
@@ -231,3 +228,58 @@ function metabox_switcher( $post ){
 }
 add_action( 'admin_head-post.php', 'metabox_switcher' );
 add_action( 'admin_head-post-new.php', 'metabox_switcher' );
+
+
+function foundationpress_sidebar_widgets() {
+	register_sidebar(array(
+	  'id' => 'sidebar-widgets',
+	  'name' => __( 'Sidebar widgets', 'foundationpress' ),
+	  'description' => __( 'Drag widgets to this sidebar container.', 'foundationpress' ),
+	  'before_widget' => '<article id="%1$s" class="widget %2$s">',
+	  'after_widget' => '</article>',
+	  'before_title' => '<h6>',
+	  'after_title' => '</h6>',
+	));
+
+	register_sidebar(array(
+	  'id' => 'footer-widgets',
+	  'name' => __( 'Footer widgets', 'foundationpress' ),
+	  'description' => __( 'Drag widgets to this footer container', 'foundationpress' ),
+	  'before_widget' => '<article id="%1$s" class="large-12 footer-widget-container columns widget %2$s">',
+	  'after_widget' => '</article>',
+	  'before_title' => '<h6>',
+	  'after_title' => '</h6>',
+	));
+}
+add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
+
+
+function post_footer_widgets() {
+  $atts = array(
+    'alignment' => 'center',
+  );
+  echo social_media_icons($atts);
+}
+add_action('foundationpress_after_footer','post_footer_widgets');
+
+
+
+function my_plugin_wp_setup_nav_menu_item( $menu_item ) {
+  if ( isset( $menu_item->post_type ) ) {
+      if ( 'nav_menu_item' == $menu_item->post_type ) {
+          $menu_item->description = apply_filters( 'nav_menu_description', $menu_item->post_content );
+      }
+  }
+  return $menu_item;
+}
+remove_filter( 'nav_menu_description', 'strip_tags' );
+add_filter( 'wp_setup_nav_menu_item', 'my_plugin_wp_setup_nav_menu_item' );
+
+function prefix_nav_description( $item_output, $item, $depth, $args ) {
+    if ( !empty( $item->description ) & $item->description !== ' ' ) {
+        $item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a>' . '<ul class="sub-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom">' . do_shortcode($item->description) . '</li></ul>', $item_output );
+    }
+
+    return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'prefix_nav_description', 10, 4 );
