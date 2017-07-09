@@ -26,8 +26,7 @@ body {
   h6,
   .entry-title,
   .title,
-  div.vc_gitem-post-category-name span,
-  #menu-footer > li > a {
+  div.vc_gitem-post-category-name span {
     font-family: $overpass;
   }
 }
@@ -43,8 +42,7 @@ $extra-light: 200;
 body {
   h1,
   h2,
-  .entry-title,
-  #menu-footer > li > a {
+  .entry-title {
     font-weight: $extra-bold;
   }
 
@@ -80,8 +78,7 @@ body {
     line-height: $title-line-height * .7 ;
   }
 
-  h2,
-  #menu-footer > li > a {
+  h2 {
     line-height: $title-line-height * .62;
   }
   h3 {

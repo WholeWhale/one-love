@@ -6,46 +6,4 @@
   a:hover {
     color: $sky;
   }
-  article.footer-widget-container {
-    margin-bottom: $default-spacing;
-  }
-  article:last-of-type {
-    text-align: center;
-    * {
-      font-size: .875rem;
-      line-height: 1rem;
-    }
-
-  }
-  #menu-footer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    @include breakpoint(medium) {
-      flex-direction: row;
-    }
-    & > li {
-      flex: 1;
-      align-self: flex-start;
-      &:nth-of-type(n+2) {
-        .sub-menu li {
-          display: inline;
-          &:not(:last-child):after  {
-            content: '\2022';
-            font-size: inherit;
-            padding-left: rem-calc(5);
-            padding-right: rem-calc(2);
-          }
-        }
-      }
-      & > a {
-        padding: $default-spacing $default-spacing 0 $default-spacing;
-      }
-      & > ul {
-        padding: $default-spacing;
-      }
-    }
-  }
 }
