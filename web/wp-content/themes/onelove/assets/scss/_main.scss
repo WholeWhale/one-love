@@ -141,6 +141,8 @@ textarea {
 
 .single-start_post_type  #single-post,
 .page-template-page-full-width #page-full-width {
+  padding-top: $default-spacing;
+  padding-bottom: $default-spacing;
   margin-top: 0;
   max-width: 60rem;
   @include breakpoint(medium) {
