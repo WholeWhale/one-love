@@ -42,15 +42,4 @@ body {
       color: $midnight;
     }
   }
-  .wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid>li {
-    margin-bottom: 0;
-    padding-top: $default-spacing;
-    padding-bottom: $default-spacing;
-    .wpb_wrapper {
-      & > p {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-    }
-  }
 }

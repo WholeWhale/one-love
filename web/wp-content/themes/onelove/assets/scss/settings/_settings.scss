@@ -74,7 +74,7 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $print-transparent-backgrounds: true;
-
+$default-spacing: 1.875rem;
 
 @include add-foundation-colors;
 
