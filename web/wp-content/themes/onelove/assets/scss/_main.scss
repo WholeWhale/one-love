@@ -24,8 +24,15 @@ html head + body .blue,
 html head + body .navy,
 .escalation-block,
 .tnl-block,
-.stories-block {
-  & * {
+.stories-block,
+#footer-container,
+.overlay,
+.ol-slider {
+  & *,
+  h1,
+  h2,
+  .entry-title,
+  #menu-footer > li > a {
     color: $white;
   }
   input[type="text"],
