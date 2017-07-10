@@ -12,6 +12,7 @@
        data-cycle-prev="#<?php echo esc_attr( $slider_html_id ); ?> .slider-prev"
        data-cycle-pause-on-hover="<?php echo esc_attr( $slider_settings['hover_pause'] ); ?>"
        data-cycle-slides="div.cycloneslider-slide"
+       data-cycle-auto-height="false"
   >
   <?php if ($slider_settings['show_prev_next']) : ?>
     <span class="slider-prev"><i class="icon icon-chevron-left" aria-hidden="true"></i></span>
@@ -146,10 +147,10 @@
                               var visibility = jQuery("#<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>").closest('.prevent-touch').is(':visible');
 
                               if ( !visibility ) {
-                                player.stopVideo();
+                                event.target.stopVideo();
                               }
                               else {
-                                player.playVideo().mute();
+                                event.target.playVideo().mute();
                               }
                             }
                             hide_vid_if_hidden();

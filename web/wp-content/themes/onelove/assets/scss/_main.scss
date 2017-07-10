@@ -203,6 +203,7 @@ textarea {
 
 .ol-slider {
   overflow: hidden;
+  height: calc(100vh - 4.375rem);
   .title {
     font-size: rem-calc($main-font-size + 3);
     line-height: $title-line-height*.7;
