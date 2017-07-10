@@ -104,7 +104,7 @@ function action_card( $atts, $content = null ) {
    ), $atts ) );
 
 
-  if ($font_family == 'FontAwesome' || $font_family == 'Material-Design-Iconic-Font') {
+  if ($font_family == 'FontAwesome' || $font_family == 'Material-Design-Iconic-Font' & $icon !== '' ) {
     $icon =  '\f'.$icon;
   }
 
@@ -117,7 +117,7 @@ function action_card( $atts, $content = null ) {
     #".$unique_iden.".action-card:before { content: '".$icon ."'; background: ".$color."; font-family: '".$font_family."';}
   </style>
   <div id='" . $unique_iden ."' class='action-card vc_card_spacing ".$extra_classes."'>
-    ". $content ."
+    ". do_shortcode( $content ) ."
   </div>";
 
   return ob_get_clean();
