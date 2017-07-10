@@ -12,6 +12,7 @@
               <th>Field name</th>
               <th>Salesforce Object</th>
               <th>Field Name</th>
+              <th>Is Upsert Key</th>
             </tr>
           </thead>
           <tbody>
@@ -20,6 +21,7 @@
               <td><?php echo $field['name']; ?></td>
               <td><input type="text" name="forms[<?php echo $form['id']; ?>][<?php echo $field['name']; ?>][object]" value="<?php echo $field['object']; ?>" /></td>
               <td><input type="text" name="forms[<?php echo $form['id']; ?>][<?php echo $field['name']; ?>][field]" value="<?php echo $field['field']; ?>" /></td>
+              <td><input type="checkbox" name="forms[<?php echo $form['id']; ?>][<?php echo $field['name']; ?>][upsert]" value="yes" <?php if ($field['upsert-key']) echo 'checked="checked"'; ?>/></td>
             </tr>
           <?php endforeach; ?>
           </tbody>

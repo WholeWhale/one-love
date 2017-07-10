@@ -67,8 +67,11 @@ class CF7Salesforce {
     }
 
     $objects = [];
+    $upsertKeys = [];
     foreach ($options as $field_name => $fields) {
-      list($object, $field) = explode('.', $fields);
+      $object = $fields['object'];
+      $field = $fields['field'];
+      $isUpsertKey = $fields['upsert-key'];
 
       if ($object == '' || $field == '') {
         continue;
@@ -79,12 +82,15 @@ class CF7Salesforce {
       }
 
       $objects[$object][$field] = $data[$field_name];
+      if ($isUpsertKey) {
+        $upsertKeys[$object] = $field;
+      }
     }
 
-    $this->upsertObjects($objects);
+    $this->upsertObjects($objects, $upsertKeys);
   }
 
-  protected function upsertObjects($object_array) {
+  protected function upsertObjects($object_array, $upsertKeys) {
     $this->initializeSalesforce();
 
     foreach ($object_array as $type => $fields) {
@@ -102,7 +108,11 @@ class CF7Salesforce {
         $object->fields[$field_name] = $value;
       }
 
-      $this->conn->upsert('email', [$object], $type);
+      if (isset($upsertKeys[$object])) {
+        $this->conn->upsert($upsertKeys[$object], [$object]);
+      } else {
+        $this->conn->create([$object]);
+      }
     }
   }
 }

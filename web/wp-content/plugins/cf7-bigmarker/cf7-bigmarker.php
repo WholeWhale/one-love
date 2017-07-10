@@ -83,6 +83,10 @@ class CF7Bigmarker {
     }
 
     if (!is_null($tag)) {
+      if (empty($data['webinar'])) {
+        return;
+      }
+
       $opts = $this->parseOptions($tag->options);
 
       $this->post('conferences/register', [

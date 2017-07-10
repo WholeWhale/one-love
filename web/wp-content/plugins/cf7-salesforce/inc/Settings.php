@@ -14,7 +14,9 @@ class CF7SF_Settings {
       $opts = [];
 
       foreach ($values as $formkey => $value) {
-        $opts[$formkey] = $value['object'] . '.' . $value['field'];
+        $upsertKey = (isset($value['upsert'])) ? '+' : '-';
+
+        $opts[$formkey] = $value['object'] . '.' . $upsertKey . $value['field'];
       }
 
       update_option(self::PREFIX . '-form-' . $id, $opts);
@@ -24,7 +26,22 @@ class CF7SF_Settings {
   }
 
   public static function getOption($formId) {
-    return get_option(self::PREFIX . '-form-' . $formId);
+    $option = get_option(self::PREFIX . '-form-' . $formId, ':-');
+
+    foreach ($option as &$value) {
+      list($object, $field) = explode('.', $value);
+
+      $isUpsertKey = $field[0] == '+';
+      $field = substr($field, 1);
+
+      $value = [
+        'object' => $object,
+        'field' => $field,
+        'upsert-key' => $isUpsertKey,
+      ];
+    }
+
+    return $option;
   }
 
   private function redirect() {

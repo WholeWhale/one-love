@@ -13,7 +13,7 @@ require_once dirname(__FILE__) . '/inc/Salesforce.php';
 require_once dirname(__FILE__) . '/inc/ContactChecker.php';
 require_once dirname(__FILE__) . '/inc/Metaboxes.php';
 require_once dirname(__FILE__) . '/inc/RestHandler.php';
-
+require_once dirname(__FILE__) . '/inc/MultiPager.php';
 class OneloveSalesforce {
 
   /**
@@ -26,6 +26,10 @@ class OneloveSalesforce {
     add_action('rest_api_init', array(new RestHandler, 'setup'));
     add_action('wp_enqueue_scripts', array($this, 'autocompleteEnqueues'));
     add_action('wpcf7_init', array($this, 'addTag'));
+
+    $multipager = new Multipager;
+    add_action('wpcf7_init', array($multipager, 'addTag'));
+    add_action('wp_enqueue_scripts', array($multipager, 'enqueueScripts'));
   }
 
   /**

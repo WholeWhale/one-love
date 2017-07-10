@@ -24,11 +24,12 @@ class CF7SF_SettingsPage {
       $names = [];
       foreach ($fields as $field) {
         if ($field->name) {
-          $saved = explode('.', $saved_settings[$field->name]);
+          $saved = $saved_settings[$field->name];
           $names[] = [
             'name' => $field->name,
-            'object' => $saved[0],
-            'field' => $saved[1],
+            'object' => $saved['object'],
+            'field' => $saved['field'],
+            'upsert-key' => $saved['upsert-key'],
           ];
         }
       }
