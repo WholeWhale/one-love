@@ -28,11 +28,7 @@ html head + body .navy,
 #footer-container,
 .overlay,
 .ol-slider {
-  & *,
-  h1,
-  h2,
-  .entry-title,
-  #menu-footer > li > a {
+  & * {
     color: $white;
   }
   input[type="text"],
