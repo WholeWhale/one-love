@@ -82,7 +82,14 @@
                           <div class="slider-image hide-for-medium" style="background-image: url('<?php echo $slide['id_img']; ?>');"></div>
                         <?php endif; ?>
 
-                        <div class="prevent-touch <?php if ($slide['id_img']) echo "show-for-medium"; ?>"><div id="<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>"></div></div>
+                        <div class="prevent-touch <?php if ($slide['id_img']) echo "show-for-medium"; ?>">
+                          <div class="video-background">
+                            <div class="video-foreground">
+                              <div id="<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>"></div>
+                            </div>
+                          </div>
+
+                        </div>
                       </div>
                     <?php else: ?>
                       <div>
@@ -102,6 +109,7 @@
                             });
                         });
                         <?php endif; ?>
+
                         var tag = document.createElement('script');
                         tag.src = "https://www.youtube.com/player_api";
                         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -132,7 +140,22 @@
                         });
 
                         function onPlayerReady(event) {
-                          event.target.playVideo().mute();
+
+                            function hide_vid_if_hidden() {
+
+                              var visibility = jQuery("#<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>").closest('.prevent-touch').is(':visible');
+
+                              if ( !visibility ) {
+                                player.stopVideo();
+                              }
+                              else {
+                                player.playVideo().mute();
+                              }
+                            }
+                            hide_vid_if_hidden();
+                            jQuery(window).resize(function(){
+                              hide_vid_if_hidden();
+                            });
                         }
                         var done = false;
                         function onPlayerStateChange(event) {
@@ -166,13 +189,6 @@
                           jQuery('.cycle-slideshow').cycle('resume');
                         }
                       }
-                      jQuery(function($){
-                        $('#<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
-
-                        $(window).resize(function(){
-                        $('#<?php echo $slider_html_id . '-iframe-' . $youtube_count;?>').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
-                          });
-                      });
                   </script>
               </div>
           <?php endif; ?>
