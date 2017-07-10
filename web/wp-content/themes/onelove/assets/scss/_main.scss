@@ -201,6 +201,13 @@ textarea {
   }
 }
 
+.cycloneslider,
+.ol-slider {
+  &:focus {
+    outline: none;
+  }
+}
+
 .ol-slider {
   overflow: hidden;
   height: calc(100vh - 4.375rem);
