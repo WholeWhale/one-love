@@ -91,7 +91,7 @@
      "package": {
        "name": "ww-composer/cf7-multi-step",
        "type": "wordpress-plugin",
-       "version": "1.1",
+       "version": "master",
        "dist": {
          "type": "zip",
          "url": "https://downloads.wordpress.org/plugin/cf7-multi-step.zip"
@@ -125,7 +125,7 @@
     "davispeixoto/force-dot-com-toolkit-for-php": "dev-master",
     "firebase/php-jwt": "dev-master",
     "ww-composer/contact-form-7": "^7.4",
-    "ww-composer/cf7-multistep": "^2.1",
+    "ww-composer/cf7-multi-step": "master",
     "wpackagist-plugin/cyclone-slider-2": "^3.2.0"
   },
   "require-dev": {
