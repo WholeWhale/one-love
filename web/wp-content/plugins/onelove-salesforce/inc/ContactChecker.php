@@ -18,7 +18,17 @@ class ContactChecker extends Salesforce {
     add_action('admin_post_sf_email_validate', array($this, 'processEmailForm'));
   }
 
-  public function findByEmail($email, $return = ['CONTACT' => ['ID', 'EMAIL', 'FIRSTNAME', 'LASTNAME']]) {
+  public static function getContactInfo() {
+    if (isset($_COOKIE[self::$COOKIE_NAME])) {
+      if ($tok = self::getJWT($_COOKIE[self::$COOKIE_NAME])) {
+        return $tok;
+      }
+    }
+
+    return false;
+  }
+
+  public function findByEmail($email, $return = ['CONTACT' => ['ID', 'EMAIL', 'FIRSTNAME', 'LASTNAME', 'npsp__Primary_Affiliation__c']]) {
     $returning = [];
 
     foreach ($return as $type => $fields) {
@@ -51,22 +61,20 @@ class ContactChecker extends Salesforce {
     $error = false;
     $email = null;
 
-    if (isset($_COOKIE[self::$COOKIE_NAME])) {
-      if ($tok = $this->getJWT($_COOKIE[self::$COOKIE_NAME])) {
-        $email = $tok->Email;
-        if ($shouldValidate > 1) {
-          if ($tok->campaigns && in_array($shouldValidate, $tok->campaigns)) {
-            return $content;
-          } else if ($this->isInCampaign($tok->Id, $shouldValidate)) {
-            $newTok = $this->generateJWT($tok, $shouldValidate);
-            $this->setCookie($newTok);
-            return $content;
-          } else {
-            $error = true;
-          }
-        } else {
+    if ($tok = self::getContactInfo()) {
+      $email = $tok->Email;
+      if ($shouldValidate > 1) {
+        if ($tok->campaigns && in_array($shouldValidate, $tok->campaigns)) {
           return $content;
+        } else if ($this->isInCampaign($tok->Id, $shouldValidate)) {
+          $newTok = $this->generateJWT($tok, $shouldValidate);
+          $this->setCookie($newTok);
+          return $content;
+        } else {
+          $error = true;
         }
+      } else {
+        return $content;
       }
     }
 
@@ -89,7 +97,7 @@ class ContactChecker extends Salesforce {
     return JWT::encode($data, SECURE_AUTH_KEY, 'HS256');
   }
 
-  protected function getJWT($jwt) {
+  protected static function getJWT($jwt) {
     try {
       $decoded = JWT::decode($jwt, SECURE_AUTH_KEY, ['HS256']);
     } catch (Exception $e) {

@@ -26,7 +26,7 @@ class CF7SF_Settings {
   }
 
   public static function getOption($formId) {
-    $option = get_option(self::PREFIX . '-form-' . $formId, ':-');
+    $option = get_option(self::PREFIX . '-form-' . $formId, []);
 
     foreach ($option as &$value) {
       list($object, $field) = explode('.', $value);

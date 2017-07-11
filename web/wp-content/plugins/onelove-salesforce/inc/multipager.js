@@ -3,6 +3,7 @@ jQuery(function($){
   var animationDelay = 100;
 
   var $pagers = $('.ol-sf-pager');
+  if ($pagers.length == 0) return;
   var $form = $pagers.parents('form');
   var formOffsetTop = $form.offset().top;
   var $wrapper = $('<div class="paged">');
