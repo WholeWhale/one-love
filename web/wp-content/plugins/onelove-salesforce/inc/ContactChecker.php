@@ -12,7 +12,6 @@ class ContactChecker extends Salesforce {
    * Constructor.
    */
   public function __construct() {
-    add_action('send_headers', [$this, 'setNoCache'], 15);
     add_action('the_content', array($this, 'validatePost'));
 
     add_action('admin_post_nopriv_sf_email_validate', array($this, 'processEmailForm'));
@@ -47,18 +46,6 @@ class ContactChecker extends Salesforce {
     $resp = $this->conn->query("SELECT Id FROM CampaignMember WHERE CampaignId='$campaignId' AND ContactId='$contactId'");
 
     return count($resp->records) > 0;
-  }
-
-  public function setNoCache() {
-    return;
-    $path = substr($_SERVER['REQUEST_URI'], 1);
-    $post = get_page_by_path($path);
-
-    $shouldValidate = get_post_meta($post->ID, Metaboxes::KEY, true);
-
-    if ($shouldValidate) {
-      header('Cache-Control: no-cache, must-revalidate, max-age=0');
-    }
   }
 
   public function validatePost($content) {
