@@ -283,3 +283,29 @@ function prefix_nav_description( $item_output, $item, $depth, $args ) {
     return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'prefix_nav_description', 10, 4 );
+
+
+function inject_gtm_head_script() {
+  ob_start(); ?>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5BRMXCG');</script>
+  <!-- End Google Tag Manager -->
+  <?php
+  echo ob_get_clean();
+}
+add_action('onelove_before_closing_head','inject_gtm_head_script');
+
+function inject_gtm_body_script() {
+  ob_start(); ?>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BRMXCG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <?php
+  echo ob_get_clean();
+}
+add_action('foundationpress_after_body','inject_gtm_body_script');
