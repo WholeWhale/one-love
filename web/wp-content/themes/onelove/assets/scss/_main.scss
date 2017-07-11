@@ -24,7 +24,10 @@ html head + body .blue,
 html head + body .navy,
 .escalation-block,
 .tnl-block,
-.stories-block {
+.stories-block,
+#footer-container,
+.overlay,
+.ol-slider {
   & * {
     color: $white;
   }

@@ -37,7 +37,7 @@ body {
 // ---------
 
 $bold: 700;
-$extra-bold: 800;
+$extra-bold: 900;
 $extra-light: 200;
 
 body {
@@ -47,7 +47,6 @@ body {
   #menu-footer > li > a {
     font-weight: $extra-bold;
   }
-
   h3,
   h4 {
     font-weight: $bold;
