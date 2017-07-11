@@ -1,0 +1,22 @@
+.swp_CTT.style-onelove {
+  .sw-ctt-text {
+    font-size: rem-calc($main-font-size);
+    color: $coral;
+    line-height: rem-calc($main-font-size+10);
+    font-style: italic;
+  }
+  .sw-ctt-btn {
+    display: none;
+  }
+  & + .nc_socialPanel {
+    justify-content: center;
+    > div {
+      max-width: 100px;
+      border-radius: 0;
+      margin: 0 .9375rem;
+      i {
+        font-size: 1.5625rem;
+      }
+    }
+  }
+}

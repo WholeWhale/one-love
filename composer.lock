@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f4782480e5621f62caede314352f441",
+    "content-hash": "07e2d40e3abb4bd9a283e6ee3acb8895",
     "packages": [
         {
             "name": "composer/installers",
@@ -161,7 +161,7 @@
                 "force.com toolkit",
                 "salesforce"
             ],
-            "time": "2016-01-26 15:13:52"
+            "time": "2016-01-26T15:13:52+00:00"
         },
         {
             "name": "eucalyptuss/material-foundation",
@@ -223,7 +223,7 @@
             ],
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
-            "time": "2017-06-27 22:17:23"
+            "time": "2017-06-27T22:17:23+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -478,16 +478,16 @@
         },
         {
             "name": "warfare-plugins/social-warfare-pro",
-            "version": "2.2.7",
+            "version": "master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:warfare-plugins/social-warfare-pro.git",
-                "reference": "2.2.7"
+                "reference": "master"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/master.zip",
-                "reference": "2.2.7",
+                "reference": "master",
                 "shasum": null
             },
             "type": "wordpress-plugin"
@@ -542,7 +542,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1498156231",
+                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1483459542",
                 "reference": null,
                 "shasum": null
             },
@@ -683,7 +683,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-cfm.zip?timestamp=1467943964",
-                "reference": "trunk",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -1499,29 +1499,33 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.0.x-dev",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "a55d08229f4f614bf335759ed0cf63378feeb2e6"
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/a55d08229f4f614bf335759ed0cf63378feeb2e6",
-                "reference": "a55d08229f4f614bf335759ed0cf63378feeb2e6",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
                 "shasum": ""
             },
             "require": {
-                "ocramius/package-versions": "^1.0",
-                "php": "7.0.0 - 7.0.5 || ^7.0.7",
-                "zendframework/zend-code": "3.0.0 - 3.0.2 || ^3.0.4"
+                "ocramius/package-versions": "^1.1.1",
+                "php": "^7.1.0",
+                "zendframework/zend-code": "^3.1.0"
             },
             "require-dev": {
-                "couscous/couscous": "^1.4.0",
+                "couscous/couscous": "^1.5.2",
                 "ext-phar": "*",
-                "phpbench/phpbench": "^0.11.2",
-                "phpunit/phpunit": "^5.4.6",
-                "squizlabs/php_codesniffer": "^2.6.0"
+                "humbug/humbug": "dev-master@DEV",
+                "nikic/php-parser": "^3.0.4",
+                "phpbench/phpbench": "^0.12.2",
+                "phpstan/phpstan": "^0.6.4",
+                "phpunit/phpunit": "^5.6.4",
+                "phpunit/phpunit-mock-objects": "^3.4.1",
+                "squizlabs/php_codesniffer": "^2.7.0"
             },
             "suggest": {
                 "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects",
@@ -1560,7 +1564,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2016-11-04T15:53:15+00:00"
+            "time": "2017-05-04T11:12:50+00:00"
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-upstream-tests",
@@ -1602,12 +1606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "50fca719e53075ff484f05a052aa633588880966"
+                "reference": "28e5afd86a8affa2d5c9bf60283693ce32bdcd2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/50fca719e53075ff484f05a052aa633588880966",
-                "reference": "50fca719e53075ff484f05a052aa633588880966",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/28e5afd86a8affa2d5c9bf60283693ce32bdcd2f",
+                "reference": "28e5afd86a8affa2d5c9bf60283693ce32bdcd2f",
                 "shasum": ""
             },
             "require": {
@@ -1654,7 +1658,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-07-07T16:14:43+00:00"
+            "time": "2017-07-11T16:14:48+00:00"
         },
         {
             "name": "psr/container",
@@ -2305,32 +2309,32 @@
         },
         {
             "name": "symfony/debug",
-            "version": "3.4.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "296d63b9b2fbe8da9308713295543c08e93cc9cf"
+                "reference": "15b0a06a42dc611cebc03f8dc4bff180d95421c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/296d63b9b2fbe8da9308713295543c08e93cc9cf",
-                "reference": "296d63b9b2fbe8da9308713295543c08e93cc9cf",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/15b0a06a42dc611cebc03f8dc4bff180d95421c7",
+                "reference": "15b0a06a42dc611cebc03f8dc4bff180d95421c7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^7.1.3",
                 "psr/log": "~1.0"
             },
             "conflict": {
-                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+                "symfony/http-kernel": "<3.4"
             },
             "require-dev": {
-                "symfony/http-kernel": "~2.8|~3.0|~4.0"
+                "symfony/http-kernel": "~3.4|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -2357,7 +2361,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-06T13:36:30+00:00"
+            "time": "2017-07-06T13:37:40+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2365,12 +2369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "d71a629e0cdd6b519aa8e70a2cd4141ed356f1c6"
+                "reference": "fbfe4df40941cb8ac32cd471acb7036018637faf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d71a629e0cdd6b519aa8e70a2cd4141ed356f1c6",
-                "reference": "d71a629e0cdd6b519aa8e70a2cd4141ed356f1c6",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/fbfe4df40941cb8ac32cd471acb7036018637faf",
+                "reference": "fbfe4df40941cb8ac32cd471acb7036018637faf",
                 "shasum": ""
             },
             "require": {
@@ -2427,7 +2431,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-06T10:23:40+00:00"
+            "time": "2017-07-08T16:23:22+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2546,29 +2550,29 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-12 16:03:21"
+            "time": "2017-06-12T16:03:21+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "3.4.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "b8f565808330129d4475d108d0129e897cde9f54"
+                "reference": "9c6593f22319f5c5e72d9b81624dde0c0a6940da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b8f565808330129d4475d108d0129e897cde9f54",
-                "reference": "b8f565808330129d4475d108d0129e897cde9f54",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/9c6593f22319f5c5e72d9b81624dde0c0a6940da",
+                "reference": "9c6593f22319f5c5e72d9b81624dde0c0a6940da",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -2595,7 +2599,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-24T09:47:31+00:00"
+            "time": "2017-07-11T07:22:40+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2780,27 +2784,27 @@
         },
         {
             "name": "zendframework/zend-code",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-code.git",
-                "reference": "2899c17f83a7207f2d7f53ec2f421204d3beea27"
+                "reference": "67e214edf5cfb0b89b3ab4f5d2183e5bad1fd52b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/2899c17f83a7207f2d7f53ec2f421204d3beea27",
-                "reference": "2899c17f83a7207f2d7f53ec2f421204d3beea27",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/67e214edf5cfb0b89b3ab4f5d2183e5bad1fd52b",
+                "reference": "67e214edf5cfb0b89b3ab4f5d2183e5bad1fd52b",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || 7.0.0 - 7.0.4 || ^7.0.6",
+                "php": "^7.1",
                 "zendframework/zend-eventmanager": "^2.6 || ^3.0"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "ext-phar": "*",
-                "phpunit/phpunit": "^4.8.21",
-                "squizlabs/php_codesniffer": "^2.5",
+                "phpunit/phpunit": "^6.2.3",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
             "suggest": {
@@ -2829,7 +2833,7 @@
                 "code",
                 "zf2"
             ],
-            "time": "2016-10-24T13:23:32+00:00"
+            "time": "2017-07-05T23:09:20+00:00"
         },
         {
             "name": "zendframework/zend-eventmanager",
