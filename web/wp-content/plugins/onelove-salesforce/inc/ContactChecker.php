@@ -6,7 +6,7 @@ class ContactChecker extends Salesforce {
 
   // public static $COOKIE_DURATION = DAYS_IN_SECONDS; // 1 day
   public static $COOKIE_DURATION = 0; // for the session
-  public static $COOKIE_NAME = 'ol-email-cookie';
+  public static $COOKIE_NAME = 'wp-ol_email_cookie';
 
   /**
    * Constructor.
@@ -50,6 +50,7 @@ class ContactChecker extends Salesforce {
   }
 
   public function setNoCache() {
+    return;
     $path = substr($_SERVER['REQUEST_URI'], 1);
     $post = get_page_by_path($path);
 
