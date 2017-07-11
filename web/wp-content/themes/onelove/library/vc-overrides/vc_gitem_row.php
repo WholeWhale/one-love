@@ -21,7 +21,7 @@ extract( shortcode_atts( array(
 	'position' => 'top',
 ), $atts ) );
 
-$css_class = 'default-card card vc_gitem_row vc_row'
+$css_class = 'default-card  vc_gitem_row vc_row'
 	. ( strlen( $el_class ) ? ' ' . $el_class : '' )
 	. vc_shortcode_custom_css_class( $css, ' ' )
 	. ( $position ? ' vc_gitem-row-position-' . $position : '' );

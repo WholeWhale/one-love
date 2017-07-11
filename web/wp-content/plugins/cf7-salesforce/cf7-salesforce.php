@@ -67,21 +67,54 @@ class CF7Salesforce {
     }
 
     $objects = [];
+    $upsertKeys = [];
+    $comeAfter = [];
+    $computedFields = [];
     foreach ($options as $field_name => $fields) {
-      list($object, $field) = explode('.', $fields);
+      $object = $fields['object'];
+      $field = $fields['field'];
+      $isUpsertKey = $fields['upsert-key'];
+
+      if ($object == '' || $field == '') {
+        continue;
+      }
 
       if (!isset($objects[$object])) {
         $objects[$object] = [];
       }
 
       $objects[$object][$field] = $data[$field_name];
+      if ($isUpsertKey) {
+        $upsertKeys[$object] = $field;
+      }
+
+      if ($this->isComputedField($field_name)) {
+        $comeAfter[$this->getComputedObject($field_name)] = $object;
+        $computedFields["$object|$field"] = $this->getComputedObject($field_name);
+      }
     }
 
-    $this->upsertObjects($objects);
+    uksort($objects, function ($a, $b) use ($comeAfter) {
+      if (array_key_exists($a, $comeAfter)) {
+        return -1;
+      }
+    });
+
+    $this->upsertObjects($objects, $upsertKeys, $computedFields);
   }
 
-  protected function upsertObjects($object_array) {
+  protected function isComputedField($fieldName) {
+    return substr($fieldName, 0, 8) == 'compute-';
+  }
+
+  protected function getComputedObject($fieldName) {
+    return substr($fieldName, 8);
+  }
+
+  protected function upsertObjects($object_array, $upsertKeys, $computedFields) {
     $this->initializeSalesforce();
+
+    $result = [];
 
     foreach ($object_array as $type => $fields) {
       if (!$type) continue;
@@ -95,10 +128,18 @@ class CF7Salesforce {
           $value = $value[0];
         }
 
+        if (array_key_exists("$type|$field_name", $computedFields)) {
+          $value = $result[$computedFields["$type|$field_name"]][0]->id;
+        }
+
         $object->fields[$field_name] = $value;
       }
 
-      $this->conn->upsert('email', [$object], $type);
+      if (isset($upsertKeys[$type])) {
+        $result[$type] = $this->conn->upsert($upsertKeys[$type], [$object]);
+      } else {
+        $result[$type] = $this->conn->create([$object]);
+      }
     }
   }
 }

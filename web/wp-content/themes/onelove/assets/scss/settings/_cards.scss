@@ -7,7 +7,8 @@ body {
   .card,
   .callout,
   .action-card,
-  .conversation-card {
+  .conversation-card,
+  div.card.vc_gitem-col {
     border-radius: $global-radius;
     @extend .z-depth-1;
     background: $white;
@@ -38,7 +39,9 @@ body {
     padding-top: 30px;
   }
   .default-card {
-    height: 145px;
+    .card {
+      height: 145px;
+    }
   }
   .action-card,
   .conversation-card {
@@ -89,6 +92,10 @@ body {
     h1 {
       margin-bottom: 20px;
     }
+  }
+  div.vc_gitem-post-data.vc_gitem-post-data-source-post_categories  {
+    text-align: left;
+    margin-bottom: .625rem;
   }
 }
 

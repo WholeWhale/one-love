@@ -7,6 +7,7 @@
 // 2. Font weights
 // 3. Line heights
 // 4. Font sizes
+// 5. Font Spacing
 
 
 
@@ -24,7 +25,9 @@ body {
   h5,
   h6,
   .entry-title,
-  .title {
+  .title,
+  div.vc_gitem-post-category-name span,
+  #menu-footer > li > a {
     font-family: $overpass;
   }
 }
@@ -41,7 +44,8 @@ body {
   h1,
   h2,
   .entry-title,
-  .title {
+  .title,
+  #menu-footer > li > a {
     font-weight: $extra-bold;
   }
 
@@ -50,7 +54,8 @@ body {
     font-weight: $bold;
   }
 
-  h5 {
+  h5,
+  div.vc_gitem-post-category-name span {
     font-weight: $extra-light;
     color: $coral;
     letter-spacing: .01875rem;
@@ -76,7 +81,8 @@ body {
     line-height: $title-line-height * .7 ;
   }
 
-  h2 {
+  h2,
+  #menu-footer > li > a {
     line-height: $title-line-height * .62;
   }
   h3 {
@@ -105,5 +111,26 @@ body {
   .entry-title,
   html & .title {
     font-size: $title_font_size;
+  }
+}
+
+
+// 5. Font Spacing
+// ---------
+body {
+  p {
+    margin-bottom: 0;
+    padding-top: $default-spacing;
+    padding-bottom: $default-spacing;
+    &:first-of-type {
+      padding-bottom: 1rem;
+    }
+    & ~ p {
+      padding-top: 0;
+      padding-bottom: 1rem;
+    }
+    &:last-of-type {
+      padding-bottom: $default-spacing;
+    }
   }
 }

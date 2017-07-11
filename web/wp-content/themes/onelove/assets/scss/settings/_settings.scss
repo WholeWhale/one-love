@@ -74,7 +74,7 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $print-transparent-backgrounds: true;
-$default-spacing: 1.875rem;
+
 
 @include add-foundation-colors;
 
@@ -117,18 +117,18 @@ $main-font-size: 25;
 $header-styles: (
   small: (
     'h1': ('font-size': rem-calc($main-font-size + 3)),
-    'h2': ('font-size': rem-calc($main-font-size - 3)),
+    'h2,#menu-footer > li > a': ('font-size': rem-calc($main-font-size - 3)),
     'h3': ('font-size': rem-calc($main-font-size - 7)),
     'h4': ('font-size': rem-calc($main-font-size - 8)),
-    'h5': ('font-size': rem-calc($main-font-size - 11)),
+    'h5,div.vc_gitem-post-category-name span': ('font-size': rem-calc($main-font-size - 11)),
     'h6': ('font-size': rem-calc($main-font-size - 13)),
   ),
   medium: (
-  'h1': ('font-size': rem-calc($main-font-size)),
-  'h2': ('font-size': rem-calc($main-font-size - 3)),
+  'h1': ('font-size': rem-calc($main-font-size + 3)),
+  'h2,#menu-footer > li > a': ('font-size': rem-calc($main-font-size - 3)),
   'h3': ('font-size': rem-calc($main-font-size - 7)),
   'h4': ('font-size': rem-calc($main-font-size - 8)),
-  'h5': ('font-size': rem-calc($main-font-size - 11)),
+  'h5,div.vc_gitem-post-category-name span': ('font-size': rem-calc($main-font-size - 11)),
   'h6': ('font-size': rem-calc($main-font-size - 13)),
   ),
 );

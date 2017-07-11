@@ -142,6 +142,8 @@ textarea {
 
 .single-start_post_type  #single-post,
 .page-template-page-full-width #page-full-width {
+  padding-top: $default-spacing;
+  padding-bottom: $default-spacing;
   margin-top: 0;
   max-width: 60rem;
   @include breakpoint(medium) {
@@ -304,4 +306,17 @@ textarea {
         width: 300%;
         left: -100%
     }
+.easy-autocomplete {
+  .easy-autocomplete-container ul {
+    margin: 0;
+  }
+
+  input {
+    @extend input[type="text"];
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    box-shadow: none;
+    color: $black;
+  }
 }
