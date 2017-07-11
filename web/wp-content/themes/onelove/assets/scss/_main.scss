@@ -25,7 +25,10 @@ html head + body .navy,
 .escalation-block,
 .tnl-block,
 .stories-block,
-.main-video-slide {
+.main-video-slide,
+#footer-container,
+.overlay,
+.ol-slider {
   & * {
     color: $white;
   }
