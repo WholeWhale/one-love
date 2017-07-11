@@ -25,6 +25,7 @@ html head + body .navy,
 .escalation-block,
 .tnl-block,
 .stories-block,
+.main-video-slide,
 #footer-container,
 .overlay,
 .ol-slider {
@@ -164,10 +165,17 @@ textarea {
 }
 
 .page-template-page-full-width,
+.page-template-page-home,
 .single-start_post_type {
-  #featured-hero {
+  #featured-hero,
+  .cycloneslider-slide > * {
     height: calc(100vh - 4.375rem);
+    width: 100vw;
   }
+}
+
+#page-full-width.homepage {
+  margin-top: 0;
 }
 
 .social-media-icons-container {
@@ -198,6 +206,109 @@ textarea {
   }
 }
 
+.cycloneslider,
+.ol-slider {
+  &:focus {
+    outline: none;
+  }
+}
+
+.ol-slider {
+  overflow: hidden;
+  height: calc(100vh - 4.375rem);
+  .title {
+    font-size: rem-calc($main-font-size + 3);
+    line-height: $title-line-height*.7;
+    @include breakpoint(28rem) {
+      font-size: $title_font_size;
+      line-height: $title-line-height;
+    }
+  }
+  .main-video-slide {
+    .overlay-content {
+      position: absolute;
+      z-index: 3;
+      bottom: 0;
+      max-width: 75rem;
+      margin-left: auto;
+      margin-right: auto;
+      left: $default-spacing/2;
+      right: $default-spacing/2;
+      & > * {
+        margin-bottom: $default-spacing;
+      }
+    }
+    .featured-video-overlay {
+      position: relative;
+      z-index: 2;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        @include dimensions(100%,calc(100vh - 4.375rem));
+        opacity: .77;
+        background-color: $sky;
+
+
+        video {
+          z-index: 1;
+          position: absolute;
+        }
+      }
+    }
+  }
+  div.slider-image {
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: visible;
+  }
+
+  .featured-video-overlay,
+  div.slider-image,
+  .prevent-touch {
+    @include dimensions(100%,100%);
+  }
+}
+
+.prevent-touch {
+  pointer-events: none;
+}
+
+.video-background {
+    background: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -99
+}
+
+.video-background iframe,
+.video-foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none
+}
+
+@media (min-aspect-ratio:16/9) {
+    .video-foreground {
+        height: 300%;
+        top: -100%
+    }
+}
+
+@media (max-aspect-ratio:16/9) {
+    .video-foreground {
+        width: 300%;
+        left: -100%
+    }
 .easy-autocomplete {
   .easy-autocomplete-container ul {
     margin: 0;
