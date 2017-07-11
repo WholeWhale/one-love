@@ -12,6 +12,7 @@ class ContactChecker extends Salesforce {
    * Constructor.
    */
   public function __construct() {
+    add_action('send_headers', [$this, 'setNoCache'], 15);
     add_action('the_content', array($this, 'validatePost'));
 
     add_action('admin_post_nopriv_sf_email_validate', array($this, 'processEmailForm'));
@@ -49,17 +50,24 @@ class ContactChecker extends Salesforce {
   }
 
   public function setNoCache() {
-    header('Cache-Control: no-cache, must-revalidate, max-age=0');
+    $path = substr($_SERVER['REQUEST_URI'], 1);
+    $post = get_page_by_path($path);
+
+    $shouldValidate = get_post_meta($post->ID, Metaboxes::KEY, true);
+
+    if ($shouldValidate) {
+      header('Cache-Control: no-cache, must-revalidate, max-age=0');
+    }
   }
 
   public function validatePost($content) {
-    $shouldValidate = get_post_meta(get_the_ID(), Metaboxes::KEY, true);
+    global $post;
+    $shouldValidate = get_post_meta($post->ID, Metaboxes::KEY, true);
 
     if (!$shouldValidate || $shouldValidate == 0) {
       return $content;
     }
 
-    add_action('send_headers', [$this, 'setNoCache'], 15);
     $this->initializeSalesforce();
 
     $error = false;
