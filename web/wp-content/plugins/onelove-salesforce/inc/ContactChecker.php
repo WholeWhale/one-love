@@ -48,6 +48,9 @@ class ContactChecker extends Salesforce {
     return count($resp->records) > 0;
   }
 
+  public function setNoCache() {
+    header('Cache-Control: no-cache, must-revalidate, max-age=0');
+  }
 
   public function validatePost($content) {
     $shouldValidate = get_post_meta(get_the_ID(), Metaboxes::KEY, true);
@@ -56,6 +59,7 @@ class ContactChecker extends Salesforce {
       return $content;
     }
 
+    add_action('send_headers', [$this, 'setNoCache'], 15);
     $this->initializeSalesforce();
 
     $error = false;
