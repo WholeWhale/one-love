@@ -14,6 +14,7 @@ body {
       color: $white;
       &, & h4 {
         transition: all .5s ease-in-out;
+        font-family: $overpass;
       }
       &:hover {
         background-color: $coral;
@@ -44,9 +45,22 @@ body {
             }
           }
         }
+        .wpcf7-submit {
+          background-color: $white;
+          color: $midnight;
+          &:hover {
+            background-color: $midnight;
+            color: $white;
+          }
+        }
       }
-      html body .navy .ol_button .vc_btn3-color-default:hover {
-        background-color: $moss;
+      html body .navy  {
+        .ol_button .vc_btn3-color-default,
+        .wpcf7-submit {
+          &:hover {
+            background-color: $moss;
+          }
+        }
       }
       .main-video-slide .ol_button.vc_btn3-default {
         text-align: left;
@@ -61,5 +75,40 @@ body {
         max-width: 21.875rem;
       }
     }
+  }
+  .wpcf7-submit {
+    height: 3.125rem;
+    padding: .875rem $default-spacing;
+    max-width: 100%;
+    @include breakpoint(medium) {
+      max-width: 21.875rem;
+    }
+    border-radius: rem-calc(2);
+    text-transform: uppercase;
+    letter-spacing: .06875rem;
+    background-color: $moss;
+    color: $white;
+    transition: all .5s ease-in-out;
+    &:hover {
+      background-color: $coral;
+      color: $white;
+    }
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    user-select: none;
+    top: 0;
+    box-shadow: none;
+    font-size: 1.0625rem;
+    margin-bottom: .5rem;
+  }
+  .wpcf7-form p:last-of-type {
+    &:focus {
+      outline: none;
+    }
+    text-align: center;
   }
 }
