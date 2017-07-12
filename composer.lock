@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+
     "content-hash": "ad2f7aa7c67747522a9297cdc9a97faa",
     "packages": [
         {
@@ -478,16 +479,16 @@
         },
         {
             "name": "warfare-plugins/social-warfare-pro",
-            "version": "2.2.7",
+            "version": "master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:warfare-plugins/social-warfare-pro.git",
-                "reference": "2.2.7"
+                "reference": "master"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/master.zip",
-                "reference": "2.2.7",
+                "reference": "master",
                 "shasum": null
             },
             "type": "wordpress-plugin"
