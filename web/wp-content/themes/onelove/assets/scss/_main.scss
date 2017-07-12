@@ -13,7 +13,7 @@ html head + body .green {
   background-image: linear-gradient(-137deg, #55C6B6 12%, #22CBB6 45%, #0FCCB6 88%);
 }
 html head + body .blue {
-  background-image: linear-gradient(-141deg, #00A3DF 0%, #095E9A 100%);
+  background-image: linear-gradient(-141deg, #095E9A 0%, #00A3DF 100%);
 }
 html head + body .navy {
   background: $midnight;
@@ -156,7 +156,12 @@ textarea {
     width: 100%;
   }
 }
-
+.page-template-page-full-width,
+.single-start_post_type {
+  #featured-hero {
+    margin-bottom: -$default-spacing;
+  }
+}
 
 .single-learn_post_type #single-post {
   @include breakpoint(48rem) {
@@ -234,8 +239,13 @@ textarea {
       margin-right: auto;
       left: $default-spacing/2;
       right: $default-spacing/2;
-      & > * {
-        margin-bottom: $default-spacing;
+      & > div {
+        @include breakpoint(medium) {
+          width: 50%;
+        }
+        & > * {
+          margin-bottom: $default-spacing;
+        }
       }
     }
     .featured-video-overlay {

@@ -15,8 +15,8 @@
        data-cycle-auto-height="false"
   >
   <?php if ($slider_settings['show_prev_next']) : ?>
-    <span class="slider-prev"><i class="icon icon-chevron-left" aria-hidden="true"></i></span>
-    <span class="slider-next"><i class="icon icon-chevron-right" aria-hidden="true"></i></span>
+    <span class="slider-prev"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/left-arrow.png" alt="Select Previous Slide"></span>
+    <span class="slider-next"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/right-arrow.png" alt="Select Next Slide"></span>
   <?php endif; ?>
       <?php foreach($slides as $i=>$slide): ?>
           <?php if ( 'image' == $slide['type'] ) : ?>
@@ -34,6 +34,7 @@
                   <?php if(!empty($slide['title']) or !empty($slide['description']) or !empty($slide['image_button_cta'])) : ?>
                     <div class="main-video-slide">
                       <div class="overlay-content">
+                        <div class="overlay-content-container">
                         <h1 class="title"><?php echo $slide['title']; ?></h1>
                         <h2><?php echo $slide['description']; ?></h2>
                         <?php if (!empty($slide['button_img_cta'])): ?>
@@ -43,6 +44,7 @@
                             </a>
                           </div>
                         <?php endif; ?>
+                        </div>
                         </div>
                           <div class="slider-image" style="background-image: url('<?php echo $slide['image_url']; ?>');"></div>
                       </div>
@@ -65,17 +67,19 @@
                   ?>
                   <div class="main-video-slide">
                     <div class="overlay-content">
-                      <?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
-                        <h1 class="title"><?php echo $slide['title']; ?></h1>
-                        <h2><?php echo $slide['description']; ?></h2>
-                      <?php endif; ?>
-                      <?php if (!empty($slide['button_cta'])): ?>
-                        <div class="vc_btn3-container ol_button vc_btn3-default">
-                          <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default" href="<?php if (!empty($slide['button_url'])) echo $slide['button_url']; ?>" title="">
-                            <h4><?php echo $slide['button_cta']; ?></h4>
-                          </a>
-                        </div>
-                      <?php endif; ?>
+                      <div class="overlay-content-container">
+                        <?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
+                          <h1 class="title"><?php echo $slide['title']; ?></h1>
+                          <h2><?php echo $slide['description']; ?></h2>
+                        <?php endif; ?>
+                        <?php if (!empty($slide['button_cta'])): ?>
+                          <div class="vc_btn3-container ol_button vc_btn3-default">
+                            <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default" href="<?php if (!empty($slide['button_url'])) echo $slide['button_url']; ?>" title="">
+                              <h4><?php echo $slide['button_cta']; ?></h4>
+                            </a>
+                          </div>
+                        <?php endif; ?>
+                      </div>
                     </div>
                     <?php if ($i == 0 ): ?>
                       <div class="featured-video-overlay">
