@@ -71,9 +71,20 @@ $header-height: 70;
     a:hover h1,
     a:active h1,
      {
-      color: $midnight;
       border-bottom: .25rem solid;
-      margin-bottom: -.25rem;
+      margin-bottom: .25rem;
+    }
+    body:not(.display-mobile-menu) & {
+      &.current-menu-item a h3,
+      a:hover h3,
+      a:active h3,
+      &.current-menu-item a h1,
+      a:hover h1,
+      a:active h1,
+       {
+        color: $midnight;
+        margin-bottom: -.25rem;
+      }
     }
     & a  {
       display: flex;
