@@ -27,7 +27,8 @@ body {
   .entry-title,
   .title,
   div.vc_gitem-post-category-name span,
-  #menu-footer > li > a {
+  #menu-footer > li > a,
+  .wpcf7-submit {
     font-family: $overpass;
   }
 }
@@ -49,7 +50,8 @@ body {
     font-weight: $extra-bold;
   }
   h3,
-  h4 {
+  h4,
+  .wpcf7-submit {
     font-weight: $bold;
   }
 
@@ -87,7 +89,8 @@ body {
   h3 {
     line-height: $title-line-height * .54;
   }
-  h4 {
+  h4,
+  .wpcf7-submit {
     line-height: $title-line-height * .48;
   }
   p {
