@@ -73,6 +73,10 @@ $header-height: 70;
      {
       color: $midnight;
     }
+    &.current-menu-item a h3 {
+      border-bottom: .3125rem solid;
+      margin-bottom: -.3125rem;
+    }
     & a  {
       display: flex;
       justify-content: left;
