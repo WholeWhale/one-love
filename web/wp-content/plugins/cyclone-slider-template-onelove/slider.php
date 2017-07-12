@@ -45,8 +45,8 @@
                           </div>
                         <?php endif; ?>
                         </div>
-                          <div class="slider-image" style="background-image: url('<?php echo $slide['image_url']; ?>');"></div>
                         </div>
+                          <div class="slider-image" style="background-image: url('<?php echo $slide['image_url']; ?>');"></div>
                       </div>
                   <?php else: ?>
                     <div class="slider-image" style="background-image: url('<?php echo $slide['image_url']; ?>');"></div>
