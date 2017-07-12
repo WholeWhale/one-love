@@ -126,7 +126,9 @@
     "firebase/php-jwt": "dev-master",
     "ww-composer/contact-form-7": "^7.4",
     "ww-composer/cf7-multi-step": "master",
-    "wpackagist-plugin/cyclone-slider-2": "^3.2.0"
+    "wpackagist-plugin/cyclone-slider-2": "^3.2.0",
+    "wpackagist-plugin/duracelltomi-google-tag-manager": "^1.6.1"
+
   },
   "require-dev": {
     "behat/behat": "^3.1",
