@@ -6,7 +6,7 @@ class ContactChecker extends Salesforce {
 
   // public static $COOKIE_DURATION = DAYS_IN_SECONDS; // 1 day
   public static $COOKIE_DURATION = 0; // for the session
-  public static $COOKIE_NAME = 'ol-email-cookie';
+  public static $COOKIE_NAME = 'wp-ol_email_cookie';
 
   /**
    * Constructor.
@@ -18,7 +18,17 @@ class ContactChecker extends Salesforce {
     add_action('admin_post_sf_email_validate', array($this, 'processEmailForm'));
   }
 
-  public function findByEmail($email, $return = ['CONTACT' => ['ID', 'EMAIL', 'FIRSTNAME', 'LASTNAME']]) {
+  public static function getContactInfo() {
+    if (isset($_COOKIE[self::$COOKIE_NAME])) {
+      if ($tok = self::getJWT($_COOKIE[self::$COOKIE_NAME])) {
+        return $tok;
+      }
+    }
+
+    return false;
+  }
+
+  public function findByEmail($email, $return = ['CONTACT' => ['ID', 'EMAIL', 'FIRSTNAME', 'LASTNAME', 'npsp__Primary_Affiliation__c']]) {
     $returning = [];
 
     foreach ($return as $type => $fields) {
@@ -38,9 +48,9 @@ class ContactChecker extends Salesforce {
     return count($resp->records) > 0;
   }
 
-
   public function validatePost($content) {
-    $shouldValidate = get_post_meta(get_the_ID(), Metaboxes::KEY, true);
+    global $post;
+    $shouldValidate = get_post_meta($post->ID, Metaboxes::KEY, true);
 
     if (!$shouldValidate || $shouldValidate == 0) {
       return $content;
@@ -51,22 +61,20 @@ class ContactChecker extends Salesforce {
     $error = false;
     $email = null;
 
-    if (isset($_COOKIE[self::$COOKIE_NAME])) {
-      if ($tok = $this->getJWT($_COOKIE[self::$COOKIE_NAME])) {
-        $email = $tok->Email;
-        if ($shouldValidate > 1) {
-          if ($tok->campaigns && in_array($shouldValidate, $tok->campaigns)) {
-            return $content;
-          } else if ($this->isInCampaign($tok->Id, $shouldValidate)) {
-            $newTok = $this->generateJWT($tok, $shouldValidate);
-            $this->setCookie($newTok);
-            return $content;
-          } else {
-            $error = true;
-          }
-        } else {
+    if ($tok = self::getContactInfo()) {
+      $email = $tok->Email;
+      if ($shouldValidate > 1) {
+        if ($tok->campaigns && in_array($shouldValidate, $tok->campaigns)) {
           return $content;
+        } else if ($this->isInCampaign($tok->Id, $shouldValidate)) {
+          $newTok = $this->generateJWT($tok, $shouldValidate);
+          $this->setCookie($newTok);
+          return $content;
+        } else {
+          $error = true;
         }
+      } else {
+        return $content;
       }
     }
 
@@ -89,7 +97,7 @@ class ContactChecker extends Salesforce {
     return JWT::encode($data, SECURE_AUTH_KEY, 'HS256');
   }
 
-  protected function getJWT($jwt) {
+  protected static function getJWT($jwt) {
     try {
       $decoded = JWT::decode($jwt, SECURE_AUTH_KEY, ['HS256']);
     } catch (Exception $e) {

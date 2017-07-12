@@ -71,7 +71,20 @@ $header-height: 70;
     a:hover h1,
     a:active h1,
      {
-      color: $midnight;
+      border-bottom: .25rem solid;
+      margin-bottom: .25rem;
+    }
+    body:not(.display-mobile-menu) & {
+      &.current-menu-item a h3,
+      a:hover h3,
+      a:active h3,
+      &.current-menu-item a h1,
+      a:hover h1,
+      a:active h1,
+       {
+        color: $midnight;
+        margin-bottom: -.25rem;
+      }
     }
     & a  {
       display: flex;
@@ -98,7 +111,7 @@ $header-height: 70;
     @include dimensions(100%,100%);
     overflow-y: scroll;
     margin-left: -1%;
-    z-index: 100;
+    z-index: 900;
 
     #site-navigation {
       background-color: transparent;

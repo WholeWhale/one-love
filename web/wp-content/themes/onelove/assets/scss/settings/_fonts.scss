@@ -37,17 +37,17 @@ body {
 // ---------
 
 $bold: 700;
-$extra-bold: 800;
+$extra-bold: 900;
 $extra-light: 200;
 
 body {
   h1,
   h2,
   .entry-title,
+  .title,
   #menu-footer > li > a {
     font-weight: $extra-bold;
   }
-
   h3,
   h4 {
     font-weight: $bold;
@@ -98,6 +98,8 @@ body {
 // 4. Font sizes
 // ---------
 
+$title_font_size: 2.8125rem;
+
 body {
   blockquote {
     font-size: 1.5625rem;
@@ -107,7 +109,7 @@ body {
   }
   .entry-title,
   html & .title {
-    font-size: 2.8125rem;
+    font-size: $title_font_size;
   }
 }
 

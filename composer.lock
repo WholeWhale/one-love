@@ -513,6 +513,26 @@
             "homepage": "https://wordpress.org/plugins/404page/"
         },
         {
+            "name": "wpackagist-plugin/cyclone-slider-2",
+            "version": "3.2.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cyclone-slider-2/",
+                "reference": "tags/3.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cyclone-slider-2.3.2.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cyclone-slider-2/"
+        },
+        {
             "name": "wpackagist-plugin/pantheon-advanced-page-cache",
             "version": "0.1.5",
             "source": {
@@ -754,7 +774,7 @@
         },
         {
             "name": "ww-composer/cf7-multi-step",
-            "version": "1.1",
+            "version": "master",
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/cf7-multi-step.zip",
@@ -2841,12 +2861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
-                "reference": "42d2abcdfc56ee2005e9271ac7666d88db7b91b9"
+                "reference": "071016ade1deee5b8346ec9d8d48935437746c37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/42d2abcdfc56ee2005e9271ac7666d88db7b91b9",
-                "reference": "42d2abcdfc56ee2005e9271ac7666d88db7b91b9",
+                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/071016ade1deee5b8346ec9d8d48935437746c37",
+                "reference": "071016ade1deee5b8346ec9d8d48935437746c37",
                 "shasum": ""
             },
             "require": {
@@ -2855,7 +2875,7 @@
             "require-dev": {
                 "athletic/athletic": "^0.1",
                 "container-interop/container-interop": "^1.1.0",
-                "phpunit/phpunit": "^5.6",
+                "phpunit/phpunit": "^6.0.7 || ^5.7.14",
                 "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-stdlib": "^2.7.3 || ^3.0"
             },
@@ -2866,8 +2886,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev",
-                    "dev-develop": "3.2-dev"
+                    "dev-master": "3.2-dev",
+                    "dev-develop": "3.3-dev"
                 }
             },
             "autoload": {
@@ -2887,7 +2907,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2017-03-05T07:56:37+00:00"
+            "time": "2017-07-11T19:19:12+00:00"
         }
     ],
     "aliases": [],

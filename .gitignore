@@ -29,6 +29,7 @@ web/wp-content/plugins/*
 !web/wp-content/plugins/cf7-bigmarker/
 !web/wp-content/plugins/cf7-salesforce/
 !web/wp-content/plugins/wp-keystore/
+!web/wp-content/plugins/cyclone-slider-template-onelove/
 !web/wp-content/themes
 web/wp-content/themes/*
 !web/wp-content/themes/twentyseventeen-child/
