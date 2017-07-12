@@ -234,8 +234,13 @@ textarea {
       margin-right: auto;
       left: $default-spacing/2;
       right: $default-spacing/2;
-      & > * {
-        margin-bottom: $default-spacing;
+      & > div {
+        @include breakpoint(medium) {
+          width: 50%;
+        }
+        & > * {
+          margin-bottom: $default-spacing;
+        }
       }
     }
     .featured-video-overlay {
