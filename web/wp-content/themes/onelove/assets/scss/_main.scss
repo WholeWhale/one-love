@@ -156,7 +156,12 @@ textarea {
     width: 100%;
   }
 }
-
+.page-template-page-full-width,
+.single-start_post_type {
+  #featured-hero {
+    margin-bottom: -$default-spacing;
+  }
+}
 
 .single-learn_post_type #single-post {
   @include breakpoint(48rem) {
