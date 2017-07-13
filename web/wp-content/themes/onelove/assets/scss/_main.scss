@@ -4,6 +4,9 @@
 // Table of Contents:
 //
 // 1. Global
+// 2. Search Form
+// 3. Featured Image
+// 4. Templates
 
 
 
@@ -54,6 +57,8 @@ html head + body .navy,
   }
 }
 
+// 2. Search Form
+// ---------------
 #searchform {
   padding: 1rem;
   input {
@@ -93,6 +98,8 @@ textarea {
   border-bottom: 2px solid $grey-300;
 }
 
+// 3. Featured Image
+// ------------------
 #display-post-category {
   margin-bottom: 1.25rem;
 }
@@ -113,6 +120,8 @@ textarea {
   }
 }
 
+// 4. Templates
+// ---------------
 .page-template-single-learn_post_type,
 .single-learn_post_type {
 
@@ -138,16 +147,19 @@ textarea {
 
 .page-template-single-start_post_type,
 .single-start_post_type  #single-post,
+.page-template-page-home #page-full-width,
 .page-template-page-full-width #page-full-width,
-.single-learn_post_type #single-post {
+.single-learn_post_type #single-post,
+.overlay-content,
+.full-page-header-content {
   width: 94%;
 }
 
 .single-start_post_type  #single-post,
-.page-template-page-full-width #page-full-width {
-  padding-top: $default-spacing;
-  padding-bottom: $default-spacing;
-  margin-top: 0;
+.page-template-page-full-width #page-full-width,
+.page-template-page-home #page-full-width,
+.full-page-header-content,
+.overlay-content {
   max-width: 60rem;
   @include breakpoint(medium) {
     width: 80%;
@@ -156,6 +168,15 @@ textarea {
     width: 100%;
   }
 }
+
+.single-start_post_type  #single-post,
+.page-template-page-full-width #page-full-width,
+.page-template-page-home #page-full-width {
+  padding-top: $default-spacing;
+  padding-bottom: $default-spacing;
+  margin-top: 0;
+}
+
 .page-template-page-full-width,
 .single-start_post_type {
   #featured-hero {
@@ -202,15 +223,19 @@ textarea {
   .full-page-header-content {
     color: $white;
     position: absolute;
-    left: 1.25rem;
-    right: 1.25rem;
+    left: 0;
+    right: 0;
+    @include default_content_padding();
+    margin: 0 auto;
     bottom: 3.5625rem;
     .entry-title {
       margin-bottom: 1.25rem;
     }
   }
 }
-
+.page-template-page-home .cycloneslider {
+  margin-bottom: -$default-spacing;
+}
 .cycloneslider,
 .ol-slider {
   &:focus {
@@ -234,12 +259,12 @@ textarea {
       position: absolute;
       z-index: 3;
       bottom: 0;
-      max-width: 75rem;
       margin-left: auto;
       margin-right: auto;
       left: $default-spacing/2;
       right: $default-spacing/2;
       & > div {
+        @include default_content_padding();
         @include breakpoint(medium) {
           width: 50%;
         }
