@@ -334,3 +334,38 @@ textarea {
     color: $black;
   }
 }
+
+
+
+div.vc_row-flex.love-path {
+  position: relative;
+  .wpb_wrapper {
+    * {
+      z-index: 1;
+    }
+    h1,h2,h3,h4,h5,h6,p,span {
+      position: relative;
+    }
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: $default-spacing;
+    left: 0;
+    right: 0;
+    bottom: $default-spacing;
+    background-image: url('/wp-content/themes/onelove/assets/images/love-path-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    @include breakpoint(rem-calc(768)) {
+      background-image: url('/wp-content/themes/onelove/assets/images/love-path-desktop.svg');
+      top: 0;
+      bottom: $default-spacing;
+      right: $default-spacing;
+      left: $default-spacing;
+
+    }
+  }
+}
