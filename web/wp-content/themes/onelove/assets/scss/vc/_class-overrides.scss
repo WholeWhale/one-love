@@ -16,23 +16,6 @@ body {
         background-color: initial;
     }
   }
-  .vc_grid div.vc_gitem-post-category-name {
-    &:not(:first-child) {
-      display: none;
-    }
-    &.vc_grid-filter-item:hover {
-      background-color: initial;
-      transition: initial;
-      span {
-        color: $coral;
-      }
-    }
-  }
-  .ol_min-width {
-    @include breakpoint(48rem) {
-      min-width: 19rem;
-    }
-  }
   .vc_pageable-slide-wrapper {
     text-align: center;
   }

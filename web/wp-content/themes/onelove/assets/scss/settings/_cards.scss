@@ -7,8 +7,7 @@ body {
   .card,
   .callout,
   .action-card,
-  .conversation-card,
-  div.card.vc_gitem-col {
+  .conversation-card {
     border-radius: $global-radius;
     @extend .z-depth-1;
     background: $white;
@@ -37,8 +36,8 @@ body {
   .conversation-card {
     padding-top: $default-spacing;
   }
-  .default-card {
-    .card {
+  .vc-grid-card-style .default-card {
+    .vc_ol-card {
       height: 145px;
     }
   }

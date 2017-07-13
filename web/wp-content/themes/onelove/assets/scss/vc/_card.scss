@@ -1,4 +1,28 @@
-.grid-item-default-card-image > div {
-  max-height: 145px;
-  background-position: top;
+
+body {
+  .vc-grid-card-style {
+    @include breakpoint(48rem) {
+      min-width: 19rem;
+    }
+    .grid-item-default-card-image > div {
+      max-height: 145px;
+      background-position: top;
+    }
+    div.vc_gitem-post-category-name {
+      &:not(:first-child) {
+        display: none;
+      }
+      &.vc_grid-filter-item:hover {
+        background-color: initial;
+        transition: initial;
+        span {
+          color: $coral;
+        }
+      }
+    }
+    .vc_ol-card {
+      @extend .card;
+    }
+  }
+
 }
