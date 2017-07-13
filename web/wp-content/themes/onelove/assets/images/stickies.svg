@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="341px" height="204px" viewBox="0 0 341 204" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>stickies</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0.1171875" width="341" height="225"></rect>
+    </defs>
+    <g id="Mobile-wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stickies" transform="translate(0.000000, -15.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g id="Group-12-Copy" mask="url(#mask-2)">
+                <g transform="translate(-13.000000, 15.000000)">
+                    <rect id="Combined-Shape-Copy-6" stroke="none" fill="#FF5E5B" fill-rule="evenodd" transform="translate(68.460602, 35.504158) rotate(-17.000000) translate(-68.460602, -35.504158) " x="40.8782596" y="7.85621281" width="55.164685" height="55.2958895"></rect>
+                    <rect id="Combined-Shape-Copy-7" stroke="none" fill="#FF5E5B" fill-rule="evenodd" transform="translate(282.460602, 65.504158) scale(-1, 1) rotate(-17.000000) translate(-282.460602, -65.504158) " x="254.87826" y="37.8562128" width="55.164685" height="55.2958895"></rect>
+                    <rect id="Combined-Shape-Copy-11" stroke="none" fill="#55C6B6" fill-rule="evenodd" transform="translate(295.460602, 112.504158) scale(-1, 1) rotate(-17.000000) translate(-295.460602, -112.504158) " x="267.87826" y="84.8562128" width="55.164685" height="55.2958895"></rect>
+                    <rect id="Combined-Shape-Copy-2" stroke="none" fill="#FFC82D" fill-rule="evenodd" x="172.785633" y="84.9400342" width="57.9150958" height="58.0528418"></rect>
+                    <rect id="Combined-Shape" stroke="none" fill="#00A3DF" fill-rule="evenodd" transform="translate(246.117105, 85.187632) rotate(4.000000) translate(-246.117105, -85.187632) " x="214.156881" y="53.1513938" width="63.9204466" height="64.0724759"></rect>
+                    <rect id="Combined-Shape-Copy-12" stroke="none" fill="#00A3DF" fill-rule="evenodd" transform="translate(330.117105, 49.187632) rotate(4.000000) translate(-330.117105, -49.187632) " x="298.156881" y="17.1513938" width="63.9204466" height="64.0724759"></rect>
+                    <rect id="Combined-Shape-Copy-3" stroke="none" fill="#B5E0DC" fill-rule="evenodd" transform="translate(102.978882, 104.046930) rotate(-8.000000) translate(-102.978882, -104.046930) " x="69.3624745" y="70.350569" width="67.2328149" height="67.3927223"></rect>
+                    <rect id="Combined-Shape-Copy-8" stroke="none" fill="#FFC82D" fill-rule="evenodd" transform="translate(317.080974, 165.499423) scale(-1, 1) rotate(-8.000000) translate(-317.080974, -165.499423) " x="283.464567" y="131.803062" width="67.2328149" height="67.3927223"></rect>
+                    <rect id="Combined-Shape-Copy-5" stroke="none" fill="#FFC82D" fill-rule="evenodd" transform="translate(147.107771, 83.172467) rotate(-8.000000) translate(-147.107771, -83.172467) " x="115.147548" y="51.1362289" width="63.9204466" height="64.0724759"></rect>
+                    <rect id="Combined-Shape-Copy-4" stroke="none" fill="#00A3DF" fill-rule="evenodd" transform="translate(36.462741, 77.543605) rotate(2.000000) translate(-36.462741, -77.543605) " x="1.21169578" y="42.2087187" width="70.5020904" height="70.6697735"></rect>
+                    <rect id="Combined-Shape-Copy-9" stroke="none" fill="#B5E0DC" fill-rule="evenodd" transform="translate(269.399394, 144.466812) scale(-1, 1) rotate(2.000000) translate(-269.399394, -144.466812) " x="240.010204" y="115.007722" width="58.7783796" height="58.9181789"></rect>
+                    <rect id="Combined-Shape" stroke="none" fill="#EEEBEB" fill-rule="evenodd" transform="translate(125.037710, 37.099370) rotate(10.000000) translate(-125.037710, -37.099370) " x="93.0774867" y="5.0631321" width="63.9204466" height="64.0724759"></rect>
+                    <rect id="Combined-Shape-Copy-10" stroke="none" fill="#EEEBEB" fill-rule="evenodd" transform="translate(339.139802, 97.551863) scale(-1, 1) rotate(10.000000) translate(-339.139802, -97.551863) " x="307.179579" y="65.515625" width="63.9204466" height="64.0724759"></rect>
+                    <g id="Group-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(108.018753, 83.617122)">
+                        <rect id="Combined-Shape-Copy" fill="#FF5E5B" transform="translate(38.047885, 38.138379) rotate(-5.000000) translate(-38.047885, -38.138379) " x="3.04383079" y="3.05107028" width="70.0081082" height="70.1746165"></rect>
+                        <path d="M39.1473891,28.3320488 C29.4566112,17.7086384 11.2494066,27.4953168 12.17479,41.3603708 C12.8408829,51.3404659 35.6674559,52.4635898 44.3903134,58.6140945" id="Path-2" stroke="#EC4B48"></path>
+                        <path d="M38.3967276,26.9235815 C43.2688977,8.60455265 66.4490748,18.5728828 58.9982154,36.0772431 C54.4521357,46.7573825 47.2598011,56.2652736 41.3905939,66.3592888" id="Path-5" stroke="#EC4B48"></path>
+                    </g>
+                    <g id="Group-10" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(146.066637, 25.015625)">
+                        <path d="M0,0 L80.661516,0 L80.661516,80.8533624 L0,80.8533624 L0,0 Z M80.661516,80.8533624 L66.9642774,80.8533624 L80.661516,67.1235462 L80.661516,80.8533624 Z" id="Combined-Shape" fill="#55C6B6"></path>
+                        <polygon id="Rectangle-21" fill="#3AAF9D" points="66.9642774 67.1235462 80.661516 67.1235462 66.9642774 80.8533624"></polygon>
+                    </g>
+                    <path d="M162.807707,54.2442071 C169.365876,49.5934479 201.972843,51.4924989 211.128521,52.0553074" id="Path-3" stroke="#3AAF9D" stroke-width="2" fill="none" stroke-linecap="round"></path>
+                    <path d="M155.19813,73.8327495 C175.874438,67.0873683 193.676979,71.6053737 215.313788,70.4002954" id="Path-4" stroke="#3AAF9D" stroke-width="2" fill="none" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -13,10 +13,22 @@
   background-color: $coral;
 }
 
+.bookmark-block {
+  background-image: url('/wp-content/themes/onelove/assets/images/bookmark.svg');
+  background-color: $maroon;
+}
+
+.stickies-block {
+  background-image: url('/wp-content/themes/onelove/assets/images/stickies.svg');
+  background-color: $midnight;
+}
+
 
 .escalation-block,
 .tnl-block,
-.stories-block {
+.stories-block,
+.bookmark-block,
+.stickies-block {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -30,5 +42,8 @@
     margin-bottom: $default-spacing;
     bottom: 0;
   }
-
+}
+.bookmark-block {
+  background-size: 20%;
+  background-position: right $default-spacing top;
 }
