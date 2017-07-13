@@ -12,8 +12,7 @@ body {
     @extend .z-depth-1;
     background: $white;
     border: 1px solid $border;
-    padding-left: $default-spacing;
-    padding-right: $default-spacing;
+    @include default_content_padding();
     padding-bottom: $default-spacing;
     box-shadow: none;
     .link-icon i {
