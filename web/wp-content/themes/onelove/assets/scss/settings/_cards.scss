@@ -13,9 +13,8 @@ body {
     @extend .z-depth-1;
     background: $white;
     border: 1px solid $border;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
+    @include default_content_padding();
+    padding-bottom: $default-spacing;
     box-shadow: none;
     .link-icon i {
       margin-top: 13px;
@@ -36,7 +35,7 @@ body {
   }
   .card,
   .conversation-card {
-    padding-top: 30px;
+    padding-top: $default-spacing;
   }
   .default-card {
     .card {
@@ -58,7 +57,7 @@ body {
       position: absolute;
       transform: translateY(-50%);
       background: $moss;
-      border-radius: 30px;
+      border-radius: $default-spacing;
       border: none;
       font-size: 1.25rem;
       font-weight: bold;
@@ -82,7 +81,7 @@ body {
       line-height: 1em;
       flex: 1;
       .ol_button {
-        margin-bottom: 30px;
+        margin-bottom: $default-spacing;
       }
       h3 {
         margin-top: 20px;
