@@ -20,6 +20,9 @@ body {
         }
       }
     }
-
+    .vc_ol-card {
+      @extend .card;
+    }
   }
+
 }

@@ -7,15 +7,14 @@ body {
   .card,
   .callout,
   .action-card,
-  .conversation-card,
-  .vc-grid-card-style div.vc_ol-card.vc_gitem-col {
+  .conversation-card {
     border-radius: $global-radius;
     @extend .z-depth-1;
     background: $white;
     border: 1px solid $border;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
+    padding-left: $default-spacing;
+    padding-right: $default-spacing;
+    padding-bottom: $default-spacing;
     box-shadow: none;
     .link-icon i {
       margin-top: 13px;
@@ -31,14 +30,12 @@ body {
       box-shadow: 2px 3px 15px 0 rgba(228,228,228,0.50);
     }
   }
-  .card,
-  .vc-grid-card-style .vc_ol-card {
+  .card {
     border-top: none;
   }
   .card,
-  .vc-grid-card-style .vc_ol-card,
   .conversation-card {
-    padding-top: 30px;
+    padding-top: $default-spacing;
   }
   .vc-grid-card-style .default-card {
     .vc_ol-card {
@@ -60,7 +57,7 @@ body {
       position: absolute;
       transform: translateY(-50%);
       background: $moss;
-      border-radius: 30px;
+      border-radius: $default-spacing;
       border: none;
       font-size: 1.25rem;
       font-weight: bold;
@@ -84,7 +81,7 @@ body {
       line-height: 1em;
       flex: 1;
       .ol_button {
-        margin-bottom: 30px;
+        margin-bottom: $default-spacing;
       }
       h3 {
         margin-top: 20px;
