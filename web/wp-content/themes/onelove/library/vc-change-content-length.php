@@ -1,7 +1,7 @@
 <?php
 
 function max_title_length( $title ) {
-  $max = 69;
+  $max = 50;
   if( strlen( $title ) > $max ) {
     return substr( $title, 0, $max ). "&hellip;";
   }
