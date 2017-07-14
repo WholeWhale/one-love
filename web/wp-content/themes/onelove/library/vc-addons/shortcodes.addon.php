@@ -141,28 +141,29 @@ function vc_gitem_template_attribute_categories_enhanced( $value, $data ) {
     $output = '<div class="' . esc_attr( implode( ' ', array_filter( $css_class ) ) ) . ' vc_grid-filter vc_clearfix vc_grid-filter-' . esc_attr( $style ) . ' vc_grid-filter-size-' . esc_attr( $atts['category_size'] ) . ' vc_grid-filter-center vc_grid-filter-color-' . esc_attr( $atts['category_color'] ) . '">';
     $data = array();
 
-
     foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
       // Get the terms related to post.
       $categories = get_the_terms( $post->ID, $taxonomy_slug );
       if ( ! empty( $categories ) ) {
-      	foreach ( $categories as $category ) {
+      	foreach ( $categories as  $i => $category ) {
 
+          if ( $i == 0 ) {
+            $category_link = '';
+        		if ( ! empty( $atts['link'] ) ) {
+        			$category_link = 'href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'js_composer' ), $category->name ) ) . '"';
+        		}
 
-      		$category_link = '';
-      		if ( ! empty( $atts['link'] ) ) {
-      			$category_link = 'href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'js_composer' ), $category->name ) ) . '"';
-      		}
+        		$wrapper = '<div class="vc_grid-filter-item vc_gitem-post-category-name">';
+        		$content = esc_html( $category->name );
+        		if ( ! empty( $category_link ) ) {
+        			$content = '<h5 class="vc_gitem-post-category-name"><a ' . $category_link . ' class="vc_gitem-link">' . $content . '</a>' . '</h5>';
+        		} else {
+        			$content = '<h5 class="vc_gitem-post-category-name">' . $content . '</h5>';
+        		}
+        		$wrapper_end = '</div>';
+        		$data[] = $wrapper . $content . $wrapper_end;
+          }
 
-      		$wrapper = '<div class="vc_grid-filter-item vc_gitem-post-category-name">';
-      		$content = esc_html( $category->name );
-      		if ( ! empty( $category_link ) ) {
-      			$content = '<h5 class="vc_gitem-post-category-name"><a ' . $category_link . ' class="vc_gitem-link">' . $content . '</a>' . '</h5>';
-      		} else {
-      			$content = '<h5 class="vc_gitem-post-category-name">' . $content . '</h5>';
-      		}
-      		$wrapper_end = '</div>';
-      		$data[] = $wrapper . $content . $wrapper_end;
 
 
       	}
