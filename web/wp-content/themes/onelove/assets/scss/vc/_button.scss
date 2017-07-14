@@ -78,7 +78,8 @@ body {
       }
     }
   }
-  .wpcf7-submit {
+
+  .ol-default-button {
     height: 3.125rem;
     padding: .875rem $default-spacing;
     max-width: 100%;
@@ -107,6 +108,12 @@ body {
     font-size: 1.0625rem;
     margin-bottom: .5rem;
   }
+  .wpcf7-submit,
+  input[type=button],
+  [type=button], [type=submit] {
+    @extend .ol-default-button;
+  }
+
   .wpcf7-form p:last-of-type {
     &:focus {
       outline: none;
