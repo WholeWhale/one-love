@@ -15,3 +15,12 @@
     width: $width;
   }
 }
+
+@mixin default_content_padding() {
+  padding-left: $default-spacing/3;
+  padding-right: $default-spacing/3;
+  @include breakpoint(50em) {
+    padding-left: $default-spacing/2;
+    padding-right: $default-spacing/2;
+  }
+}
