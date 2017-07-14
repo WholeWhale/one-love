@@ -14,19 +14,22 @@
 
 // 1. Global
 // ---------
-html head + body .green {
-  background-image: linear-gradient(-137deg, #55C6B6 12%, #22CBB6 45%, #0FCCB6 88%);
-}
-html head + body .blue {
-  background-image: linear-gradient(-141deg, #095E9A 0%, #00A3DF 100%);
-}
-html head + body .navy {
-  background: $midnight;
+html head + body {
+  .green {
+    background-image: linear-gradient(-137deg, #55C6B6 12%, #22CBB6 45%, #0FCCB6 88%);
+  }
+  .blue {
+    background-image: linear-gradient(-141deg, #095E9A 0%, #00A3DF 100%);
+  }
+  .navy {
+    background: $midnight;
+  }
 }
 
-html head + body .green,
-html head + body .blue,
-html head + body .navy,
+
+.green,
+.blue,
+.navy,
 .escalation-block,
 .tnl-block,
 .stories-block,
@@ -36,8 +39,11 @@ html head + body .navy,
 #footer-container,
 .overlay,
 .ol-slider {
-  & * {
+  & *:not(.vc_gitem-post-category-name) {
     color: $white;
+  }
+  .vc_grid-container *:not(:hover,:active,:focus,.vc_gitem-post-category-name) {
+    color: initial;
   }
   input[type="text"],
   input[type="password"],
