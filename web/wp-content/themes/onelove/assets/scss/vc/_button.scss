@@ -113,6 +113,10 @@ body {
   [type=button], [type=submit] {
     @extend .ol-default-button;
   }
+  [type=button] ~ [type=button] {
+    margin-left: $default-spacing;
+    margin-right: $default-spacing;
+  }
 
   .wpcf7-form p:last-of-type {
     &:focus {
