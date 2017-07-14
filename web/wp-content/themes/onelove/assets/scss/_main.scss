@@ -59,6 +59,33 @@ html head + body .navy,
   }
 }
 
+[type=radio] {
+  & + label,
+  & + span {
+    @extend label.radio;
+  }
+
+  &:checked {
+    & + label,
+    & + span {
+      @extend label.checked;
+    }
+  }
+}
+[type=checkbox] {
+  & + label,
+  & + span {
+    @extend label.checkbox;
+  }
+
+  &:checked {
+    & + label,
+    & + span {
+      @extend label.checkbox.checked;
+    }
+  }
+}
+
 // 2. Search Form
 // ---------------
 #searchform {
