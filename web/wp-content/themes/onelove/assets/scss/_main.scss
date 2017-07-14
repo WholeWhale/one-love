@@ -7,7 +7,9 @@
 // 2. Search Form
 // 3. Featured Image
 // 4. Templates
-
+// 5. Slider
+// 6. Love Path
+// 7. Forms
 
 
 // 1. Global
@@ -235,6 +237,9 @@ textarea {
     }
   }
 }
+
+// 5. Slider
+// ---------
 .page-template-page-home .cycloneslider {
   margin-bottom: -$default-spacing;
 }
@@ -363,7 +368,8 @@ textarea {
 }
 
 
-
+// 6. Love Path
+// ---------
 div.vc_row-flex.love-path {
   position: relative;
   .wpb_wrapper {
@@ -394,5 +400,14 @@ div.vc_row-flex.love-path {
       left: $default-spacing;
 
     }
+  }
+}
+
+// 7. Forms
+// ---------
+
+head + body form {
+  @include breakpoint(medium) {
+    max-width: 25rem;
   }
 }
