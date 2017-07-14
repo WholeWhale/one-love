@@ -127,7 +127,8 @@
     "ww-composer/contact-form-7": "^7.4",
     "ww-composer/cf7-multi-step": "master",
     "wpackagist-plugin/cyclone-slider-2": "^3.2.0",
-    "wpackagist-plugin/duracelltomi-google-tag-manager": "^1.6.1"
+    "wpackagist-plugin/duracelltomi-google-tag-manager": "^1.6.1",
+    "wpackagist-plugin/cf7-conditional-fields": "^1.3.4"
 
   },
   "require-dev": {

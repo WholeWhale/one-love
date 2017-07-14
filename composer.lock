@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-
-    "content-hash": "ad2f7aa7c67747522a9297cdc9a97faa",
+    "content-hash": "b7cb481da944e6208940612907115d07",
     "packages": [
         {
             "name": "composer/installers",
@@ -514,6 +513,26 @@
             "homepage": "https://wordpress.org/plugins/404page/"
         },
         {
+            "name": "wpackagist-plugin/cf7-conditional-fields",
+            "version": "1.3.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cf7-conditional-fields/",
+                "reference": "tags/1.3.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cf7-conditional-fields.1.3.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cf7-conditional-fields/"
+        },
+        {
             "name": "wpackagist-plugin/cyclone-slider-2",
             "version": "3.2.0",
             "source": {
@@ -675,15 +694,15 @@
         },
         {
             "name": "wpackagist-plugin/tiny-compress-images",
-            "version": "2.2.3",
+            "version": "2.2.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/tiny-compress-images/",
-                "reference": "tags/2.2.3"
+                "reference": "tags/2.2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.2.2.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.2.2.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1767,12 +1786,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "35e9412d976b4ecd06fb8a43cf4b31e3b20e39a3"
+                "reference": "6d8af894f13f833b5eb0b20814a9b6451aba10bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/35e9412d976b4ecd06fb8a43cf4b31e3b20e39a3",
-                "reference": "35e9412d976b4ecd06fb8a43cf4b31e3b20e39a3",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/6d8af894f13f833b5eb0b20814a9b6451aba10bc",
+                "reference": "6d8af894f13f833b5eb0b20814a9b6451aba10bc",
                 "shasum": ""
             },
             "require": {
@@ -1819,7 +1838,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-07-12T16:18:59+00:00"
+            "time": "2017-07-12T22:12:20+00:00"
         },
         {
             "name": "psr/container",
@@ -2531,12 +2550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "65cd9e75c57d3d51ad4d1cf0361b387a0051d8f9"
+                "reference": "f90487db208f15fc33ab661574ae109c8610cc82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/65cd9e75c57d3d51ad4d1cf0361b387a0051d8f9",
-                "reference": "65cd9e75c57d3d51ad4d1cf0361b387a0051d8f9",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f90487db208f15fc33ab661574ae109c8610cc82",
+                "reference": "f90487db208f15fc33ab661574ae109c8610cc82",
                 "shasum": ""
             },
             "require": {
@@ -2593,7 +2612,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-12T13:09:21+00:00"
+            "time": "2017-07-12T18:41:02+00:00"
         },
         {
             "name": "symfony/dom-crawler",
