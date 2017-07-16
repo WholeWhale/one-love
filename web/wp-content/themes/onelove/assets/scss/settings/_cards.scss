@@ -47,10 +47,12 @@ body {
     position: relative;
   }
   .action-card {
-    padding-top: 45px;
+    padding: 2.5rem $default-spacing;
+    margin-top: $default-spacing;
+    margin-bottom: $default-spacing;
     &:before {
 
-      content: "";
+      content: "";
       font: normal normal normal 25px/1 "Material-Design-Iconic-Font";
       @include dimensions(60px,60px);
       position: absolute;
