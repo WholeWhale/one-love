@@ -265,6 +265,10 @@ textarea {
   }
 }
 
+.single-stories_post_type {
+  @extend .single-learn_post_type;
+}
+
 // 5. Slider
 // ---------
 .page-template-page-home .cycloneslider {
