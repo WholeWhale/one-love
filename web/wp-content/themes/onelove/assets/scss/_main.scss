@@ -26,15 +26,10 @@ html head + body {
   }
 }
 
-
-.green,
-.blue,
-.navy,
-.escalation-block,
-.tnl-block,
-.stories-block,
-.bookmark-block,
-.stickies-block,
+html head + body .green,
+html head + body .blue,
+html head + body .navy,
+.default-block-styling,
 .main-video-slide,
 #footer-container,
 .overlay,
@@ -269,6 +264,10 @@ textarea {
       margin-bottom: 1.25rem;
     }
   }
+}
+
+.single-stories_post_type {
+  @extend .single-learn_post_type;
 }
 
 // 5. Slider

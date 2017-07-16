@@ -37,7 +37,7 @@ class CF7Bigmarker {
 
     $return = '';
     foreach ($output as $id => $time) {
-      $return .= '<label><input name="webinar" value="'.$id.'" type="radio" /> '.$time->format(self::DATE_FORMAT).'</label>';
+      $return .= '<label><input name="webinar" value="'.$id.'" type="radio" /><span class="wpcf7-list-item-label">'.$time->format(self::DATE_FORMAT).'</span></label>';
     }
 
     return $return;

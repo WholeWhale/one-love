@@ -24,3 +24,11 @@
     padding-right: $default-spacing/2;
   }
 }
+
+@mixin create_block($blockname, $img_name, $color) {
+  .#{$blockname}-block {
+    background-image: url('/wp-content/themes/onelove/assets/images/#{$img_name}.svg');
+    background-color: $color;
+    @extend .default-block-styling;
+  }
+}
