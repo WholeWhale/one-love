@@ -1,20 +1,40 @@
-
-.default-block-styling {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 21.875rem;
-  max-width: 21.875rem;
-  padding: $default-spacing;
-  margin: $default-spacing/2;
-  padding-top: 0;
-  margin-top: 0;
-  position: relative;
-  .ol_button {
-    position: absolute;
-    margin-bottom: $default-spacing;
-    bottom: 0;
+html body {
+  .default-block-styling {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-clip: content-box;
+    height: 21.875rem;
+    max-width: 21.875rem;
+    padding: 0 $default-spacing/2;
+    box-sizing: border-box;
+    margin-top: $default-spacing/2;
+    margin-bottom: $default-spacing/2;
+    position: relative;
+    .ol_button {
+      position: absolute;
+      margin: 0 auto $default-spacing auto;
+      right: $default-spacing;
+      left: $default-spacing;
+      bottom: 0;
+      a.vc_btn3-color-default:hover {
+        background-color: $midnight;
+      }
+    }
   }
+  .bookmark-block {
+    background-size: 20%;
+    background-position: right $default-spacing top;
+  }
+  .flyer-block {
+    background-size: 60%;
+  }
+  .stickies-block {
+    .ol_button a.vc_btn3-color-default:hover {
+      background-color: $moss;
+    }
+  }
+
 }
 
 @include create_block('escalation','projector',$sky);
@@ -24,12 +44,3 @@
 @include create_block('stickies','stickies',$midnight);
 @include create_block('playlist','playlist',$light-orange);
 @include create_block('flyer','flyer',$alt-grey);
-
-
-.bookmark-block {
-  background-size: 20%;
-  background-position: right $default-spacing top;
-}
-.flyer-block {
-  background-size: 60%;
-}
