@@ -27,11 +27,7 @@ body {
       body .blue,
       body .green,
       body .navy,
-      .escalation-block,
-      .tnl-block,
-      .stories-block,
-      .bookmark-block,
-      .stickies-block,
+      .default-block-styling,
       .main-video-slide {
         .ol_button {
           .vc_btn3-color-default {
@@ -56,7 +52,8 @@ body {
           }
         }
       }
-      html body .navy  {
+      html body .navy,
+      .stickies-block  {
         .ol_button .vc_btn3-color-default,
         .wpcf7-submit {
           &:hover {
