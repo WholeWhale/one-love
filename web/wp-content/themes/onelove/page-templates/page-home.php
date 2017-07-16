@@ -11,7 +11,7 @@ $slider = do_shortcode('[cycloneslider id="homepage"]');
 if ( empty($slider) || mb_strpos($slider,'not found') !== false  ) {
   $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
   if ( has_post_thumbnail( $post->ID ) ) : ?>
-    <header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
+    <header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-alt-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-alt-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-alt-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-alt-xlarge'); ?>, xlarge]">
       <div class="overlay">
         <header class="full-page-header-content">
             <h1 class="entry-title"><?php the_title(); ?></h1>
