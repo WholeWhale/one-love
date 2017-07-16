@@ -149,7 +149,6 @@ textarea {
 
 // 4. Templates
 // ---------------
-.page-template-single-learn_post_type,
 .single-learn_post_type {
 
   #featured-hero {
@@ -171,8 +170,6 @@ textarea {
   }
 }
 
-
-.page-template-single-start_post_type,
 .single-start_post_type  #single-post,
 .page-template-page-home #page-full-width,
 .page-template-page-full-width #page-full-width,
@@ -261,9 +258,17 @@ textarea {
   }
 }
 
-.single-stories_post_type {
+.single-stories_post_type,
+.page-template-page-learn,
+.rally_post_type-template-page-learn,
+.rally_post_type-template-default  {
   @extend .single-learn_post_type;
 }
+.rally_post_type-template-page-start,
+.page-template-page-start {
+  @extend .single-start_post_type;
+}
+
 
 // 5. Slider
 // ---------
