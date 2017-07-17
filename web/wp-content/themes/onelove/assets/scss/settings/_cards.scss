@@ -12,7 +12,8 @@ body {
     @extend .z-depth-1;
     background: $white;
     border: 1px solid $border;
-    @include default_content_padding();
+    padding-left: $default-spacing;
+    padding-right: $default-spacing;
     padding-bottom: $default-spacing;
     box-shadow: none;
     .link-icon i {
@@ -52,7 +53,7 @@ body {
     margin-bottom: $default-spacing;
     &:before {
 
-      content: "";
+      content: "";
       font: normal normal normal 25px/1 "Material-Design-Iconic-Font";
       @include dimensions(60px,60px);
       position: absolute;
