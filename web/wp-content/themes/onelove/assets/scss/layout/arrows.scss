@@ -12,6 +12,10 @@
     cursor: pointer;
     opacity: 0;
     transition: opacity .75s ease;
+    display: none;
+    @include breakpoint(30rem) {
+      display: inherit;
+    }
   }
   .slider-prev {
     left: $default-spacing;
@@ -23,6 +27,26 @@
     .slider-prev,
     .slider-next {
       opacity: 1;
+    }
+  }
+  .slider-pager {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: $default-spacing/2;
+    z-index: 150;
+    position: absolute;
+    text-align: center;
+    @include breakpoint(30rem) {
+      display: none;
+    }
+    .cycle-pager-active .slider-pager-icon {
+      content: url('/wp-content/themes/onelove/assets/images/active-white.svg');
+    }
+    .slider-pager-icon {
+      content: url('/wp-content/themes/onelove/assets/images/inactive-white.svg');
+      margin-left: .46875rem;
+      margin-right: .46875rem;
     }
   }
 }

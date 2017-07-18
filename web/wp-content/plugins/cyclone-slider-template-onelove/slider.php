@@ -13,10 +13,13 @@
        data-cycle-pause-on-hover="<?php echo esc_attr( $slider_settings['hover_pause'] ); ?>"
        data-cycle-slides="div.cycloneslider-slide"
        data-cycle-auto-height="false"
+       data-cycle-pager=".slider-pager"
+       data-cycle-pager-template="<a><img class='slider-pager-icon'/></a>"
   >
   <?php if ($slider_settings['show_prev_next']) : ?>
     <span class="slider-prev"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/left-arrow.png" alt="Select Previous Slide"></span>
     <span class="slider-next"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/right-arrow.png" alt="Select Next Slide"></span>
+    <span class="slider-pager"></span>
   <?php endif; ?>
       <?php foreach($slides as $i=>$slide): ?>
           <?php if ( 'image' == $slide['type'] ) : ?>
