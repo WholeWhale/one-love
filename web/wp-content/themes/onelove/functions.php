@@ -312,3 +312,13 @@ function add_additional_image_sizes() {
   add_image_size( 'featured-alt-xlarge', 1920, 600, true );
 }
 add_action('after_setup_theme','add_additional_image_sizes');
+
+
+
+// Disable AutoEmbed
+function disable_embeds_code_init() {
+// Turn off oEmbed auto discovery.
+add_filter( 'embed_oembed_discover', '__return_false' );
+}
+
+add_action( 'admin_init', 'disable_embeds_code_init', 9999 );

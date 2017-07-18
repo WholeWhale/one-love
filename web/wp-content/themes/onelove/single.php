@@ -6,7 +6,30 @@
  * @since FoundationPress 1.0.0
  */
 
-get_header(); ?>
+
+global $post;
+
+$cat = get_the_terms($post->ID,'news_category');
+
+if ( !empty($cat) ) {
+  foreach ($cat as $value) {
+    if ( $value->name == 'Press' ) {
+      $category_post_content = wp_strip_all_tags( apply_filters( 'the_content', get_post_field( 'post_content', $post->ID ) ) );
+      $redirect_url = trim( filter_var($category_post_content, FILTER_SANITIZE_URL) );
+      if ( !empty($redirect_url) ) {
+        wp_redirect($redirect_url, 301);
+        exit;
+      }
+
+    }
+  }
+}
+
+get_header();
+
+?>
+
+
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
