@@ -1,6 +1,7 @@
 <?php
 
 use Firebase\JWT\JWT;
+use Davispeixoto\ForceDotComToolkitForPhp\QueryResult;
 
 class ContactChecker extends Salesforce {
 
@@ -8,10 +9,14 @@ class ContactChecker extends Salesforce {
   public static $COOKIE_DURATION = 0; // for the session
   public static $COOKIE_NAME = 'wp-ol_email_cookie';
 
+  public $canView = false;
+  public $viewError = false;
+
   /**
    * Constructor.
    */
   public function __construct() {
+    add_action('wp', array($this, 'setCanView'));
     add_action('the_content', array($this, 'validatePost'));
 
     add_action('admin_post_nopriv_sf_email_validate', array($this, 'processEmailForm'));
@@ -42,54 +47,107 @@ class ContactChecker extends Salesforce {
     return $resp->searchRecords;
   }
 
-  public function isInCampaign($contactId, $campaignId) {
-    $resp = $this->conn->query("SELECT Id FROM CampaignMember WHERE CampaignId='$campaignId' AND ContactId='$contactId'");
+  protected function getCampaignMemberships($contactId, $campaignId) {
+    $resp = $this->conn->query("SELECT Id, Status FROM CampaignMember WHERE CampaignId='$campaignId' AND ContactId='$contactId'");
 
-    return count($resp->records) > 0;
+    $result = new QueryResult($resp);
+
+    $campaigns = [];
+    for ($result->rewind(); $result->pointer < $result->size; $result->next()) {
+      $record = $result->current();
+
+      $campaigns[$campaignId] = $record->fields->Status;
+    }
+
+    return $campaigns;
   }
 
-  public function validatePost($content) {
-    global $post;
-    $shouldValidate = get_post_meta($post->ID, Metaboxes::KEY, true);
+  protected function updateCampaignMembership(&$tok, $campaignId) {
+    static $hasRun = [];
 
-    if (!$shouldValidate || $shouldValidate == 0) {
-      return $content;
+    if (!isset($hasRun[$campaignId])) {
+      $memberships = $this->getCampaignMemberships($tok->Id, $campaignId);
+
+      foreach ($memberships as $campaign => $status) {
+        $tok->campaigns[$campaign] = $status;
+      }
+
+      $this->setCookie($this->generateJWT($tok));
+
+      $hasRun[$campaignId] = true;
+    }
+  }
+
+  public function isInCampaign($tok, $campaignId, $isRetry = false) {
+    if (isset($tok->campaigns) && array_key_exists($campaignId, $tok->campaigns)) {
+      return true;
+    } else {
+      if (!$isRetry) {
+        $this->updateCampaignMembership($tok, $campaignId);
+        return $this->isInCampaign($tok, $campaignId, true);
+      } else {
+        return false;
+      }
+    }
+  }
+
+  public function hasCampaignStatus($tok, $campaignId, $status, $isRetry = false) {
+    if (isset($tok->campaigns[$campaignId]) && $tok->campaigns[$campaignId] == $status) {
+      return true;
+    } else {
+      if (!$isRetry) {
+        $this->updateCampaignMembership($tok, $campaignId);
+        return $this->hasCampaignStatus($tok, $campaignId, $status, true);
+      } else {
+        return false;
+      }
+    }
+  }
+
+  public function setCanView() {
+    global $post;
+
+    $settings = Metaboxes::getSettings($post->ID);
+    $shouldValidate = $settings !== false;
+
+    if (!$shouldValidate) {
+      $this->canView = true;
     }
 
     $this->initializeSalesforce();
 
-    $error = false;
-    $email = null;
-
+    // If we have a valid token because they exist in SF
     if ($tok = self::getContactInfo()) {
-      $email = $tok->Email;
-      if ($shouldValidate > 1) {
-        if ($tok->campaigns && in_array($shouldValidate, $tok->campaigns)) {
-          return $content;
-        } else if ($this->isInCampaign($tok->Id, $shouldValidate)) {
-          $newTok = $this->generateJWT($tok, $shouldValidate);
-          $this->setCookie($newTok);
-          return $content;
-        } else {
-          $error = true;
+      // If we need to check the campaign
+      if ($settings['campaign']) {
+        if ($this->isInCampaign($tok, $settings['campaign'])) {
+          if ($settings['status']) {
+            if ($this->hasCampaignStatus($tok, $settings['campaign'], $settings['status'])) {
+              $this->canView = true;
+            } else { // in campaign, but wrong status
+              $this->error = true;
+            }
+          } else { // in campaign, no status requirement
+            $this->canView = true;
+          }
+        } else { // not in campaign
+          $this->error = true;
         }
-      } else {
-        return $content;
+      } else { // no need to check campaign
+        $this->canView = true;
       }
     }
-
-    return $this->generateEmailForm($error);
   }
 
-  protected function generateJWT($sfUser, $campaign = null) {
-    if ($campaign) {
-      if (!$sfUser->campaigns) {
-        $sfUser->campaigns = [];
-      }
-
-      $sfUser->campaigns[] = $campaign;
+  public function validatePost($content) {
+    if ($this->canView) {
+      return $content;
+    } else {
+      return $this->generateEmailForm();
     }
+  }
 
+  protected function generateJWT($sfUser) {
     $data = [
       'data' => $sfUser,
     ];
@@ -104,12 +162,20 @@ class ContactChecker extends Salesforce {
       return false;
     }
 
+    if ($decoded->data->campaigns) {
+      $decoded->data->campaigns = (array) $decoded->data->campaigns;
+    }
+
     return $decoded->data;
   }
 
-  protected function generateEmailForm($error = false) {
-    if ($error = isset($_GET['failed'])) {
+  protected function generateEmailForm() {
+    $error = $this->error;
+    if (isset($_GET['failed'])) {
+      $error = true;
       $email = $_GET['failed'];
+    } else if ($tok = $this->getContactInfo()) {
+      $email = $tok->fields->Email;
     }
 
     ob_start();
