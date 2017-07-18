@@ -33,7 +33,7 @@ get_header();
     	</article>
     <?php endwhile;?>
 
-    <a href="/staff"><h3 class="return-staff">< Back To All Staff</h3></a>
+    <a href="/team"><h3 class="return-staff">< Back To All Staff</h3></a>
     <?php do_action( 'foundationpress_after_content' ); ?>
   </div>
 </div>
