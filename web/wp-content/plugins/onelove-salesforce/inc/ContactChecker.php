@@ -112,6 +112,7 @@ class ContactChecker extends Salesforce {
 
     if (!$shouldValidate) {
       $this->canView = true;
+      return;
     }
 
     $this->initializeSalesforce();
