@@ -12,7 +12,8 @@ body {
     @extend .z-depth-1;
     background: $white;
     border: 1px solid $border;
-    @include default_content_padding();
+    padding-left: $default-spacing;
+    padding-right: $default-spacing;
     padding-bottom: $default-spacing;
     box-shadow: none;
     .link-icon i {
@@ -47,7 +48,9 @@ body {
     position: relative;
   }
   .action-card {
-    padding-top: 45px;
+    padding: 2.5rem $default-spacing;
+    margin-top: $default-spacing;
+    margin-bottom: $default-spacing;
     &:before {
 
       content: "";
