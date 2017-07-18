@@ -52,7 +52,7 @@ class Metaboxes {
       return false;
     } else if (strpos($meta, '|') === false) {
       return [
-        'campaign' => $meta,
+        'campaign' => ($meta != '1') ? $meta : false,
         'status' => false,
       ];
     } else {

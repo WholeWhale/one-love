@@ -17,6 +17,7 @@ class CF7Bigmarker {
   function __construct() {
     add_action('wpcf7_init', array($this, 'addTag'));
     add_action('wpcf7_before_send_mail', array($this, 'submissionHandler'));
+    add_action('wpcf7_posted_data', array($this, 'dateValueAdder'));
   }
 
   public function addTag() {
@@ -37,7 +38,7 @@ class CF7Bigmarker {
 
     $return = '';
     foreach ($output as $id => $time) {
-      $return .= '<label><input name="webinar" value="'.$id.'" type="radio" /><span class="wpcf7-list-item-label">'.$time->format(self::DATE_FORMAT).'</span></label>';
+      $return .= '<label><input name="cf7-bm-webinar" value="'.$id.'" type="radio" /><span class="wpcf7-list-item-label">'.$time->format(self::DATE_FORMAT).'</span></label>';
     }
 
     return $return;
@@ -68,6 +69,24 @@ class CF7Bigmarker {
     return json_decode($resp['body']);
   }
 
+  public function dateValueAdder($data) {
+    if (isset($data['cf7-bm-webinar'])) {
+      $webinar = $data['cf7-bm-webinar'];
+
+      $conference = $this->get('conferences/'.$webinar);
+      $time = new DateTime($conference->start_time);
+      $time = $time->setTimezone(new DateTimeZone('America/New_York'));
+
+      $tags = wpcf7_scan_form_tags();
+      foreach ($tags as $tag) {
+        if ($tag->type == 'bigmarker') {
+          $data[$tag->name] = $time->format(DATE_ATOM);
+          break;
+        }
+      }
+    }
+  }
+
   public function submissionHandler($cf7) {
     if (!defined('BIGMARKER_API_KEY')) {
       return;
@@ -83,7 +102,7 @@ class CF7Bigmarker {
     }
 
     if (!is_null($tag)) {
-      if (empty($data['webinar'])) {
+      if (empty($data['cf7-bm-webinar'])) {
         return;
       }
 
@@ -93,7 +112,7 @@ class CF7Bigmarker {
         'email' => $data[$opts['email']],
         'first_name' => $data[$opts['first']],
         'last_name' => $data[$opts['last']],
-        'id' => $data['webinar']
+        'id' => $data['cf7-bm-webinar']
       ]);
     }
   }
