@@ -31,8 +31,11 @@ class CF7Bigmarker {
     $output = [];
     foreach ($conferences as $conference) {
       if ($conference->channel_id == $channel) {
-        $time = new DateTime($conference->start_time);
-        $output[$conference->id] = $time->setTimezone(new DateTimeZone('America/New_York'));
+        $attendees = $this->get('conferences/registrations/'.$conference->id);
+        if (count($attendees->registrations) < $conference->max_attendance) {
+          $time = new DateTime($conference->start_time);
+          $output[$conference->id] = $time->setTimezone(new DateTimeZone('America/New_York'));
+        }
       }
     }
 
