@@ -17,7 +17,7 @@ class CF7Bigmarker {
   function __construct() {
     add_action('wpcf7_init', array($this, 'addTag'));
     add_action('wpcf7_before_send_mail', array($this, 'submissionHandler'));
-    add_action('wpcf7_posted_data', array($this, 'dateValueAdder'));
+    add_filter('wpcf7_posted_data', array($this, 'dateValueAdder'));
   }
 
   public function addTag() {
@@ -85,6 +85,8 @@ class CF7Bigmarker {
         }
       }
     }
+
+    return $data;
   }
 
   public function submissionHandler($cf7) {
