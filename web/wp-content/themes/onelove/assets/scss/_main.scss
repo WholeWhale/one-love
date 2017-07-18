@@ -280,6 +280,20 @@ textarea {
   @extend .single-start_post_type;
 }
 
+.archive,
+.search-results {
+  @extend .page-template-page-full-width;
+  #page-full-width {
+    max-width: 94%;
+    @include breakpoint(30rem) {
+      max-width: 80%;
+    }
+    @include breakpoint(48rem) {
+      max-width: 48rem;
+    }
+  }
+}
+
 
 // 5. Slider
 // ---------
@@ -452,5 +466,11 @@ div.vc_row-flex.love-path {
 head + body form {
   @include breakpoint(medium) {
     max-width: 25rem;
+  }
+}
+
+li.current {
+  & a:hover {
+    background-color: inherit;
   }
 }
