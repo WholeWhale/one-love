@@ -20,7 +20,7 @@ class CF7Bigmarker {
   }
 
   public function addTag() {
-    wpcf7_add_form_tag('bigmarker', array($this, 'tagHandler'));
+    wpcf7_add_form_tag('bigmarker', array($this, 'tagHandler'), array('name-attr' => true));
   }
 
   public function tagHandler($tag) {
