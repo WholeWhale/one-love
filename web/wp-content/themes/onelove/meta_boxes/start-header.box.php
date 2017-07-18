@@ -15,11 +15,11 @@ function campaign_card_metabox_markup( $post ) {
         <input type="text" name="campaign-button-cta" maxlength="50" style="width: 100%;" value="<?php if ( isset ( $prfx_stored_meta['campaign-button-cta'] ) ) echo $prfx_stored_meta['campaign-button-cta'][0]; ?>">
     </p>
     <p>
-        <label for="campaign-popup" class="prfx-row-title">
-          <?php _e( 'Button Popup Content:', 'prfx-textdomain' )?>
+        <label for="campaign-popup-url" class="prfx-row-title">
+          <?php _e( 'Button URL:', 'prfx-textdomain' )?>
         </label>
         <br>
-        <textarea name="campaign-popup" rows="12" cols="60" style="width: 100%;"><?php if ( isset ( $prfx_stored_meta['campaign-popup'] ) ) echo $prfx_stored_meta['campaign-popup'][0]; ?></textarea>
+        <input type="text" name="campaign-button-url" maxlength="50" style="width: 100%;" value="<?php if ( isset ( $prfx_stored_meta['campaign-button-url'] ) ) echo $prfx_stored_meta['campaign-button-url'][0]; ?>">
     </p>
     <p>
         <label for="campaign-description" class="prfx-row-title">
@@ -94,7 +94,7 @@ function create_campaign_card_metabox() {
           return;
       }
 
-      $fields = array( 'campaign-popup', 'campaign-description', 'campaign-button-cta' );
+      $fields = array( 'campaign-button-cta', 'campaign-description', 'campaign-button-url' );
       foreach ($fields as $field_name) {
         // Checks for input and sanitizes/saves if needed
         if( isset( $_POST[ $field_name ] ) ) {
