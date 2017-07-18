@@ -1,0 +1,30 @@
+.staff-container {
+  @include breakpoint(medium) {
+    display: flex;
+  }
+  margin-bottom: calc(-3.75rem - 1px );
+  .staff-container-column {
+
+    @include breakpoint(medium) {
+      float: left;
+      width: 50%;
+      height: auto;
+      flex-direction: column;
+      flex: 1;
+    }
+  }
+  #featured-hero {
+    height: rem-calc(300);
+    @include breakpoint(medium) {
+      height: 100%;
+    }
+  }
+  #single-post {
+    margin-left: $default-spacing;
+    margin-right: $default-spacing;
+  }
+  .return-staff {
+    margin-bottom: $default-spacing;
+    margin-left: $default-spacing/2;
+  }
+}
