@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>inactive</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mobile-wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14.1132706,0.718284212 L13.3232547,1.48351534 L12.6098797,0.801156651 L13.3011023,0.078514794 L13.9979376,0.795746005 L11.5332315,3.19036305 L9.27707979,1 L4.06788916,1 L1,3.98008243 L1,8.35963851 L11.5503713,18.6060067 L22.1005608,8.35964344 L22.1005608,3.98009799 L19.0324936,1 L13.4175208,1 L13.4175208,0 L14.1132706,0.718284212 Z" id="inactive" stroke="#fff" stroke-width="2"></path>
+    </g>
+</svg>
