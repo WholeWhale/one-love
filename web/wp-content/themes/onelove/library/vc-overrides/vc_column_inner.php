@@ -45,7 +45,7 @@ if ( ! empty( $el_id ) ) {
 	$wrapper_attributes[] = 'id="' . esc_attr( $el_id ) . '"';
 }
 $output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
-$output .= '<div class="vc_column-inner-boi ' . esc_attr( trim( vc_shortcode_custom_css_class( $css ) ) ) . '" '. $html_attribs .'>';
+$output .= '<div class="vc_column-inner ' . esc_attr( trim( vc_shortcode_custom_css_class( $css ) ) ) . '" '. $html_attribs .'>';
 $output .= '<div class="wpb_wrapper">';
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</div>';
