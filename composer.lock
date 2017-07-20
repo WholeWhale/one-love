@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1481fdb92a0ab6692fcd761161c10d61",
+    "content-hash": "86076c921bff984bc08354d0abba0d8b",
     "packages": [
         {
             "name": "composer/installers",
@@ -711,6 +711,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/social-warfare/"
+        },
+        {
+            "name": "wpackagist-plugin/sparkpost",
+            "version": "3.0.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/sparkpost/",
+                "reference": "tags/3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/sparkpost.3.0.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/sparkpost/"
         },
         {
             "name": "wpackagist-plugin/tiny-compress-images",
@@ -1806,12 +1826,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "6d8af894f13f833b5eb0b20814a9b6451aba10bc"
+                "reference": "e9e22cb2935927005217bab576214f858221d3e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/6d8af894f13f833b5eb0b20814a9b6451aba10bc",
-                "reference": "6d8af894f13f833b5eb0b20814a9b6451aba10bc",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/e9e22cb2935927005217bab576214f858221d3e3",
+                "reference": "e9e22cb2935927005217bab576214f858221d3e3",
                 "shasum": ""
             },
             "require": {
@@ -1858,7 +1878,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-07-12T22:12:20+00:00"
+            "time": "2017-07-20T15:08:46+00:00"
         },
         {
             "name": "psr/container",
@@ -2329,12 +2349,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "a34381a455c296a5a2cd97317933aa70c1336e5e"
+                "reference": "c114319f85536d7b10b0057798c99a8795616e84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/a34381a455c296a5a2cd97317933aa70c1336e5e",
-                "reference": "a34381a455c296a5a2cd97317933aa70c1336e5e",
+                "url": "https://api.github.com/repos/symfony/config/zipball/c114319f85536d7b10b0057798c99a8795616e84",
+                "reference": "c114319f85536d7b10b0057798c99a8795616e84",
                 "shasum": ""
             },
             "require": {
@@ -2383,7 +2403,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-24T09:47:31+00:00"
+            "time": "2017-07-19T09:38:19+00:00"
         },
         {
             "name": "symfony/console",
@@ -2391,12 +2411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "4820f8e1b3c03aab46a655518d078a7ffc8df4ef"
+                "reference": "7f9f05713b7ebaf63a122361f43500513e18af17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/4820f8e1b3c03aab46a655518d078a7ffc8df4ef",
-                "reference": "4820f8e1b3c03aab46a655518d078a7ffc8df4ef",
+                "url": "https://api.github.com/repos/symfony/console/zipball/7f9f05713b7ebaf63a122361f43500513e18af17",
+                "reference": "7f9f05713b7ebaf63a122361f43500513e18af17",
                 "shasum": ""
             },
             "require": {
@@ -2453,7 +2473,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-17T12:21:21+00:00"
+            "time": "2017-07-20T18:08:38+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -2570,12 +2590,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "4e5b4212edfefe74c14f6153cc44e8ce324155c1"
+                "reference": "07f1ff565671a97e9665effba1aa48b26e92cce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/4e5b4212edfefe74c14f6153cc44e8ce324155c1",
-                "reference": "4e5b4212edfefe74c14f6153cc44e8ce324155c1",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/07f1ff565671a97e9665effba1aa48b26e92cce5",
+                "reference": "07f1ff565671a97e9665effba1aa48b26e92cce5",
                 "shasum": ""
             },
             "require": {
@@ -2632,7 +2652,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-18T11:59:19+00:00"
+            "time": "2017-07-19T09:38:19+00:00"
         },
         {
             "name": "symfony/dom-crawler",
