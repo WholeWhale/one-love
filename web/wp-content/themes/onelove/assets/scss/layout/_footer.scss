@@ -1,7 +1,11 @@
 #footer-container {
   background-color: $midnight;
-  a:hover {
-    color: $sky;
+  a,
+  a.social-media-icon {
+    &:hover,
+    &:hover i {
+      color: $sky;
+    }
   }
   article.footer-widget-container {
     margin-bottom: $default-spacing;
