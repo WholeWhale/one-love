@@ -74,7 +74,9 @@ body {
 
   .entry-title,
   .title {
-    line-height: $title-line-height;
+    @media (min-width: 30rem) {
+      line-height: $title-line-height;
+    }
   }
 
   h1,
@@ -112,7 +114,9 @@ body {
   }
   .entry-title,
   html & .title {
-    font-size: $title_font_size;
+    @media (min-width: 30rem) {
+      font-size: $title_font_size;
+    }
   }
 }
 

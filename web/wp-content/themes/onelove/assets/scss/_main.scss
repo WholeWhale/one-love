@@ -95,6 +95,23 @@ html head + body .navy,
   }
 }
 
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .entry-title,
+  .title,
+  div.vc_gitem-post-category-name span,
+  #menu-footer > li > a,
+  .wpcf7-submit {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
 // 2. Search Form
 // ---------------
 #searchform {
