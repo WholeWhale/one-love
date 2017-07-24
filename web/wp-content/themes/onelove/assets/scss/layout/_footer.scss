@@ -1,12 +1,24 @@
 #footer-container {
   background-color: $midnight;
-  a,
+  a {
+    &:hover,
+    &:hover i,
+    &:active,
+    &:active i {
+      text-decoration: underline;
+      color: $white;
+    }
+  }
   a.social-media-icon {
     &:hover,
-    &:hover i {
+    &:hover i,
+    &:active,
+    &:active i {
+      text-decoration: none;
       color: $sky;
     }
   }
+
   .active a {
     background: initial;
   }

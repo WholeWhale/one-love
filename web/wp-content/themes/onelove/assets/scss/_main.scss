@@ -30,7 +30,10 @@ html head + body {
     padding-left: $default-spacing/2;
     padding-right: $default-spacing/2;
     a {
-      font-weight: bold;
+      font-weight: bold !important;
+      * {
+        font-weight: bold !important;
+      }
       &:hover,
       &:active {
         text-decoration: underline;
