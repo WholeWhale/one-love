@@ -29,6 +29,13 @@ html head + body {
   .navy {
     padding-left: $default-spacing/2;
     padding-right: $default-spacing/2;
+    a {
+      font-weight: bold;
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
