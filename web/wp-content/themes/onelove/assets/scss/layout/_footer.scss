@@ -7,6 +7,9 @@
       color: $sky;
     }
   }
+  .active a {
+    background: initial;
+  }
   article.footer-widget-container {
     margin-bottom: $default-spacing;
   }
