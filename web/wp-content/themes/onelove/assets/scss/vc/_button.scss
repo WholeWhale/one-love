@@ -66,18 +66,23 @@ body {
       }
     }
     .vc_btn3-size-default {
-      height: 3.125rem;
+      min-height: 3.125rem;
       padding-left: $default-spacing;
       padding-right: $default-spacing;
       max-width: 100%;
       @include breakpoint(medium) {
         max-width: 21.875rem;
       }
+      & * {
+        margin: 0;
+        line-height: 1;
+        padding-top: 1%;
+      }
     }
   }
 
   .ol-default-button {
-    height: 3.125rem;
+    min-height: 3.125rem;
     padding: .875rem $default-spacing;
     max-width: 100%;
     @include breakpoint(medium) {
