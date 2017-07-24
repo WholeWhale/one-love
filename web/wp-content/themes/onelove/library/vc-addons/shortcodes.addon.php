@@ -275,7 +275,7 @@ function action_card( $atts, $content = null ) {
   echo "
   <style media='screen'>
     #".$unique_iden.".action-card { border-top-color: ".$color."; }
-    #".$unique_iden.".action-card:before { content: '".$icon ."'; background: ".$color."; font-family: '".$font_family."';}
+    #".$unique_iden.".action-card:before { content: '".$icon ."'; background: ".$color."; font-family: ".$font_family.";}
   </style>
   <div id='" . $unique_iden ."' class='action-card vc_card_spacing ".$extra_classes."'".$extra_attribs." data-equalizer-watch='card'>
     ". do_shortcode( $content ) ."
