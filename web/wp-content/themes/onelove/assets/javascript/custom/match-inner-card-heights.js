@@ -7,6 +7,7 @@ jQuery(function($){
        if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
     });
     $(".card-half").height(maxHeight);
+    $(".card-half").eq(0).height(maxHeight+70);
   }
   function translate_margin() {
     var convo_card =  $('.conversation-card');
