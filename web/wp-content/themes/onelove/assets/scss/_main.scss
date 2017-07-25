@@ -29,6 +29,16 @@ html head + body {
   .navy {
     padding-left: $default-spacing/2;
     padding-right: $default-spacing/2;
+    a {
+      font-weight: bold !important;
+      * {
+        font-weight: bold !important;
+      }
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -92,6 +102,23 @@ html head + body .navy,
     & + span {
       @extend label.checkbox.checked;
     }
+  }
+}
+
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .entry-title,
+  .title,
+  div.vc_gitem-post-category-name span,
+  #menu-footer > li > a,
+  .wpcf7-submit {
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 

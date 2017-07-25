@@ -331,3 +331,5 @@ function wpdocs_excerpt_more( $more ) {
     );
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+add_filter( 'wpcf7_support_html5_fallback', '__return_true' );

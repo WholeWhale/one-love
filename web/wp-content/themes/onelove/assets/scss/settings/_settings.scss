@@ -116,20 +116,20 @@ $header-margin-bottom: 0.5rem;
 $main-font-size: 25;
 $header-styles: (
   small: (
-    'h1': ('font-size': rem-calc($main-font-size + 3)),
-    'h2,#menu-footer > li > a': ('font-size': rem-calc($main-font-size - 3)),
-    'h3': ('font-size': rem-calc($main-font-size - 7)),
-    'h4': ('font-size': rem-calc($main-font-size - 8)),
-    'h5,div.vc_gitem-post-category-name span': ('font-size': rem-calc($main-font-size - 11)),
-    'h6': ('font-size': rem-calc($main-font-size - 13)),
+    'h1'                                     : ('font-size': 2rem),
+    'h2,#menu-footer > li > a'               : ('font-size': 1.5rem),
+    'h3'                                     : ('font-size': 1.3rem),
+    'h4'                                     : ('font-size': 1.0625rem),
+    'h5,div.vc_gitem-post-category-name span': ('font-size': .875rem),
+    'h6'                                     : ('font-size': .75rem),
   ),
   medium: (
-  'h1': ('font-size': rem-calc($main-font-size + 3)),
-  'h2,#menu-footer > li > a': ('font-size': rem-calc($main-font-size - 3)),
-  'h3': ('font-size': rem-calc($main-font-size - 7)),
-  'h4': ('font-size': rem-calc($main-font-size - 8)),
-  'h5,div.vc_gitem-post-category-name span': ('font-size': rem-calc($main-font-size - 11)),
-  'h6': ('font-size': rem-calc($main-font-size - 13)),
+    'h1'                                     : ('font-size': 2rem),
+    'h2,#menu-footer > li > a'               : ('font-size': 1.5rem),
+    'h3'                                     : ('font-size': 1.3rem),
+    'h4'                                     : ('font-size': 1.0625rem),
+    'h5,div.vc_gitem-post-category-name span': ('font-size': .875rem),
+    'h6'                                     : ('font-size': .75rem),
   ),
 );
 $header-text-rendering: optimizeLegibility;
