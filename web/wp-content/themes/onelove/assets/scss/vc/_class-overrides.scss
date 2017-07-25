@@ -39,4 +39,9 @@ body {
       }
     }
   }
+  .vc_images_carousel {
+    @include breakpoint(mobile only) {
+      width: 100% !important;
+    }
+  }
 }
