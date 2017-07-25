@@ -44,6 +44,10 @@ class CF7Bigmarker {
       $return .= '<label><input name="cf7-bm-webinar" value="'.$id.'" type="radio" /><span class="wpcf7-list-item-label">'.$time->format(self::DATE_FORMAT).'</span></label>';
     }
 
+    if (empty($return)) {
+      return '<strong>There are no open trainings available. Please check back later.</strong>';
+    }
+
     return $return;
   }
 
