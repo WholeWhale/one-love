@@ -39,4 +39,9 @@ body {
       }
     }
   }
+  .vc_images_carousel {
+    @media (max-width: mobile) {
+      width: 100% !important;
+    }
+  }
 }

@@ -14,6 +14,14 @@
 
 // 1. Global
 // ---------
+
+html,
+body,
+footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html head + body {
   .green {
     background-image: linear-gradient(-137deg, #55C6B6 12%, #22CBB6 45%, #0FCCB6 88%);
@@ -321,6 +329,9 @@ textarea {
   }
 }
 
+.single-staff_post_type #featured-hero {
+  background-position: 15% 15%;
+}
 
 // 5. Slider
 // ---------
