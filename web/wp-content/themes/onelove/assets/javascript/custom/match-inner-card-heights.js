@@ -6,14 +6,21 @@ jQuery(function($){
     $(".card-half").each(function(){
        if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
     });
-    $(".card-half").eq(0).height(maxHeight+70);
+    maxHeight += 70;
+    $(".card-half").eq(0).height(maxHeight);
+    maxHeight += 38;
+    $(".conversation-card").css({
+    "-webkit-transform":"translateY(-"+maxHeight+"px)",
+    "-ms-transform"    :"translateY(-"+maxHeight+"px)",
+    "transform"        :"translateY(-"+maxHeight+"px)",
+    });
 
   }
   function translate_margin() {
     var convo_card =  $('.conversation-card');
-    var convo_card_height = convo_card.height();
+    var convo_card_height = $(".card-half").eq(0).height()+38;
 
-    convo_card.css('margin-bottom',-( convo_card_height/2 ) );
+    convo_card.css('margin-bottom',-( convo_card_height ) );
   }
 
   matchHeights();
