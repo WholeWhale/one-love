@@ -231,8 +231,20 @@ function card_component() {
            "heading" => __("Text"),
            "param_name" => "content",
            "value" => __("Enter the content that will display on the card here."),
-           "description" => __("Displays the content within a card-like block.")
+           "description" => __("Select the face of the card this will represent if flip animation is used.")
 
+        ),
+        array(
+          'type'        => 'dropdown',
+          'heading'     => 'Card Flip Face',
+          'param_name'  => 'card_flip_face',
+          'value'       => array(
+            'Front' => ' front',
+            'Back'  => ' back',
+            'None'  => 'false',
+          ),
+          'std'         => 'false',
+          'description' => 'Select category display style.'
         ),
         array(
              "type" => "textfield",
@@ -258,15 +270,20 @@ function random($max = 500){
 function action_card( $atts, $content = null ) {
 
   extract( shortcode_atts( array(
-      'icon' => '',
-      'color' => '#55c6b6',
-      'font_family' => 'Material-Design-Iconic-Font',
-      'extra_classes' => ''
+      'icon'           => '',
+      'color'          => '#55c6b6',
+      'font_family'    => 'Material-Design-Iconic-Font',
+      'extra_classes'  => '',
+      'card_flip_face' => '',
    ), $atts ) );
 
 
   if ($font_family == 'FontAwesome' || $font_family == 'Material-Design-Iconic-Font' & $icon !== '' ) {
     $icon =  '\f'.$icon;
+  }
+
+  if ($card_flip_face == 'false') {
+    $card_flip_face = '';
   }
 
   $unique_iden = random();
@@ -277,7 +294,7 @@ function action_card( $atts, $content = null ) {
     #".$unique_iden.".action-card { border-top-color: ".$color."; }
     #".$unique_iden.".action-card:before { content: '".$icon ."'; background: ".$color."; font-family: ".$font_family.";}
   </style>
-  <div id='" . $unique_iden ."' class='action-card vc_card_spacing ".$extra_classes."'".$extra_attribs." data-equalizer-watch='card'>
+  <div id='" . $unique_iden ."' class='action-card vc_card_spacing ".$extra_classes.$card_flip_face."'".$extra_attribs." data-equalizer-watch='card'>
     ". do_shortcode( $content ) ."
   </div>";
 

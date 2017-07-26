@@ -4,6 +4,7 @@ function enqueue_assets() {
   wp_enqueue_style( 'main-fonts','https://fonts.googleapis.com/css?family=Lato:400,400i|Overpass:200,400,700,900',false );
   wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/assets/stylesheets/onelove.css' );
   wp_enqueue_script( 'main-js', get_stylesheet_directory_uri() . '/assets/javascript/onelove.js', array('jquery'), '2.9.0', true);
+  wp_enqueue_script('flip_js','https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js',array('jquery'),'',true);
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_assets' );
 
@@ -331,5 +332,3 @@ function wpdocs_excerpt_more( $more ) {
     );
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
-
-add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
