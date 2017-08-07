@@ -9,6 +9,7 @@ function add_button_colors() {
    $colors = WPBMap::getParam( 'vc_btn', 'color' );
    //Append new value to the 'value' array
    $colors['value'][__( 'Default', 'my-text-domain' )] = 'default';
+   $colors['value'][__( 'Transparent', 'my-text-domain' )] = 'transparent';
    //Finally "mutate" param with new values
    vc_update_shortcode_param( 'vc_btn', $colors );
    $styles = WPBMap::getParam( 'vc_btn', 'style' );

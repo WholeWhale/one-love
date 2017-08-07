@@ -22,6 +22,19 @@ body {
 
       }
     }
+    .vc_btn3-color-transparent {
+      background-color: transparent;
+      border: .125rem solid $white;
+      color: $white;
+      &, & h4 {
+        transition: all .5s ease-in-out;
+        font-family: $overpass;
+      }
+      &:hover {
+        background-color: $midnight;
+        color: $white;
+      }
+    }
 
     @at-root {
       body .blue,
