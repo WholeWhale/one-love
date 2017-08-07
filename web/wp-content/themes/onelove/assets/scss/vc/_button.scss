@@ -9,30 +9,35 @@ body {
       text-transform: uppercase;
       letter-spacing: .06875rem;
     }
-    .vc_btn3-color-default {
-      background-color: $moss;
+    .vc_btn3-color-default,
+    .vc_btn3-color-coral,
+    .vc_btn3-color-transparent {
       color: $white;
       &, & h4 {
         transition: all .5s ease-in-out;
         font-family: $overpass;
       }
       &:hover {
-        background-color: $coral;
         color: $white;
-
       }
     }
     .vc_btn3-color-transparent {
       background-color: transparent;
       border: .125rem solid $white;
-      color: $white;
-      &, & h4 {
-        transition: all .5s ease-in-out;
-        font-family: $overpass;
-      }
       &:hover {
         background-color: $midnight;
-        color: $white;
+      }
+    }
+    .vc_btn3-color-coral {
+      background-color: $coral;
+      &:hover {
+        background-color: $midnight;
+      }
+    }
+    .vc_btn3-color-default {
+      background-color: $moss;
+      &:hover {
+        background-color: $coral;
       }
     }
 
