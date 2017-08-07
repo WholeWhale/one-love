@@ -4,6 +4,7 @@ function enqueue_assets() {
   wp_enqueue_style( 'main-fonts','https://fonts.googleapis.com/css?family=Lato:400,400i|Overpass:200,400,700,900',false );
   wp_enqueue_style( 'main-style', get_stylesheet_directory_uri() . '/assets/stylesheets/onelove.css' );
   wp_enqueue_script( 'main-js', get_stylesheet_directory_uri() . '/assets/javascript/onelove.js', array('jquery'), '2.9.0', true);
+  wp_enqueue_script('flip_js','https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js',array('jquery'),'',true);
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_assets' );
 
@@ -108,6 +109,32 @@ function unique_categories() {
 }
 add_action( 'init', 'unique_categories' );
 
+function create_audience_taxonomy() {
+  $labels = array(
+    'name'              => _x( 'Audience', 'taxonomy general name', 'textdomain' ),
+    'singular_name'     => _x( 'Audience', 'taxonomy singular name', 'textdomain' ),
+    'search_items'      => __( 'Search Audience', 'textdomain' ),
+    'all_items'         => __( 'All Audience', 'textdomain' ),
+    'parent_item'       => __( 'Parent Audience', 'textdomain' ),
+    'parent_item_colon' => __( 'Parent Audience:', 'textdomain' ),
+    'edit_item'         => __( 'Edit Audience', 'textdomain' ),
+    'update_item'       => __( 'Update Audience', 'textdomain' ),
+    'add_new_item'      => __( 'Add New Audience', 'textdomain' ),
+    'new_item_name'     => __( 'New Audience', 'textdomain' ),
+    'menu_name'         => __( 'Audience', 'textdomain' ),
+  );
+  register_taxonomy(
+    'audience',
+    'learn_post_type',
+    array(
+      'labels'             => $labels,
+      'publicly_queryable' => true,
+      'rewrite'            => array( 'slug' => 'audience' ),
+      'hierarchical'      =>  true,
+    )
+  );
+}
+add_action('init','create_audience_taxonomy');
 
 foreach (glob('{'. get_stylesheet_directory() . '/library/*.php,'.get_stylesheet_directory() . '/library/vc-addons/*.addon.php}',GLOB_BRACE) as $file) {
   include $file;
@@ -331,5 +358,3 @@ function wpdocs_excerpt_more( $more ) {
     );
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
-
-add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
