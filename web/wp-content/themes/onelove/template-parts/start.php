@@ -17,7 +17,7 @@ get_template_part( 'template-parts/featured-image' );
     <div class="card-half">
       <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php if ($button_text): ?>
-        <div class="vc_btn3-container ol_button vc_btn3-left">
+        <div class="vc_btn3-container ol_button vc_btn3-center">
             <a href="<?php echo $button_url; ?>" class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default">
             <h4><?php echo $button_text; ?></h4>
           </a>
