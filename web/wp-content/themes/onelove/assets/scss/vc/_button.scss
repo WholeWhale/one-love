@@ -26,13 +26,11 @@ body {
       }
       &.vc_btn3-color-transparent {
         background-color: transparent;
-        border: .125rem solid $white;
-        padding-left: 1.75rem;
-        padding-right: 1.75rem;
-        &:hover {
+        border-color: $white;
+        border-width: .125rem;
+        &.vc_btn3:hover {
           background-color: $midnight;
-          padding-left:$default-spacing;
-          padding-right: $default-spacing;
+          border-width: .125rem;
         }
       }
       &.vc_btn3-color-coral {
