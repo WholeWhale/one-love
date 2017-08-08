@@ -3,7 +3,7 @@
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
-		<header>
+		<header class="snow-background">
       <?php if (!is_page()): ?>
         <?php
         $post_type = get_post_type();
