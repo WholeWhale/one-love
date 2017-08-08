@@ -20,7 +20,7 @@ jQuery(function($){
     var convo_card =  $('.conversation-card');
     var convo_card_height = $(".card-half").eq(0).height()+38;
 
-    convo_card.css('margin-bottom',-( convo_card_height ) );
+    convo_card.css('margin-bottom',-( convo_card_height - 20 ) );
   }
 
   matchHeights();
