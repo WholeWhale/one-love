@@ -519,17 +519,24 @@ li.current {
   }
 }
 
-.snow-background::before {
-  content: "";
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  background-color: $snow;
+.snow-background {
+  position: relative;
   @include breakpoint(medium) {
-    top: 4.375rem;
-    height: 25rem;
+  position: inherit;
+  }
+  &::before {
+    content: "";
+    top: -$default-spacing;
+    left: - rem-calc(31);
+    height: calc(100% + 1.875rem);
+    width: 100vw;
+    z-index: -1;
+    position: absolute;
+    background-color: $snow;
+    @include breakpoint(medium) {
+      top: 4.375rem;
+      height: 25rem;
+      left: 0;
+    }
   }
 }
