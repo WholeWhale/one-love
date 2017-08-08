@@ -184,62 +184,63 @@ add_action( 'vc_before_init', 'card_component' );
 
 function card_component() {
   vc_map( array(
-     "name" => __("Action Card"),
-     "base" => "action_card",
+     "name"     => __("Action Card"),
+     "base"     => "action_card",
      "category" => __('Content'),
-     "weight" => 100,
-     "params" => array(
+     "weight"   => 100,
+     "params"   => array(
        array(
-            "type" => "textfield",
-            "holder" => "div",
-            "class" => "",
-            "heading" => __( "Card Icon", "my-text-domain" ),
-            "param_name" => "icon",
-            "value" => __( "", "my-text-domain" ),
+            "type"        => "textfield",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Card Icon", "my-text-domain" ),
+            "param_name"  => "icon",
+            "value"       => __( "", "my-text-domain" ),
             "description" => __( "The icon that will display at the upper-left side of the card.", "my-text-domain" )
          ),
        array(
-          "type" => "dropdown",
-          "holder" => "div",
-          "class" => "",
-          "heading" => __( "Card Icon Font", "my-text-domain" ),
+          "type"       => "dropdown",
+          "holder"     => "div",
+          "class"      => "",
+          "heading"    => __( "Card Icon Font", "my-text-domain" ),
           "param_name" => "font_family",
-          "value" => array(
+          "value"      => array(
             "Material Font Awesome" => "Material-Design-Iconic-Font",
-            "Overpass"  => "Overpass,sans-serif",
-            "Lato" => "Lato,sans-serif",
-            "Font Awesome" => "FontAwesome",
+            "Overpass"              => "Overpass,sans-serif",
+            "Lato"                  => "Lato,sans-serif",
+            "Font Awesome"          => "FontAwesome",
           ),
           "description" => __( "The font to use for the card icon", "my-text-domain" )
        ),
        array(
-          "type" => "dropdown",
-          "holder" => "div",
-          "class" => "",
-          "heading" => __( "Card Color", "my-text-domain" ),
+          "type"       => "dropdown",
+          "holder"     => "div",
+          "class"      => "",
+          "heading"    => __( "Card Color", "my-text-domain" ),
           "param_name" => "color",
-          "value" => array(
-            "Green"  => "#55c6b6",
-            "Red" => "#ff5e5b"
+          "value"      => array(
+            "Green" => "#55c6b6",
+            "Red"   => "#ff5e5b",
+            "Navy"  => "#1a596a"
           ),
           "description" => __( "The border color for the card.", "my-text-domain" )
        ),
         array(
-           "type" => "textarea_html",
-           "holder" => "div",
-           "class" => "",
-           "heading" => __("Text"),
-           "param_name" => "content",
-           "value" => __("Enter the content that will display on the card here."),
+           "type"        => "textarea_html",
+           "holder"      => "div",
+           "class"       => "",
+           "heading"     => __("Text"),
+           "param_name"  => "content",
+           "value"       => __("Enter the content that will display on the card here."),
            "description" => __("Displays the content within a card-like block.")
 
         ),
         array(
-             "type" => "textfield",
-             "holder" => "div",
-             "class" => "",
-             "heading" => __( "Extra Classes", "my-text-domain" ),
-             "param_name" => "extra_classes",
+             "type"        => "textfield",
+             "holder"      => "div",
+             "class"       => "",
+             "heading"     => __( "Extra Classes", "my-text-domain" ),
+             "param_name"  => "extra_classes",
              "description" => __("Style particular content element differently - add a class name and refer to it in custom CSS.")
           ),
      )

@@ -15,7 +15,7 @@ body {
     padding-left: $default-spacing;
     padding-right: $default-spacing;
     padding-bottom: $default-spacing;
-    box-shadow: none;
+    box-shadow: .125rem .1875rem .9375rem 0 rgba(228,228,228,0.50);
     .link-icon i {
       margin-top: 13px;
     }
@@ -25,9 +25,6 @@ body {
     }
     .text-caption {
       color: $black-26;
-    }
-    &:hover {
-      box-shadow: 2px 3px 15px 0 rgba(228,228,228,0.50);
     }
   }
   .card {
