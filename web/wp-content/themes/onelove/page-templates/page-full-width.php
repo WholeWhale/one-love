@@ -20,7 +20,7 @@ $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
       </header>
     <?php endif; ?>
 
-    <?php if ( !has_post_thumbnail( $post->ID ) ): ?>
+    <?php if ( !has_post_thumbnail( $post->ID ) && ( !empty(get_the_title()) || !empty($subtitle) ) ): ?>
       <div class="full-width-no-featured-image navy">
         <div>
           <h1 class="entry-title"><?php the_title(); ?></h1>
