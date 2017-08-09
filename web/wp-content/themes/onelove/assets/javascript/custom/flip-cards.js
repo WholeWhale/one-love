@@ -8,7 +8,7 @@ jQuery(function($){
 
   $('[data-flip-front]').click(function(){
     flip_card_grid(false);
-  })
+  });
 
   function flip_card_grid( flip_type ) {
     $('[data-flip-card]').each(function(i){
