@@ -1,4 +1,4 @@
-jQuery(function($){
+(function($){
 
   // set stacked divs to be equal height
   function matchHeights() {
@@ -33,4 +33,4 @@ jQuery(function($){
     matchHeights();
     translate_margin();
   });
-});
+})(jQuery);
