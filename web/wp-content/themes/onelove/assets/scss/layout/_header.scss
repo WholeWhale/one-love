@@ -142,7 +142,7 @@ $header-height: 70;
     }
   }
   .menu-icon-close {
-    width: 37px;
+    width: 2.3125rem;
     justify-content: center;
   }
   .header-logo-home #Header {
@@ -152,7 +152,7 @@ $header-height: 70;
     width: 100%;
     input {
       max-width: 98%;
-      border-bottom: 2px solid $white;
+      border-bottom: .125rem solid $white;
     }
   }
 }

@@ -11,13 +11,13 @@ body {
     border-radius: $global-radius;
     @extend .z-depth-1;
     background: $white;
-    border: 1px solid $border;
+    border: 1c solid $border;
     padding-left: $default-spacing;
     padding-right: $default-spacing;
     padding-bottom: $default-spacing;
     box-shadow: .125rem .1875rem .9375rem 0 rgba(228,228,228,0.50);
     .link-icon i {
-      margin-top: 13px;
+      margin-top: .8125rem;
     }
     .bottom-button {
       margin-left: -1em;
@@ -36,16 +36,18 @@ body {
   }
   .vc-grid-card-style .default-card {
     .vc_ol-card {
-      height: 145px;
+      height: 9.0625rem;
     }
   }
   .action-card,
   .conversation-card {
-    border-top: 7px solid $moss;
+    border-top: .4375rem solid $moss;
     position: relative;
   }
   .conversation-card {
-    border-top: 10px solid $moss;
+    border-top: .625rem solid $moss;
+    max-width: 48rem;
+    margin: 0 auto;
   }
   .action-card {
     padding: 2.5rem $default-spacing;
@@ -54,8 +56,8 @@ body {
     &:before {
 
       content: "";
-      font: normal normal normal 25px/1 "Material-Design-Iconic-Font";
-      @include dimensions(60px,60px);
+      font: normal normal normal 1.5625rem/1 "Material-Design-Iconic-Font";
+      @include dimensions(3.75rem,3.75rem);
       position: absolute;
       transform: translateY(-50%);
       background: $moss;
@@ -63,11 +65,11 @@ body {
       border: none;
       font-size: 1.25rem;
       font-weight: bold;
-      top: -3.5px;
-      margin-left: -5px;
+      top: -.2188rem;
+      margin-left: -.3125rem;
       text-align: center;
       color: $white;
-      font-size: 25px;
+      font-size: 1.5625rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -93,7 +95,7 @@ body {
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
     }
   }
   div.vc_gitem-post-data.vc_gitem-post-data-source-post_categories  {
@@ -106,8 +108,8 @@ body {
   background: #FF6908;
   font-size: 1.25rem;
   font-weight: bold;
-  box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
-  border-radius: 3px;
+  box-shadow: 0 -.125rem 0 rgba(0,0,0,0.2) inset;
+  border-radius: .1875rem;
   border: none;
 }
 

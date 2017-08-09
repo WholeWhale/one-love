@@ -1,9 +1,9 @@
 // Complete list of theme mixins.
 
 @mixin border($shadow: null) {
-  border-bottom: 1px solid $border;
+  border-bottom: .0625rem solid $border;
   @if ($shadow) {
-    box-shadow: 2px 3px 15px rgba(228,228,228,.5);
+    box-shadow: .125rem .1875rem .9375rem rgba(228,228,228,.5);
   }
 }
 
