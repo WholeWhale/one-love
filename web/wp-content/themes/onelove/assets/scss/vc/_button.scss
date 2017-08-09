@@ -110,6 +110,29 @@ body {
     font-size: 1.0625rem;
     margin-bottom: .5rem;
   }
+  #masthead li.donate-button a {
+
+    &:hover {
+      h3.head-menu-item {
+        color: $white;
+        background-color: $moss;
+        margin-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+    h3.head-menu-item {
+      color: $white;
+      border-radius: rem-calc(2);
+      background-color: $coral;
+      padding: 9px 30px;
+      transition: all .5s ease-in-out;
+      box-sizing: border-box;
+      word-wrap: break-word;
+      user-select: none;
+      text-decoration: none;
+
+    }
+  }
   .wpcf7-submit,
   input[type=button],
   [type=button], [type=submit] {

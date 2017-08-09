@@ -49,6 +49,10 @@ html head + body {
     }
   }
 }
+html head + body .coral {
+  @extend .navy;
+  background: $coral;
+}
 
 html head + body .green,
 html head + body .blue,
@@ -511,4 +515,13 @@ li.current {
   & a:hover {
     background-color: inherit;
   }
+}
+
+#header-search-form {
+  padding: $default-spacing;
+  h1 {
+    margin-bottom: $default-spacing;
+  }
+  border: none;
+  border-radius: .125rem;
 }

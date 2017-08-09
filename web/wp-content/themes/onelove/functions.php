@@ -358,3 +358,27 @@ function wpdocs_excerpt_more( $more ) {
     );
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
+function add_search_box_to_menu( $items, $args ) {
+    if( $args->theme_location == 'top-bar-r' ) {
+
+      ob_start(); ?>
+      <li id="menu-item-search" class='menu-item menu-item-type-custom menu-item-object-custom menu-item-search' role="menuitem">
+        <a data-open="header-search-form">
+          <h3 class="fa fa-search head-menu-item" style="font-size: 1.3rem;line-height:1.6875rem;" aria-hidden="true"></h3>
+        </a>
+        <div class="reveal coral" id="header-search-form" data-reveal>
+          <h1>What are you looking for?</h1>
+          <?php echo get_search_form(); ?>
+          <a class="close-button" data-close aria-label="Close modal">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </a>
+        </div>
+      </li>
+      <?php
+      return $items.ob_get_clean();
+    }
+
+    return $items;
+}
