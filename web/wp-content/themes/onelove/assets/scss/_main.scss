@@ -540,17 +540,20 @@ li.current {
     }
   }
 }
-.full-width-no-featured-image {
-  text-align: center;
-  min-height: 20rem;
-  padding-top: 3.125rem;
-  padding-bottom: 3.125rem;
-  & > div {
-    max-width: 60rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  & + #page-full-width {
-    padding-top: 0;
+
+body:not(.error404) {
+  .full-width-no-featured-image {
+    text-align: center;
+    min-height: 20rem;
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    & > div {
+      max-width: 60rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    & + #page-full-width {
+      padding-top: 0;
+    }
   }
 }
