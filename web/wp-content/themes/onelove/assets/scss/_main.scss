@@ -49,6 +49,10 @@ html head + body {
     }
   }
 }
+html head + body .coral {
+  @extend .navy;
+  background: $coral;
+}
 
 html head + body .green,
 html head + body .blue,
@@ -571,5 +575,25 @@ body:not(.error404) {
     h1.entry-title {
       margin-bottom: $default-spacing;
     }
+  }
+}
+
+#header-search-form {
+  padding: $default-spacing;
+  h1 {
+    margin-bottom: $default-spacing;
+    text-align: center;
+  }
+  form {
+    margin: 0 auto;
+  }
+  border: none;
+  border-radius: .125rem;
+  outline: none;
+}
+#masthead .top-bar li.menu-item-search a:hover {
+  h3.fa.fa-search.head-menu-item {
+    border: none;
+    margin-bottom: 0;
   }
 }

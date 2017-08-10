@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="16px" viewBox="0 0 32 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="desktop-mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Learn-article" transform="translate(-855.000000, -70.000000)" fill="#FFFFFF">
+            <g id="Group-3" transform="translate(689.000000, 70.000000)">
+                <polyline id="arrow" points="166 0 182 16 198 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
