@@ -85,6 +85,12 @@ html head + body .navy,
     color: $midnight
   }
 }
+.snow {
+  @extend .navy;
+  html head + body & {
+    background: $snow;
+  }
+}
 
 [type=radio] {
   & + label,
@@ -510,5 +516,60 @@ head + body form {
 li.current {
   & a:hover {
     background-color: inherit;
+  }
+}
+
+.snow-background {
+  position: relative;
+  @include breakpoint(medium) {
+  position: inherit;
+  }
+  &::before {
+    content: "";
+    top: -$default-spacing;
+    left: - rem-calc(31);
+    height: calc(100% + 1.875rem);
+    width: 100vw;
+    z-index: -1;
+    position: absolute;
+    background-color: $snow;
+    @include breakpoint(medium) {
+      top: 4.375rem;
+      height: 25rem;
+      left: 0;
+    }
+  }
+}
+
+body:not(.error404) {
+  .full-width-no-featured-image {
+    margin: 0 auto;
+    text-align: center;
+    min-height: 20rem;
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > div {
+      max-width: 48rem;
+      h1 {
+        padding-bottom: $default-spacing;
+        margin-bottom: 0;
+      }
+    }
+    & + #page-full-width {
+      padding-top: 0;
+    }
+  }
+  .full-page-header-content {
+    max-width: 48rem;
+    * {
+      text-align: center;
+    }
+    h1.entry-title {
+      margin-bottom: $default-spacing;
+    }
   }
 }
