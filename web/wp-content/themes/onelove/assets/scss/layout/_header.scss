@@ -85,6 +85,11 @@ body:not(.display-mobile-menu) {
         top: calc(100%+1px);
         transform: translateX(-50%);
         right: auto;
+        li.current-menu-item a h3.head-menu-item {
+          margin-bottom: 0;
+          border: none;
+          text-decoration: underline;
+        }
         a {
           padding-top: .3125rem;
           padding-bottom: 1.25rem;
@@ -98,6 +103,7 @@ body:not(.display-mobile-menu) {
                text-decoration: underline;
              }
           }
+
         head + body &  h3.head-menu-item {
             line-height: 1.875rem;
             color: $white;
