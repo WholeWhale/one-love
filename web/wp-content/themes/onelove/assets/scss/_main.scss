@@ -528,10 +528,10 @@ li.current {
   }
   border: none;
   border-radius: .125rem;
+  outline: none;
 }
 #masthead .top-bar li.menu-item-search a:hover {
   h3.fa.fa-search.head-menu-item {
-    color: $sky;
     border: none;
     margin-bottom: 0;
   }
