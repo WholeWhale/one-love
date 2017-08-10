@@ -521,7 +521,18 @@ li.current {
   padding: $default-spacing;
   h1 {
     margin-bottom: $default-spacing;
+    text-align: center;
+  }
+  form {
+    margin: 0 auto;
   }
   border: none;
   border-radius: .125rem;
+}
+#masthead .top-bar li.menu-item-search a:hover {
+  h3.fa.fa-search.head-menu-item {
+    color: $sky;
+    border: none;
+    margin-bottom: 0;
+  }
 }

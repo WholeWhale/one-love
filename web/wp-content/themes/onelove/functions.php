@@ -372,7 +372,7 @@ function add_search_box_to_menu( $items, $args ) {
           <h1>What are you looking for?</h1>
           <?php echo get_search_form(); ?>
           <a class="close-button" data-close aria-label="Close modal">
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close.svg" alt="close search popup">
           </a>
         </div>
       </li>
