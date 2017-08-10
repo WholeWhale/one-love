@@ -81,6 +81,9 @@ body:not(.display-mobile-menu) {
         transform: translateX(-50%);
         right: auto;
         a {
+          padding-top: .3125rem;
+          padding-bottom: 1.25rem;
+          height: auto;
           &:hover,
           &:active {
              h3.head-menu-item {
@@ -90,6 +93,8 @@ body:not(.display-mobile-menu) {
         head + body &  h3.head-menu-item {
             line-height: 1.875rem;
             color: $white;
+            width: 100%;
+            margin-top: 0;
 
           }
         }
@@ -104,6 +109,9 @@ body:not(.display-mobile-menu) {
       }
     }
 
+  }
+  #menu-main-nav>li .submenu a {
+    height: auto;
   }
   .menu li {
     &:not(:last-child) {
