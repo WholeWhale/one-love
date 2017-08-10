@@ -62,6 +62,10 @@ body:not(.display-mobile-menu) {
   .title-bar,
   .top-bar {
     display: flex;
+
+    .top-bar-right {
+      margin-bottom: -.0625rem;
+    }
     .menu-icon {
       @include dimensions(rem-calc(37),rem-calc(27));
       display: flex;
@@ -78,6 +82,7 @@ body:not(.display-mobile-menu) {
         width: 22.5rem;
         padding: 3.125rem;
         left: 50%;
+        top: calc(100%+1px);
         transform: translateX(-50%);
         right: auto;
         a {
@@ -88,6 +93,9 @@ body:not(.display-mobile-menu) {
           &:active {
              h3.head-menu-item {
                color: $white;
+               margin-bottom: 0;
+               border: none;
+               text-decoration: underline;
              }
           }
         head + body &  h3.head-menu-item {
