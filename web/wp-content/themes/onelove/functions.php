@@ -277,6 +277,15 @@ function foundationpress_sidebar_widgets() {
 	  'before_title' => '<h6>',
 	  'after_title' => '</h6>',
 	));
+  register_sidebar(array(
+	  'id' => 'footer-widgets-bottom-section',
+	  'name' => __( 'Footer widgets: Bottom Section', 'foundationpress' ),
+	  'description' => __( 'Drag widgets to this footer container in order to display it within the darker portion of the footer', 'foundationpress' ),
+	  'before_widget' => '<article id="%1$s" class="large-12 footer-widget-container columns widget %2$s">',
+	  'after_widget' => '</article>',
+	  'before_title' => '<h6>',
+	  'after_title' => '</h6>',
+	));
 }
 add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
 
@@ -287,7 +296,7 @@ function post_footer_widgets() {
   );
   echo social_media_icons($atts);
 }
-add_action('foundationpress_after_footer','post_footer_widgets');
+add_action('foundationpress_footer_bottom_section_after','post_footer_widgets');
 
 
 

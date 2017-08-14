@@ -597,3 +597,25 @@ body:not(.error404) {
     margin-bottom: 0;
   }
 }
+
+
+.footer-bottom-section {
+  background-color: #175160;
+  position: relative;
+  z-index: 2;
+  * {
+    position: relative;
+    z-index: 2;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #175160;
+    z-index: 1;
+  }
+}

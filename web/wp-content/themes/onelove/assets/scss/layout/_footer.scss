@@ -26,12 +26,10 @@
     margin-bottom: $default-spacing;
   }
   article:last-of-type {
-    text-align: center;
-    * {
-      font-size: .875rem;
-      line-height: 1rem;
-    }
-
+    margin-bottom: 0;
+  }
+  #footer {
+    padding-bottom: 0;
   }
   #menu-footer {
     display: flex;
@@ -66,5 +64,23 @@
   }
   .current-menu-item > a {
     text-decoration: underline;
+  }
+}
+
+#footer-container-bottom {
+  @extend #footer-container;
+  margin-top: 0;
+  border-top: 0;
+  background-color: #175160;
+  article {
+    text-align: center;
+    * {
+      font-size: .875rem;
+      line-height: 1rem;
+    }
+  }
+  #footer-bottom-section {
+    @extend #footer;
+    padding-bottom: $default-spacing;
   }
 }
