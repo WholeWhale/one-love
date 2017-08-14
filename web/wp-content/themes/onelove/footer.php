@@ -11,20 +11,24 @@
 ?>
 
 		</section>
-		<div id="footer-container">
-			<footer id="footer">
-        <?php do_action( 'foundationpress_before_footer' ); ?>
-  				<?php dynamic_sidebar( 'footer-widgets' ); ?>
-				<?php do_action( 'foundationpress_after_footer' ); ?>
-			</footer>
-		</div>
-    <div id="footer-container-bottom">
-      <footer id="footer-bottom-section">
-        <?php do_action( 'foundationpress_footer_bottom_section_before' ); ?>
-        <?php dynamic_sidebar( 'footer-widgets-bottom-section' ); ?>
-        <?php do_action( 'foundationpress_footer_bottom_section_after' ); ?>
-      </footer>
-    </div>
+      <div id="footer-container">
+        <footer id="footer">
+          <?php do_action( 'foundationpress_before_footer' ); ?>
+            <?php dynamic_sidebar( 'footer-widgets' ); ?>
+          <?php do_action( 'foundationpress_after_footer' ); ?>
+        </footer>
+      </div>
+    <section>
+      <div id="footer-container-bottom">
+        <footer id="footer-bottom-section">
+          <?php do_action( 'foundationpress_footer_bottom_section_before' ); ?>
+          <?php dynamic_sidebar( 'footer-widgets-bottom-section' ); ?>
+          <?php do_action( 'foundationpress_footer_bottom_section_after' ); ?>
+        </footer>
+      </div>
+    </section>
+
+
 
 		<?php do_action( 'foundationpress_layout_end' ); ?>
 
