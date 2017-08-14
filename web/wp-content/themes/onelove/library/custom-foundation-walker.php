@@ -137,7 +137,7 @@ class Foundationpress_Top_Bar_Walker extends Walker_Nav_Menu {
 class Foundationpress_Mobile_Walker extends Walker_Nav_Menu {
   function start_lvl( &$output, $depth = 0, $args = array() ) {
     $indent = str_repeat("\t", $depth);
-    $output .= "\n$indent<ul class=\"vertical nested menu\">\n";
+    $output .= "\n$indent<ul class=\"vertical nested menu mobile-submenu\">\n";
   }
   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
     if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {

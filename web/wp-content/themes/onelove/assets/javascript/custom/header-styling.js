@@ -22,7 +22,6 @@ jQuery(function($){
   function toggleItems() {
     $('.menu-icon').quicktoggle();
     $('body').toggleClass('display-mobile-menu');
-    $('#style-mobile-menu').toggleClass('blue');
     $('.menu-icon-close').quicktoggle();
   }
   $(window).resize(function(){

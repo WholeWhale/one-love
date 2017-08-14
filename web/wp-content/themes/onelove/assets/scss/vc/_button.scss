@@ -138,14 +138,16 @@ body {
   #masthead li.donate-button a {
 
     &:hover {
-      h3.head-menu-item {
+      h3.head-menu-item,
+      h1.mobile-head-menu-item {
         color: $white;
         background-color: $moss;
         margin-bottom: 0;
         border-bottom: 0;
       }
     }
-    h3.head-menu-item {
+    h3.head-menu-item,
+    h1.mobile-head-menu-item {
       color: $white;
       border-radius: rem-calc(2);
       background-color: $coral;
