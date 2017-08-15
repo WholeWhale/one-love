@@ -1,36 +1,22 @@
 (function($){
 
-  // set stacked divs to be equal height
-  function matchHeights() {
-    var maxHeight = 0;
-    $(".card-half").each(function(){
-       if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
-    });
-    maxHeight += 70;
-    $(".card-half").eq(0).height(maxHeight);
-    maxHeight += 38;
-    $(".conversation-card").css({
-    "-webkit-transform":"translateY(-"+maxHeight+"px)",
-    "-ms-transform"    :"translateY(-"+maxHeight+"px)",
-    "transform"        :"translateY(-"+maxHeight+"px)",
-    });
+  var positionCard = (function calculate() {
 
-  }
-  function translate_margin() {
-    var convo_card =  $('.conversation-card');
-    var convo_card_height = $(".card-half").eq(0).height()+38;
+      var card = $(".card-half").eq(0);
+      var maxHeight = card.height('100%').height()+55;
+      var convo_height = $(".conversation-card").outerHeight();
 
-    convo_card.css('margin-bottom',-( convo_card_height - 20 ) );
-  }
+      if ( $(window).width() < 800 ) maxHeight += 45;
 
-  matchHeights();
-  translate_margin();
+      $(".conversation-card").css({
+        "transform":"translateY(-"+maxHeight+"px)",
+        "margin-bottom": -( convo_height ),
+      }).next().find(".entry-content > *:first-child").css({
+        "z-index": "-1",
+        "padding-top": convo_height - maxHeight + 10,
+      });
+      return calculate;
+  }());
+  $(window).resize(positionCard);
 
-  // on resize, recalculate the natural height of the
-  // of each div then rematch the heights.
-  $(window).resize(function(){
-    $(".card-half").height('100%'); // matchHeights logic fails if it already set the height of both to be equal
-    matchHeights();
-    translate_margin();
-  });
 })(jQuery);
