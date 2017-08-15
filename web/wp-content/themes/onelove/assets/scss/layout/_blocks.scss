@@ -29,6 +29,9 @@ html body {
   .flyer-block {
     background-size: 60%;
   }
+  .shop-block {
+    background-position: center bottom;
+  }
   .stickies-block {
     .ol_button a.vc_btn3-color-default:hover {
       background-color: $moss;
@@ -44,3 +47,4 @@ html body {
 @include create_block('stickies','stickies',$midnight);
 @include create_block('playlist','playlist',$light-orange);
 @include create_block('flyer','flyer',$alt-grey);
+@include create_block('shop','ol-shirt',$snow);

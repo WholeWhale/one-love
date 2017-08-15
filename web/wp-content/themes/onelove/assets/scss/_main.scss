@@ -24,13 +24,37 @@ footer {
 
 html head + body {
   .green {
-    background-image: linear-gradient(-137deg, #55C6B6 12%, #22CBB6 45%, #0FCCB6 88%);
+    background-color: $moss !important; /* imp flag usage note: material foundation styled class with imp flag */
   }
   .blue {
-    background-image: linear-gradient(-141deg, #095E9A 0%, #00A3DF 100%);
+
+    background-color: $sky !important; /* imp flag usage note: material foundation styled class with imp flag */
   }
   .navy {
     background: $midnight;
+  }
+  .snow-arrow {
+    background: $snow;
+    /* the properties below should be applied no matter what for this class */
+    position: relative !important;
+    overflow: visible !important;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 25px 0 25px;
+      border-color: $snow transparent transparent transparent;
+      transform: translateY(100%);
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 100;
+    }
   }
   .green,
   .blue,
@@ -56,8 +80,8 @@ html head + body .coral {
 
 html head + body .green,
 html head + body .blue,
-html head + body .navy,
-.default-block-styling,
+html head + body .navy:not(.snow),
+.default-block-styling:not(.shop-block),
 .main-video-slide,
 #footer-container,
 .overlay,
