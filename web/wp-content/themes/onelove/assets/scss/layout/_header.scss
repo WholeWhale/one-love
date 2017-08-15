@@ -135,7 +135,7 @@ body:not(.display-mobile-menu) {
     a:hover h3,
     a:active h3,
     &.menu-item-has-children.current-menu-parent > a > h3,
-    &.current-menu-item a h1,
+    &.current-menu-item > a > h1,
     a:hover h1,
     a:active h1,
      {
@@ -147,7 +147,7 @@ body:not(.display-mobile-menu) {
       &.current-menu-item:not(.donate-button) > a > h3,
       a:hover h3,
       a:active h3,
-      &.current-menu-item a h1,
+      &.current-menu-item > a > h1,
       a:hover h1,
       a:active h1,
        {
@@ -195,6 +195,9 @@ body:not(.display-mobile-menu) {
       margin-top: 0;
       width: 100vw;
     }
+  }
+  li.current-menu-ancestor.active > a{
+    background-color: inherit;
   }
   header#masthead + section.container {
     display: none;
