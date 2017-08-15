@@ -78,7 +78,7 @@ html head + body .coral {
 
 html head + body .green,
 html head + body .blue,
-html head + body .navy,
+html head + body .navy:not(.snow),
 .default-block-styling:not(.shop-block),
 .main-video-slide,
 #footer-container,
