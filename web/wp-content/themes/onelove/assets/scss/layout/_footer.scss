@@ -1,5 +1,9 @@
 #footer-container {
   background-color: $midnight;
+  .page-template-page-home & {
+    margin-top: 0;
+    border-top: 0;
+  }
   a {
     &:hover,
     &:hover i,
