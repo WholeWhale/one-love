@@ -43,6 +43,9 @@
     & > li {
       flex: 1;
       align-self: center;
+      @include breakpoint(medium) {
+        align-self: baseline;  
+      }
       text-align: center;
       & > a {
         @extend h4;
