@@ -26,12 +26,10 @@
     margin-bottom: $default-spacing;
   }
   article:last-of-type {
-    text-align: center;
-    * {
-      font-size: .875rem;
-      line-height: 1rem;
-    }
-
+    margin-bottom: 0;
+  }
+  #footer {
+    padding-bottom: 0;
   }
   #menu-footer {
     display: flex;
@@ -44,27 +42,49 @@
     }
     & > li {
       flex: 1;
-      align-self: flex-start;
-      &:nth-of-type(n+2) {
-        .sub-menu li {
-          display: inline;
-          &:not(:last-child):after  {
-            content: '\2022';
-            font-size: inherit;
-            padding-left: rem-calc(5);
-            padding-right: rem-calc(2);
-          }
-        }
+      align-self: center;
+      @include breakpoint(medium) {
+        align-self: baseline;
       }
+      text-align: center;
       & > a {
+        @extend h4;
         padding: $default-spacing $default-spacing 0 $default-spacing;
+        display: block;
+        text-align: center;
+        & ~ .sub-menu a {
+          @extend h5;
+          html & {
+            color: $white;
+          }
+
+        }
       }
       & > ul {
         padding: $default-spacing;
+        padding-top: 0;
       }
     }
   }
   .current-menu-item > a {
     text-decoration: underline;
+  }
+}
+
+#footer-container-bottom {
+  @extend #footer-container;
+  margin-top: 0;
+  border-top: 0;
+  background-color: #175160;
+  article {
+    text-align: center;
+    * {
+      font-size: .875rem;
+      line-height: 1rem;
+    }
+  }
+  #footer-bottom-section {
+    @extend #footer;
+    padding-bottom: $default-spacing;
   }
 }
