@@ -35,7 +35,9 @@ html head + body {
   }
   .snow-arrow {
     background: $snow;
-    position: relative;
+    /* the properties below should be applied no matter what for this class */
+    position: relative !important;
+    overflow: visible !important;
     &:before {
       content: "";
       position: absolute;
