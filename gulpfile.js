@@ -69,7 +69,7 @@ var PATHS = {
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.offcanvas.js',
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.orbit.js',
     FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.responsiveMenu.js',
-    FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.responsiveToggle.js',
+    // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.responsiveToggle.js',
     FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.reveal.js',
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.slider.js',
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.sticky.js',

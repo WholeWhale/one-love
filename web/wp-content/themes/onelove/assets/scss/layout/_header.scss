@@ -51,7 +51,7 @@ body:not(.display-mobile-menu) {
       background-color: inherit;
     }
     // max-width: large;
-    .menu li:not(.home) a:hover:not(.button) {
+    .menu li:not(.home):not(.donate-button) a:hover:not(.button) {
       background-color: inherit;
     }
   }
@@ -73,7 +73,7 @@ body:not(.display-mobile-menu) {
 
     }
 
-    h3.head-menu-item {
+    h3.head-menu-item:not(h1) {
       color: $sky;
     }
     li.menu-item {
@@ -118,7 +118,7 @@ body:not(.display-mobile-menu) {
           text-align: center;
         }
       }
-      &:not(.is-dropdown-submenu-item) > a {
+      body:not(.display-mobile-menu) &:not(.is-dropdown-submenu-item) > a {
         background-color: $white;
       }
     }
@@ -135,7 +135,7 @@ body:not(.display-mobile-menu) {
     a:hover h3,
     a:active h3,
     &.menu-item-has-children.current-menu-parent > a > h3,
-    &.current-menu-item a h1,
+    &.current-menu-item > a > h1,
     a:hover h1,
     a:active h1,
      {
@@ -147,7 +147,7 @@ body:not(.display-mobile-menu) {
       &.current-menu-item:not(.donate-button) > a > h3,
       a:hover h3,
       a:active h3,
-      &.current-menu-item a h1,
+      &.current-menu-item > a > h1,
       a:hover h1,
       a:active h1,
        {
@@ -174,13 +174,50 @@ body:not(.display-mobile-menu) {
 .display-mobile-menu {
   overflow: hidden;
   position: fixed;
+  #masthead li.donate-button > a {
+    background-color: $coral;
+    transition: all .5s ease-in-out;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 3.75rem;
+    &:hover {
+      background-color: $moss;
+    }
+    &:hover > h1.mobile-head-menu-item {
+      @extend h3.head-menu-item;
+      margin-bottom: 0;
+
+    }
+    & > h1.mobile-head-menu-item {
+      font-size: 1.5rem;
+      line-height: 1.4rem;
+      margin-bottom: 0;
+      margin-top: 0;
+      width: 100vw;
+    }
+  }
+  li.current-menu-ancestor.active > a{
+    background-color: inherit;
+  }
+  header#masthead + section.container {
+    display: none;
+  }
+  ul * {
+    text-align: center;
+  }
+  #masthead ul {
+    background-color: transparent;
+    &.menu li a {
+      justify-content: center;
+    }
+  }
 
   #style-mobile-menu {
     position: fixed;
     @include dimensions(100%,100%);
     overflow-y: scroll;
-    margin-left: -1%;
     z-index: 900;
+    background-color: $midnight;
 
     #site-navigation {
       background-color: transparent;
@@ -200,15 +237,36 @@ body:not(.display-mobile-menu) {
   }
   #mobile-menu {
     padding: 1.25rem .5rem;
-
     &,
     & > ul.vertical.menu {
       background-color: transparent;
       top: rem-calc(70);
       li {
-        margin: .625rem 0;
+        margin: 1rem 0;
+      }
+      & > li > a {
+        margin-bottom: $default-spacing;
+      }
+      & > li:not(.donate-button):not(:nth-last-of-type(2)) {
+        padding-bottom: $default-spacing;
+        padding-top: $default-spacing;
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          left: .875rem;
+          right: .875rem;
+          margin-left: auto;
+          margin-right: auto;
+          bottom: 0;
+          height: 1px;
+          width: auto;
+          border-bottom: 1px solid $white;
+        }
+
       }
     }
+
   }
   .menu-icon-close {
     width: 2.3125rem;
@@ -220,11 +278,37 @@ body:not(.display-mobile-menu) {
   #searchform {
     width: 100%;
     input {
-      max-width: 98%;
+      max-width: 100%;
       border-bottom: .125rem solid $white;
+    }
+  }
+
+  #masthead .mobile-submenu {
+    margin-left: 0;
+    li a:hover {
+      h1 {
+        margin-bottom: 8px;
+        border-bottom: 0;
+        text-decoration: underline;
+      }
+    }
+    h1 {
+      @extend h2;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 1.9375rem;
+      font-weight: 900;
+      font-family: Overpass,sans-serif;
+      font-size: 1.5rem;
     }
   }
 }
 
+
+@media screen and (max-width: 50rem) {
+  body:not(.display-mobile-menu) .top-bar-right {
+    display: none;
+  }
+}
 // 2. Mobile
 // ---------
