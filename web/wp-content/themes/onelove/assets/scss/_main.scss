@@ -444,6 +444,15 @@ textarea {
   }
 }
 
+.page-template-page-home {
+  #featured-hero,
+  .cycloneslider-slide > *,
+  .featured-video-overlay:before,
+  .ol-slider {
+    height: 100vh;
+  }
+}
+
 .prevent-touch {
   pointer-events: none;
 }
@@ -642,4 +651,18 @@ body:not(.error404) {
     background-color: #175160;
     z-index: 1;
   }
+}
+
+
+.menu-icon-container {
+  height: 100%;
+}
+
+// Utility classes
+
+.hidden {
+  display: none !important;
+}
+.display-flex {
+  display: flex !important;
 }

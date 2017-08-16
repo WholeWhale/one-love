@@ -17,7 +17,7 @@
 		<?php wp_head(); ?>
     <?php do_action( 'onelove_before_closing_head' ); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class('header-transparent'); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
 
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
@@ -49,8 +49,24 @@
               </g>
           </svg>
         </a>
-        <img class="menu-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/burger-menu.svg" alt="mobile menu icon" data-toggle="mobile-menu">
-        <a class="menu-icon-close" style="display:none;"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close.svg" alt="close-button"></a>
+        <span class="menu-icon-container">
+          <svg class="menu-icon" width="37px" height="27px" viewBox="0 0 37 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-toggle="mobile-menu">
+              <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+              <title>burger menu</title>
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                  <g id="Header" transform="translate(-307.000000, -23.000000)" stroke="#2FB1EB" stroke-width="3">
+                      <g id="burger-menu" transform="translate(309.000000, 23.000000)">
+                          <path d="M0.350240072,1.5 L33.2802567,1.5" id="Line"></path>
+                          <path d="M0.350240072,13.5 L33.2802567,13.5" id="Line-Copy"></path>
+                          <path d="M1.71695991e-13,25.5 L32.9300166,25.5" id="Line-Copy-2"></path>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+        </span>
+        <a class="menu-icon-close" style="display: none;"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close.svg" alt="close-button"></a>
       </div>
 
     </div>
