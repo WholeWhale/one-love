@@ -215,7 +215,7 @@ function metabox_switcher( $post ){
 
                     //You can find this in the value of the Page Template dropdown
                     var templateName = "page-templates/page-full-width.php";
-                    var convoTemplateName = "single-start_post_type.php";
+                    var convoTemplateName = "single-act_post_type.php";
 
                     //Page template in the publishing options
                     var currentTemplate = $("#page_template");
