@@ -43,8 +43,8 @@ body:not(.display-mobile-menu) {
       }
     }
     .top-bar {
-      h3.head-menu-item,
-      li a:hover h3.head-menu-item {
+      h4.head-menu-item,
+      li a:hover h4.head-menu-item {
         color: $white;
       }
     }
@@ -110,7 +110,7 @@ body:not(.display-mobile-menu) {
 
     }
 
-    h3.head-menu-item:not(h1) {
+    h4.head-menu-item:not(h1) {
       color: $sky;
     }
     li.menu-item {
@@ -122,7 +122,7 @@ body:not(.display-mobile-menu) {
         top: calc(100%+1px);
         transform: translateX(-50%);
         right: auto;
-        li.current-menu-item a h3.head-menu-item {
+        li.current-menu-item a h4.head-menu-item {
           margin-bottom: 0;
           border: none;
           text-decoration: underline;
@@ -133,7 +133,7 @@ body:not(.display-mobile-menu) {
           height: auto;
           &:hover,
           &:active {
-             h3.head-menu-item {
+             h4.head-menu-item {
                color: $white;
                margin-bottom: 0;
                border: none;
@@ -141,7 +141,7 @@ body:not(.display-mobile-menu) {
              }
           }
 
-        head + body &  h3.head-menu-item {
+        head + body &  h4.head-menu-item {
             line-height: 1.875rem;
             color: $white;
             width: 100%;
@@ -168,10 +168,10 @@ body:not(.display-mobile-menu) {
     &:not(:last-child) {
       border-right: initial;
     }
-    &.current-menu-item:not(.donate-button) > a > h3,
-    a:hover h3,
-    a:active h3,
-    &.menu-item-has-children.current-menu-parent > a > h3,
+    &.current-menu-item:not(.donate-button) > a > h4,
+    a:hover h4,
+    a:active h4,
+    &.menu-item-has-children.current-menu-parent > a > h4,
     &.current-menu-item > a > h1,
     a:hover h1,
     a:active h1,
@@ -180,10 +180,10 @@ body:not(.display-mobile-menu) {
       margin-bottom: .25rem;
     }
     body:not(.display-mobile-menu) & {
-      &.menu-item-has-children.current-menu-parent > a > h3,
-      &.current-menu-item:not(.donate-button) > a > h3,
-      a:hover h3,
-      a:active h3,
+      &.menu-item-has-children.current-menu-parent > a > h4,
+      &.current-menu-item:not(.donate-button) > a > h4,
+      a:hover h4,
+      a:active h4,
       &.current-menu-item > a > h1,
       a:hover h1,
       a:active h1,
@@ -196,9 +196,9 @@ body:not(.display-mobile-menu) {
       display: flex;
       justify-content: left;
       align-items: center;
-      h3 {
+      h4 {
         margin-bottom: 0;
-        margin-top: .875rem;
+        margin-top: .25rem;
       }
     }
   }
@@ -221,7 +221,7 @@ body:not(.display-mobile-menu) {
       background-color: $moss;
     }
     &:hover > h1.mobile-head-menu-item {
-      @extend h3.head-menu-item;
+      @extend h4.head-menu-item;
       margin-bottom: 0;
 
     }
