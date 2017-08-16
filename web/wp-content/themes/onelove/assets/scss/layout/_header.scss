@@ -27,10 +27,19 @@ body:not(.display-mobile-menu) {
 
   .page-template-page-home &  {
     transition: all .5s ease-in-out;
+    border: none;
+    .top-bar,
+    .title-bar {
+      &,
+      ul,
+      html &:not(.title-bar) li.menu-item:not(.is-dropdown-submenu-item) > a {
+        background-color: transparent;
+      }
+    }
+
   }
 
   .page-template-page-home.header-transparent & {
-    transition: all .5s ease-in-out;
     &,
     .top-bar,
     .title-bar {
