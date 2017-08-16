@@ -28,6 +28,7 @@ body:not(.display-mobile-menu) {
   .page-template-page-home &  {
     transition: all .5s ease-in-out;
     border: none;
+    padding-bottom: 1px;
     .top-bar,
     .title-bar {
       &,
