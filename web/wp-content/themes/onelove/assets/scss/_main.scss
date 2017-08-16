@@ -250,7 +250,7 @@ textarea {
   }
 }
 
-.single-start_post_type  #single-post,
+.single-act_post_type  #single-post,
 .page-template-page-home #page-full-width,
 .page-template-page-full-width #page-full-width,
 .single-learn_post_type #single-post,
@@ -259,7 +259,7 @@ textarea {
   width: 94%;
 }
 
-.single-start_post_type  #single-post,
+.single-act_post_type  #single-post,
 .page-template-page-full-width #page-full-width,
 .page-template-page-home #page-full-width,
 .full-page-header-content,
@@ -273,7 +273,7 @@ textarea {
   }
 }
 
-.single-start_post_type  #single-post,
+.single-act_post_type  #single-post,
 .page-template-page-full-width #page-full-width,
 .page-template-page-home #page-full-width {
   padding-top: $default-spacing;
@@ -282,7 +282,7 @@ textarea {
 }
 
 .page-template-page-full-width,
-.single-start_post_type {
+.single-act_post_type {
   #featured-hero {
     margin-bottom: -$default-spacing;
   }
@@ -296,7 +296,7 @@ textarea {
 
 .page-template-page-full-width,
 .page-template-page-home,
-.single-start_post_type {
+.single-act_post_type {
   #featured-hero,
   .cycloneslider-slide > * {
     height: calc(100vh - 4.375rem);
@@ -344,9 +344,9 @@ textarea {
 .rally_post_type-template-default  {
   @extend .single-learn_post_type;
 }
-.rally_post_type-template-page-start,
-.page-template-page-start {
-  @extend .single-start_post_type;
+.rally_post_type-template-page-act,
+.page-template-page-act {
+  @extend .single-act_post_type;
 }
 
 .archive,
