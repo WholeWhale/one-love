@@ -234,7 +234,7 @@ function metabox_switcher( $post ){
                     var homepagemetabox = $("#'.$homepage_metabox.'");
 
                     //On DOM ready, check if your page template is selected
-                    if(currentTemplate.val() === templateName){
+                    if(currentTemplate.val() === templateName || currentTemplate.val() === homeTemplateName){
                         metabox.show();
                     }
                     if(currentTemplate.val() === convoTemplateName){

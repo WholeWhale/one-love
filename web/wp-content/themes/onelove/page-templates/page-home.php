@@ -4,6 +4,7 @@ Template Name: Home
 */
 get_header();
 
+  $subtitle     = get_post_meta(get_the_ID(),'subtitle','true');
   $button1_text = get_post_meta(get_the_ID(),'button-1-text','true');
   $button1_link = get_post_meta(get_the_ID(),'button-1-link','true');
   $button2_text = get_post_meta(get_the_ID(),'button-2-text','true');
@@ -12,7 +13,9 @@ get_header();
     <header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-alt-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-alt-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-alt-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-alt-xlarge'); ?>, xlarge]">
       <div class="overlay remove-overlay">
         <header class="full-page-header-content">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <?php if (!empty($subtitle)): ?>
+              <h1 class="entry-title"><?php echo $subtitle;  ?></h1>
+            <?php endif; ?>
             <div class="hero-overlay-buttons">
               <?php if (!empty($button1_text)): ?>
                 <div class="vc_btn3-container ol_button vc_btn3-default">
