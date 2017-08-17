@@ -1,0 +1,29 @@
+div.membership-card {
+  background-image: url('/wp-content/themes/onelove/assets/images/membership-card.svg');
+  background-repeat: no-repeat;
+  height: 16rem;
+  width: 27.3125rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  box-shadow: 2px 2px 6px 0 rgba(61,61,61,0.50);
+  .membership-card-section-container {
+    width: 50%;
+    margin-right: 0;
+    padding-left: $default-spacing;
+  }
+  section {
+    text-overflow: ellipsis;
+    &:not(:first-child) {
+      margin-top: $default-spacing;
+    }
+  }
+  * {
+    color: $white;
+  }
+  .membership-card-name * {
+    text-transform: uppercase;
+  }
+
+}

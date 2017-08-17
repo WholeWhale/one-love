@@ -408,3 +408,22 @@ function add_search_box_to_menu( $items, $args ) {
 
     return $items;
 }
+
+function membership_card() {
+  ob_start(); ?>
+  <div class="membership-card">
+    <div class="membership-card-section-container">
+      <section class="membership-card-name">
+        <h3 class="membership-card-firstName">Your</h3>
+        <h3 class="membership-card-lastName">Name Here</h3>
+      </section>
+      <section class="membership-card-date">
+        <h4>Member since</h4>
+        <h4><?php echo date('Y'); ?></h4>
+      </section>
+    </div>
+  </div>
+  <?php
+  return ob_get_clean();
+}
+add_shortcode('membership_card','membership_card');
