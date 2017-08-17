@@ -14,20 +14,20 @@ get_header();
         <header class="full-page-header-content">
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <div class="hero-overlay-buttons">
-
+              <?php if (!empty($button1_text)): ?>
                 <div class="vc_btn3-container ol_button vc_btn3-default">
                    <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default" href="<?php echo $button1_link; ?>" title="">
                      <h4><?php echo $button1_text; ?></h4>
                    </a>
                  </div>
-
-
-                <div class="vc_btn3-container ol_button vc_btn3-default">
-                  <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-coral" href="<?php echo $button2_text; ?>" title="">
-                     <h4><?php echo $button2_text; ?></h4>
-                   </a>
-                 </div>
-
+              <?php endif; ?>
+                <?php if (!empty($button2_text)): ?>
+                  <div class="vc_btn3-container ol_button vc_btn3-default">
+                    <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-coral" href="<?php echo $button2_text; ?>" title="">
+                       <h4><?php echo $button2_text; ?></h4>
+                     </a>
+                   </div>
+                <?php endif; ?>
             </div>
         </header>
       </div>
