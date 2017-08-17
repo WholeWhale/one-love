@@ -4,26 +4,35 @@ Template Name: Home
 */
 get_header();
 
-
-
-$slider = do_shortcode('[cycloneslider id="homepage"]');
-
-if ( empty($slider) || mb_strpos($slider,'not found') !== false  ) {
-  $subtitle = get_post_meta(get_the_ID(),'subtitle','true');
+  $button1_text = get_post_meta(get_the_ID(),'button-1-text','true');
+  $button1_link = get_post_meta(get_the_ID(),'button-1-link','true');
+  $button2_text = get_post_meta(get_the_ID(),'button-2-text','true');
+  $button2_link = get_post_meta(get_the_ID(),'button-2-link','true');
   if ( has_post_thumbnail( $post->ID ) ) : ?>
     <header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-alt-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-alt-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-alt-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-alt-xlarge'); ?>, xlarge]">
-      <div class="overlay">
+      <div class="overlay remove-overlay">
         <header class="full-page-header-content">
             <h1 class="entry-title"><?php the_title(); ?></h1>
-            <h3><?php echo $subtitle; ?></h3>
+            <div class="hero-overlay-buttons">
+
+                <div class="vc_btn3-container ol_button vc_btn3-default">
+                   <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-default" href="<?php echo $button1_link; ?>" title="">
+                     <h4><?php echo $button1_text; ?></h4>
+                   </a>
+                 </div>
+
+
+                <div class="vc_btn3-container ol_button vc_btn3-default">
+                  <a class="vc_general vc_btn3 vc_btn3-size-default vc_btn3-shape-default vc_btn3-style-onelove vc_btn3-color-coral" href="<?php echo $button2_text; ?>" title="">
+                     <h4><?php echo $button2_text; ?></h4>
+                   </a>
+                 </div>
+
+            </div>
         </header>
       </div>
     </header>
   <?php endif;
-}
-else {
-  echo $slider;
-}
 ?>
 
 

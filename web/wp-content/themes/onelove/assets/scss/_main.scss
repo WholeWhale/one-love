@@ -10,9 +10,10 @@
 // 5. Slider
 // 6. Love Path
 // 7. Forms
+// 8. utility classes
 
 
-// 1. Globa
+// 1. Global
 // ---------
 
 html,
@@ -451,6 +452,9 @@ textarea {
   .ol-slider {
     height: 100vh;
   }
+  #featured-hero {
+    margin-bottom: -$default-spacing;
+  }
 }
 
 .prevent-touch {
@@ -665,4 +669,7 @@ body:not(.error404) {
 }
 .display-flex {
   display: flex !important;
+}
+.remove-overlay {
+  background-image: none !important;
 }

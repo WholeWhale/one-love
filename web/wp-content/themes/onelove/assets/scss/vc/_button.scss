@@ -177,4 +177,39 @@ body {
       outline: none;
     }
   }
+  .hero-overlay-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+    @at-root {
+      body.page-template-page-home {
+        div.overlay.remove-overlay .full-page-header-content >  h1.entry-title {
+          margin-bottom: 36px;
+          @media screen and (max-width: 479px) {
+            margin-bottom: 40px;
+          }
+        }
+        .overlay.remove-overlay .full-page-header-content {
+          bottom: 63px;
+        }
+      }
+    }
+    & > * {
+      display: flex;
+      &:first-child {
+        margin-right: 15px;
+        margin-bottom: 30px;
+        @include breakpoint(medium) {
+          margin-bottom: 21.74px;
+        }
+      }
+      &:last-child {
+        margin-left: 15px;
+      }
+    }
+  }
 }
