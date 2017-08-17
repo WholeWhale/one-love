@@ -62,7 +62,7 @@ function create_campaign_card_metabox() {
     /**
     * Add metabox to the "page" post type
     */
-    $post_types = array('start_post_type','page','rally_post_type');
+    $post_types = array('act_post_type','page','rally_post_type');
     foreach ($post_types as $post_type) {
       add_meta_box(
         'campaign_card_meta',
