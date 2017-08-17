@@ -12,7 +12,7 @@
 // 7. Forms
 
 
-// 1. Global
+// 1. Globa
 // ---------
 
 html,
@@ -444,6 +444,15 @@ textarea {
   }
 }
 
+.page-template-page-home {
+  #featured-hero,
+  .cycloneslider-slide > *,
+  .featured-video-overlay:before,
+  .ol-slider {
+    height: 100vh;
+  }
+}
+
 .prevent-touch {
   pointer-events: none;
 }
@@ -616,7 +625,7 @@ body:not(.error404) {
   outline: none;
 }
 #masthead .top-bar li.menu-item-search a:hover {
-  h3.fa.fa-search.head-menu-item {
+  h4.fa.fa-search.head-menu-item {
     border: none;
     margin-bottom: 0;
   }
@@ -643,7 +652,19 @@ body:not(.error404) {
     z-index: 1;
   }
 }
-
 .page-template-page-home #page-full-width.homepage {
   padding-bottom: 0;
+}
+
+.menu-icon-container {
+  height: 100%;
+}
+
+// Utility classes
+
+.hidden {
+  display: none !important;
+}
+.display-flex {
+  display: flex !important;
 }

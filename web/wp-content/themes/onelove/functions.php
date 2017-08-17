@@ -375,7 +375,7 @@ function add_search_box_to_menu( $items, $args ) {
       ob_start(); ?>
       <li id="menu-item-search" class='menu-item menu-item-type-custom menu-item-object-custom menu-item-search' role="menuitem">
         <a data-open="header-search-form">
-          <h3 class="fa fa-search head-menu-item" style="font-size: 1.3rem;line-height:1.6875rem;" aria-hidden="true"></h3>
+          <h4 class="fa fa-search head-menu-item" style="font-size: 1.3rem;line-height:1.6875rem;" aria-hidden="true"></h4>
         </a>
         <div class="reveal coral" id="header-search-form" data-reveal>
           <h1>What are you looking for?</h1>
