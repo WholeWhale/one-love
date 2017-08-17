@@ -656,6 +656,9 @@ body:not(.error404) {
     z-index: 1;
   }
 }
+.page-template-page-home #page-full-width.homepage {
+  padding-bottom: 0;
+}
 
 .menu-icon-container {
   height: 100%;
@@ -675,3 +678,4 @@ body:not(.error404) {
 .remove-overlay {
   background-image: none !important;
 }
+

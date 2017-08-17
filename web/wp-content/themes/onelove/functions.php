@@ -218,11 +218,13 @@ function metabox_switcher( $post ){
                     var templateName      = "page-templates/page-full-width.php";
                     var convoTemplateName = "page-templates/page-start.php";
                     var homeTemplateName  = "page-templates/page-home.php";
+                    var templateName = "page-templates/page-full-width.php";
+                    var convoTemplateName = "single-act_post_type.php";
 
                     //Page template in the publishing options
                     var currentTemplate = $("#page_template");
 
-                    if( $(".post-type-start_post_type").length ) {
+                    if( $(".post-type-act_post_type").length ) {
                       $("#'.$conversation_metabox_id.'").show();
                     }
 
@@ -232,7 +234,7 @@ function metabox_switcher( $post ){
                     var homepagemetabox = $("#'.$homepage_metabox.'");
 
                     //On DOM ready, check if your page template is selected
-                    if(currentTemplate.val() === templateName){
+                    if(currentTemplate.val() === templateName || currentTemplate.val() === homeTemplateName){
                         metabox.show();
                     }
                     if(currentTemplate.val() === convoTemplateName){
