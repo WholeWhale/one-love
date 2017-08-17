@@ -5,7 +5,7 @@ html body {
     background-position: center;
     background-clip: content-box;
     height: 21.875rem;
-    max-width: 21.875rem;
+    width: 100%;
     padding: 0 $default-spacing/2;
     box-sizing: border-box;
     margin-top: $default-spacing/2;
@@ -22,15 +22,25 @@ html body {
       }
     }
   }
+  .escalation-block,
+  .tnl-block,
+  .stickies-block {
+    background-position: center right;
+  }
+  .stories-block,
+  .playlist-block {
+    background-position: center left;
+  }
+
   .bookmark-block {
     background-size: 20%;
-    background-position: right $default-spacing top;
+    background-position: 90% 100%;
   }
   .flyer-block {
     background-size: 60%;
   }
   .shop-block {
-    background-position: center bottom;
+    background-position: bottom right;
   }
   .stickies-block {
     .ol_button a.vc_btn3-color-default:hover {
