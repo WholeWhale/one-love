@@ -218,6 +218,8 @@ function metabox_switcher( $post ){
                     var templateName      = "page-templates/page-full-width.php";
                     var convoTemplateName = "page-templates/page-start.php";
                     var homeTemplateName  = "page-templates/page-home.php";
+                    var templateName = "page-templates/page-full-width.php";
+                    var convoTemplateName = "single-act_post_type.php";
 
                     //Page template in the publishing options
                     var currentTemplate = $("#page_template");
