@@ -6,6 +6,6 @@
 
 get_header();
 
-get_template_part("template-parts/start");
+get_template_part("template-parts/act");
 
 get_footer();
