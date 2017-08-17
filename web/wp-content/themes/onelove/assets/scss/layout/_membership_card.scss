@@ -25,5 +25,21 @@ div.membership-card {
   .membership-card-name * {
     text-transform: uppercase;
   }
+}
+div.vc-membership-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  html head + body & {
+    padding: 3.125rem;
+  }
+  .vc-membership-headline {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: 3.125rem;
+    max-width: 48rem;
+  }
+  section {
+  }
 
 }
