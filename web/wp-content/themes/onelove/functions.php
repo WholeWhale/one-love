@@ -224,7 +224,7 @@ function metabox_switcher( $post ){
                     //Page template in the publishing options
                     var currentTemplate = $("#page_template");
 
-                    if( $(".post-type-start_post_type").length ) {
+                    if( $(".post-type-act_post_type").length ) {
                       $("#'.$conversation_metabox_id.'").show();
                     }
 
