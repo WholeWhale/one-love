@@ -352,17 +352,19 @@ function membership_card_output( $atts ) {
   extract( shortcode_atts( array(
       'membership_headline'           => '',
       'membership_pardot_id'          => '',
-      'membership_pardot_height'      => '',
+      'membership_pardot_height'      => '290',
    ), $atts ) );
    ob_start();?>
    <div class="vc-membership-card green">
      <h2 class="vc-membership-headline"><?php echo $membership_headline ?></h2>
-     <section class="vc-membership-pardot">
-       <?php echo do_shortcode('[pardot-form id="'.$membership_pardot_id.'" height="'.$membership_pardot_height.'"]') ?>
-     </section>
-     <section class="vc-membership-dynamic-card">
-       <?php echo do_shortcode('[membership_card]',true); ?>
-     </section>
+     <div class="vc-membership-section-container">
+       <section class="vc-membership-pardot">
+         <?php echo do_shortcode('[pardot-form id="'.$membership_pardot_id.'" height="'.$membership_pardot_height.'"]') ?>
+       </section>
+       <section class="vc-membership-dynamic-card">
+         <?php echo do_shortcode('[membership_card]',true); ?>
+       </section>
+     </div>
    </div>
    <?php
    return ob_get_clean();

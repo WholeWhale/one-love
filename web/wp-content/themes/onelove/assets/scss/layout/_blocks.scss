@@ -4,8 +4,7 @@ html body {
     background-size: contain;
     background-position: center;
     background-clip: content-box;
-    height: 21.875rem;
-    width: 100%;
+    min-height: 21.875rem;
     padding: 0 $default-spacing/2;
     box-sizing: border-box;
     margin-top: $default-spacing/2;

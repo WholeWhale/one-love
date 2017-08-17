@@ -301,7 +301,7 @@ textarea {
   #featured-hero,
   .cycloneslider-slide > * {
     height: calc(100vh - 4.375rem);
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -678,4 +678,3 @@ body:not(.error404) {
 .remove-overlay {
   background-image: none !important;
 }
-
