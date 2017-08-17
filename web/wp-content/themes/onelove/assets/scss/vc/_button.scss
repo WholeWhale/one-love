@@ -188,27 +188,31 @@ body {
     @at-root {
       body.page-template-page-home {
         div.overlay.remove-overlay .full-page-header-content >  h1.entry-title {
-          margin-bottom: 36px;
-          @media screen and (max-width: 479px) {
-            margin-bottom: 40px;
+          margin-bottom: 2.25rem;
+          @media screen and (max-width: 29.9375rem) {
+            margin-bottom: 2.5rem;
           }
         }
         .overlay.remove-overlay .full-page-header-content {
-          bottom: 63px;
+          bottom: 3.9375rem;
         }
       }
     }
     & > * {
       display: flex;
       &:first-child {
-        margin-right: 15px;
-        margin-bottom: 30px;
         @include breakpoint(medium) {
-          margin-bottom: 21.74px;
+          margin-right: .9375rem;
+        }
+        margin-bottom: 1.875rem;
+        @include breakpoint(medium) {
+          margin-bottom: 1.3587rem;
         }
       }
       &:last-child {
-        margin-left: 15px;
+        @include breakpoint(medium) {
+          margin-left: .9375rem;
+        }
       }
     }
   }
