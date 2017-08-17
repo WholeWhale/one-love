@@ -203,26 +203,35 @@ add_action('edit_form_after_title','move_advance_pos_after_title');
 function metabox_switcher( $post ){
 
         #Locate the ID of your metabox with Developer tools
-        $metabox_selector_id = 'subtitle_meta';
+        $metabox_selector_id     = 'subtitle_meta';
         $conversation_metabox_id = 'campaign_card_meta';
+        $homepage_metabox        = 'homepage_buttons_meta';
         echo '
             <style type="text/css">
                 /* Hide your metabox so there is no latency flash of your metabox before being hidden */
-                #'.$metabox_selector_id.',#'.$conversation_metabox_id.'{display:none;}
+                #'.$metabox_selector_id.',#'.$conversation_metabox_id.',#'.$homepage_metabox.'{display:none;}
             </style>
             <script type="text/javascript">
                 jQuery(document).ready(function($){
 
                     //You can find this in the value of the Page Template dropdown
+                    var templateName      = "page-templates/page-full-width.php";
+                    var convoTemplateName = "page-templates/page-start.php";
+                    var homeTemplateName  = "page-templates/page-home.php";
                     var templateName = "page-templates/page-full-width.php";
                     var convoTemplateName = "single-act_post_type.php";
 
                     //Page template in the publishing options
                     var currentTemplate = $("#page_template");
 
+                    if( $(".post-type-start_post_type").length ) {
+                      $("#'.$conversation_metabox_id.'").show();
+                    }
+
                     //Identify your metabox
-                    var metabox = $("#'.$metabox_selector_id.'");
-                    var convometabox = $("#'.$conversation_metabox_id.'");
+                    var metabox         = $("#'.$metabox_selector_id.'");
+                    var convometabox    = $("#'.$conversation_metabox_id.'");
+                    var homepagemetabox = $("#'.$homepage_metabox.'");
 
                     //On DOM ready, check if your page template is selected
                     if(currentTemplate.val() === templateName){
@@ -230,6 +239,9 @@ function metabox_switcher( $post ){
                     }
                     if(currentTemplate.val() === convoTemplateName){
                         convometabox.show();
+                    }
+                    if(currentTemplate.val() === homeTemplateName){
+                        homepagemetabox.show();
                     }
 
                     //Bind a change event to make sure we show or hide the metabox based on user selection of a template
@@ -247,6 +259,13 @@ function metabox_switcher( $post ){
                         else{
                             //You should clear out all metabox values here;
                             convometabox.hide();
+                        }
+                        if(currentTemplate.val() === homeTemplateName){
+                            homepagemetabox.show();
+                        }
+                        else{
+                            //You should clear out all metabox values here;
+                            homepagemetabox.hide();
                         }
                     });
                 });
