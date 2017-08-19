@@ -414,6 +414,9 @@ function add_search_box_to_menu( $items, $args ) {
 function membership_card() {
   ob_start(); ?>
   <div class="membership-card">
+    <div class="membership-card-section-background">
+      <img src="/wp-content/themes/onelove/assets/images/membership-card.svg" alt="membership card">
+    </div>
     <div class="membership-card-section-container">
       <section class="membership-card-name">
         <h3 class="membership-card-firstName">Your</h3>

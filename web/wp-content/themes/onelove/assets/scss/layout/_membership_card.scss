@@ -1,8 +1,6 @@
 div.membership-card {
-  background-image: url('/wp-content/themes/onelove/assets/images/membership-card.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100%;
+  position: relative;
   width: 100%;
   display: flex;
   align-self: center;
@@ -11,13 +9,23 @@ div.membership-card {
   align-items: flex-end;
   box-shadow: .125rem .125rem .375rem 0 rgba(61,61,61,0.50);
   border-radius: .5625rem;
-  min-height: 256px;
-  max-width: 437px;
+  max-width: 300px;
   margin: 0 auto;
+  .membership-card-section-background {
+    position: relative;
+  }
   .membership-card-section-container {
+    position: absolute;
     width: 50%;
     margin-right: 0;
-    padding-left: $default-spacing;
+    padding-left: 1rem;
+    * {
+      font-size: 4vw;
+      line-height: normal;
+      @media screen and (min-width: 350px) {
+        font-size: 100%;
+      }
+    }
   }
   section {
     text-overflow: ellipsis;
@@ -76,19 +84,29 @@ div.vc-membership-card {
       }
     }
   }
+  * {
+    font-size: 100%;
+    line-height: normal;
+  }
 }
-@media screen and (max-width: 480px) {
-  html head+body div.vc-membership-card {
-    padding: 30px;
-    min-height: auto;
-    .membership-card-section-container {
-      margin-top: 30px;
-      padding-left: 0;
-      width: 30%;
+@media screen and (max-width: 450px) {
+  section.vc-membership-dynamic-card {
+    div.membership-card-section-container {
       * {
-        font-size: 100%;
-        line-height: auto;
+        font-size: 3vw;
       }
     }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  section.vc-membership-dynamic-card {
+    div.membership-card-section-container {
+      * {
+      }
+    }
+  }
+  div.membership-card section:not(:first-child) {
+    margin-top: 15px;
   }
 }
