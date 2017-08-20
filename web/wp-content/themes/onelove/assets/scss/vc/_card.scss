@@ -26,4 +26,18 @@ body {
     }
   }
 
+  .action-card.action-card-display-pardot-parent {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+    .action-card-display-pardot {
+      padding: 0;
+      width: 100%;
+      padding: 2.5rem 1.875rem;
+    }
+  }
+
 }
