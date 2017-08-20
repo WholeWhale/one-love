@@ -462,7 +462,7 @@ function love_path() {
                     <circle  id="Oval6" fill="#00A3DF" cx="32" cy="15" r="0"></circle>
                     <circle  id="Oval7" fill="#FF5E5B" cx="32" cy="583" r="0"></circle>
                     <polygon id="Path2" fill="#55C6B6" points="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377"></polygon>
-                    <animate xlink:href="#Oval6" id="firstCircle" attributeName="r" dur="1s" from="0" to="15" begin="0s"  fill="freeze" />
+                    <animate xlink:href="#Oval6" id="firstCircle" attributeName="r" dur="1s" from="0" to="15" begin="indefinite"  fill="freeze" />
                     <animate xlink:href="#Line3" id="firstPath"  attributeName="points" dur="2s" from="26 0 26 0 38 0 38 0"  to="26 12 26 582 38 582 38 12" begin="firstCircle.end-10ms" fill="freeze" />
                     <animate xlink:href="#Line4" id="secondPath" attributeName="points" dur="2s" from="26 523 26 582 38 582 38 523"  to="26 573 26 1128 38 1128 38 573" begin="firstPath.end" fill="freeze"  />
                     <animate xlink:href="#Oval7" attributeName="r" dur="1s" from="0" to="15" begin="firstPath.end-1s"  fill="freeze" />
@@ -473,7 +473,77 @@ function love_path() {
     </svg>
   </div>
   <script type="text/javascript">
+  !function ($) {
+    'use strict'
+
+    var plugin
+
+    var Class = function (el, cb) {
+      plugin = this
+      this.$el = $(el)
+      this.cb = cb
+      watch()
+      return this
+    }
+
+    /**
+     * Checks if the element is in.
+     *
+     * @returns {boolean}
+     */
+    function isIn () {
+      var $win = $(window)
+      var elementTop = plugin.$el.offset().top
+      var elementBottom = elementTop + plugin.$el.outerHeight()
+      var viewportTop = $win.scrollTop()
+      var viewportBottom = viewportTop + $win.height()
+      return elementBottom > viewportTop && elementTop < viewportBottom
+    }
+
+    /**
+     * Launch a callback indicating when the element is in and when is out.
+     */
+    function watch () {
+      var _isIn = false
+
+      $(window).on('resize scroll', function () {
+
+        if (isIn() && _isIn === false) {
+          plugin.cb.call(plugin.$el, 'entered')
+          _isIn = true
+        }
+
+        if (_isIn === true && !isIn()) {
+          plugin.cb.call(plugin.$el, 'leaved')
+          _isIn = false
+        }
+
+      })
+    }
+
+    // jQuery plugin.
+    //-----------------------------------------------------------
+    $.fn.isInViewport = function (cb) {
+      return this.each(function () {
+        var $element = $(this)
+        var data = $element.data('isInViewport')
+        if (!data) {
+          $element.data('isInViewport', (new Class(this, cb)))
+        }
+      })
+    }
+
+    }(window.jQuery)
+  </script>
+  <script type="text/javascript">
     jQuery(window).load(function(){
+      var svgCalled = false;
+      $('.love-path-svg').isInViewport(function (status) {
+        if (status === 'entered' & !svgCalled) {
+          document.getElementById('firstCircle').beginElement();
+          svgCalled = true;
+        }
+      });
       var getContainer = jQuery('.animated-love-path');
       if ( getContainer.length ) {
         var displacement = getContainer.outerHeight()+15;
