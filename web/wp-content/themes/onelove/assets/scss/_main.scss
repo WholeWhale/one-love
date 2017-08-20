@@ -678,3 +678,18 @@ body:not(.error404).page-template-page-home  .full-page-header-content {
 .remove-overlay {
   background-image: none !important;
 }
+
+.animated-love-path {
+  position: relative;
+  &,* {
+    overflow: visible !important;
+  }
+  .love-path-svg {
+    position: absolute;
+    margin-left: -100px;
+    top: -15px;
+    // bottom: 0;
+    // transform: translateY(50%);
+    z-index: 120;
+  }
+}
