@@ -302,3 +302,70 @@ function action_card( $atts, $content = null ) {
   return ob_get_clean();
 
 }
+
+
+
+add_action( 'vc_before_init', 'membership_card_component' );
+
+function membership_card_component() {
+  vc_map( array(
+     "name"     => __("Membership Card"),
+     "base"     => "membership_card_output",
+     "category" => __('Content'),
+     "weight"   => 99,
+     "params"   => array(
+       array(
+            "type"        => "textfield",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Headline", "my-text-domain" ),
+            "param_name"  => "membership_headline",
+            "value"       => __( "", "my-text-domain" ),
+            "description" => __( "The headline text that will display on the card.", "my-text-domain" )
+         ),
+       array(
+            "type"        => "textfield",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Pardot Form ID", "my-text-domain" ),
+            "param_name"  => "membership_pardot_id",
+            "value"       => __( "", "my-text-domain" ),
+            "description" => __( "The form id that fills in the xxxxx portion of the shortcode [pardot-form id='xxxxx' height='290']", "my-text-domain" )
+         ),
+       array(
+            "type"        => "textfield",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Pardot Form Height", "my-text-domain" ),
+            "param_name"  => "membership_pardot_height",
+            "value"       => __( "", "my-text-domain" ),
+            "description" => __( "The form height that fills in the xxxxx portion of the shortcode [pardot-form id='1234' height='xxxxx']", "my-text-domain" )
+         ),
+      )
+    )
+  );
+}
+
+add_shortcode('membership_card_output','membership_card_output');
+
+function membership_card_output( $atts ) {
+  extract( shortcode_atts( array(
+      'membership_headline'           => '',
+      'membership_pardot_id'          => '',
+      'membership_pardot_height'      => '290',
+   ), $atts ) );
+   ob_start();?>
+   <div class="vc-membership-card green">
+     <h2 class="vc-membership-headline"><?php echo $membership_headline ?></h2>
+     <div class="vc-membership-section-container">
+       <section class="vc-membership-pardot">
+         <?php echo do_shortcode('[pardot-form id="'.$membership_pardot_id.'" height="'.$membership_pardot_height.'"]') ?>
+       </section>
+       <section class="vc-membership-dynamic-card">
+         <?php echo do_shortcode('[membership_card]',true); ?>
+       </section>
+     </div>
+   </div>
+   <?php
+   return ob_get_clean();
+}

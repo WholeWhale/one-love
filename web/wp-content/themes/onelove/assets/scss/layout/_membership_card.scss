@@ -1,0 +1,112 @@
+div.membership-card {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  box-shadow: .125rem .125rem .375rem 0 rgba(61,61,61,0.50);
+  border-radius: .5625rem;
+  max-width: 300px;
+  margin: 0 auto;
+  .membership-card-section-background {
+    position: relative;
+  }
+  .membership-card-section-container {
+    position: absolute;
+    width: 50%;
+    margin-right: 0;
+    padding-left: 1rem;
+    * {
+      font-size: 4vw;
+      line-height: normal;
+      @media screen and (min-width: 350px) {
+        font-size: 100%;
+      }
+    }
+  }
+  section {
+    text-overflow: ellipsis;
+    &:not(:first-child) {
+      margin-top: $default-spacing;
+    }
+  }
+  * {
+    color: $white;
+  }
+  .membership-card-name * {
+    text-transform: uppercase;
+  }
+}
+div.vc-membership-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  html head + body & {
+    padding: 3.125rem;
+  }
+  .vc-membership-headline {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: 3.125rem;
+    max-width: 48rem;
+  }
+
+}
+
+.vc-membership-section-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+  .vc-membership-dynamic-card {
+    align-self: center;
+  }
+  & > section {
+    width: 100%;
+    &:first-child {
+      margin: 0 auto;
+      @include breakpoint(medium) {
+        margin: 0 $default-spacing/2 0 0;
+      }
+      width: auto;
+    }
+    &:last-child {
+      margin: 0 auto;
+      @include breakpoint(medium) {
+        margin: 0 0 0 $default-spacing/2;
+      }
+    }
+  }
+  * {
+    font-size: 100%;
+    line-height: normal;
+  }
+}
+@media screen and (max-width: 450px) {
+  section.vc-membership-dynamic-card {
+    div.membership-card-section-container {
+      * {
+        font-size: 3vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  section.vc-membership-dynamic-card {
+    div.membership-card-section-container {
+      * {
+      }
+    }
+  }
+  div.membership-card section:not(:first-child) {
+    margin-top: 15px;
+  }
+}
