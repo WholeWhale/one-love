@@ -712,3 +712,56 @@ body:not(.error404).page-template-page-home  .full-page-header-content {
     z-index: 120;
   }
 }
+
+.video-modal {
+  position: relative;
+  float: left;
+  .video-modal-overlay {
+    height: auto;
+    width: auto;
+    position: absolute;
+  }
+  .modal-play-button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+html.is-reveal-open, html.is-reveal-open body {
+  position: relative;
+}
+html .reveal {
+  border: none;
+  outline: none;
+}
+.mod-reveal {
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  position: absolute;
+  width: auto;
+  max-width: none;
+  text-align: center;
+  transform: translateY(0%);
+  top: 50% !important;
+  left: 50%;
+  min-height: inherit;
+  height: inherit;
+  transform: translate(-50%,-50%);
+  display: inline-block !important;
+
+  iframe {
+    height: 50vh;
+    width: 80vw;
+    @include breakpoint(medium) {
+      width: 50vw;
+    }
+
+  }
+}
+*:focus {
+  outline: none;
+}
