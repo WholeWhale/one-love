@@ -255,6 +255,38 @@ function card_component() {
              "param_name" => "extra_classes",
              "description" => __("Style particular content element differently - add a class name and refer to it in custom CSS.")
           ),
+        array(
+             "type" => "checkbox",
+             "holder" => "div",
+             "class" => "",
+             "heading" => __( "Use Pardot Form?", "my-text-domain" ),
+             "param_name" => "use_pardot_form",
+             "description" => __("Whether or not to display a pardot form on the right side of the content")
+          ),
+        array(
+             "type" => "textfield",
+             "holder" => "div",
+             "class" => "",
+             "heading" => __( "Pardot Form ID", "my-text-domain" ),
+             "param_name" => "pardot_form_id",
+             "description" => __("The form id that fills in the xxxxx portion of the shortcode [pardot-form id='xxxxx' height='290']"),
+             "dependency" => array(
+               "element" => "use_pardot_form",
+               "value"   => "true"
+             ),
+          ),
+        array(
+             "type" => "textfield",
+             "holder" => "div",
+             "class" => "",
+             "heading" => __( "Pardot Form Height", "my-text-domain" ),
+             "param_name" => "pardot_form_height",
+             "description" => __("The form height that fills in the xxxxx portion of the shortcode [pardot-form id='1234' height='xxxxx']"),
+             "dependency" => array(
+               "element" => "use_pardot_form",
+               "value"   => "true"
+             ),
+          ),
      )
   ) );
 }
@@ -271,11 +303,14 @@ function random($max = 500){
 function action_card( $atts, $content = null ) {
 
   extract( shortcode_atts( array(
-      'icon'           => '',
-      'color'          => '#55c6b6',
-      'font_family'    => 'Material-Design-Iconic-Font',
-      'extra_classes'  => '',
-      'card_flip_face' => '',
+      'icon'               => '',
+      'color'              => '#55c6b6',
+      'font_family'        => 'Material-Design-Iconic-Font',
+      'extra_classes'      => '',
+      'card_flip_face'     => '',
+      'use_pardot_form'    => 'false',
+      'pardot_form_id'     => '',
+      'pardot_form_height' => '290',
    ), $atts ) );
 
 
@@ -295,8 +330,21 @@ function action_card( $atts, $content = null ) {
     #".$unique_iden.".action-card { border-top-color: ".$color."; }
     #".$unique_iden.".action-card:before { content: '".$icon ."'; background: ".$color."; font-family: ".$font_family.";}
   </style>
-  <div id='" . $unique_iden ."' class='action-card vc_card_spacing ".$extra_classes.$card_flip_face."'".$extra_attribs." data-equalizer-watch='card'>
-    ". do_shortcode( $content ) ."
+  ";
+
+    if ( $use_pardot_form == 'true' ) {
+      echo "<div id='" . $unique_iden ."' class='action-card action-card-display-pardot-parent vc_card_spacing ".$extra_classes.$card_flip_face."'".$extra_attribs." data-equalizer-watch='card'>";
+      echo do_shortcode(
+        '<section class="action-card-display-pardot">'.$content.'</section><section class="green action-card-display-pardot">[pardot-form id="'.$pardot_form_id.'" height="'.$pardot_form_height.'"]</section>'
+      );
+    }
+    else {
+      echo "<div id='" . $unique_iden ."' class='action-card vc_card_spacing ".$extra_classes.$card_flip_face."'".$extra_attribs." data-equalizer-watch='card'>";
+      echo do_shortcode(
+        $content
+      );
+    }
+    "
   </div>";
 
   return ob_get_clean();
@@ -356,10 +404,10 @@ function membership_card_output( $atts ) {
    ), $atts ) );
    ob_start();?>
    <div class="vc-membership-card green">
-     <h2 class="vc-membership-headline"><?php echo $membership_headline ?></h2>
+     <h2 class="vc-membership-headline"><?php echo $membership_headline; ?></h2>
      <div class="vc-membership-section-container">
        <section class="vc-membership-pardot">
-         <?php echo do_shortcode('[pardot-form id="'.$membership_pardot_id.'" height="'.$membership_pardot_height.'"]') ?>
+         <?php echo do_shortcode('[pardot-form id="'.$membership_pardot_id.'" height="'.$membership_pardot_height.'"]'); ?>
        </section>
        <section class="vc-membership-dynamic-card">
          <?php echo do_shortcode('[membership_card]',true); ?>
