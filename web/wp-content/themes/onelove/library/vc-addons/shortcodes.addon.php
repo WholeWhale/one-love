@@ -451,10 +451,19 @@ function modal_video_component() {
             "holder"      => "div",
             "class"       => "",
             "heading"     => __( "Youtube Video ID", "my-text-domain" ),
-            "param_name"  => "modal_video_id",
+            "param_name"  => "modal_video_id_youtube",
             "value"       => __( "", "my-text-domain" ),
             "description" => __( "The ID for the youtube video that will display when popup/modal opens.", "my-text-domain" )
          ),
+       array(
+            "type"        => "textfield",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Vimeo Video ID", "my-text-domain" ),
+            "param_name"  => "modal_video_id_vimeo",
+            "value"       => __( "", "my-text-domain" ),
+            "description" => __( "The ID for the vimeo video that will display when popup/modal opens if youtube video ID not specified", "my-text-domain" )
+       ),
       )
     )
   );
@@ -467,11 +476,12 @@ function modal_video_output($atts) {
   extract( shortcode_atts( array(
       'modal_video_thumbnail_image' => 'false',
       'modal_video_thumbnail_size'  => 'thumbnail',
-      'modal_video_id'              => 'false',
+      'modal_video_id_youtube'      => 'false',
+      'modal_video_id_vimeo'        => 'false',
    ), $atts ) );
    $ran = random();
    $video_ran = random();
-   if ($modal_video_id === 'false' || $modal_video_thumbnail_image === 'false') {
+   if ( ($modal_video_id_youtube === 'false' && $modal_video_id_vimeo === 'false') || $modal_video_thumbnail_image === 'false') {
      return;
    }
    ob_start();?>
@@ -480,35 +490,59 @@ function modal_video_output($atts) {
      <img src="<?php echo wp_get_attachment_image_src($modal_video_thumbnail_image,$modal_video_thumbnail_size)[0]; ?>" alt="Video Thumbnail"  data-open="videoModal-<?php echo $ran; ?>" >
      <img class="modal-play-button" src="/wp-content/themes/onelove/assets/images/play-button.svg" alt="Play Button"  data-open="videoModal-<?php echo $ran; ?>" >
      <section id="videoModal-<?php echo $ran; ?>" class="reveal mod-reveal" data-animation-in="fade-in" data-animation-out="fade-out"  data-reveal>
-       <div id="video-<?php echo $video_ran; ?>" ></div>
+         <div id="video-<?php echo $video_ran; ?>" ></div>
      </section>
-     <script type="text/javascript">
-     <?php $randomNum = rand(1, 500); ?>
-     // assumes youtube iframe api script is loaded by VC
-     var player<?php echo $randomNum; ?>;
 
-     $(document).on('open.zf.reveal', '#videoModal-<?php echo $ran; ?>[data-reveal]', function (e) {
-       console.log(e);
-       function onYouTubeIframeAPIReady() {
-         player<?php echo $randomNum; ?> = new YT.Player("video-<?php echo $video_ran; ?>", {
-           videoId: '<?php echo $modal_video_id; ?>',
-           width: "",
-           height: "",
-           autoplay: 1,
-           events: {
-             'onReady': onPlayerReady,
-           }
-         });
-       }
-        onYouTubeIframeAPIReady();
-        function onPlayerReady() {
-          player<?php echo $randomNum; ?>.playVideo();
-        }
-     });
-     $(document).on('closed.zf.reveal', '#videoModal-<?php echo $ran; ?>[data-reveal]', function () {
-       player<?php echo $randomNum; ?>.stopVideo().destroy();
-     });
-     </script>
+     <?php if ( $modal_video_id_vimeo !== 'false' && $modal_video_id_youtube === 'false' ): ?>
+       <script src="https://player.vimeo.com/api/player.js"></script>
+       <script>
+
+
+          <?php $randomNum = rand(1, 500); ?>
+          var player<?php echo $randomNum; ?> = '';
+
+          $(document).on('open.zf.reveal', '#videoModal-<?php echo $ran; ?>[data-reveal]', function (e) {
+            var options = {
+                id: <?php echo $modal_video_id_vimeo; ?>,
+            };
+            player<?php echo $randomNum; ?> = new Vimeo.Player('video-<?php echo $video_ran; ?>', options);
+            player<?php echo $randomNum; ?>.play();
+          });
+          $(document).on('closed.zf.reveal', '#videoModal-<?php echo $ran; ?>[data-reveal]', function () {
+              $('#video-<?php echo $video_ran; ?>').replaceWith('<div id="video-<?php echo $video_ran; ?>" ></div>');
+          });
+
+      </script>
+     <?php endif; ?>
+     <?php if ( $modal_video_id_youtube !== 'false' ): ?>
+       <script type="text/javascript">
+       <?php $randomNum = rand(1, 500); ?>
+       // assumes youtube iframe api script is loaded by VC
+       var player<?php echo $randomNum; ?>;
+
+       $(document).on('open.zf.reveal', '#videoModal-<?php echo $ran; ?>[data-reveal]', function (e) {
+         console.log(e);
+         function onYouTubeIframeAPIReady() {
+           player<?php echo $randomNum; ?> = new YT.Player("video-<?php echo $video_ran; ?>", {
+             videoId: '<?php echo $modal_video_id_youtube; ?>',
+             width: "",
+             height: "",
+             autoplay: 1,
+             events: {
+               'onReady': onPlayerReady,
+             }
+           });
+         }
+          onYouTubeIframeAPIReady();
+          function onPlayerReady() {
+            player<?php echo $randomNum; ?>.playVideo();
+          }
+       });
+       $(document).on('closed.zf.reveal', '#videoModal-<?php echo $ran; ?>[data-reveal]', function () {
+         player<?php echo $randomNum; ?>.stopVideo().destroy();
+       });
+       </script>
+     <?php endif; ?>
    </div>
    </a>
    <?php
