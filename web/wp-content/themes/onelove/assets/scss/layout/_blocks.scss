@@ -41,6 +41,10 @@ html body {
   .shop-block {
     background-position: bottom right;
   }
+  .join-block {
+    background-size: 50% 60%;
+    background-position: 85% 100%;
+  }
   .stickies-block {
     .ol_button a.vc_btn3-color-default:hover {
       background-color: $moss;
@@ -57,3 +61,4 @@ html body {
 @include create_block('playlist','playlist',$light-orange);
 @include create_block('flyer','flyer',$alt-grey);
 @include create_block('shop','ol-shirt',$snow);
+@include create_block('join','one-love-sign',$sky);
