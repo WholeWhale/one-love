@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="95px" viewBox="0 0 95 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>play button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="desktop-mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-429.000000, -980.000000)">
+            <g id="video" transform="translate(240.000000, 878.000000)">
+                <g id="play-button" transform="translate(191.000000, 104.000000)">
+                    <path d="M47.4911367,34.8980975 L60.3133442,54.3145831 L60.3133442,54.3145831 C60.9220299,55.2363073 60.6682622,56.4769497 59.746538,57.0856354 C59.4195318,57.3015829 59.0362904,57.4167062 58.6444149,57.4167062 L33,57.4167062 L33,57.4167062 C31.8954305,57.4167062 31,56.5212757 31,55.4167062 C31,55.0248308 31.1151233,54.6415893 31.3310708,54.3145831 L44.1532782,34.8980975 L44.1532782,34.8980975 C44.761964,33.9763734 46.0026064,33.7226056 46.9243305,34.3312914 C47.1495799,34.480041 47.3423871,34.6728482 47.4911367,34.8980975 Z" id="Triangle" fill="#FFFFFF" transform="translate(45.822318, 45.708353) rotate(90.000000) translate(-45.822318, -45.708353) "></path>
+                    <circle id="Oval-2" stroke="#FFFFFF" stroke-width="4" cx="45.5" cy="45.5" r="45.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
