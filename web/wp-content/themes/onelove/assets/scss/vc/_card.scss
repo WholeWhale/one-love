@@ -33,6 +33,9 @@ body {
     @include breakpoint(medium) {
       flex-direction: row;
     }
+    &:before {
+      left: $default-spacing;
+    }
     .action-card-display-pardot {
       padding: 0;
       width: 100%;
