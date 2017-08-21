@@ -344,7 +344,7 @@ function action_card( $atts, $content = null ) {
         $content
       );
     }
-    "
+  echo  "
   </div>";
 
   return ob_get_clean();
