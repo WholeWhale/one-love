@@ -92,3 +92,14 @@
     padding-bottom: $default-spacing;
   }
 }
+
+.page-template-page-full-width {
+  #footer-container {
+    margin-top: 0;
+    border-top: 0;
+
+  }
+  #page-full-width {
+    padding-bottom: 0;
+  }
+}

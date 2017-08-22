@@ -549,8 +549,6 @@ function love_path() {
         calculatePathHeight(false);
       });
 
-
-
       function calculatePathHeight(begin = true ) {
         if ($(window).width() < 800) {
           var reduceWidth = true;

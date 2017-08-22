@@ -11,8 +11,9 @@
       $(".conversation-card").css({
         "transform":"translateY(-"+maxHeight+"px)",
         "margin-bottom": -( convo_height ),
+        "z-index": "2"
       }).next().find(".entry-content > *:first-child").css({
-        "z-index": "-1",
+        "z-index": "1",
         "padding-top": convo_height - maxHeight + 10,
       });
       return calculate;
