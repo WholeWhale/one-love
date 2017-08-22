@@ -456,18 +456,18 @@ function love_path() {
         </defs>
         <g id="desktop-mocks" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="Join-Team-One-Love" transform="translate(-252.000000, -2145.000000)">
-                <g id="love-path" transform="translate(252.000000, 2145.000000)">
-                    <polygon id="Line3" fill="url(#linearGradient-1)" fill-rule="nonzero" points="26 0 26 0 38 0 38 0"></polygon>
-                    <polygon id="Line4" fill="url(#linearGradient-2)" fill-rule="nonzero" points="26 0 26 0 38 0 38 0"></polygon>
-                    <circle  id="Oval6" fill="#00A3DF" cx="32" cy="15" r="0"></circle>
-                    <circle  id="Oval7" fill="#FF5E5B" cx="32" cy="583" r="0"></circle>
-                    <polygon id="Path2" fill="#55C6B6" points="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377" ></polygon>
-                    <animate xlink:href="#Oval6" id="firstCircle" attributeName="r" dur="1s" from="5" to="15" begin="indefinite"  fill="freeze" />
-                    <animate xlink:href="#Line3" id="firstPath"  attributeName="points" dur="2s" from="26 12 26 12 38 12 38 12"  to="26 12 26 582 38 582 38 12" begin="firstCircle.end-1s" fill="freeze" />
-                    <animate xlink:href="#Line4" id="secondPath" attributeName="points" dur="2s" from="26 523 26 582 38 582 38 523"  to="26 573 26 1128 38 1128 38 573" begin="firstPath.end" fill="freeze"  />
-                    <animate xlink:href="#Oval7" id="secondCircle" attributeName="r" dur="1s" from="0" to="15" begin="firstPath.end-1s"  fill="freeze" />
-                    <animate xlink:href="#Path2" id="heartPath" attributeName="points" dur="1s" from="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377"  to="37.754012 1104 37.476497 1104.27227 37.4264355 1104.22377 32.4512988 1109.11964 27.2448997 1104 10.3045131 1104 0 1114.13842 0 1129.02996 32.5002721 1161 65 1129.02996 65 1114.13842 54.6949428 1104" begin="secondPath.end-1s" fill="freeze"  />
-                </g>
+              <g id="love-path" transform="translate(252.000000, 2145.000000)">
+                  <polygon id="Line3" fill="url(#linearGradient-1)" fill-rule="nonzero" points="26 0 26 0 38 0 38 0"></polygon>
+                  <polygon id="Line4" fill="url(#linearGradient-2)" fill-rule="nonzero" points="26 0 26 0 38 0 38 0"></polygon>
+                  <circle  id="Oval6" fill="#00A3DF" cx="32" cy="15" r="0"></circle>
+                  <circle  id="Oval7" fill="#FF5E5B" cx="32" cy="583" r="0"></circle>
+                  <polygon id="Path2" fill="#55C6B6" points="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377"></polygon>
+                  <animate xlink:href="#Oval6" id="firstCircle" attributeName="r" dur="1s" from="5" to="15" begin="indefinite"  fill="freeze" />
+                  <animate xlink:href="#Line3" id="firstPath"  attributeName="points" dur="2s" from="26 12 26 12 38 12 38 12"  to="26 12 26 582 38 582 38 12" begin="firstCircle.end-1s" fill="freeze" />
+                  <animate xlink:href="#Line4" id="secondPath" attributeName="points" dur="2s" from="26 523 26 582 38 582 38 523"  to="26 573 26 1128 38 1128 38 573" begin="firstPath.end" fill="freeze"  />
+                  <animate xlink:href="#Oval7" id="secondCircle" attributeName="r" dur="1s" from="0" to="15" begin="firstPath.end-1s"  fill="freeze" />
+                  <animate xlink:href="#Path2" id="heartPath" attributeName="points" dur="1s" from="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377"  to="37.754012 1104 37.476497 1104.27227 37.4264355 1104.22377 32.4512988 1109.11964 27.2448997 1104 10.3045131 1104 0 1114.13842 0 1129.02996 32.5002721 1161 65 1129.02996 65 1114.13842 54.6949428 1104" begin="secondPath.end-1s" fill="freeze"  />
+              </g>
             </g>
         </g>
     </svg>
@@ -572,11 +572,10 @@ function love_path() {
               displacement2 -= 45;
               jQuery('#heartPath').attr({
                 "from": "32 "+displacement2+" 32 "+displacement2+".27227 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377",
-                "to"  : "37.754012 "+displacement2+" 37.476497 "+displacement2+".27227 37.4264355 "+displacement2+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+displacement2+" 10.3045131 "+displacement2+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+displacement2,
+                "to"  : "37.754012 "+(displacement2)+" 37.476497 "+(displacement2)+".27227 37.4264355 "+(displacement2)+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+(displacement2)+" 10.3045131 "+(displacement2)+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+(displacement2),
               });
               jQuery('#Path2').attr({
-                "transform": "scale(.5)",
-                "style": "transform-origin: 50%;",
+                "transform": "scale(.5) translate(32 "+(displacement2 + 33)+")",
               });
             }
           }
@@ -597,9 +596,6 @@ function love_path() {
               jQuery('#heartPath').attr({
                 "from": "32 "+displacement2+" 32 "+displacement2+".27227 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377",
                 "to"  : "37.754012 "+displacement2+" 37.476497 "+displacement2+".27227 37.4264355 "+displacement2+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+displacement2+" 10.3045131 "+displacement2+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+displacement2,
-              });
-              jQuery('#Path2').attr({
-                "points": "37.754012 "+displacement2+" 37.476497 "+displacement2+".27227 37.4264355 "+displacement2+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+displacement2+" 10.3045131 "+displacement2+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+displacement2,
               });
             }
           }
