@@ -548,7 +548,6 @@ function love_path() {
 
 
       function calculatePathHeight(begin = true, reduceWidth = false ) {
-        console.log(begin + reduceWidth);
         var getContainer = jQuery('.animated-love-path');
         if ( getContainer.length ) {
           if (reduceWidth) {

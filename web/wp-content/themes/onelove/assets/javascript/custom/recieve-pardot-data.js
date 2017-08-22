@@ -1,10 +1,17 @@
 window.addEventListener('message',function(event){
   if(event.origin !== 'https://go.pardot.com') return;
-  var first_name = event.data.toString().indexOf('first_name');
-  var last_name  = event.data.toString().indexOf('last_name');
-  if ( first_name > -1 ) {
-    document.querySelectorAll('.membership-card-firstName')[0].innerHTML = event.data.substr(event.data.indexOf(":") + 1);
-  } else if (last_name > -1) {
-    document.querySelectorAll('.membership-card-lastName')[0].innerHTML = event.data.substr(event.data.indexOf(":") + 1);
+
+  displayResult('first_name','.membership-card-firstName');
+  displayResult('last_name','.membership-card-lastName');
+
+  function displayResult(s,t) {
+    var eventData = event.data.info;
+    if (typeof eventData !== 'undefined') {
+      var name = eventData.toString().indexOf(s);
+      if (name > -1) {
+        document.activeElement.parentNode.parentNode.querySelectorAll(t)[0].innerHTML = event.data.info.substr(event.data.info.indexOf(":") + 1);
+      }
+    }
   }
+
 },true);
