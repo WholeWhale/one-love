@@ -79,6 +79,25 @@ html head + body .coral {
   background: $coral;
 }
 
+.main-video-slide,
+#footer-container,
+.overlay,
+.ol-slider,
+.full-width-no-featured-image.navy {
+  & *:not(.vc_gitem-post-category-name) {
+    color: $white;
+  }
+}
+
+html head + body .green,
+html head + body .blue,
+html head + body .navy:not(.snow),
+.default-block-styling:not(.shop-block) {
+  & .wpb_wrapper > *:not(.vc_gitem-post-category-name):not(div):not(section):not(article) {
+    color: $white;
+  }
+}
+
 html head + body .green,
 html head + body .blue,
 html head + body .navy:not(.snow),
@@ -87,9 +106,7 @@ html head + body .navy:not(.snow),
 #footer-container,
 .overlay,
 .ol-slider {
-  & *:not(.vc_gitem-post-category-name) {
-    color: $white;
-  }
+
   .vc_grid-container *:not(:hover,:active,:focus,.vc_gitem-post-category-name) {
     color: initial;
   }
