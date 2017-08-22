@@ -109,7 +109,7 @@
     "wpackagist-theme/twentyseventeen": "^1.1",
     "pantheon-systems/wordpress": "^4.8",
     "roots/wp-password-bcrypt": "^1.0.0",
-    "olefredrik/foundationpress": "~2.9.0",
+    "olefredrik/foundationpress": "2.9.2",
     "koodimonni/composer-dropin-installer": "*",
     "wpackagist-plugin/wp-redis": "^0.6.2",
     "wpackagist-plugin/tiny-compress-images": "^2.2.2",

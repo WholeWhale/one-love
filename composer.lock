@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c103feb31f954c17bc62cface885c8c",
+    "content-hash": "deb89ddb45125a97ab4c4d5c4dd081fc",
     "packages": [
         {
             "name": "composer/installers",
@@ -321,16 +321,16 @@
         },
         {
             "name": "olefredrik/foundationpress",
-            "version": "v2.9.3",
+            "version": "v2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/olefredrik/FoundationPress.git",
-                "reference": "f682b40278ffdd85a81a60c36a573e0002947e64"
+                "reference": "89547481a7e8df59485bcae5f4e30c7319c05c1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olefredrik/FoundationPress/zipball/f682b40278ffdd85a81a60c36a573e0002947e64",
-                "reference": "f682b40278ffdd85a81a60c36a573e0002947e64",
+                "url": "https://api.github.com/repos/olefredrik/FoundationPress/zipball/89547481a7e8df59485bcae5f4e30c7319c05c1c",
+                "reference": "89547481a7e8df59485bcae5f4e30c7319c05c1c",
                 "shasum": ""
             },
             "require": {
@@ -348,7 +348,7 @@
                 }
             ],
             "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
-            "time": "2017-07-28T10:03:44+00:00"
+            "time": "2017-03-17T09:17:43+00:00"
         },
         {
             "name": "pantheon-systems/wordpress",
