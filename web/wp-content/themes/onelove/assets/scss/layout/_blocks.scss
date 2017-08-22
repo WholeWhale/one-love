@@ -21,6 +21,10 @@ html body {
       }
     }
   }
+  .default-block-styling.vc_row {
+    background-clip: border-box;
+    margin-top: inherit;
+  }
   .escalation-block,
   .tnl-block,
   .stickies-block {
