@@ -461,7 +461,7 @@ function love_path() {
                     <polygon id="Line4" fill="url(#linearGradient-2)" fill-rule="nonzero" points="26 0 26 0 38 0 38 0"></polygon>
                     <circle  id="Oval6" fill="#00A3DF" cx="32" cy="15" r="0"></circle>
                     <circle  id="Oval7" fill="#FF5E5B" cx="32" cy="583" r="0"></circle>
-                    <polygon id="Path2" fill="#55C6B6" points="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377"></polygon>
+                    <polygon id="Path2" fill="#55C6B6" points="32 1104 32 1104.27227 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377 32 1104.22377" ></polygon>
                     <animate xlink:href="#Oval6" id="firstCircle" attributeName="r" dur="1s" from="5" to="15" begin="indefinite"  fill="freeze" />
                     <animate xlink:href="#Line3" id="firstPath"  attributeName="points" dur="2s" from="26 12 26 12 38 12 38 12"  to="26 12 26 582 38 582 38 12" begin="firstCircle.end-1s" fill="freeze" />
                     <animate xlink:href="#Line4" id="secondPath" attributeName="points" dur="2s" from="26 523 26 582 38 582 38 523"  to="26 573 26 1128 38 1128 38 573" begin="firstPath.end" fill="freeze"  />
@@ -545,27 +545,38 @@ function love_path() {
         }
       });
 
+      jQuery(window).resize(function(){
+        calculatePathHeight(false);
+      });
 
 
-      function calculatePathHeight(begin = true, reduceWidth = false ) {
-        console.log(begin + reduceWidth);
+
+      function calculatePathHeight(begin = true ) {
+        if ($(window).width() < 800) {
+          var reduceWidth = true;
+        }
         var getContainer = jQuery('.animated-love-path');
         if ( getContainer.length ) {
           if (reduceWidth) {
             var displacement = getContainer.outerHeight()+15;
             jQuery('#Oval7').attr('cy',displacement);
             jQuery('#firstPath').attr( 'to',"28 12 28 "+ displacement +" 36 "+ displacement +" 36 12");
-            var displacementOffset = displacement;
-            jQuery('#secondPath').attr('from',"28 "+displacementOffset+" 28 "+displacement+" 36 "+displacement+" 36 "+ displacementOffset);
             getContainer = jQuery('.animated-love-path-2');
             jQuery('#firstCircle,#secondCircle').attr('to','10');
             if ( getContainer.length ) {
               var displacement2 = getContainer.outerHeight()+ 15 + displacement;
-              jQuery('#secondPath').attr('to',"28 "+displacement+" 28 "+displacement2+" 36 "+displacement2+" 36 "+displacement);
+              jQuery('#secondPath').attr({
+                'from':"28 "+displacement+" 28 "+displacement+" 36 "+displacement+" 36 "+ displacement,
+                'to':"28 "+displacement+" 28 "+(displacement2-20)+" 36 "+(displacement2-20)+" 36 "+displacement
+              });
               displacement2 -= 45;
               jQuery('#heartPath').attr({
                 "from": "32 "+displacement2+" 32 "+displacement2+".27227 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377",
                 "to"  : "37.754012 "+displacement2+" 37.476497 "+displacement2+".27227 37.4264355 "+displacement2+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+displacement2+" 10.3045131 "+displacement2+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+displacement2,
+              });
+              jQuery('#Path2').attr({
+                "transform": "scale(.5)",
+                "style": "transform-origin: 50%;",
               });
             }
           }
@@ -573,17 +584,22 @@ function love_path() {
             var displacement = getContainer.outerHeight()+15;
             jQuery('#Oval7').attr('cy',displacement);
             jQuery('#firstPath').attr( 'to',"26 12 26 "+ displacement +" 38 "+ displacement +" 38 12");
-            var displacementOffset = displacement;
-            jQuery('#secondPath').attr('from',"26 "+displacementOffset+" 26 "+displacement+" 38 "+displacement+" 38 "+ displacementOffset);
             getContainer = jQuery('.animated-love-path-2');
             jQuery('#firstCircle,#secondCircle').attr('to','15');
             if ( getContainer.length ) {
+              jQuery('#Path2').removeAttr('transform style');
               var displacement2 = getContainer.outerHeight()+ 15 + displacement;
-              jQuery('#secondPath').attr('to',"26 "+displacement+" 26 "+displacement2+" 38 "+displacement2+" 38 "+displacement);
+              jQuery('#secondPath').attr({
+                'from':"26 "+displacement+" 26 "+displacement+" 38 "+displacement+" 38 "+ displacement,
+                'to':"26 "+displacement+" 26 "+displacement2+" 38 "+displacement2+" 38 "+displacement,
+              });
               displacement2 -= 45;
               jQuery('#heartPath').attr({
                 "from": "32 "+displacement2+" 32 "+displacement2+".27227 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377 32 "+displacement2+".22377",
                 "to"  : "37.754012 "+displacement2+" 37.476497 "+displacement2+".27227 37.4264355 "+displacement2+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+displacement2+" 10.3045131 "+displacement2+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+displacement2,
+              });
+              jQuery('#Path2').attr({
+                "points": "37.754012 "+displacement2+" 37.476497 "+displacement2+".27227 37.4264355 "+displacement2+".22377 32.4512988 "+(displacement2+5)+".11964 27.2448997 "+displacement2+" 10.3045131 "+displacement2+" 0 "+(displacement2+10)+".13842 0 "+(displacement2+25)+".02996 32.5002721 "+(displacement2+57)+" 65 "+(displacement2+25)+".02996 65 "+(displacement2+10)+".13842 54.6949428 "+displacement2,
               });
             }
           }
@@ -593,14 +609,7 @@ function love_path() {
 
         }
       }
-      jQuery(window).resize(function(){
-        if ($(window).width() < 800) {
-          calculatePathHeight(false,true);
-        }
-        else {
-          calculatePathHeight(false);
-        }
-      });
+
 
     });
   </script>
