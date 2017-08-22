@@ -93,7 +93,7 @@ html head + body .green,
 html head + body .blue,
 html head + body .navy:not(.snow),
 .default-block-styling:not(.shop-block) {
-  & .wpb_wrapper > *:not(.vc_gitem-post-category-name) {
+  & .wpb_wrapper > *:not(.vc_gitem-post-category-name):not(div):not(section):not(article) {
     color: $white;
   }
 }
