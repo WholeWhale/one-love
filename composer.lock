@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "12c6e33dedf17eb7ca7dc6a0df1b2363",
+    "content-hash": "420b376427f1b4f8dd5813480efceeac",
     "packages": [
         {
             "name": "composer/installers",
@@ -534,6 +534,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/cf7-conditional-fields/"
+        },
+        {
+            "name": "wpackagist-plugin/cf7-to-google-sheet-extension",
+            "version": "1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cf7-to-google-sheet-extension/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cf7-to-google-sheet-extension.zip?timestamp=1483693569",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cf7-to-google-sheet-extension/"
         },
         {
             "name": "wpackagist-plugin/duracelltomi-google-tag-manager",
@@ -1829,12 +1849,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "35e9695024932223dd83db0eee30e56bcdcc8450"
+                "reference": "c8fc705063651b7313a2a2431c2ba7be43dc9da6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/35e9695024932223dd83db0eee30e56bcdcc8450",
-                "reference": "35e9695024932223dd83db0eee30e56bcdcc8450",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/c8fc705063651b7313a2a2431c2ba7be43dc9da6",
+                "reference": "c8fc705063651b7313a2a2431c2ba7be43dc9da6",
                 "shasum": ""
             },
             "require": {
@@ -1881,7 +1901,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-08-22T14:18:32+00:00"
+            "time": "2017-08-23T19:30:31+00:00"
         },
         {
             "name": "psr/container",
@@ -2592,12 +2612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "4b6f4e7d74ffc7a9ac59f07ce3fd316938a7300c"
+                "reference": "bc11e2bbe6cc1c21feb172e1ae79aef24006efbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/4b6f4e7d74ffc7a9ac59f07ce3fd316938a7300c",
-                "reference": "4b6f4e7d74ffc7a9ac59f07ce3fd316938a7300c",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/bc11e2bbe6cc1c21feb172e1ae79aef24006efbd",
+                "reference": "bc11e2bbe6cc1c21feb172e1ae79aef24006efbd",
                 "shasum": ""
             },
             "require": {
@@ -2655,7 +2675,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-22T16:06:26+00:00"
+            "time": "2017-08-22T22:02:44+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2890,12 +2910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "f8b98478dd2209fb799f1dca2ce9780b65eece5f"
+                "reference": "d40001c5183b66bf98866369e67c98aa280211ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/f8b98478dd2209fb799f1dca2ce9780b65eece5f",
-                "reference": "f8b98478dd2209fb799f1dca2ce9780b65eece5f",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/d40001c5183b66bf98866369e67c98aa280211ac",
+                "reference": "d40001c5183b66bf98866369e67c98aa280211ac",
                 "shasum": ""
             },
             "require": {
@@ -2949,7 +2969,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-22T12:01:48+00:00"
+            "time": "2017-08-22T21:55:52+00:00"
         },
         {
             "name": "symfony/yaml",
