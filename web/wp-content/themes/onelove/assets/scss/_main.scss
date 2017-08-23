@@ -470,8 +470,18 @@ textarea {
   .ol-slider {
     height: 100vh;
   }
+  .vc_row[data-vc-full-width] {
+    overflow: visible;
+  }
   #featured-hero {
     margin-bottom: -$default-spacing;
+  }
+  .vc-membership-card {
+    top: 0;
+    left: $default-spacing;
+    right: $default-spacing;
+    position: absolute;
+    transform: translateY(-50%);
   }
 }
 
