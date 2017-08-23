@@ -6,6 +6,7 @@ jQuery(function($){
 		$('.school-autocomplete').easyAutocomplete({
 			requestDelay: 500,
 			getValue: 'name',
+      adjustWidth: false, 
 			url: function (val) {
 				return global.search_api + '?value=' + val;
 			},
