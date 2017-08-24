@@ -473,6 +473,13 @@ textarea {
   #featured-hero {
     margin-bottom: -$default-spacing;
   }
+  .vc-membership-card {
+    top: 0;
+    left: $default-spacing;
+    right: $default-spacing;
+    position: absolute;
+    transform: translateY(-50%);
+  }
 }
 
 .prevent-touch {
