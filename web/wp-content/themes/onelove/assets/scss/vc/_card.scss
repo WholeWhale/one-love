@@ -8,6 +8,14 @@ body {
       max-height: 145px;
       background-position: top;
     }
+    @at-root {
+      body.page-template-page-home {
+        .grid-item-default-card-image > div {
+          max-height: 200px;
+        }
+      }
+    }
+
     div.vc_gitem-post-category-name {
       &:not(:first-child) {
         display: none;
