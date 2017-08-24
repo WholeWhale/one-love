@@ -206,7 +206,6 @@ function card_component() {
           "param_name" => "font_family",
           "value"      => array(
             "Material Font Awesome" => "Material-Design-Iconic-Font",
-            "Overpass"              => "Overpass,sans-serif",
             "Lato"                  => "Lato,sans-serif",
             "Font Awesome"          => "FontAwesome",
           ),

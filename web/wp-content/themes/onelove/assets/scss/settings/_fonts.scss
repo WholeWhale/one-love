@@ -14,7 +14,7 @@
 // 1. Fonts
 // ---------
 
-$overpass: 'Overpass', sans-serif; // header font
+$header: 'Lato', sans-serif; // header font
 $lato: 'Lato', sans-serif; // body font
 
 body {
@@ -29,7 +29,7 @@ body {
   div.vc_gitem-post-category-name span,
   #menu-footer > li > a,
   .wpcf7-submit {
-    font-family: $overpass;
+    font-family: $header;
   }
 }
 

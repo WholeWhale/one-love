@@ -18,7 +18,7 @@ body {
         color: $white;
         &, & h4 {
           transition: all .5s ease-in-out;
-          font-family: $overpass;
+          font-family: $header;
         }
         &:hover {
           color: $white;
