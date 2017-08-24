@@ -189,12 +189,20 @@ body {
       body.page-template-page-home {
         div.overlay.remove-overlay .full-page-header-content >  h1.entry-title {
           margin-bottom: 2.25rem;
+          @media screen and (max-width: 800px) {
+            font-size: 25px;
+            line-height: 33px;
+          }
           @media screen and (max-width: 29.9375rem) {
             margin-bottom: 2.5rem;
           }
         }
         .overlay.remove-overlay .full-page-header-content {
-          bottom: 3.9375rem;
+          bottom: .5rem;
+          @include breakpoint(medium) {
+            bottom: 3.9375rem;
+          }
+
         }
       }
     }
