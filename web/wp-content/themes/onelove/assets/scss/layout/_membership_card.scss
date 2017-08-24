@@ -11,13 +11,12 @@ div.membership-card {
   border-radius: .5625rem;
   margin: 0 auto;
   @include breakpoint(medium) {
-    max-width: none;
+    max-width: 400px;
     .membership-card-section-background {
       width: 100%;
       img {
         height: auto;
         width: 100%;
-        max-height: 400px;
       }
     }
   }
@@ -81,7 +80,7 @@ div.vc-membership-card {
 .vc-membership-section-container {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   max-width: 49.125rem;
   @include breakpoint(medium) {
@@ -91,7 +90,7 @@ div.vc-membership-card {
     align-self: center;
   }
   & > section {
-    width: 100%;
+    width: auto;
     &:first-child {
       margin: 0 auto;
       @include breakpoint(medium) {
