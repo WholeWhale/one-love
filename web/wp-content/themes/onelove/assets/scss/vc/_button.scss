@@ -187,14 +187,23 @@ body {
     }
     @at-root {
       body.page-template-page-home {
+        .hero-overlay-buttons>:first-child {
+          margin-bottom: 1rem;
+        }
         div.overlay.remove-overlay .full-page-header-content >  h1.entry-title {
           margin-bottom: 2.25rem;
-          @media screen and (max-width: 29.9375rem) {
-            margin-bottom: 2.5rem;
+          @media screen and (max-width: 800px) {
+            font-size: 25px;
+            line-height: 33px;
+            margin-bottom: 1rem;
           }
         }
         .overlay.remove-overlay .full-page-header-content {
-          bottom: 3.9375rem;
+          bottom: 0;
+          @include breakpoint(medium) {
+            bottom: 3.9375rem;
+          }
+
         }
       }
     }
