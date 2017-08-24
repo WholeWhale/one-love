@@ -9,7 +9,7 @@ div.membership-card {
   align-items: flex-end;
   box-shadow: .125rem .125rem .375rem 0 rgba(61,61,61,0.50);
   border-radius: .5625rem;
-  max-width: 300px;
+  max-width: 18.75rem;
   margin: 0 auto;
   @include breakpoint(medium) {
     margin-right: 0;
@@ -27,7 +27,7 @@ div.membership-card {
     * {
       font-size: 4vw;
       line-height: normal;
-      @media screen and (min-width: 350px) {
+      @media screen and (min-width: 21.875rem) {
         font-size: 100%;
       }
     }
@@ -96,7 +96,7 @@ div.vc-membership-card {
     line-height: normal;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 28.125rem) {
   section.vc-membership-dynamic-card {
     div.membership-card-section-container {
       * {
@@ -106,7 +106,7 @@ div.vc-membership-card {
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 21.875rem) {
   section.vc-membership-dynamic-card {
     div.membership-card-section-container {
       * {
@@ -114,6 +114,6 @@ div.vc-membership-card {
     }
   }
   div.membership-card section:not(:first-child) {
-    margin-top: 15px;
+    margin-top: .9375rem;
   }
 }

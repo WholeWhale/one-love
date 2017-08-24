@@ -2,7 +2,7 @@
   @include breakpoint(medium) {
     display: flex;
   }
-  margin-bottom: calc(-3.75rem - 1px );
+  margin-bottom: calc(-3.75rem - .0625rem );
   max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
