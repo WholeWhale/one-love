@@ -772,3 +772,21 @@ html .reveal {
 *:focus {
   outline: none;
 }
+
+.coral-heart.vc_row.vc_row-flex {
+  overflow: visible;
+  &:before {
+    content: "";
+    height:35px;
+    width: 40px;
+    background-image: url('/wp-content/themes/onelove/assets/images/coral-heart.svg');
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+}
