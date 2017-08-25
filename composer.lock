@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "420b376427f1b4f8dd5813480efceeac",
+    "content-hash": "f03fb5f99319a4983c37d9e637f172b2",
     "packages": [
         {
             "name": "composer/installers",
@@ -481,7 +481,7 @@
         },
         {
             "name": "warfare-plugins/social-warfare-pro",
-            "version": "master",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:warfare-plugins/social-warfare-pro.git",
@@ -489,7 +489,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/master.zip",
+                "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/2.3.1.zip",
                 "reference": "master",
                 "shasum": null
             },
@@ -1849,12 +1849,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "c8fc705063651b7313a2a2431c2ba7be43dc9da6"
+                "reference": "acadcfa2836c363b9a10d1c7beee07c26f4747cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/c8fc705063651b7313a2a2431c2ba7be43dc9da6",
-                "reference": "c8fc705063651b7313a2a2431c2ba7be43dc9da6",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/acadcfa2836c363b9a10d1c7beee07c26f4747cb",
+                "reference": "acadcfa2836c363b9a10d1c7beee07c26f4747cb",
                 "shasum": ""
             },
             "require": {
@@ -1901,7 +1901,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-08-23T19:30:31+00:00"
+            "time": "2017-08-24T18:20:31+00:00"
         },
         {
             "name": "psr/container",
@@ -2434,12 +2434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "094d1ac303515f276cd3f7c0fc96926064312ae0"
+                "reference": "b789be584eeefa72bcc0d726b6da451e5d24a6df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/094d1ac303515f276cd3f7c0fc96926064312ae0",
-                "reference": "094d1ac303515f276cd3f7c0fc96926064312ae0",
+                "url": "https://api.github.com/repos/symfony/console/zipball/b789be584eeefa72bcc0d726b6da451e5d24a6df",
+                "reference": "b789be584eeefa72bcc0d726b6da451e5d24a6df",
                 "shasum": ""
             },
             "require": {
@@ -2495,7 +2495,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-15T13:32:22+00:00"
+            "time": "2017-08-24T14:43:56+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -2910,12 +2910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "d40001c5183b66bf98866369e67c98aa280211ac"
+                "reference": "bfa0d12066ac2339dae3bb0ade63ed38f2a93586"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/d40001c5183b66bf98866369e67c98aa280211ac",
-                "reference": "d40001c5183b66bf98866369e67c98aa280211ac",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/bfa0d12066ac2339dae3bb0ade63ed38f2a93586",
+                "reference": "bfa0d12066ac2339dae3bb0ade63ed38f2a93586",
                 "shasum": ""
             },
             "require": {
@@ -2969,7 +2969,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-22T21:55:52+00:00"
+            "time": "2017-08-24T21:10:36+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2977,19 +2977,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "1395ddba6f65bf46cdf1d80d59223cbab8ff3ccc"
+                "reference": "5a58daa633a14651d7b2a34613c9b62c02faf873"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/1395ddba6f65bf46cdf1d80d59223cbab8ff3ccc",
-                "reference": "1395ddba6f65bf46cdf1d80d59223cbab8ff3ccc",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/5a58daa633a14651d7b2a34613c9b62c02faf873",
+                "reference": "5a58daa633a14651d7b2a34613c9b62c02faf873",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8"
             },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
             "require-dev": {
-                "symfony/console": "~2.8|~3.0|~4.0"
+                "symfony/console": "~3.4|~4.0"
             },
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
@@ -3024,7 +3027,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-04T13:29:48+00:00"
+            "time": "2017-08-24T14:43:56+00:00"
         },
         {
             "name": "zendframework/zend-code",
