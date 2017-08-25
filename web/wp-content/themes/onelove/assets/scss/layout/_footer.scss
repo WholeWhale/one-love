@@ -70,8 +70,11 @@
       }
     }
   }
-  .current-menu-item > a {
-    text-decoration: underline;
+  .current-menu-item,
+  .current-menu-parent {
+    & > a {
+      text-decoration: underline;
+    }
   }
 }
 
