@@ -5,13 +5,13 @@ body {
       min-width: 19rem;
     }
     .grid-item-default-card-image > div {
-      max-height: 145px;
+      max-height: 9.0625rem;
       background-position: top;
     }
     @at-root {
       body.page-template-page-home {
         .grid-item-default-card-image > div {
-          max-height: 200px;
+          max-height: 12.5rem;
         }
       }
     }

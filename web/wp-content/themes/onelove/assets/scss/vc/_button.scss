@@ -147,13 +147,17 @@ body {
         border-bottom: 0;
         padding-bottom: .3125rem;
       }
+      h4.head-menu-item {
+        padding-bottom: .5625rem;
+        margin-top: .25rem;
+      }
     }
     h4.head-menu-item,
     h1.mobile-head-menu-item {
       color: $white;
       border-radius: rem-calc(2);
       background-color: $coral;
-      padding: 9px 30px;
+      padding: .5625rem 1.875rem;
       transition: all .5s ease-in-out;
       box-sizing: border-box;
       word-wrap: break-word;
@@ -192,9 +196,9 @@ body {
         }
         div.overlay.remove-overlay .full-page-header-content >  h1.entry-title {
           margin-bottom: 2.25rem;
-          @media screen and (max-width: 800px) {
-            font-size: 25px;
-            line-height: 33px;
+          @media screen and (max-width: 50rem) {
+            font-size: 1.5625rem;
+            line-height: 2.0625rem;
             margin-bottom: 1rem;
           }
         }

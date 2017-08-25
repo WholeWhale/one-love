@@ -111,7 +111,7 @@ div.vc-membership-card {
     }
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 28.125rem) {
   section.vc-membership-dynamic-card {
     div.membership-card-section-container {
       * {
@@ -121,7 +121,7 @@ div.vc-membership-card {
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 21.875rem) {
   section.vc-membership-dynamic-card {
     div.membership-card-section-container {
       * {
@@ -129,6 +129,6 @@ div.vc-membership-card {
     }
   }
   div.membership-card section:not(:first-child) {
-    margin-top: 15px;
+    margin-top: .9375rem;
   }
 }
