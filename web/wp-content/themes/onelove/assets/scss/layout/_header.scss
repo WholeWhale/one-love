@@ -228,7 +228,7 @@ body:not(.display-mobile-menu) {
     margin-right: 1rem;
     height: 3.75rem;
     &:hover {
-      background-color: $moss;
+      background-color: $midnight;
     }
     &:hover > h1.mobile-head-menu-item {
       @extend h4.head-menu-item;
