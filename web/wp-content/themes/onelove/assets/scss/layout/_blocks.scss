@@ -48,12 +48,29 @@ html body {
     &.bookmark-block {
       background-size: 10%;
     }
+    &.stickies-block {
+      background-position: 100% bottom;
+      background-size: 30% !important;
+    }
+    &.flyer-block {
+      background-position: 115% bottom;
+      background-size: 25% !important;
+    }
   }
 
   .escalation-block,
   .tnl-block,
   .stickies-block {
     background-position: center right;
+  }
+
+  .flyer-block {
+    background-position: 150% bottom;
+  }
+
+  .stickies-block {
+    background-size: 70%;
+    background-position: 150% bottom;
   }
 
   .stories-block,
@@ -63,7 +80,7 @@ html body {
 
   .bookmark-block {
     background-size: 20%;
-    background-position: 90% top;
+    background-position: 85% top;
   }
   .flyer-block {
     background-size: 60%;
