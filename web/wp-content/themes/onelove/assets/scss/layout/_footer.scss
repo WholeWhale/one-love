@@ -70,11 +70,13 @@
       }
     }
   }
-  .current-menu-item,
-  .current-menu-parent {
+  .current-menu-item {
     & > a {
       text-decoration: underline;
     }
+  }
+  .current-menu-parent,,.menu-item-has-children > a,.menu-item-has-children > a:hover {
+    text-decoration: none;
   }
 }
 
