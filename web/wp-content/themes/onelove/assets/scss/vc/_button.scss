@@ -230,3 +230,10 @@ body {
     }
   }
 }
+body .vc_grid-btn-load_more {
+  @extend .ol_button;
+  a {
+    @extend h4;
+    font-weight: bold;
+  }
+}
