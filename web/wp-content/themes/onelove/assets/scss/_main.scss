@@ -11,6 +11,7 @@
 // 6. Love Path
 // 7. Forms
 // 8. utility classes
+// 9. one-off classes
 
 
 // 1. Global
@@ -771,6 +772,23 @@ html .reveal {
 }
 *:focus {
   outline: none;
+}
+
+// 9. One-off classes
+// ---------
+.make-the-team {
+  h1 {
+    text-align: center;
+    font-size: 30px;
+    line-height: inherit;
+    @include breakpoint(medium) {
+      font-size: 45px;
+      line-height: 60px;
+    }
+  }
+  span {
+    color: $moss;
+  }
 }
 
 .coral-heart.vc_row.vc_row-flex {
