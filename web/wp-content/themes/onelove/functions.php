@@ -536,6 +536,7 @@ function love_path() {
     }(window.jQuery)
   </script>
   <script type="text/javascript">
+    jQuery(".love-path-svg").parents('.wpb_text_column.wpb_content_element').css('padding',0);
     jQuery(".love-path-svg-image").load(function(){
       var svgCalled = false;
       $('.love-path-svg').isInViewport(function (status) {
