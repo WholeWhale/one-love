@@ -646,6 +646,7 @@ body:not(.error404) {
   h1 {
     margin-bottom: $default-spacing;
     text-align: center;
+    color: $white;
   }
   form {
     margin: 0 auto;
