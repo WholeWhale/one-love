@@ -38,6 +38,8 @@ html body {
       .vc_column-inner  {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
+        max-width: 39.6875rem;
+        margin: 0 auto;
       }
     }
     &.default-block-styling:not(.join-block):not(.bookmark-block) {
