@@ -10,7 +10,7 @@ html body {
     margin-top: $default-spacing/2;
     margin-bottom: $default-spacing/2;
     position: relative;
-    .ol_button {
+    &:not(.vc_row) .ol_button {
       position: absolute;
       margin: 0 auto $default-spacing auto;
       right: $default-spacing;
@@ -29,6 +29,15 @@ html body {
   }
 
   .vc_row {
+    &.default-block-styling {
+      margin-top: inherit;
+      height: 31.25rem;
+      display: flex;
+      .vc_column-inner  {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
     &.default-block-styling:not(.join-block):not(.bookmark-block) {
       background-size: 30%;
     }
