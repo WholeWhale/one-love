@@ -42,7 +42,7 @@ body {
       &.vc_btn3-color-default {
         background-color: $moss;
         &:hover {
-          background-color: $coral;
+          background-color: $midnight;
         }
       }
     }
@@ -82,7 +82,7 @@ body {
         .ol_button .vc_btn3-color-default,
         .wpcf7-submit {
           &:hover {
-            background-color: $moss;
+            background-color: $midnight;
           }
         }
       }
@@ -120,7 +120,7 @@ body {
     color: $white;
     transition: all .5s ease-in-out;
     &:hover {
-      background-color: $coral;
+      background-color: $midnight;
       color: $white;
     }
     text-decoration: none;
@@ -141,7 +141,7 @@ body {
       h4.head-menu-item,
       h1.mobile-head-menu-item {
         color: $white;
-        background-color: $moss;
+        background-color: $midnight;
         margin-top: 0;
         margin-bottom: 0;
         border-bottom: 0;
