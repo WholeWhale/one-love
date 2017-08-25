@@ -24,12 +24,25 @@ html body {
   .default-block-styling.vc_row {
     background-clip: border-box;
     margin-top: inherit;
+    display: block;
+    margin-bottom: 0;
   }
+
+  .vc_row {
+    &.default-block-styling:not(.join-block):not(.bookmark-block) {
+      background-size: 30%;
+    }
+    &.bookmark-block {
+      background-size: 10%;
+    }
+  }
+
   .escalation-block,
   .tnl-block,
   .stickies-block {
     background-position: center right;
   }
+
   .stories-block,
   .playlist-block {
     background-position: center left;
@@ -37,7 +50,7 @@ html body {
 
   .bookmark-block {
     background-size: 20%;
-    background-position: 90% 100%;
+    background-position: 90% top;
   }
   .flyer-block {
     background-size: 60%;
