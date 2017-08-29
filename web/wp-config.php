@@ -186,24 +186,6 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
   ($_SERVER['PANTHEON_ENVIRONMENT'] === 'live') &&
   // Check if Drupal or WordPress is running via command line
   (php_sapi_name() != "cli")) {
-  if ( $_SERVER['HTTP_HOST'] != 'www.wearedream.org' ) {
-    header('HTTP/1.0 301 Moved Permanently');
-    header('Location: https://www.wearedream.org'. $_SERVER['REQUEST_URI']);
-    exit();
-  }
-}
-
-
-
-/**
- * standardize domain on live
- */
-
- // Require www.
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  ($_SERVER['PANTHEON_ENVIRONMENT'] === 'live') &&
-  // Check if Drupal or WordPress is running via command line
-  (php_sapi_name() != "cli")) {
   if ( $_SERVER['HTTP_HOST'] != 'www.joinonelove.org' ) {
     header('HTTP/1.0 301 Moved Permanently');
     header('Location: https://www.joinonelove.org'. $_SERVER['REQUEST_URI']);
