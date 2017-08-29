@@ -3,7 +3,8 @@
 class CF7SF_SettingsPage {
   public function render() {
     $q = new WP_Query([
-      'post_type' => 'wpcf7_contact_form'
+      'post_type' => 'wpcf7_contact_form',
+      'posts_per_page' => -1,
     ]);
 
     $forms = [];
