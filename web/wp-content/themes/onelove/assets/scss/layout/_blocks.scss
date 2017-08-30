@@ -22,6 +22,16 @@ html body {
         background-color: $midnight;
       }
     }
+   .pardotform {
+
+     @include breakpoint(medium) {
+       margin-bottom: 1.25rem;
+       position: absolute;
+       left: 0;
+       right: 0;
+       margin: 0 auto;
+     }
+   }
   }
   .default-block-styling.vc_row {
     background-clip: border-box;
@@ -33,7 +43,8 @@ html body {
   .vc_row {
     &.default-block-styling {
       margin-top: inherit;
-      height: 31.25rem;
+      min-height: 31.25rem;
+      height: 100%;
       display: flex;
       .vc_column-inner  {
         padding-top: 0 !important;
@@ -90,7 +101,10 @@ html body {
   }
   .join-block {
     background-size: 50% 60%;
-    background-position: 85% 100%;
+    background-position: 85% 117%;
+    @include breakpoint(medium) {
+      background-position: 85% 100%;
+    }
   }
   .stickies-block {
     .ol_button a.vc_btn3-color-default:hover {
