@@ -10,7 +10,7 @@ get_header();
   $button2_text = get_post_meta(get_the_ID(),'button-2-text','true');
   $button2_link = get_post_meta(get_the_ID(),'button-2-link','true');
   if ( has_post_thumbnail( $post->ID ) ) : ?>
-    <header id="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-alt-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-alt-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-alt-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-alt-xlarge'); ?>, xlarge]">
+    <header id="featured-hero" role="banner" style="background-image: url('<?php echo the_post_thumbnail_url('full'); ?>')">
       <div class="overlay remove-overlay">
         <header class="full-page-header-content">
             <?php if (!empty($subtitle)): ?>

@@ -64,7 +64,7 @@ var PATHS = {
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.dropdown.js',
     FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.dropdownMenu.js',
     FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.equalizer.js',
-    FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.interchange.js',
+    // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.interchange.js',
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.magellan.js',
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.offcanvas.js',
     // FOUNDATION_PATH + '/assets/components/foundation-sites/js/foundation.orbit.js',
