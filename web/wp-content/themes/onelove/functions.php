@@ -387,6 +387,8 @@ function wpdocs_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
+add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
+
 add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
 function add_search_box_to_menu( $items, $args ) {
     if( $args->theme_location == 'top-bar-r' ) {
