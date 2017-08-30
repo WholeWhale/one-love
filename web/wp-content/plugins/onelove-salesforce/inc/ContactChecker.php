@@ -41,7 +41,7 @@ class ContactChecker extends Salesforce {
       $returning[] = "$type($fields)";
     }
 
-    $email = str_replace('+', '\+', $email);
+    $email = str_replace(['+', '-'], ['\+', '\-'], $email);
     $resp = $this->conn->search('FIND {"'.$email.'"} RETURNING '.implode(',', $returning));
 
     return $resp->searchRecords;

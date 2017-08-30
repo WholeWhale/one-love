@@ -27,12 +27,12 @@ class CF7Bigmarker {
   public function tagHandler($tag) {
     $channel = $this->parseOptions($tag->options)['channel'];
     $conferences = $this->get('conferences')->conferences;
+    $attendees = $this->getAttendeeCounts($conferences);
 
     $output = [];
     foreach ($conferences as $conference) {
       if ($conference->channel_id == $channel) {
-        $attendees = $this->get('conferences/registrations/'.$conference->id);
-        if (count($attendees->registrations) < $conference->max_attendance) {
+        if ($attendees[$conference->id] < $conference->max_attendance) {
           $time = new DateTime($conference->start_time);
           $output[$conference->id] = $time->setTimezone(new DateTimeZone('America/New_York'));
         }
@@ -49,6 +49,42 @@ class CF7Bigmarker {
     }
 
     return $return;
+  }
+
+  protected function getAttendeeCounts($conferences) {
+    $path = self::BIGMARKER_URL . 'conferences/registrations/';
+
+    $handles = [];
+    $multiHandle = curl_multi_init();
+
+    foreach ($conferences as $conference) {
+      $handle = curl_init();
+      curl_setopt($handle, CURLOPT_URL, $path.$conference->id);
+      curl_setopt($handle, CURLOPT_HTTPHEADER, [
+        'API-KEY: '.BIGMARKER_API_KEY,
+      ]);
+      curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($handle, CURLOPT_HEADER, 0);
+
+      $handles[$conference->id] = $handle;
+      curl_multi_add_handle($multiHandle, $handle);
+    }
+
+    do {
+      curl_multi_exec($multiHandle, $running);
+      curl_multi_select($multiHandle);
+    } while ($running > 0);
+
+    $responses = [];
+    foreach ($handles as $id => $handle) {
+      $response = json_decode(curl_multi_getcontent($handle));
+      $responses[$id] = count($response->registrations);
+      curl_multi_remove_handle($multiHandle, $handle);
+    }
+
+    curl_multi_close($multiHandle);
+
+    return $responses;
   }
 
   protected function get($route) {
