@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f03fb5f99319a4983c37d9e637f172b2",
+    "content-hash": "75afd4482b2ff245635a92d4a2ca6c1d",
     "packages": [
         {
             "name": "composer/installers",
@@ -481,7 +481,7 @@
         },
         {
             "name": "warfare-plugins/social-warfare-pro",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:warfare-plugins/social-warfare-pro.git",
@@ -489,7 +489,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/2.3.1.zip",
+                "url": "https://github.com/warfare-plugins/social-warfare-pro/archive/2.3.2.zip",
                 "reference": "master",
                 "shasum": null
             },
@@ -717,15 +717,15 @@
         },
         {
             "name": "wpackagist-plugin/social-warfare",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/social-warfare/",
-                "reference": "tags/2.3.1"
+                "reference": "tags/2.3.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/social-warfare.2.3.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/social-warfare.2.3.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -983,16 +983,16 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "dev-master",
+            "version": "v4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "5c14cff4f955b17d20d088dec1bde61c0539ec74"
+                "reference": "74ac03d52c5e23ad8abd5c5cce4ab0e8dc1b530a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/5c14cff4f955b17d20d088dec1bde61c0539ec74",
-                "reference": "5c14cff4f955b17d20d088dec1bde61c0539ec74",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/74ac03d52c5e23ad8abd5c5cce4ab0e8dc1b530a",
+                "reference": "74ac03d52c5e23ad8abd5c5cce4ab0e8dc1b530a",
                 "shasum": ""
             },
             "require": {
@@ -1038,7 +1038,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2016-10-30T11:50:56+00:00"
+            "time": "2017-08-30T11:04:43+00:00"
         },
         {
             "name": "behat/mink",
@@ -1849,12 +1849,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulgibbs/behat-wordpress-extension.git",
-                "reference": "acadcfa2836c363b9a10d1c7beee07c26f4747cb"
+                "reference": "0a152333be6261739c4d2e0e8f5cb218a7ee80ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/acadcfa2836c363b9a10d1c7beee07c26f4747cb",
-                "reference": "acadcfa2836c363b9a10d1c7beee07c26f4747cb",
+                "url": "https://api.github.com/repos/paulgibbs/behat-wordpress-extension/zipball/0a152333be6261739c4d2e0e8f5cb218a7ee80ba",
+                "reference": "0a152333be6261739c4d2e0e8f5cb218a7ee80ba",
                 "shasum": ""
             },
             "require": {
@@ -1901,7 +1901,7 @@
                 "extension",
                 "wordpress"
             ],
-            "time": "2017-08-24T18:20:31+00:00"
+            "time": "2017-08-30T20:43:22+00:00"
         },
         {
             "name": "psr/container",
@@ -2372,12 +2372,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "d668d8c0502d2b485c00d107db65fdbc56c26282"
+                "reference": "a25ed1faff97d587e648336b3658c9938bd30d2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/d668d8c0502d2b485c00d107db65fdbc56c26282",
-                "reference": "d668d8c0502d2b485c00d107db65fdbc56c26282",
+                "url": "https://api.github.com/repos/symfony/config/zipball/a25ed1faff97d587e648336b3658c9938bd30d2f",
+                "reference": "a25ed1faff97d587e648336b3658c9938bd30d2f",
                 "shasum": ""
             },
             "require": {
@@ -2426,7 +2426,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-05T17:34:46+00:00"
+            "time": "2017-08-29T15:54:12+00:00"
         },
         {
             "name": "symfony/console",
@@ -2434,12 +2434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "b789be584eeefa72bcc0d726b6da451e5d24a6df"
+                "reference": "bab3bc775e2b175dcc0ada0169c6b8ae0efb6a6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/b789be584eeefa72bcc0d726b6da451e5d24a6df",
-                "reference": "b789be584eeefa72bcc0d726b6da451e5d24a6df",
+                "url": "https://api.github.com/repos/symfony/console/zipball/bab3bc775e2b175dcc0ada0169c6b8ae0efb6a6b",
+                "reference": "bab3bc775e2b175dcc0ada0169c6b8ae0efb6a6b",
                 "shasum": ""
             },
             "require": {
@@ -2495,7 +2495,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-24T14:43:56+00:00"
+            "time": "2017-08-31T09:02:44+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -2556,12 +2556,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "07bc974dbe18bf4e520ba9e919f1ba46420657e9"
+                "reference": "09d2d7c077eaeb2778e504b785423e3d04d69ec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/07bc974dbe18bf4e520ba9e919f1ba46420657e9",
-                "reference": "07bc974dbe18bf4e520ba9e919f1ba46420657e9",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/09d2d7c077eaeb2778e504b785423e3d04d69ec5",
+                "reference": "09d2d7c077eaeb2778e504b785423e3d04d69ec5",
                 "shasum": ""
             },
             "require": {
@@ -2604,7 +2604,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-10T14:21:53+00:00"
+            "time": "2017-08-29T23:06:25+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2612,12 +2612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "bc11e2bbe6cc1c21feb172e1ae79aef24006efbd"
+                "reference": "b230525467795c1e24f9c18660183a86f1ca305e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/bc11e2bbe6cc1c21feb172e1ae79aef24006efbd",
-                "reference": "bc11e2bbe6cc1c21feb172e1ae79aef24006efbd",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b230525467795c1e24f9c18660183a86f1ca305e",
+                "reference": "b230525467795c1e24f9c18660183a86f1ca305e",
                 "shasum": ""
             },
             "require": {
@@ -2675,7 +2675,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-22T22:02:44+00:00"
+            "time": "2017-08-29T21:00:42+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2910,12 +2910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "bfa0d12066ac2339dae3bb0ade63ed38f2a93586"
+                "reference": "f9448c88e4fee566626d4bea08948535b714ffd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/bfa0d12066ac2339dae3bb0ade63ed38f2a93586",
-                "reference": "bfa0d12066ac2339dae3bb0ade63ed38f2a93586",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/f9448c88e4fee566626d4bea08948535b714ffd4",
+                "reference": "f9448c88e4fee566626d4bea08948535b714ffd4",
                 "shasum": ""
             },
             "require": {
@@ -2931,6 +2931,7 @@
                 "psr/log": "~1.0",
                 "symfony/config": "~2.8|~3.0|~4.0",
                 "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/finder": "~2.8|~3.0|~4.0",
                 "symfony/intl": "^2.8.18|^3.2.5|~4.0",
                 "symfony/yaml": "~3.3|~4.0"
             },
@@ -2969,7 +2970,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-24T21:10:36+00:00"
+            "time": "2017-08-29T14:37:52+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2977,12 +2978,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "5a58daa633a14651d7b2a34613c9b62c02faf873"
+                "reference": "bd9dcffc3eb2984afd4c534864f2802eccd3435a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/5a58daa633a14651d7b2a34613c9b62c02faf873",
-                "reference": "5a58daa633a14651d7b2a34613c9b62c02faf873",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/bd9dcffc3eb2984afd4c534864f2802eccd3435a",
+                "reference": "bd9dcffc3eb2984afd4c534864f2802eccd3435a",
                 "shasum": ""
             },
             "require": {
@@ -3027,7 +3028,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-24T14:43:56+00:00"
+            "time": "2017-08-30T06:19:03+00:00"
         },
         {
             "name": "zendframework/zend-code",
