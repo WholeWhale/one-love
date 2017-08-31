@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "75afd4482b2ff245635a92d4a2ca6c1d",
+    "content-hash": "82249c7c048aa61432cce6e5391064ac",
     "packages": [
         {
             "name": "composer/installers",
@@ -352,16 +352,16 @@
         },
         {
             "name": "pantheon-systems/wordpress",
-            "version": "4.8",
+            "version": "4.8.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:pantheon-systems/WordPress.git",
-                "reference": "4.8"
+                "reference": "4.8.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/pantheon-systems/WordPress/archive/4.8.zip",
-                "reference": "4.8",
+                "url": "https://github.com/pantheon-systems/WordPress/archive/4.8.1.zip",
+                "reference": "4.8.1",
                 "shasum": null
             },
             "require": {
