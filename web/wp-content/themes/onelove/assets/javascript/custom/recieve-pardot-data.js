@@ -19,7 +19,7 @@ window.addEventListener('message',function(event){
     var formSubmission = event.data.submit;
     if (typeof formSubmission !== 'undefined') {
       dataLayer.push({
-        'submit': 'pardot form'
+        'event': 'pardot-form-submit'
       });
     }
   }
