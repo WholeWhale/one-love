@@ -26,15 +26,17 @@ class CF7Bigmarker {
 
   public function tagHandler($tag) {
     $channel = $this->parseOptions($tag->options)['channel'];
-    $conferences = $this->get('conferences')->conferences;
-    $attendees = $this->getAttendeeCounts($conferences);
-
     $output = [];
-    foreach ($conferences as $conference) {
-      if ($conference->channel_id == $channel) {
-        if ($attendees[$conference->id] < $conference->max_attendance) {
-          $time = new DateTime($conference->start_time);
-          $output[$conference->id] = $time->setTimezone(new DateTimeZone('America/New_York'));
+
+    if ($conferences = $this->get('conferences')->conferences) {
+      $attendees = $this->getAttendeeCounts($conferences);
+
+      foreach ($conferences as $conference) {
+        if ($conference->channel_id == $channel) {
+          if ($attendees[$conference->id] < $conference->max_attendance) {
+            $time = new DateTime($conference->start_time);
+            $output[$conference->id] = $time->setTimezone(new DateTimeZone('America/New_York'));
+          }
         }
       }
     }
@@ -96,7 +98,11 @@ class CF7Bigmarker {
       ],
     ]);
 
-    return json_decode($resp['body']);
+    try {
+      return json_decode($resp['body']);
+    } catch (Exception $e) {
+      return null;
+    }
   }
 
   protected function post($route, $body) {
@@ -116,15 +122,16 @@ class CF7Bigmarker {
     if (isset($data['cf7-bm-webinar'])) {
       $webinar = $data['cf7-bm-webinar'];
 
-      $conference = $this->get('conferences/'.$webinar);
-      $time = new DateTime($conference->start_time);
-      $time = $time->setTimezone(new DateTimeZone('America/New_York'));
+      if ($conference = $this->get('conferences/'.$webinar)) {
+        $time = new DateTime($conference->start_time);
+        $time = $time->setTimezone(new DateTimeZone('America/New_York'));
 
-      $tags = wpcf7_scan_form_tags();
-      foreach ($tags as $tag) {
-        if ($tag->type == 'bigmarker') {
-          $data[$tag->name] = $time->format(DATE_ATOM);
-          break;
+        $tags = wpcf7_scan_form_tags();
+        foreach ($tags as $tag) {
+          if ($tag->type == 'bigmarker') {
+            $data[$tag->name] = $time->format(DATE_ATOM);
+            break;
+          }
         }
       }
     }

@@ -135,10 +135,14 @@ class CF7Salesforce {
         $object->fields[$field_name] = $value;
       }
 
-      if (isset($upsertKeys[$type])) {
-        $result[$type] = $this->conn->upsert($upsertKeys[$type], [$object]);
-      } else {
-        $result[$type] = $this->conn->create([$object]);
+      try {
+        if (isset($upsertKeys[$type])) {
+          $result[$type] = $this->conn->upsert($upsertKeys[$type], [$object]);
+        } else {
+          $result[$type] = $this->conn->create([$object]);
+        }
+      } catch (Exception $e) {
+        // noop
       }
     }
   }
