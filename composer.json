@@ -131,7 +131,8 @@
     "wpackagist-plugin/search-exclude": "^1.2.2",
     "wpackagist-plugin/sparkpost": "^3.0.1",
     "wpackagist-plugin/flamingo": "^1.7",
-    "wpackagist-plugin/cf7-to-google-sheet-extension": "^1.0"
+    "wpackagist-plugin/cf7-to-google-sheet-extension": "^1.0",
+    "wpackagist-plugin/autoptimize": "dev-trunk"
 
   },
   "require-dev": {

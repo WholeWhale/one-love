@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "82249c7c048aa61432cce6e5391064ac",
+    "content-hash": "a0e300f7bb2473ed748fbdfed79ec57e",
     "packages": [
         {
             "name": "composer/installers",
@@ -516,6 +516,27 @@
             "homepage": "https://wordpress.org/plugins/404page/"
         },
         {
+            "name": "wpackagist-plugin/autoptimize",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/autoptimize/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/autoptimize.zip?timestamp=1498734502",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/autoptimize/",
+            "time": "2017-06-29T12:08:22+00:00"
+        },
+        {
             "name": "wpackagist-plugin/cf7-conditional-fields",
             "version": "1.3.4",
             "source": {
@@ -625,7 +646,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1483459542",
+                "url": "https://downloads.wordpress.org/plugin/pardot.zip?timestamp=1498156231",
                 "reference": null,
                 "shasum": null
             },
@@ -806,7 +827,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-cfm.zip?timestamp=1467943964",
-                "reference": null,
+                "reference": "trunk",
                 "shasum": null
             },
             "require": {
@@ -2556,12 +2577,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "09d2d7c077eaeb2778e504b785423e3d04d69ec5"
+                "reference": "ce7932808711397d4d9e30e79f8b648f3bebe7bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/09d2d7c077eaeb2778e504b785423e3d04d69ec5",
-                "reference": "09d2d7c077eaeb2778e504b785423e3d04d69ec5",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/ce7932808711397d4d9e30e79f8b648f3bebe7bd",
+                "reference": "ce7932808711397d4d9e30e79f8b648f3bebe7bd",
                 "shasum": ""
             },
             "require": {
@@ -2604,7 +2625,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-29T23:06:25+00:00"
+            "time": "2017-09-12T10:12:59+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2802,12 +2823,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "df8e441d071093d215272c459581b06e17e1783e"
+                "reference": "ff863a6e3d1a36cef83a2f6086e2fe55fabf3c57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/df8e441d071093d215272c459581b06e17e1783e",
-                "reference": "df8e441d071093d215272c459581b06e17e1783e",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ff863a6e3d1a36cef83a2f6086e2fe55fabf3c57",
+                "reference": "ff863a6e3d1a36cef83a2f6086e2fe55fabf3c57",
                 "shasum": ""
             },
             "require": {
@@ -2843,7 +2864,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-02T05:32:45+00:00"
+            "time": "2017-09-11T20:45:27+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3143,6 +3164,7 @@
     "stability-flags": {
         "davispeixoto/force-dot-com-toolkit-for-php": 20,
         "firebase/php-jwt": 20,
+        "wpackagist-plugin/autoptimize": 20,
         "pantheon-systems/pantheon-wordpress-upstream-tests": 20,
         "paulgibbs/behat-wordpress-extension": 20
     },
