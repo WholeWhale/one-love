@@ -463,6 +463,19 @@ function modal_video_component() {
             "value"       => __( "", "my-text-domain" ),
             "description" => __( "The ID for the vimeo video that will display when popup/modal opens if youtube video ID not specified", "my-text-domain" )
        ),
+       array(
+         "type"       => "dropdown",
+         "holder"     => "div",
+         "class"      => "",
+         "heading"    => __("Play Button Style"),
+         "param_name" => "modal_play_button_style",
+         "value"      => array(
+           "Button" => "button",
+           "Text"   => "text"
+         ),
+         "std"         => "button",
+         "description" => __( "The icon that will display over the video thumbnail", "my-text-domain" )
+       )
       )
     )
   );
@@ -477,6 +490,7 @@ function modal_video_output($atts) {
       'modal_video_thumbnail_size'  => 'thumbnail',
       'modal_video_id_youtube'      => 'false',
       'modal_video_id_vimeo'        => 'false',
+      'modal_play_button_style'     => 'button',
    ), $atts ) );
    $ran = random();
    $video_ran = random();
@@ -487,7 +501,11 @@ function modal_video_output($atts) {
    <a>
    <div class="video-modal">
      <img src="<?php echo wp_get_attachment_image_src($modal_video_thumbnail_image,$modal_video_thumbnail_size)[0]; ?>" alt="Video Thumbnail"  data-open="videoModal-<?php echo $ran; ?>" >
-     <img class="modal-play-button" src="/wp-content/themes/onelove/assets/images/play-button.svg" alt="Play Button"  data-open="videoModal-<?php echo $ran; ?>" >
+     <?php if ( $modal_play_button_style == 'text' ): ?>
+       <h1 class="modal-play-text" data-open="videoModal-<?php echo $ran; ?>">PLAY<i class="fa fa-play" aria-hidden="true"></i></h1>
+     <?php else: ?>
+       <img class="modal-play-button" src="/wp-content/themes/onelove/assets/images/play-button.svg" alt="Play Button"  data-open="videoModal-<?php echo $ran; ?>" >
+     <?php endif; ?>
      <section id="videoModal-<?php echo $ran; ?>" class="reveal mod-reveal" data-animation-in="fade-in" data-animation-out="fade-out"  data-reveal>
          <div id="video-<?php echo $video_ran; ?>" ></div>
      </section>

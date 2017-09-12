@@ -830,6 +830,25 @@ html .reveal {
   }
 
 }
+.modal-play-text {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  color: #fff;
+  font-weight: normal;
+  i {
+    margin-left: $default-spacing/2;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 5vw;
+    top: 5%;
+    left: 2%;
+    i {
+      margin-left: 2vw;
+    }
+  }
+
+}
 
 // 9. Contact Form 7
 // ---------
