@@ -12,6 +12,7 @@
 // 7. Forms
 // 8. utility classes
 // 9. one-off classes
+// 10.Contact Form 7
 
 
 // 1. Global
@@ -813,4 +814,26 @@ html .reveal {
     transform: translateY(-50%);
     z-index: 1;
   }
+}
+.play-button {
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url('/wp-content/themes/onelove/assets/images/play-button.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+}
+
+// 9. Contact Form 7
+// ---------
+
+html body div.wpcf7-response-output {
+  border: none !important;
 }
