@@ -224,6 +224,8 @@ if ( ! defined( 'DOCROOT' ) ) {
 	define( 'DOCROOT', dirname( __FILE__ ) . '/' );
 }
 
+define('AUTOPTIMIZE_CACHE_CHILD_DIR', '/uploads/autoptimize/');
+
 /**
  * WordPress Database Table prefix.
  *
