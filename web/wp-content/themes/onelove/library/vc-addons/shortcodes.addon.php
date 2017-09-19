@@ -492,6 +492,12 @@ function modal_video_output($atts) {
       'modal_video_id_vimeo'        => 'false',
       'modal_play_button_style'     => 'button',
    ), $atts ) );
+
+
+   $modal_video_id_youtube = strtok($modal_video_id_youtube,'?');
+   $modal_video_id_vimeo   = strtok($modal_video_id_vimeo,'?');
+
+
    $ran = random();
    $video_ran = random();
    if ( ($modal_video_id_youtube === 'false' && $modal_video_id_vimeo === 'false') || $modal_video_thumbnail_image === 'false') {
