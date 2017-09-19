@@ -53,6 +53,7 @@
       text-align: center;
       & > a {
         @extend h4;
+        cursor: default;
         padding: $default-spacing $default-spacing 0 $default-spacing;
         display: block;
         text-align: center;
