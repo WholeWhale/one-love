@@ -856,3 +856,7 @@ html .reveal {
 html body div.wpcf7-response-output {
   border: none !important;
 }
+
+p + p {
+  margin-bottom: 26px;
+}
