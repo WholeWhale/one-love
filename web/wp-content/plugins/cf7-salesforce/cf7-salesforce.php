@@ -142,7 +142,9 @@ class CF7Salesforce {
           $result[$type] = $this->conn->create([$object]);
         }
       } catch (Exception $e) {
-        // noop
+        if (extension_loaded('newrelic')) {
+          newrelic_notice_error('Salesforce submission error', $e);
+        }
       }
     }
   }
