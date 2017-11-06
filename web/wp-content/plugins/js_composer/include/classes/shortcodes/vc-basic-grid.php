@@ -29,6 +29,8 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCode_Vc_Pageable {
 		'filter_size' => 'md',
 		'filter_align' => '',
 		'filter_color' => '',
+    'filter_sort' => '',
+    'filter_orderby' => '',
 		'arrows_design' => '',
 		'arrows_position' => '',
 		'arrows_color' => '',
@@ -252,7 +254,7 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCode_Vc_Pageable {
 				'grid_item',
 				$grid_item,
 			);
-			$output .= apply_filters( 'vc_basic_grid_template_filter', vc_get_template( 'shortcodes/vc_basic_grid_filter.php', $attributes ), $attributes );
+			$output .= apply_filters( 'vc_basic_grid_template_filter', vc_get_template( '../../../../themes/onelove/library/vc-overrides/vc_basic_grid_filter.php', $attributes ), $attributes );
 			while ( have_posts() ) {
 				the_post();
 				$items .= $grid_item->renderItem( get_post() );
