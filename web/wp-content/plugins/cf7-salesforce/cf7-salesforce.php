@@ -90,7 +90,12 @@ class CF7Salesforce {
 
       if ($this->isComputedField($field_name)) {
         $comeAfter[$this->getComputedObject($field_name)] = $object;
-        $computedFields["$object|$field"] = $this->getComputedObject($field_name);
+        $objects = explode(',', $object);
+
+        foreach ($objects as $obj) {
+          $obj = trim($obj);
+          $computedFields["$obj|$field"] = $this->getComputedObject($field_name);
+        }
       }
     }
 
