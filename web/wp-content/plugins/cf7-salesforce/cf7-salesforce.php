@@ -114,7 +114,13 @@ class CF7Salesforce {
   }
 
   protected function getComputedObject($fieldName) {
-    return substr($fieldName, 8);
+    $field = substr($fieldName, 8);
+
+    if (is_numeric(substr($field, -1))) {
+      return substr($field, 0, -1);
+    } else {
+      return $field;
+    }
   }
 
   protected function upsertObjects($object_array, $upsertKeys, $computedFields) {
