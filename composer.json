@@ -119,7 +119,7 @@
     "wpackagist-plugin/really-simple-csv-importer": "^1.3",
     "wpackagist-plugin/social-warfare": "^2.3.2",
     "warfare-plugins/social-warfare-pro": "2.3.2",
-    "eucalyptuss/material-foundation": "master",
+    "eucalyptuss/material-foundation": "dev-master#e44c6b59425d348ad9bd00e16b373f51c17d19ac",
     "wpackagist-plugin/pardot": "^1.4.3",
     "wpackagist-plugin/404page": "^2.5",
     "davispeixoto/force-dot-com-toolkit-for-php": "dev-master",
