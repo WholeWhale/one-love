@@ -75,26 +75,27 @@ class CF7Salesforce {
       $field = $fields['field'];
       $isUpsertKey = $fields['upsert-key'];
 
-      if ($object == '' || $field == '') {
-        continue;
-      }
+      $objectNames = explode(',', $object);
 
-      if (!isset($objects[$object])) {
-        $objects[$object] = [];
-      }
+      foreach ($objectNames as $obj) {
+        $object = trim($obj);
 
-      $objects[$object][$field] = $data[$field_name];
-      if ($isUpsertKey) {
-        $upsertKeys[$object] = $field;
-      }
+        if ($object == '' || $field == '') {
+          continue;
+        }
 
-      if ($this->isComputedField($field_name)) {
-        $objectNames = explode(',', $object);
+        if (!isset($objects[$object])) {
+          $objects[$object] = [];
+        }
 
-        foreach ($objectNames as $obj) {
-          $obj = trim($obj);
-          $comeAfter[$this->getComputedObject($field_name)] = $obj;
-          $computedFields["$obj|$field"] = $this->getComputedObject($field_name);
+        $objects[$object][$field] = $data[$field_name];
+        if ($isUpsertKey) {
+          $upsertKeys[$object] = $field;
+        }
+
+        if ($this->isComputedField($field_name)) {
+          $comeAfter[$this->getComputedObject($field_name)] = $object;
+          $computedFields["$object|$field"] = $this->getComputedObject($field_name);
         }
       }
     }
