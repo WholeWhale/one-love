@@ -125,7 +125,8 @@ body {
 // 5. Font Spacing
 // ---------
 body {
-  p {
+  p,
+  .wpb_content_element .wpb_wrapper > p {
     margin-bottom: 0;
     padding-top: $default-spacing;
     padding-bottom: $default-spacing;
