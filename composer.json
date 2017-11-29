@@ -21,15 +21,15 @@
       "type": "package",
       "package": {
         "name": "pantheon-systems/wordpress",
-        "version": "4.8.1",
+        "version": "4.9",
         "dist": {
-          "url": "https://github.com/pantheon-systems/WordPress/archive/4.8.1.zip",
+          "url": "https://github.com/pantheon-systems/WordPress/archive/4.9.zip",
           "type": "zip"
         },
         "source": {
           "url": "git@github.com:pantheon-systems/WordPress.git",
           "type": "git",
-          "reference": "4.8.1"
+          "reference": "4.9"
         },
         "type": "wordpress-core",
         "require": {
@@ -107,7 +107,7 @@
     "wpackagist-plugin/pantheon-advanced-page-cache": "^0.1.4",
     "wpackagist-plugin/wp-cfm": "^1.4.5",
     "wpackagist-theme/twentyseventeen": "^1.1",
-    "pantheon-systems/wordpress": "^4.8.1",
+    "pantheon-systems/wordpress": "^4.9",
     "roots/wp-password-bcrypt": "^1.0.0",
     "olefredrik/foundationpress": "2.9.2",
     "koodimonni/composer-dropin-installer": "*",
@@ -117,7 +117,7 @@
     "wpackagist-plugin/simple-301-redirects": "^1.07",
     "wpackagist-plugin/simple-301-redirects-addon-bulk-uploader": "^1.0.14",
     "wpackagist-plugin/really-simple-csv-importer": "^1.3",
-    "wpackagist-plugin/social-warfare": "^2.3.2",
+    "wpackagist-plugin/social-warfare": "2.3.2",
     "warfare-plugins/social-warfare-pro": "2.3.2",
     "eucalyptuss/material-foundation": "dev-master#e44c6b59425d348ad9bd00e16b373f51c17d19ac",
     "wpackagist-plugin/pardot": "^1.4.3",
