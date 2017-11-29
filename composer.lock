@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "14ce44fc05c723d7141b404912751377",
+    "content-hash": "4ff13d218ab824a35fc214bb83b9f836",
     "packages": [
         {
             "name": "composer/installers",
@@ -615,6 +615,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/flamingo/"
+        },
+        {
+            "name": "wpackagist-plugin/jetpack",
+            "version": "5.5.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/jetpack/",
+                "reference": "tags/5.5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.5.5.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/jetpack/"
         },
         {
             "name": "wpackagist-plugin/optinmonster",
@@ -2297,12 +2317,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "5c8aa7e8152ef39f2a4564d9ba16d2299549971c"
+                "reference": "32f8259029735baefe53f5346a83da6a066a7d1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/5c8aa7e8152ef39f2a4564d9ba16d2299549971c",
-                "reference": "5c8aa7e8152ef39f2a4564d9ba16d2299549971c",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/32f8259029735baefe53f5346a83da6a066a7d1b",
+                "reference": "32f8259029735baefe53f5346a83da6a066a7d1b",
                 "shasum": ""
             },
             "require": {
@@ -2360,7 +2380,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-29T13:47:22+00:00"
+            "time": "2017-11-29T17:00:02+00:00"
         },
         {
             "name": "symfony/dom-crawler",
