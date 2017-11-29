@@ -17,6 +17,10 @@ section.author-bio {
   }
   .author-container {
     display: flex;
+    flex-direction: column;
+    @include breakpoint(mobile) {
+      flex-direction: row;
+    }
     .about-author-image {
       min-width: 6.25rem;
       margin-right: $default-spacing;
