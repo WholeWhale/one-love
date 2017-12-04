@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Visual Composer basic class.
+ * WPBakery Page Builder basic class.
  * @since 4.2
  */
 class Vc_Base {
@@ -18,20 +18,19 @@ class Vc_Base {
 	protected $shortcode_edit_form = false;
 
 	/**
-	 * Templates management panel.
-	 * @deprecated 4.4 updated to $templates_panel_editor, use Vc_Base::setTemplatesPanelEditor
-	 * @since  4.2
-	 * @access protected
-	 * @var bool|Vc_Templates_Editor
-	 */
-	protected $templates_editor = false;
-	/**
 	 * Templates management panel editor.
 	 * @since  4.4
 	 * @access protected
 	 * @var bool|Vc_Templates_Panel_Editor
 	 */
 	protected $templates_panel_editor = false;
+	/**
+	 * Presets management panel editor.
+	 * @since  5.2
+	 * @access protected
+	 * @var bool|Vc_Preset_Panel_Editor
+	 */
+	protected $preset_panel_editor = false;
 	/**
 	 * Post object for VC in Admin.
 	 *
@@ -56,12 +55,6 @@ class Vc_Base {
 	 * @var array WPBakeryShortCodeFishBones
 	 */
 	protected $shortcodes = array();
-
-	/**
-	 * @deprecated 4.4 due to autoload logic
-	 * @var Vc_Vendors_Manager $vendor_manager
-	 */
-	protected $vendor_manager;
 
 	/** @var  Vc_Shared_Templates */
 	public $shared_templates;
@@ -206,19 +199,6 @@ class Vc_Base {
 
 	/**
 	 * Setter for Templates editor.
-	 * @deprecated 4.4 updated to panel editor see Vc_Templates_Panel_Editor::__construct
-	 * @use setTemplatesPanelEditor
-	 * @since 4.2
-	 *
-	 * @param Vc_Templates_Editor $editor
-	 */
-	public function setTemplatesEditor( Vc_Templates_Editor $editor ) {
-		_deprecated_function( 'Vc_Base::setTemplatesEditor', '4.4 (will be removed in 5.1)', 'Vc_Base::setTemplatesPanelEditor' );
-		$this->templates_editor = $editor;
-	}
-
-	/**
-	 * Setter for Templates editor.
 	 * @since 4.4
 	 *
 	 * @param Vc_Templates_Panel_Editor $editor
@@ -228,17 +208,13 @@ class Vc_Base {
 	}
 
 	/**
-	 * Get templates manager.
-	 * @deprecated updated to panel editor see Vc_Templates_Panel_Editor::__construct
-	 * @see    Vc_Templates_Editor::__construct
-	 * @since  4.2
-	 * @access public
-	 * @return bool|Vc_Templates_Editor
+	 * Setter for Preset editor.
+	 * @since 5.2
+	 *
+	 * @param Vc_Preset_Panel_Editor $editor
 	 */
-	public function templatesEditor() {
-		_deprecated_function( 'Vc_Base::templatesEditor', '4.4 (will be removed in 5.1)', 'Vc_Base::templatesPanelEditor' );
-
-		return $this->templates_editor;
+	public function setPresetPanelEditor( Vc_Preset_Panel_Editor $editor ) {
+		$this->preset_panel_editor = $editor;
 	}
 
 	/**
@@ -253,34 +229,14 @@ class Vc_Base {
 	}
 
 	/**
-	 * Save method for edit_post action.
-	 * @deprecated 4.9
-	 * @since  4.2
+	 * Get preset manager.
+	 * @see    Vc_Preset_Panel_Editor::__construct
+	 * @since  5.2
 	 * @access public
-	 *
-	 * @param null $post_id
+	 * @return bool|Vc_Preset_Panel_Editor
 	 */
-	public function save( $post_id = null ) {
-		_deprecated_function( '\Vc_Base::save', '4.9 (will be removed in 5.1)', '\Vc_Post_Admin::save' );
-	}
-
-	/**
-	 * Add new shortcode to Visual composer.
-	 *
-	 * @see    WPBMap::map
-	 * @since  4.2
-	 * @access public
-	 * @deprecated 4.9
-	 *
-	 * @param array $shortcode - array of options.
-	 */
-	public function addShortCode( array $shortcode ) {
-		_deprecated_function( '\Vc_Base::addShortcode', '4.9 (will be removed in 5.1)', 'vc_map' );
-		if ( ! isset( $this->shortcodes[ $shortcode['base'] ] ) ) {
-			require_once vc_path_dir( 'SHORTCODES_DIR', 'shortcodes.php' );
-			$this->shortcodes[ $shortcode['base'] ] = new WPBakeryShortCodeFishBones( $shortcode );
-		}
-
+	public function presetPanelEditor() {
+		return $this->preset_panel_editor;
 	}
 
 	/**
@@ -667,10 +623,10 @@ class Vc_Base {
 	 */
 	public function pluginActionLinks( $links, $file ) {
 		if ( plugin_basename( vc_path_dir( 'APP_DIR', '/js_composer.php' ) ) == $file ) {
-			$title = __( 'Visual Composer Settings', 'js_composer' );
+			$title = __( 'WPBakery Page Builder Settings', 'js_composer' );
 			$html = esc_html__( 'Settings', 'js_composer' );
 			if ( ! vc_user_access()->part( 'settings' )->can( 'vc-general-tab' )->get() ) {
-				$title = __( 'About Visual Composer', 'js_composer' );
+				$title = __( 'About WPBakery Page Builder', 'js_composer' );
 				$html = esc_html__( 'About', 'js_composer' );
 			}
 			$link = '<a title="' . esc_attr( $title ) . '" href="' . esc_url( $this->getSettingsPageLink() ) . '">' . $html . '</a>';
@@ -700,7 +656,7 @@ class Vc_Base {
 	 * @access public
 	 */
 	public function addMetaData() {
-		echo '<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>' . "\n";
+		echo '<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>' . "\n";
 	}
 
 	/**
@@ -789,33 +745,6 @@ class Vc_Base {
 	}
 
 	/**
-	 * @todo remove this (comment added on 4.8) also remove helpers
-	 * Set manger for custom third-party plugins.
-	 * @deprecated due to autoload logic 4.4
-	 * @since 4.3
-	 *
-	 * @param Vc_Vendors_Manager $vendor_manager
-	 */
-	public function setVendorsManager( Vc_Vendors_Manager $vendor_manager ) {
-		_deprecated_function( 'Vc_Base::setVendorsManager', '4.4 (will be removed in 5.1)', 'autoload logic' );
-
-		$this->vendor_manager = $vendor_manager;
-	}
-
-	/**
-	 * @todo remove this (comment added on 4.8) also remove helpers
-	 * Get vendors manager.
-	 * @deprecated due to autoload logic from 4.4
-	 * @since 4.3
-	 * @return bool|Vc_Vendors_Manager
-	 */
-	public function vendorsManager() {
-		_deprecated_function( 'Vc_Base::vendorsManager', '4.4 (will be removed in 5.1)', 'autoload logic' );
-
-		return $this->vendor_manager;
-	}
-
-	/**
 	 * Get array of string for locale.
 	 *
 	 * @since 4.7
@@ -829,10 +758,10 @@ class Vc_Base {
 			'add_image' => __( 'Add Image', 'js_composer' ),
 			'add_images' => __( 'Add Images', 'js_composer' ),
 			'settings' => __( 'Settings', 'js_composer' ),
-			'main_button_title' => __( 'Visual Composer', 'js_composer' ),
-			'main_button_title_backend_editor' => __( 'BACKEND EDITOR', 'js_composer' ),
-			'main_button_title_frontend_editor' => __( 'FRONTEND EDITOR', 'js_composer' ),
-			'main_button_title_revert' => __( 'CLASSIC MODE', 'js_composer' ),
+			'main_button_title' => __( 'WPBakery Page Builder', 'js_composer' ),
+			'main_button_title_backend_editor' => __( 'Backend Editor', 'js_composer' ),
+			'main_button_title_frontend_editor' => __( 'Frontend Editor', 'js_composer' ),
+			'main_button_title_revert' => __( 'Classic Mode', 'js_composer' ),
 			'please_enter_templates_name' => __( 'Enter template name you want to save.', 'js_composer' ),
 			'confirm_deleting_template' => __( 'Confirm deleting "{template_name}" template, press Cancel to leave. This action cannot be undone.', 'js_composer' ),
 			'press_ok_to_delete_section' => __( 'Press OK to delete section, Cancel to leave', 'js_composer' ),
@@ -888,34 +817,7 @@ class Vc_Base {
 			'ui_template_downloaded' => __( 'Downloaded', 'js_composer' ),
 			'ui_template_update' => __( 'Update', 'js_composer' ),
 			'ui_templates_failed_to_download' => __( 'Failed to download template', 'js_composer' ),
+			'preset_removed' => __( 'Element successfully removed.', 'js_composer' ),
 		);
-	}
-
-}
-
-/**
- * @todo remove this (comment added on 4.8) also remove helpers
- * VC backward capability.
- * @deprecated @since 4.3
- */
-class WPBakeryVisualComposer extends Vc_Base {
-
-	/**
-	 * @deprecated since 4.3
-	 */
-	function __construct() {
-		_deprecated_function( 'WPBakeryVisualComposer class', '4.3 (will be removed in 5.1)', 'Vc_Base class' );
-	}
-
-	/**
-	 * @param $template
-	 *
-	 * @deprecated 4.3
-	 * @return string
-	 */
-	public static function getUserTemplate( $template ) {
-		_deprecated_function( 'WPBakeryVisualComposer getUserTemplate', '4.3 (will be removed in 5.1)', 'Vc_Base getShortcodesTemplateDir' );
-
-		return vc_manager()->getShortcodesTemplateDir( $template );
 	}
 }

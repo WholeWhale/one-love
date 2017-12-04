@@ -30,6 +30,21 @@ class Vc_ParamGroup_Edit_Form_Fields extends Vc_Edit_Form_Fields {
 	public function renderField( $param, $value ) {
 		return parent::renderField( $param, $value );
 	}
+
+	/**
+	 * Get shortcode attribute value wrapper for params group.
+	 *
+	 * This function checks if value isn't set then it uses std or value fields in param settings.
+	 * @since 5.2.1
+	 *
+	 * @param $params_settings
+	 * @param null $value
+	 *
+	 * @return mixed;
+	 */
+	public function getParamGroupAttributeValue( $params_settings, $value = null ) {
+		return $this->parseShortcodeAttributeValue( $params_settings, $value );
+	}
 }
 
 /**
@@ -108,9 +123,10 @@ class Vc_ParamGroup {
 				$value_block = "<div class='vc_param_group-wrapper vc_clearfix'>";
 				$data = $values;
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $data[ $param['param_name'] ] ) ? $data[ $param['param_name'] ] : ( isset( $param['value'] ) ? $param['value'] : '' );
+					$param_value = isset( $data[ $param['param_name'] ] ) ? $data[ $param['param_name'] ] : ( isset( $param['value'] ) ? $param['value'] : null );
 					$param['param_name'] = $this->settings['param_name'] . '_' . $param['param_name'];
-					$value_block .= $edit_form->renderField( $param, $param_value );
+					$value = $edit_form->getParamGroupAttributeValue( $param, $param_value );
+					$value_block .= $edit_form->renderField( $param, $value );
 				}
 				$value_block .= '</div>';
 				$output = str_replace( '%content%', $value_block, $output );
@@ -124,7 +140,8 @@ class Vc_ParamGroup {
 		$content = "<div class='vc_param_group-wrapper vc_clearfix'>";
 		foreach ( $this->settings['params'] as $param ) {
 			$param['param_name'] = $this->settings['param_name'] . '_' . $param['param_name'];
-			$content .= $edit_form->renderField( $param, isset( $param['value'] ) ? $param['value'] : '' );
+			$value = $edit_form->getParamGroupAttributeValue( $param );
+			$content .= $edit_form->renderField( $param, $value );
 		}
 		$content .= '</div>';
 		$output = str_replace( '%content%', $content, $output );

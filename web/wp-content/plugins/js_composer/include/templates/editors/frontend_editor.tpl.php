@@ -55,6 +55,10 @@ if ( vc_user_access()->part( 'templates' )->can()->get() ) {
 }
 // [/templates panel editor render]
 
+// [preset panel editor render]
+visual_composer()->presetPanelEditor()->renderUIPreset();
+// [/preset panel editor render]
+
 // [post settings panel render]
 if ( vc_user_access()->part( 'post_settings' )->can()->get() ) {
 	require_once vc_path_dir( 'EDITORS_DIR', 'popups/class-vc-post-settings.php' );
@@ -75,11 +79,11 @@ vc_include_template( 'editors/partials/frontend_controls.tpl.php' );
 // [shortcodes presets data]
 if ( vc_user_access()->part( 'presets' )->can()->get() ) {
 	require_once vc_path_dir( 'AUTOLOAD_DIR', 'class-vc-settings-presets.php' );
-	$vc_settings_presets = Vc_Settings_Preset::listDefaultSettingsPresets();
 	$vc_vendor_settings_presets = Vc_Settings_Preset::listDefaultVendorSettingsPresets();
+	$vc_all_presets = Vc_Settings_Preset::listAllPresets();
 } else {
-	$vc_settings_presets = array();
 	$vc_vendor_settings_presets = array();
+	$vc_all_presets = array();
 }
 // [/shortcodes presets data]
 
@@ -90,7 +94,7 @@ if ( vc_user_access()->part( 'presets' )->can()->get() ) {
 		var vc_user_mapper = <?php echo json_encode( WPBMap::getUserShortCodes() ) ?>,
 			vc_mapper = <?php echo json_encode( WPBMap::getShortCodes() ) ?>,
 			vc_vendor_settings_presets = <?php echo json_encode( $vc_vendor_settings_presets ) ?>,
-			vc_settings_presets = <?php echo json_encode( $vc_settings_presets ) ?>,
+		    vc_all_presets = <?php echo json_encode( $vc_all_presets ) ?>,
 			vc_roles = [], // @todo fix_roles BC for roles
 			vcAdminNonce = '<?php echo vc_generate_nonce( 'vc-admin-nonce' ); ?>';
 	</script>

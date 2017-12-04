@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Manger for new post type for single grid item design with constructor
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  * @since 4.4
  */
 require_once vc_path_dir( 'EDITORS_DIR', 'class-vc-backend-editor.php' );
@@ -27,11 +27,11 @@ class Vc_Grid_Item_Editor extends Vc_Backend_Editor {
 			'render',
 		) );
 		add_action( 'vc_templates_render_backend_template', array(
-			&$this,
+			$this,
 			'loadTemplate',
 		), 10, 2 );
 		/*		add_action( 'vc_ui-template-preview', array(
-					&$this,
+					$this,
 					'replaceTemplatesPanelEditorJsAction',
 				) );*/
 	}
@@ -48,11 +48,11 @@ class Vc_Grid_Item_Editor extends Vc_Backend_Editor {
 			visual_composer()->registerAdminCss();
 			visual_composer()->registerAdminJavascript();
 			add_action( 'admin_print_scripts-post.php', array(
-				&$this,
+				$this,
 				'printScriptsMessages',
 			), 300 );
 			add_action( 'admin_print_scripts-post-new.php', array(
-				&$this,
+				$this,
 				'printScriptsMessages',
 			), 300 );
 		}
@@ -135,7 +135,7 @@ class Vc_Grid_Item_Editor extends Vc_Backend_Editor {
 	 */
 	public function addMetaBox() {
 		add_meta_box( 'wpb_visual_composer', __( 'Grid Builder', 'js_composer' ), array(
-			&$this,
+			$this,
 			'renderEditor',
 		), $this->postType(), 'normal', 'high' );
 	}
@@ -175,17 +175,17 @@ class Vc_Grid_Item_Editor extends Vc_Backend_Editor {
 			'post' => $this->post,
 		) );
 		add_action( 'admin_footer', array(
-			&$this,
+			$this,
 			'renderEditorFooter',
 		) );
 		do_action( 'vc_backend_editor_render' );
 		do_action( 'vc_vc_grid_item_editor_render' );
 		add_action( 'vc_user_access_check-shortcode_edit', array(
-			&$this,
+			$this,
 			'accessCheckShortcodeEdit',
 		), 10, 2 );
 		add_action( 'vc_user_access_check-shortcode_all', array(
-			&$this,
+			$this,
 			'accessCheckShortcodeAll',
 		), 10, 2 );
 
@@ -263,11 +263,11 @@ class Vc_Grid_Item_Editor extends Vc_Backend_Editor {
 		vc_user_access()->checkAdminNonce()->validateDie()->wpAny( 'edit_posts', 'edit_pages' )->validateDie()->part( 'grid_builder' )->can()->validateDie();
 
 		add_action( 'vc_templates_render_backend_template_preview', array(
-			&$this,
+			$this,
 			'loadTemplate',
 		), 10, 2 );
 		add_filter( 'vc_render_template_preview_include_template', array(
-			&$this,
+			$this,
 			'templatePreviewPath',
 		) );
 		visual_composer()->templatesPanelEditor()->renderTemplatePreview();

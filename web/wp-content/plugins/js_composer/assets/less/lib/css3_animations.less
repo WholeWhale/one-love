@@ -256,3 +256,27 @@
     .opacity(1);
   }
 }
+
+.vc-spinner {
+  &::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    pointer-events: none;
+    margin-top: 6px;
+    background: url('../images/spinner.gif') no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
+  &.vc-spinner-complete {
+    &::before {
+      background-image: url('../vc/tick.png');
+    }
+  }
+  &.vc-spinner-failed {
+    &::before {
+      background-image: url('../vc/remove.png');
+    }
+  }
+}

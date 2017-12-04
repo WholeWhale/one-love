@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</button>
 	</div>
 	<div class="vc_ui-prompt-title">
-		<label for="prompt_title" class="wpb_element_label"><?php _e( 'Preset Title', 'js_composer' ) ?></label>
+		<label for="prompt_title" class="wpb_element_label"><?php _e( 'Element Title', 'js_composer' ) ?></label>
 	</div>
 	<div class="vc_ui-prompt-content">
 		<div class="vc_ui-prompt-column">
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input name="title" id="prompt_title" class="wpb_vc_param_value wpb-textinput h4 textfield"
 						type="text" value="" data-vc-disable-empty="#vc_ui-save-preset-btn">
 					<span
-						class="vc_description vc_clearfix"><?php _e( 'Enter element preset title.', 'js_composer' ) ?></span>
+						class="vc_description vc_clearfix"><?php _e( 'Enter element title.', 'js_composer' ) ?></span>
 				</div>
 			</div>
 		</div>

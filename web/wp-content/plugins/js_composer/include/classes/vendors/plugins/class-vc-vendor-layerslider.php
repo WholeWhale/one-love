@@ -5,23 +5,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * LayerSlider loader.
- * Adds layerSlider shortcode to visual composer and fixes issue in frontend editor
+ * Adds layerSlider shortcode to WPBakery Page Builder and fixes issue in frontend editor
  *
  * @since 4.3
  */
 class Vc_Vendor_Layerslider implements Vc_Vendor_Interface {
 	/**
 	 * @var int - used to detect id for layerslider in frontend
+	 * @deprecated
 	 */
 	protected static $instanceIndex = 1;
 
 	/**
-	 * Add layerslayer shortcode to visual composer, and add fix for ID in frontend editor
+	 * Add layerslayer shortcode to WPBakery Page Builder, and add fix for ID in frontend editor
 	 * @since 4.3
 	 */
 	public function load() {
 		add_action( 'vc_after_mapping', array(
-			&$this,
+			$this,
 			'buildShortcode',
 		) );
 
@@ -38,11 +39,16 @@ class Vc_Vendor_Layerslider implements Vc_Vendor_Interface {
 			'addShortcodeSettings',
 		) );
 
-		// Load layer slider shortcode && change id
-		add_filter( 'vc_layerslider_shortcode', array(
-			&$this,
-			'setId',
-		) );
+		if ( vc_is_page_editable() ) {
+			add_filter( 'layerslider_slider_init', array(
+				$this,
+				'setMarkupId',
+			), 10, 3 );
+			add_filter( 'layerslider_slider_markup', array(
+				$this,
+				'setMarkupId',
+			), 10, 3 );
+		}
 	}
 
 	/**
@@ -53,7 +59,19 @@ class Vc_Vendor_Layerslider implements Vc_Vendor_Interface {
 	 * @return string
 	 */
 	public function setId( $output ) {
-		return preg_replace( '/(layerslider_\d+)/', '$1_' . time() . '_' . self::$instanceIndex ++, $output );
+		return preg_replace( '/(layerslider_\d+)/', '$1_' . $_SERVER['REQUEST_TIME'], $output );
+	}
+
+	/**
+	 * @since 4.3
+	 *
+	 * @param $output
+	 *
+	 * @deprecated 5.2
+	 * @return string
+	 */
+	public function setMarkupId( $markup, $slider, $id ) {
+		return str_replace( $id, $id . '_' . $_SERVER['REQUEST_TIME'], $markup );
 	}
 
 	/**

@@ -8,10 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div
 		class="vc_controls-element" data-can-all="{{ can_all }}" data-can-edit="{{ can_edit }}">
 		<div class="vc_controls-cc">
-			<a class="vc_control-btn vc_element-name{# if( can_all ) { #} vc_element-move{# } #}"><span
+			<a class="vc_control-btn vc_element-name{# if( can_all && moveAccess ) { #} vc_element-move{# } #}"><span
 					class="vc_btn-content"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">
-					<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<i class="vc-composer-icon vc-c-icon-dragndrop"></i>{# } #}
 					{{ name }}
 				</span></a>{# if( can_edit ) { #}<a
 				class="vc_control-btn vc_control-btn-edit" data-control="edit" href="#"
@@ -32,11 +31,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="vc_controls-container">
 		<div class="vc_controls-out-tl">
 			<div class="vc_element element-{{ tag }}">
-				<a class="vc_control-btn vc_element-name{# if( can_all ) { #} vc_element-move{# } #}"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}"><span
+				<a class="vc_control-btn vc_element-name{# if( can_all && moveAccess ) { #} vc_element-move{# } #}"
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<span
+							class="vc_btn-content">
+						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>{{ name }}</span>{# } else { #}<span
 						class="vc_btn-content">
-						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ name }}</span></a>{# if( can_edit ) { #}<a class="vc_control-btn vc_control-btn-edit"
+						{{ name }}</span>{# } #}</a>{# if( can_edit ) { #}<a class="vc_control-btn vc_control-btn-edit"
 					href="#"
 					title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ name }}' ) ?>"><span
 						class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( 'edit' !== state ) { #}<a
@@ -64,11 +64,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="vc_controls-column">
 		<div class="vc_controls-out-tl">
 			<div class="vc_parent parent-{{ parent_tag }}"><a
-					class="vc_control-btn vc_element-name{# if( parent_can_all ) { #} vc_move-{{ parent_tag }} vc_element-move{# } #}"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}"><span
+					class="vc_control-btn vc_element-name{# if( parent_can_all && moveAccess ) { #} vc_move-{{ parent_tag }} vc_element-move{# } #}"
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<span
 						class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ parent_name }}</span></a><span class="advanced">{# if( parent_can_edit ) { #}<a
+						{{ parent_name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ parent_name }}</span>{# } #}</a><span class="advanced">{# if( parent_can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit vc_edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ parent_name }}' ) ?>"><span
 							class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( allowAdd ) { #}<a
@@ -86,11 +88,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-arrow_drop_right"></i></span></a>
 			</div>
 			<div class="vc_element element-{{ tag }} vc_active"><a
-					class="vc_control-btn vc_element-name vc_move-{{ tag }} {# if( can_all ) { #}vc_element-move{# } #}"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}"><span
+					class="vc_control-btn vc_element-name vc_move-{{ tag }} {# if( can_all && moveAccess ) { #}vc_element-move{# } #}"
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<span
 						class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ name }}</span></a><span class="advanced">{# if( can_edit ) { #}<a
+						{{ name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ name }}</span>{# } #}</a><span class="advanced">{# if( can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ name }}' ) ?>"><span
 							class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( 'edit' !== state ) { #}<a
@@ -115,11 +119,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="vc_controls-column">
 		<div class="vc_controls-out-tl">
 			<div class="vc_parent parent-{{ parent_tag }}"><a
-					class="vc_control-btn vc_element-name{# if( parent_can_all ) { #} vc_element-move vc_move-{{ parent_tag }}{# } #}"
-					title="{# if( parent_can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}"><span
+					class="vc_control-btn vc_element-name{# if( parent_can_all && moveAccess ) { #} vc_element-move vc_move-{{ parent_tag }}{# } #}"
+					title="{# if( parent_can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}">{# if( parent_can_all && moveAccess ) { #}<span
 						class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ parent_name }}</span></a><span class="vc_advanced{{ switcherPrefix }}">{# if( parent_can_edit ) { #}<a
+						{{ parent_name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ parent_name }}</span>{# } #}</a><span class="vc_advanced{{ switcherPrefix }}">{# if( parent_can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit vc_edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ parent_name }}' ) ?>"><span
 							class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( parent_can_all ) { #}<a
@@ -140,11 +146,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-arrow_drop_right"></i></span></a>
 			</div>
 			<div class="vc_element element-{{ tag }} vc_active"><a
-					class="vc_control-btn vc_element-name{# if( can_all ) { #} vc_element-move vc_move-vc_column{# } #}"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}"><span
+					class="vc_control-btn vc_element-name{# if( can_all && moveAccess ) { #} vc_element-move vc_move-vc_column{# } #}"
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<span
 						class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ name }}</span></a><span class="vc_advanced{{ switcherPrefix }}">{# if( can_edit ) { #}<a
+						{{ name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ name }}</span>{# } #}</a><span class="vc_advanced{{ switcherPrefix }}">{# if( can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ name }}' ) ?>"><span
 							class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( 'edit' !== state ) { #}<a
@@ -173,11 +181,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="vc_controls-column">
 		<div class="vc_controls-out-tr">
 			<div class="vc_parent parent-{{ parent_tag }}"><a
-					class="vc_control-btn vc_element-name vc_move-{{ parent_tag }}{# if( parent_can_all ) { #} vc_element-move{# } #}"
-					title="{# if( parent_can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}"><span
-						class="vc_btn-content">
+					class="vc_control-btn vc_element-name vc_move-{{ parent_tag }}{# if( parent_can_all && moveAccess ) { #} vc_element-move{# } #}"
+					title="{# if( parent_can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}">{# if( parent_can_all && moveAccess ) { #}<span
+							class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ parent_name }}</span></a><span class="vc_advanced{{ switcherPrefix }}">{# if( parent_can_edit ) { #}<a
+						{{ parent_name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ parent_name }}</span>{# } #}</a><span class="vc_advanced{{ switcherPrefix }}">{# if( parent_can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit vc_edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ parent_name }}' ) ?>"><span
 							class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( allowAdd ) { #}<a
@@ -196,11 +206,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-arrow_drop_right"></i></span></a>
 			</div>
 			<div class="vc_element element-{{ tag }} vc_active"><a
-					class="vc_control-btn vc_element-name vc_move-{{ tag }}{# if( can_all ) { #} vc_element-move{# } #}"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}"><span
-						class="vc_btn-content">
+					class="vc_control-btn vc_element-name vc_move-{{ tag }}{# if( can_all && moveAccess ) { #} vc_element-move{# } #}"
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<span
+							class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ name }}</span></a><span class="vc_advanced{{ switcherPrefix }}">{# if( can_edit ) { #}<a
+						{{ name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ name }}</span>{# } #}</a><span class="vc_advanced{{ switcherPrefix }}">{# if( can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ name }}' ) ?>"><span
 							class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></span></a>{# } #}{# if( 'edit' !== state ) { #}<a
@@ -231,11 +243,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="vc_controls-container">
 		<div class="vc_controls-out-tr">
 			<div class="vc_parent parent-{{ parent_tag }}"><a
-					class="vc_control-btn vc_element-name vc_move-{{ parent_tag }}{# if( parent_can_all ) { #} vc_element-move{# } #}"
-					title="{# if( parent_can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}"><span
-						class="vc_btn-content">
+					class="vc_control-btn vc_element-name vc_move-{{ parent_tag }}{# if( parent_can_all && moveAccess ) { #} vc_element-move{# } #}"
+					title="{# if( parent_can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ parent_name }}' ) ?>{# } #}">{# if( parent_can_all && moveAccess ) { #}<span
+							class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ parent_name }}</span></a><span class="vc_advanced{{ switcherPrefix }}">{# if( parent_can_edit ) { #}<a
+						{{ parent_name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ parent_name }}</span>{# } #}</a><span class="vc_advanced{{ switcherPrefix }}">{# if( parent_can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit vc_edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ parent_name }}' ) ?>"
 						data-vc-control="parent.edit"><span
@@ -257,11 +271,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="vc_btn-content"><i class="vc-composer-icon vc-c-icon-arrow_drop_right"></i></span></a>
 			</div>
 			<div class="vc_element element-{{ tag }} vc_active"><a
-					class="vc_control-btn vc_element-name vc_move-{{ tag }}{# if( can_all ) { #} vc_child-element-move{# } #}"
-					title="{# if( can_all ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}"><span
-						class="vc_btn-content">
+					class="vc_control-btn vc_element-name vc_move-{{ tag }}{# if( can_all && moveAccess ) { #} vc_child-element-move{# } #}"
+					title="{# if( can_all && moveAccess ) { #}<?php printf( __( 'Drag to move %s', 'js_composer' ), '{{ name }}' ) ?>{# } #}">{# if( can_all && moveAccess ) { #}<span
+							class="vc_btn-content">
 						<i class="vc-composer-icon vc-c-icon-dragndrop"></i>
-						{{ name }}</span></a><span class="vc_advanced{{ switcherPrefix }}">{# if( can_edit ) { #}<a
+						{{ name }}</span>{# } else { #}<span
+							class="vc_btn-content">
+						{{ name }}</span>{# } #}</a><span class="vc_advanced{{ switcherPrefix }}">{# if( can_edit ) { #}<a
 						class="vc_control-btn vc_control-btn-edit" href="#"
 						title="<?php printf( __( 'Edit %s', 'js_composer' ), '{{ name }}' ) ?>"
 						data-vc-control="edit"><span

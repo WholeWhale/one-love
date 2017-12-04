@@ -40,7 +40,7 @@ class Vc_Current_User_Access extends Vc_Role_Access {
 				array_unshift( $args, 'current_user_can' );
 				$this->setValidAccess( true );
 				call_user_func_array( array(
-					&$this,
+					$this,
 					$method,
 				), $args );
 				if ( $valid === $this->getValidAccess() ) {

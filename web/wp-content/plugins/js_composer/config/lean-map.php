@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 /**
- * WPBakery Visual Composer Shortcodes settings Lazy mapping
+ * WPBakery Page Builder Shortcodes settings Lazy mapping
  *
  * @package VPBakeryVisualComposer
  *
@@ -17,8 +17,10 @@ vc_lean_map( 'vc_column_text', null, $vc_config_path . '/content/shortcode-vc-co
 vc_lean_map( 'vc_section', null, $vc_config_path . '/containers/shortcode-vc-section.php' );
 vc_lean_map( 'vc_icon', null, $vc_config_path . '/content/shortcode-vc-icon.php' );
 vc_lean_map( 'vc_separator', null, $vc_config_path . '/content/shortcode-vc-separator.php' );
+vc_lean_map( 'vc_zigzag', null, $vc_config_path . '/content/shortcode-vc-zigzag.php' );
 vc_lean_map( 'vc_text_separator', null, $vc_config_path . '/content/shortcode-vc-text-separator.php' );
 vc_lean_map( 'vc_message', null, $vc_config_path . '/content/shortcode-vc-message.php' );
+vc_lean_map( 'vc_hoverbox', null, $vc_config_path . '/content/shortcode-vc-hoverbox.php' );
 
 vc_lean_map( 'vc_facebook', null, $vc_config_path . '/social/shortcode-vc-facebook.php' );
 vc_lean_map( 'vc_tweetmeme', null, $vc_config_path . '/social/shortcode-vc-tweetmeme.php' );

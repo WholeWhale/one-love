@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer Shortcodes main
+ * WPBakery WPBakery Page Builder Shortcodes main
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  *
  */
 
@@ -82,7 +82,7 @@ if ( ! class_exists( 'WPBakeryVisualComposerAbstract' ) ) {
 		 */
 		public function addAction( $action, $method, $priority = 10 ) {
 			add_action( $action, array(
-				&$this,
+				$this,
 				$method,
 			), $priority );
 		}
@@ -110,7 +110,7 @@ if ( ! class_exists( 'WPBakeryVisualComposerAbstract' ) ) {
 		 */
 		public function addFilter( $filter, $method, $priority = 10 ) {
 			return add_filter( $filter, array(
-				&$this,
+				$this,
 				$method,
 			), $priority );
 		}
@@ -122,7 +122,7 @@ if ( ! class_exists( 'WPBakeryVisualComposerAbstract' ) ) {
 		 */
 		public function removeFilter( $filter, $method, $priority = 10 ) {
 			remove_filter( $filter, array(
-				&$this,
+				$this,
 				$method,
 			), $priority );
 		}
@@ -801,7 +801,9 @@ if ( ! class_exists( 'WPBakeryShortCode' ) ) {
 		}
 
 		public function getBackendEditorControlsElementCssClass() {
-			$sortable = ( vc_user_access_check_shortcode_all( $this->shortcode ) ? ' vc_element-move' : ' ' . $this->nonDraggableClass );
+			$moveAccess = vc_user_access()->part( 'dragndrop' )->checkStateAny( true, null )->get();
+
+			$sortable = ( vc_user_access_check_shortcode_all( $this->shortcode ) && $moveAccess ? ' vc_element-move' : ' ' . $this->nonDraggableClass );
 
 			return 'vc_control-btn vc_element-name' . $sortable;
 		}
@@ -1134,6 +1136,10 @@ if ( ! class_exists( 'WPBakeryShortCodesContainer' ) ) {
 			}
 
 			$controls_move = '<a class="vc_control column_move vc_column-move" data-vc-control="move" href="#" title="' . sprintf( __( 'Move this %s', 'js_composer' ), strtolower( $this->settings( 'name' ) ) ) . '"><i class="vc-composer-icon vc-c-icon-dragndrop"></i></a>';
+			$moveAccess = vc_user_access()->part( 'dragndrop' )->checkStateAny( true, null )->get();
+			if ( ! $moveAccess ) {
+				$controls_move = '';
+			}
 			$controls_add = '<a class="vc_control column_add" data-vc-control="add" href="#" title="' . $control_title . '"><i class="vc-composer-icon vc-c-icon-add"></i></a>';
 			$controls_edit = '<a class="vc_control column_edit" data-vc-control="edit" href="#" title="' . sprintf( __( 'Edit this %s', 'js_composer' ), strtolower( $this->settings( 'name' ) ) ) . '"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></a>';
 			$controls_clone = '<a class="vc_control column_clone" data-vc-control="clone" href="#" title="' . sprintf( __( 'Clone this %s', 'js_composer' ), strtolower( $this->settings( 'name' ) ) ) . '"><i class="vc-composer-icon vc-c-icon-content_copy"></i></a>';
@@ -1251,14 +1257,14 @@ if ( ! class_exists( 'WPBakeryShortCodeFishBones' ) ) {
 		 */
 		public function __construct( $settings ) {
 			if ( ! $settings ) {
-				throw new Exception( 'Element must be mapped in system' );
+				throw new Exception( 'Element must have settings to register' );
 			}
 			$this->settings = $settings;
 			$this->shortcode = $this->settings['base'];
 			$this->addAction( 'admin_init', 'hookAdmin' );
 			if ( ! shortcode_exists( $this->shortcode ) ) {
 				add_shortcode( $this->shortcode, array(
-					&$this,
+					$this,
 					'render',
 				) );
 			}
@@ -1320,17 +1326,17 @@ if ( ! class_exists( 'WPBakeryShortCodeFishBones' ) ) {
 		 */
 		public static function getElementClass( $tag ) {
 			$settings = WPBMap::getShortCode( $tag );
-			if ( ! $settings ) {
+			if ( empty( $settings ) ) {
 				throw new Exception( 'Element must be mapped in system' );
 			}
 			require_once vc_path_dir( 'SHORTCODES_DIR', 'wordpress-widgets.php' );
 
-			$class_name = ! empty( $settings['php_class_name'] ) ? $settings['php_class_name'] : 'WPBakeryShortCode_' . $tag;
+			$class_name = ! empty( $settings['php_class_name'] ) ? $settings['php_class_name'] : 'WPBakeryShortCode_' . $settings['base'];
 
 			$autoloaded_dependencies = VcShortcodeAutoloader::getInstance()->includeClass( $class_name );
 
 			if ( ! $autoloaded_dependencies ) {
-				$file = vc_path_dir( 'SHORTCODES_DIR', str_replace( '_', '-', $tag ) . '.php' );
+				$file = vc_path_dir( 'SHORTCODES_DIR', str_replace( '_', '-', $settings['base'] ) . '.php' );
 				if ( is_file( $file ) ) {
 					require_once( $file );
 				}
@@ -1422,17 +1428,17 @@ final class Vc_Shortcodes_Manager {
 			return $this->shortcode_classes[ $tag ];
 		}
 		$settings = WPBMap::getShortCode( $tag );
-		if ( ! $settings ) {
+		if ( empty( $settings ) ) {
 			throw new Exception( 'Element must be mapped in system' );
 		}
 		require_once vc_path_dir( 'SHORTCODES_DIR', 'wordpress-widgets.php' );
 
-		$class_name = ! empty( $settings['php_class_name'] ) ? $settings['php_class_name'] : 'WPBakeryShortCode_' . $tag;
+		$class_name = ! empty( $settings['php_class_name'] ) ? $settings['php_class_name'] : 'WPBakeryShortCode_' . $settings['base'];
 
 		$autoloaded_dependencies = VcShortcodeAutoloader::getInstance()->includeClass( $class_name );
 
 		if ( ! $autoloaded_dependencies ) {
-			$file = vc_path_dir( 'SHORTCODES_DIR', str_replace( '_', '-', $tag ) . '.php' );
+			$file = vc_path_dir( 'SHORTCODES_DIR', str_replace( '_', '-', $settings['base'] ) . '.php' );
 			if ( is_file( $file ) ) {
 				require_once( $file );
 			}

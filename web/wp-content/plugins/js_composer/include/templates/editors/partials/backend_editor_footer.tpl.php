@@ -20,6 +20,11 @@ if ( vc_user_access()->part( 'templates' )->can()->get() ) {
 }
 // [/rendering templates panel editor]
 
+// [preset panel editor render]
+visual_composer()->presetPanelEditor()->renderUIPreset();
+// [/preset panel editor render]
+
+
 // [post settings]
 if ( vc_user_access()->part( 'post_settings' )->can()->get() ) {
 	require_once vc_path_dir( 'EDITORS_DIR', 'popups/class-vc-post-settings.php' );

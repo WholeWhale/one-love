@@ -113,7 +113,7 @@ class Vc_Grid_Item_Preview {
 		$post->post_content = __( 'The WordPress Excerpt is an optional summary or description of a post; in short, a post summary.', 'js_composer' );
 		$post->post_excerpt = __( 'The WordPress Excerpt is an optional summary or description of a post; in short, a post summary.', 'js_composer' );
 		add_filter( 'get_the_categories', array(
-			&$this,
+			$this,
 			'getTheCategories',
 		), 10, 2 );
 		$GLOBALS['post'] = $post;

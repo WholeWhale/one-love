@@ -2,6 +2,21 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
+// [shortcodes presets data]
+if ( vc_user_access()->part( 'presets' )->can()->get() ) {
+	require_once vc_path_dir( 'AUTOLOAD_DIR', 'class-vc-settings-presets.php' );
+	$vc_all_presets = Vc_Settings_Preset::listAllPresets();
+} else {
+	$vc_all_presets = array();
+}
+// [/shortcodes presets data]
+
+?>
+	<script type="text/javascript">
+		var vc_all_presets = <?php echo json_encode( $vc_all_presets ) ?>
+	</script>
+
+<?php
 
 require_once vc_path_dir( 'EDITORS_DIR', 'navbar/class-vc-navbar.php' );
 /** @var $post WP_Post */

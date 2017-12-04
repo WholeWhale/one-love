@@ -210,11 +210,11 @@ function vc_autocomplete_form_field( $settings, $value, $tag ) {
 		//Filters For autocomplete param:
 		//For suggestion: vc_autocomplete_[shortcode_name]_[param_name]_callback
 		add_filter( 'vc_autocomplete_product_id_callback', array(
-			&$this,
+			$this,
 			'productIdAutocompleteSuggester'
 		), 10, 1 ); // Get suggestion(find). Must return an array
 		add_filter( 'vc_autocomplete_product_id_render', array(
-			&$this,
+			$this,
 			'productIdAutocompleteRender'
 		), 10, 1 ); // Render exact item. Must return an array (label,value)
 

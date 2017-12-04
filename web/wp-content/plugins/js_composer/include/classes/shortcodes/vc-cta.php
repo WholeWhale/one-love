@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer shortcodes
+ * WPBakery WPBakery Page Builder shortcodes
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  * @since 4.5
  */
 
@@ -85,7 +85,6 @@ class WPBakeryShortCode_VC_Cta extends WPBakeryShortCode {
 	}
 
 	public function getHeading( $tag, $atts ) {
-		$inline_css = '';
 		if ( isset( $atts[ $tag ] ) && '' !== trim( $atts[ $tag ] ) ) {
 			if ( isset( $atts[ 'use_custom_fonts_' . $tag ] ) && 'true' === $atts[ 'use_custom_fonts_' . $tag ] ) {
 				$custom_heading = visual_composer()->getShortCode( 'vc_custom_heading' );
@@ -98,16 +97,18 @@ class WPBakeryShortCode_VC_Cta extends WPBakeryShortCode {
 
 				return $custom_heading->render( array_filter( $data ) );
 			} else {
+				$inline_css = array();
+				$inline_css_string = '';
 				if ( isset( $atts['style'] ) && 'custom' === $atts['style'] ) {
 					if ( ! empty( $atts['custom_text'] ) ) {
 						$inline_css[] = vc_get_css_color( 'color', $atts['custom_text'] );
 					}
 				}
 				if ( ! empty( $inline_css ) ) {
-					$inline_css = ' style="' . implode( '', $inline_css ) . '"';
+					$inline_css_string = ' style="' . implode( '', $inline_css ) . '"';
 				}
 
-				return '<' . $tag . $inline_css . '>' . $atts[ $tag ] . '</' . $tag . '>';
+				return '<' . $tag . $inline_css_string . '>' . $atts[ $tag ] . '</' . $tag . '>';
 			}
 		}
 

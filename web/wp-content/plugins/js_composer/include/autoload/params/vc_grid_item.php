@@ -106,8 +106,9 @@ function vc_gitem_create_link_real( $atts, $post, $default_class = '', $title = 
 	if ( isset( $atts['link'] ) ) {
 		$link_css_class = 'vc_gitem-link' . ( strlen( $default_class ) > 0 ? ' ' . $default_class : '' );
 		if ( strlen( $atts['el_class'] ) > 0 ) {
-			$link_css_class .= $atts['el_class'];
+			$link_css_class .= ' ' . $atts['el_class'];
 		}
+		$link_css_class = trim( preg_replace( '/\s+/', ' ', $link_css_class ) );
 		if ( 'custom' === $atts['link'] && ! empty( $atts['url'] ) ) {
 			$link = vc_build_link( $atts['url'] );
 			if ( strlen( $link['target'] ) ) {

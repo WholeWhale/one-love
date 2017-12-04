@@ -38,41 +38,41 @@ class Vc_Vendor_Qtranslate implements Vc_Vendor_Interface {
 		$this->setLanguages();
 		global $q_config;
 		add_filter( 'vc_frontend_get_page_shortcodes_post_content', array(
-			&$this,
+			$this,
 			'filterPostContent',
 		) );
 
 		add_action( 'vc_backend_editor_render', array(
-			&$this,
+			$this,
 			'enqueueJsBackend',
 		) );
 
 		add_action( 'vc_frontend_editor_render', array(
-			&$this,
+			$this,
 			'enqueueJsFrontend',
 		) );
 
 		add_action( 'vc_frontend_editor_render_template', array(
-			&$this,
+			$this,
 			'vcFrontEndEditorRender',
 		) );
 		add_filter( 'vc_nav_controls', array(
-			&$this,
+			$this,
 			'vcNavControls',
 		) );
 
 		add_filter( 'vc_nav_front_controls', array(
-			&$this,
+			$this,
 			'vcNavControlsFrontend',
 		) );
 
 		add_filter( 'vc_frontend_editor_iframe_url', array(
-			&$this,
+			$this,
 			'vcRenderEditButtonLink',
 		) );
 		if ( ! vc_is_frontend_editor() ) {
 			add_filter( 'vc_get_inline_url', array(
-				&$this,
+				$this,
 				'vcRenderEditButtonLink',
 			) );
 		}
@@ -82,7 +82,7 @@ class Vc_Vendor_Qtranslate implements Vc_Vendor_Interface {
 		}
 
 		add_action( 'init', array(
-			&$this,
+			$this,
 			'qtransPostInit',
 		), 1000 );
 

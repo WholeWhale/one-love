@@ -4,14 +4,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer Main manager.
+ * WPBakery WPBakery Page Builder Main manager.
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  * @since   4.2
  */
 if ( ! function_exists( 'vc_manager' ) ) {
 	/**
-	 * Visual Composer manager.
+	 * WPBakery Page Builder manager.
 	 * @since 4.2
 	 * @return Vc_Manager
 	 */
@@ -21,7 +21,7 @@ if ( ! function_exists( 'vc_manager' ) ) {
 }
 if ( ! function_exists( 'visual_composer' ) ) {
 	/**
-	 * Visual Composer instance.
+	 * WPBakery Page Builder instance.
 	 * @since 4.2
 	 * @return Vc_Base
 	 */
@@ -41,7 +41,7 @@ if ( ! function_exists( 'vc_mapper' ) ) {
 }
 if ( ! function_exists( 'vc_settings' ) ) {
 	/**
-	 * Shorthand for Visual composer settings.
+	 * Shorthand for WPBakery Page Builder settings.
 	 * @since 4.2
 	 * @return Vc_Settings
 	 */
@@ -408,13 +408,14 @@ function vc_plugin_name() {
  * @param $filename
  *
  * @param bool $partial
+ *
  * @return bool|mixed|string
  */
 function vc_file_get_contents( $filename, $partial = false ) {
 	global $wp_filesystem;
 	if ( empty( $wp_filesystem ) ) {
 		require_once( ABSPATH . '/wp-admin/includes/file.php' );
-		WP_Filesystem();
+		WP_Filesystem( false, false, true );
 	}
 	/** @var $wp_filesystem WP_Filesystem_Base */
 	if ( ! is_object( $wp_filesystem ) || ! $output = $wp_filesystem->get_contents( $filename ) ) {
