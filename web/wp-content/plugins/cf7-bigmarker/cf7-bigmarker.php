@@ -28,7 +28,7 @@ class CF7Bigmarker {
     $channel = $this->parseOptions($tag->options)['channel'];
     $output = [];
 
-    if ($conferences = $this->get('conferences')->conferences) {
+    if ($conferences = $this->get('channels/'.$channel.'/conferences')->conferences) {
       $attendees = $this->getAttendeeCounts($conferences);
 
       foreach ($conferences as $conference) {
