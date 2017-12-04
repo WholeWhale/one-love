@@ -24,7 +24,7 @@ section.author-bio {
     .about-author-image {
       min-width: 6.25rem;
       margin-right: $default-spacing;
-      img {
+      img:not(.fallback-gravitar) {
         border-radius: 50%;
       }
     }

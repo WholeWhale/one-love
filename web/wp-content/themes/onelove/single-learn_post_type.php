@@ -14,7 +14,7 @@ get_footer();
 
 function learn_author_info() {
 
-  $author_avatar = get_avatar(get_the_author_meta('ID'),100,'','Author of article');
+  $author_avatar = ol_get_avatar(get_the_author_meta('ID'),100,'404','Author of article');
   $author_name = get_the_author_meta('display_name');
   $author_description = get_the_author_meta('description');
   $twitter_handle = get_the_author_meta('twitter');
@@ -34,7 +34,9 @@ function learn_author_info() {
       </div>
       <div class="author-container">
         <div class="about-author-image">
-          <?php echo $author_avatar; ?>
+          <?php
+          echo $author_avatar;
+        ?>
         </div>
         <div class="about-author-text">
           <h3><?php echo $author_name; ?></h3>
