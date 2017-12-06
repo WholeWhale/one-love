@@ -30,7 +30,7 @@ function vc_gitem_template_attribute_woocommerce_product( $value, $data ) {
 	}
 	switch ( $data ) {
 		case 'id':
-			$value = (int) $product->is_type( 'variation' ) ? $product->get_variation_id() : $product->id;
+			$value = (int) $product->is_type( 'variation' ) ? $product->get_id() : $product->id;
 			break;
 		case 'sku':
 			$value = $product->get_sku();
@@ -51,7 +51,7 @@ function vc_gitem_template_attribute_woocommerce_product( $value, $data ) {
 			$value = count( get_comments( array( 'post_id' => $post->ID, 'approve' => 'approve' ) ) );
 			break;
 		case 'short_description':
-			$value = apply_filters( 'woocommerce_short_description', $product->get_post_data()->post_excerpt );
+			$value = apply_filters( 'woocommerce_short_description', get_post( $product->get_id() )->post_excerpt );
 			break;
 		case 'dimensions':
 			$units = get_option( 'woocommerce_dimension_unit' );

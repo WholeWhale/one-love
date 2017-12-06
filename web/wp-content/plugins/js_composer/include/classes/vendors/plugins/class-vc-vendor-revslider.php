@@ -15,12 +15,12 @@ class Vc_Vendor_Revslider implements Vc_Vendor_Interface {
 	protected static $instanceIndex = 1;
 
 	/**
-	 * Add shortcode to visual composer also add fix for frontend to regenerate id of revslider.
+	 * Add shortcode to WPBakery Page Builder also add fix for frontend to regenerate id of revslider.
 	 * @since 4.3
 	 */
 	public function load() {
 		add_action( 'vc_after_mapping', array(
-			&$this,
+			$this,
 			'buildShortcode',
 		) );
 
@@ -37,7 +37,7 @@ class Vc_Vendor_Revslider implements Vc_Vendor_Interface {
 			) );
 			if ( vc_is_frontend_ajax() || vc_is_frontend_editor() ) {
 				add_filter( 'vc_revslider_shortcode', array(
-					&$this,
+					$this,
 					'setId',
 				) );
 			}

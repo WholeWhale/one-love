@@ -10,7 +10,7 @@
 @import "../modules/vc_table.less";
 @import "../modules/ui/vc_ui-loaders.less";
 @import "media-gallery.less";
-@import "../../fonts/vc_icons/init.less";
+@import "../../fonts/vc_icons_v2/init.less";
 
 .vc_badge {
   .badge();
@@ -36,3 +36,11 @@
 
 // REMOVE
 @import "resizable_modal.less";
+
+.vc-disable-editor {
+  pointer-events: none;
+  z-index: 0;
+  position: absolute;
+  opacity: 0;
+  left: -10000px;
+}

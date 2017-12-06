@@ -23,7 +23,7 @@ class Vc_Vendor_WPML implements Vc_Vendor_Interface {
 		) );
 		add_filter( 'vc_grid_request_url', array(
 			$this,
-			'appendLangToUrl',
+			'appendLangToUrlGrid',
 		) );
 		add_filter( 'vc_admin_url', array(
 			$this,
@@ -40,15 +40,35 @@ class Vc_Vendor_WPML implements Vc_Vendor_Interface {
 		$action = vc_post_param( 'action' );
 		if ( vc_is_page_editable() && 'vc_frontend_load_template' === $action ) {
 			// Fix Issue with loading template #135512264670405
-			remove_action( 'wp_loaded', array( $sitepress, 'maybe_set_this_lang' ) );
+			remove_action( 'wp_loaded', array(
+				$sitepress,
+				'maybe_set_this_lang',
+			) );
 		}
 	}
 
 	public function appendLangToUrl( $link ) {
 		global $sitepress;
 		if ( is_object( $sitepress ) ) {
-			if ( is_string( $link ) && strpos( $link, 'lang' ) === false && ( strpos( $link, 'vc_inline' ) !== false || strpos( $link, 'vc_editable' ) !== false || strpos( $link, 'admin-ajax' ) !== false ) ) {
-				return add_query_arg( array( 'lang' => $sitepress->get_current_language() ), $link );
+			if ( is_string( $link ) && strpos( $link, 'lang' ) === false ) {
+				// add langs for vc_inline/vc_editable requests
+				if ( strpos( $link, 'vc_inline' ) !== false || strpos( $link, 'vc_editable' ) !== false ) {
+					return add_query_arg( array( 'lang' => $sitepress->get_current_language() ), $link );
+				}
+			}
+		}
+
+		return $link;
+	}
+
+	public function appendLangToUrlGrid( $link ) {
+		global $sitepress;
+		if ( is_object( $sitepress ) ) {
+			if ( is_string( $link ) && strpos( $link, 'lang' ) === false ) {
+				// add langs for vc_inline/vc_editable requests
+				if ( strpos( $link, 'admin-ajax' ) !== false ) {
+					return add_query_arg( array( 'lang' => $sitepress->get_current_language() ), $link );
+				}
 			}
 		}
 

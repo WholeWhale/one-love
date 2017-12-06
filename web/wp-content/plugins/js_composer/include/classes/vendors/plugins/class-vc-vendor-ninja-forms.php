@@ -21,37 +21,6 @@ class Vc_Vendor_NinjaForms implements Vc_Vendor_Interface {
 	}
 
 	/**
-	 * Add Shortcode To Visual Composer
-	 *
-	 * @param array $ninja_forms - list of ninja forms (ID->NAME)
-	 *
-	 * @since 4.4
-	 *
-	 * @deprecated 4.9
-	 */
-	public function mapNinjaForms( $ninja_forms = array() ) {
-		_deprecated_function( 'mapNinjaForms', '4.2 (will be removed in 5.1)'. 'Vc_Vendor_NinjaForms::addShortcodeSettings' );
-		// We map only [ninja_form] shortcode same as contact-form-7
-		vc_map( array(
-			'base' => 'ninja_forms_display_form',
-			'name' => __( 'Ninja Forms', 'js_composer' ),
-			'icon' => 'icon-wpb-ninjaforms',
-			'category' => __( 'Content', 'js_composer' ),
-			'description' => __( 'Place Ninja Form', 'js_composer' ),
-			'params' => array(
-				array(
-					'type' => 'dropdown',
-					'heading' => __( 'Select ninja form', 'js_composer' ),
-					'param_name' => 'id',
-					'value' => $ninja_forms,
-					'save_always' => true,
-					'description' => __( 'Choose previously created ninja form from the drop down list.', 'js_composer' ),
-				),
-			),
-		) );
-	}
-
-	/**
 	 * Mapping settings for lean method.
 	 *
 	 * @since 4.9

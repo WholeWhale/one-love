@@ -41,7 +41,7 @@ class Vc_Teaser_Box {
 	 * @since 4.2
 	 */
 	public function init() {
-		add_action( 'admin_init', array( &$this, 'jsComposerEditPage' ), 6 );
+		add_action( 'admin_init', array( $this, 'jsComposerEditPage' ), 6 );
 	}
 
 	/**
@@ -52,11 +52,11 @@ class Vc_Teaser_Box {
 		$pt_array = vc_editor_post_types();
 		foreach ( $pt_array as $pt ) {
 			add_meta_box( 'vc_teaser', __( 'VC: Custom Teaser', 'js_composer' ), array(
-				&$this,
+				$this,
 				'outputTeaser',
 			), $pt, 'side' );
 		}
-		add_action( 'save_post', array( &$this, 'saveTeaserMetaBox' ) );
+		add_action( 'save_post', array( $this, 'saveTeaserMetaBox' ) );
 	}
 
 	/**

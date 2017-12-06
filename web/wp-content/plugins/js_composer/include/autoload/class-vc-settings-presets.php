@@ -116,6 +116,38 @@ class Vc_Settings_Preset {
 	}
 
 	/**
+	 * Get all presets
+	 *
+	 * @since 5.2
+	 *
+	 * @return array E.g. array(preset_id => value, preset_id => value, ...)
+	 */
+	public static function listAllPresets() {
+		$list = array();
+
+		$args = array(
+			'post_type' => 'vc_settings_preset',
+			'posts_per_page' => - 1,
+		);
+
+		// user presets
+		$posts = get_posts( $args );
+		foreach ( $posts as $post ) {
+			$shortcode_name = self::extractShortcodeMimeType( $post->post_mime_type );
+			$list[ $post->ID ] = (array) json_decode( $post->post_content );
+		}
+
+		// vendor presets
+		$presets = self::listDefaultVendorSettingsPresets();
+		foreach ( $presets as $shortcode => $params ) {
+			if ( ! isset( $list[ $shortcode ] ) ) {
+				$list[ $shortcode ] = $params;
+			}
+		}
+
+		return $list;
+	}
+	/**
 	 * Get all default presets
 	 *
 	 * @since 4.7
@@ -339,5 +371,53 @@ class Vc_Settings_Preset {
 		$html = ob_get_clean();
 
 		return $html;
+	}
+
+	/**
+	 * @param $shortcodes
+	 *
+	 * @return array
+	 */
+	public static function addVcPresetsToShortcodes( $shortcodes ) {
+		if ( vc_user_access()->part( 'presets' )->can()->get() ) {
+			$shortcodesAndPresets = array();
+
+			foreach ( $shortcodes as $shortcode ) {
+				$presets = self::listSettingsPresets( $shortcode['base'] );
+				$shortcodesAndPresets[ $shortcode['base'] ] = $shortcode;
+				if ( ! empty( $presets ) ) {
+					foreach ( $presets as $presetId => $preset ) {
+						$params = self::getSettingsPreset( $presetId );
+						$shortcodesAndPresets[ $presetId ] = array(
+							'name' => $preset,
+							'base' => $shortcode['base'],
+							'description' => $shortcode['description'],
+							'presetId' => $presetId,
+							'_category_ids' => array( '_my_elements_' ),
+						);
+
+						if ( isset( $shortcode['icon'] ) ) {
+							$shortcodesAndPresets[ $presetId ]['icon'] = $shortcode['icon'];
+						}
+					}
+				}
+			}
+
+			return $shortcodesAndPresets;
+		}
+
+		return $shortcodes;
+	}
+
+	/**
+	 * @param $category
+	 *
+	 * @return array
+	 */
+	public static function addPresetCategory( $category ) {
+		$presetCategory = (array) '_my_elements_';
+		$category = array_merge( $presetCategory, $category );
+
+		return $category;
 	}
 }

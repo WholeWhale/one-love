@@ -34,16 +34,16 @@ class Vc_Templates_Panel_Editor {
 		}
 		$this->initialized = true;
 		add_filter( 'vc_load_default_templates_welcome_block', array(
-			&$this,
+			$this,
 			'loadDefaultTemplatesLimit',
 		) );
 
 		add_filter( 'vc_templates_render_category', array(
-			&$this,
+			$this,
 			'renderTemplateBlock',
 		), 10 );
 		add_filter( 'vc_templates_render_template', array(
-			&$this,
+			$this,
 			'renderTemplateWindow',
 		), 10, 2 );
 
@@ -55,28 +55,28 @@ class Vc_Templates_Panel_Editor {
 		 *  'vc_delete_template' -> deleting template by index
 		 */
 		add_action( 'wp_ajax_vc_save_template', array(
-			&$this,
+			$this,
 			'save',
 		) );
 		add_action( 'wp_ajax_vc_backend_load_template', array(
-			&$this,
+			$this,
 			'renderBackendTemplate',
 		) );
 		add_action( 'wp_ajax_vc_frontend_load_template', array(
-			&$this,
+			$this,
 			'renderFrontendTemplate',
 		) );
 		add_action( 'wp_ajax_vc_load_template_preview', array(
-			&$this,
+			$this,
 			'renderTemplatePreview',
 		) );
 		add_action( 'wp_ajax_vc_delete_template', array(
-			&$this,
+			$this,
 			'delete',
 		) );
 
 		/*		add_action( 'vc-render-templates-preview-template', array(
-					&$this,
+					$this,
 					'addScriptsToTemplatePreview',
 				) );*/
 
@@ -95,7 +95,7 @@ class Vc_Templates_Panel_Editor {
 				<div class="vc_column vc_col-sm-12" data-vc-hide-on-search="true">
 					<div class="vc_element_label">' . esc_html( __( 'Save current layout as a template', 'js_composer' ) ) . '</div>
 					<div class="vc_input-group">
-						<input name="padding" data-js-element="vc-templates-input" class="vc_form-control wpb-textinput vc_panel-templates-name" type="text" value="" placeholder="' . esc_attr( 'Template name', 'js_composer' ) . '" data-vc-disable-empty="#vc_ui-save-template-btn">
+						<input name="padding" data-js-element="vc-templates-input" class="vc_form-control wpb-textinput vc_panel-templates-name" type="text" value="" placeholder="' . esc_attr__( 'Template name', 'js_composer' ) . '" data-vc-disable-empty="#vc_ui-save-template-btn">
 						<span class="vc_input-group-btn">
 							<button class="vc_general vc_ui-button vc_ui-button-size-sm vc_ui-button-action vc_ui-button-shape-rounded vc_template-save-btn" id="vc_ui-save-template-btn" disabled data-vc-ui-element="button-save">' . esc_html( __( 'Save Template', 'js_composer' ) ) . '</button>
 						</span>
@@ -185,11 +185,11 @@ class Vc_Templates_Panel_Editor {
 		$template_id = esc_attr( $template_data['unique_id'] );
 		$template_id_hash = md5( $template_id ); // needed for jquery target for TTA
 		$template_name = esc_html( $template_name );
-		$preview_template_title = esc_attr( 'Preview template', 'js_composer' );
-		$add_template_title = esc_attr( 'Add template', 'js_composer' );
+		$preview_template_title = esc_attr__( 'Preview template', 'js_composer' );
+		$add_template_title = esc_attr__( 'Add template', 'js_composer' );
 		$deleteControlRender = '';
 		if ( vc_user_access()->part( 'templates' )->checkStateAny( true, null )->get() ) {
-			$delete_template_title = esc_attr( 'Delete template', 'js_composer' );
+			$delete_template_title = esc_attr__( 'Delete template', 'js_composer' );
 			$deleteControlRender = <<<DATA
 				<button type="button" class="vc_general vc_ui-control-button" data-vc-ui-delete="template-title" title="$delete_template_title">
 					<i class="vc-composer-icon vc-c-icon-delete_empty"></i>
@@ -229,8 +229,8 @@ HTML;
 		$template_id = esc_attr( $template_data['unique_id'] );
 		$template_id_hash = md5( $template_id ); // needed for jquery target for TTA
 		$template_name = esc_html( $template_name );
-		$preview_template_title = esc_attr( 'Preview template', 'js_composer' );
-		$add_template_title = esc_attr( 'Add template', 'js_composer' );
+		$preview_template_title = esc_attr__( 'Preview template', 'js_composer' );
+		$add_template_title = esc_attr__( 'Add template', 'js_composer' );
 
 		echo <<<HTML
 		<button type="button" class="vc_ui-list-bar-item-trigger" title="$add_template_title"
@@ -259,13 +259,13 @@ HTML;
 		vc_user_access()->checkAdminNonce()->validateDie()->wpAny( 'edit_posts', 'edit_pages' )->validateDie()->part( 'templates' )->can()->validateDie();
 
 		add_filter( 'vc_frontend_template_the_content', array(
-			&$this,
+			$this,
 			'frontendDoTemplatesShortcodes',
 		) );
 		$template_id = vc_post_param( 'template_unique_id' );
 		$template_type = vc_post_param( 'template_type' );
 		add_action( 'wp_print_scripts', array(
-			&$this,
+			$this,
 			'addFrontendTemplatesShortcodesCustomCss',
 		) );
 
@@ -705,7 +705,7 @@ HTML;
 	public function sortTemplatesByCategories( array $data ) {
 		$buffer = $data;
 		uasort( $buffer, array(
-			&$this,
+			$this,
 			'cmpCategory',
 		) );
 
@@ -722,7 +722,7 @@ HTML;
 	public function sortTemplatesByNameWeight( array $data ) {
 		$buffer = $data;
 		uasort( $buffer, array(
-			&$this,
+			$this,
 			'cmpNameWeight',
 		) );
 

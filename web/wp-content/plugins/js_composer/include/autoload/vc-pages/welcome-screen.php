@@ -35,7 +35,7 @@ function vc_page_welcome_render() {
 
 function vc_page_welcome_add_sub_page() {
 	// Add submenu page
-	$page = add_submenu_page( VC_PAGE_MAIN_SLUG, __( 'About', 'js_composer' ), __( 'About', 'js_composer' ), 'exist', vc_page_welcome_slug(), 'vc_page_welcome_render' );
+	$page = add_submenu_page( VC_PAGE_MAIN_SLUG, __( 'About', 'js_composer' ), __( 'About', 'js_composer' ), 'edit_posts', vc_page_welcome_slug(), 'vc_page_welcome_render' );
 	// Css for perfect styling.
 	add_action( 'admin_print_styles-' . $page, 'vc_page_css_enqueue' );
 

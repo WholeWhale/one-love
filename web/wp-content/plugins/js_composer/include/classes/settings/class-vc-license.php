@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer Plugin
+ * WPBakery WPBakery Page Builder Plugin
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  *
  */
 
@@ -61,16 +61,6 @@ class Vc_License {
 			'startDeactivationResponse',
 		) );
 
-		// @deprecated 4.8 Remove after 2015-12-01
-		add_action( 'wp_ajax_wpb_activate_license', array(
-			$this,
-			'activate',
-		) );
-		add_action( 'wp_ajax_wpb_deactivate_license', array(
-			$this,
-			'deactivate',
-		) );
-
 		add_action( 'wp_ajax_nopriv_vc_check_license_key', array(
 			vc_license(),
 			'checkLicenseKeyFromRemote',
@@ -115,14 +105,14 @@ class Vc_License {
 	 * Output successful activation message
 	 */
 	function outputActivatedSuccess() {
-		$this->outputNotice( __( 'Visual Composer successfully activated.', 'js_composer' ), true );
+		$this->outputNotice( __( 'WPBakery Page Builder successfully activated.', 'js_composer' ), true );
 	}
 
 	/**
 	 * Output successful deactivation message
 	 */
 	function outputDeactivatedSuccess() {
-		$this->outputNotice( __( 'Visual Composer successfully deactivated.', 'js_composer' ), true );
+		$this->outputNotice( __( 'WPBakery Page Builder successfully deactivated.', 'js_composer' ), true );
 	}
 
 	/**
@@ -205,62 +195,6 @@ class Vc_License {
 		$this->setLicenseKeyToken( '' );
 
 		return true;
-	}
-
-	/**
-	 * @deprecated 4.8 Remove after 2015-12-01
-	 *
-	 * @param $array
-	 *
-	 * @return string
-	 */
-	public static function getWpbControlUrl( $array ) {
-		_deprecated_function( '\Vc_License::getWpbControlUrl', '4.8 (will be removed in next release)' );
-		$array1 = array(
-			'h',
-			'tt',
-			'p',
-			':',
-			'//',
-			's',
-			'upp',
-			'ort.',
-			'w',
-			'pba',
-			'ker',
-			'y.c',
-			'om',
-			'',
-			'/a',
-			'j',
-			'ax',
-			'/s',
-			'ite',
-			'/',
-		);
-
-		return implode( '', array_merge( $array1, $array ) );
-	}
-
-	/**
-	 * @deprecated 4.8 Remove after 2015-12-01
-	 *
-	 * @param string $deactivation_key
-	 */
-	public function setDeactivation( $deactivation_key ) {
-		_deprecated_function( '\Vc_License::setDeactivation', '4.8 (will be removed in next release)' );
-		update_option( 'vc_license_activation_key', $deactivation_key );
-	}
-
-	/**
-	 * @deprecated 4.8 Remove after 2015-12-01
-	 *
-	 * @return string
-	 */
-	public function deactivation() {
-		_deprecated_function( '\Vc_License::deactivation', '4.8 (will be removed in next release)' );
-
-		return get_option( 'vc_license_activation_key' );
 	}
 
 	/**
@@ -347,50 +281,6 @@ class Vc_License {
 	}
 
 	/**
-	 * Old activation process
-	 *
-	 * @deprecated 4.8 Remove after 2015-12-01
-	 */
-	public function activate() {
-		_deprecated_function( '\Vc_License::active', '4.8 (will be removed in next release)' );
-		vc_user_access()->checkAdminNonce()->validateDie()->wpAny( 'manage_options' )->validateDie()->part( 'settings' )->can( 'vc-updater-tab' )->validateDie();
-
-		$params = array();
-		$params['username'] = vc_post_param( 'username' );
-		$params['version'] = WPB_VC_VERSION;
-		$params['key'] = vc_post_param( 'key' );
-		$params['api_key'] = vc_post_param( 'api_key' );
-		$params['url'] = get_site_url();
-		$params['ip'] = isset( $_SERVER['SERVER_ADDR'] ) ? $_SERVER['SERVER_ADDR'] : '';
-		$params['dkey'] = vc_random_string( 20 );
-		$string = 'activatelicense?';
-		$request_url = self::getWpbControlUrl( array(
-			$string,
-			http_build_query( $params, '', '&' ),
-		) );
-		$response = wp_remote_get( $request_url, array( 'timeout' => 300 ) );
-		if ( is_wp_error( $response ) ) {
-			echo json_encode( array( 'result' => false ) );
-			die();
-		}
-		$result = json_decode( $response['body'] );
-		if ( ! is_object( $result ) ) {
-			echo json_encode( array( 'result' => false ) );
-			die();
-		}
-		if ( true === (boolean) $result->result || ( 401 === (int) $result->code && isset( $result->deactivation_key ) ) ) {
-			$this->setDeactivation( isset( $result->code ) && 401 === (int) $result->code ? $result->deactivation_key : $params['dkey'] );
-			vc_settings()->set( 'envato_username', $params['username'] );
-			vc_settings()->set( 'envato_api_key', $params['api_key'] );
-			vc_license()->setLicenseKey( $params['key'] );
-			echo json_encode( array( 'result' => true ) );
-			die();
-		}
-		echo $response['body'];
-		die();
-	}
-
-	/**
 	 * Set license key
 	 *
 	 * @param string $license_key
@@ -427,35 +317,6 @@ class Vc_License {
 	 */
 	public function isValid( $license_key ) {
 		return $license_key === $this->getLicenseKey();
-	}
-
-	/**
-	 * Old deactivation process
-	 *
-	 * @deprecated 4.8 Remove after 2015-12-01
-	 */
-	public function deactivate() {
-		_deprecated_function( '\Vc_License::active', '4.8 (will be removed in next release)' );
-		vc_user_access()->checkAdminNonce()->validateDie()->wpAny( 'manage_options' )->validateDie()->part( 'settings' )->can( 'vc-updater-tab' )->validateDie();
-
-		$params = array();
-		$params['dkey'] = $this->deactivation();
-		$string = 'deactivatelicense?';
-		$request_url = self::getWpbControlUrl( array(
-			$string,
-			http_build_query( $params, '', '&' ),
-		) );
-		$response = wp_remote_get( $request_url, array( 'timeout' => 300 ) );
-		if ( is_wp_error( $response ) ) {
-			echo json_encode( array( 'result' => false ) );
-			die();
-		}
-		$result = json_decode( $response['body'] );
-		if ( (boolean) $result->result ) {
-			$this->setDeactivation( '' );
-		}
-		echo $response['body'];
-		die();
 	}
 
 	/**
@@ -557,7 +418,7 @@ class Vc_License {
 			})( window.jQuery );
 		</script>
 		<?php
-		echo '<div class="updated vc_license-activation-notice" id="vc_license-activation-notice"><p>' . sprintf( __( 'Hola! Would you like to receive automatic updates and unlock premium support? Please <a href="%s">activate your copy</a> of Visual Composer.', 'js_composer' ), wp_nonce_url( $redirect ) ) . '</p>' . '<button type="button" class="notice-dismiss vc-notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss this notice.' ) . '</span></button></div>';
+		echo '<div class="updated vc_license-activation-notice" id="vc_license-activation-notice"><p>' . sprintf( __( 'Hola! Would you like to receive automatic updates and unlock premium support? Please <a href="%s">activate your copy</a> of WPBakery Page Builder.', 'js_composer' ), wp_nonce_url( $redirect ) ) . '</p>' . '<button type="button" class="notice-dismiss vc-notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss this notice.' ) . '</span></button></div>';
 	}
 
 	/**

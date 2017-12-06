@@ -16,11 +16,11 @@ $shortcodes = $grid_item->shortcodes();
 
 if ( vc_user_access()->part( 'presets' )->can()->get() ) {
 	require_once vc_path_dir( 'AUTOLOAD_DIR', 'class-vc-settings-presets.php' );
-	$vc_settings_presets = Vc_Settings_Preset::listDefaultSettingsPresets();
 	$vc_vendor_settings_presets = Vc_Settings_Preset::listDefaultVendorSettingsPresets();
+	$vc_all_presets = Vc_Settings_Preset::listAllPresets();
 } else {
-	$vc_settings_presets = array();
-	$vc_vendor_settings_presets = array();;
+	$vc_vendor_settings_presets = array();
+	$vc_all_presets = array();
 }
 
 ?>
@@ -28,7 +28,7 @@ if ( vc_user_access()->part( 'presets' )->can()->get() ) {
 		var vc_user_mapper = <?php echo json_encode( WpbMap_Grid_Item::getGitemUserShortCodes() ) ?>,
 			vc_mapper = <?php echo json_encode( WpbMap_Grid_Item::getShortCodes() ) ?>,
 			vc_vendor_settings_presets = <?php echo json_encode( $vc_vendor_settings_presets ) ?>,
-			vc_settings_presets = <?php echo json_encode( $vc_settings_presets ) ?>,
+			vc_all_presets = <?php echo json_encode( $vc_all_presets ) ?>,
 			vc_frontend_enabled = false,
 			vc_mode = '<?php echo vc_mode(); ?>',
 			vcAdminNonce = '<?php echo vc_generate_nonce( 'vc-admin-nonce' ); ?>';

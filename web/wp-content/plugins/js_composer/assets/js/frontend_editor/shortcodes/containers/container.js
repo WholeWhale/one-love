@@ -71,7 +71,7 @@
 			vc.add_element_block_view.render( this.model );
 		},
 		addControls: function () {
-			var shortcodeTag, parentShortcodeTag, allAccess, editAccess, parentAllAccess, parentEditAccess, template, parent, data;
+			var shortcodeTag, parentShortcodeTag, allAccess, moveAccess, editAccess, parentAllAccess, parentEditAccess, template, parent, data;
 			shortcodeTag = this.model.get( 'shortcode' );
 			template = $( this.controls_selector ).html();
 			var parentName;
@@ -85,6 +85,7 @@
 			editAccess = vc_user_access().shortcodeEdit( shortcodeTag );
 			parentAllAccess = vc_user_access().shortcodeAll( parentShortcodeTag );
 			parentEditAccess = vc_user_access().shortcodeEdit( parentShortcodeTag );
+			moveAccess = vc_user_access().partAccess('dragndrop');
 
 			data = {
 				name: vc.getMapped( shortcodeTag ).name,
@@ -93,13 +94,14 @@
 				parent_tag: parentShortcodeTag,
 				can_edit: editAccess,
 				can_all: allAccess,
+				moveAccess: moveAccess,
 				parent_can_edit: parentEditAccess,
 				parent_can_all: parentAllAccess,
 				state: vc_user_access().getState( 'shortcodes' ),
 				allowAdd: this.allowAddControl(),
 				switcherPrefix: ! parentAllAccess || ! allAccess ? '-disable-switcher' : ''
 			};
-			var compiledTemplate = vc.template( template,
+			var compiledTemplate = vc.template( _.unescape( template ),
 				_.extend( {}, vc.templateOptions.custom, { evaluate: /\{#([\s\S]+?)#}/g } ) );
 			this.$controls = $( compiledTemplate( data ).trim() ).addClass( 'vc_controls' );
 

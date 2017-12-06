@@ -16,21 +16,21 @@ class Vc_Vendor_Jwplayer implements Vc_Vendor_Interface {
 	public function load() {
 
 		add_action( 'wp_enqueue_scripts', array(
-			&$this,
+			$this,
 			'vc_load_iframe_jscss',
 		) );
 		add_filter( 'vc_front_render_shortcodes', array(
-			&$this,
+			$this,
 			'renderShortcodes',
 		) );
 		add_filter( 'vc_frontend_template_the_content', array(
-			&$this,
+			$this,
 			'wrapPlaceholder',
 		) );
 
 		// fix for #1065
 		add_filter( 'vc_shortcode_content_filter_after', array(
-			&$this,
+			$this,
 			'renderShortcodesPreview',
 		) );
 	}
@@ -59,7 +59,7 @@ class Vc_Vendor_Jwplayer implements Vc_Vendor_Interface {
 	}
 
 	public function wrapPlaceholder( $content ) {
-		add_shortcode( 'jwplayer', array( &$this, 'renderPlaceholder' ) );
+		add_shortcode( 'jwplayer', array( $this, 'renderPlaceholder' ) );
 
 		return $content;
 	}

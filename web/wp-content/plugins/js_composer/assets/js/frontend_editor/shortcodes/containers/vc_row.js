@@ -102,9 +102,6 @@
 					}, this );
 				} else {
 					column_params = { width: column };
-					if ( 'undefined' !== typeof(window.vc_settings_presets[ this.column_tag ]) ) {
-						column_params = _.extend( column_params, window.vc_settings_presets[ this.column_tag ] );
-					}
 
 					new_model = builder.create( {
 						shortcode: this.column_tag,
