@@ -21,6 +21,7 @@
       "type": "package",
       "package": {
         "name": "pantheon-systems/wordpress",
+
         "version": "4.9.1",
         "dist": {
           "url": "https://github.com/pantheon-systems/WordPress/archive/4.9.1.zip",

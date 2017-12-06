@@ -758,15 +758,15 @@
         },
         {
             "name": "wpackagist-plugin/social-warfare",
-            "version": "2.3.3",
+            "version": "2.3.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/social-warfare/",
-                "reference": "tags/2.3.3"
+                "reference": "tags/2.3.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/social-warfare.2.3.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/social-warfare.2.3.2.zip",
                 "reference": null,
                 "shasum": null
             },
