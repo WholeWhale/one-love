@@ -616,7 +616,6 @@ function love_path() {
 }
 add_shortcode('love_path','love_path');
 
-
 // modified version of the pluggable function get_avatar().
 
 function ol_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args = null ) {
@@ -742,3 +741,25 @@ function ol_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $arg
 	 */
 	return apply_filters( 'get_avatar', $avatar, $id_or_email, $args['size'], $args['default'], $args['alt'], $args );
 }
+
+/**
+ * Jetpack related posts
+ **/
+
+// add learn post type to related posts
+
+function allow_my_post_types($allowed_post_types) {
+    $allowed_post_types[] = 'learn_post_type';
+    return $allowed_post_types;
+}
+add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );
+
+// remove related posts from bottom of page to customize location
+function jetpackme_remove_rp() {
+    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+        $jprp = Jetpack_RelatedPosts::init();
+        $callback = array( $jprp, 'filter_add_target_to_dom' );
+        remove_filter( 'the_content', $callback, 40 );
+    }
+}
+add_filter( 'wp', 'jetpackme_remove_rp', 20 );

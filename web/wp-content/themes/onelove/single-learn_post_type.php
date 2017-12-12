@@ -67,7 +67,10 @@ function learn_author_info() {
           ?>
         </div>
       </div>
-    </section>
-    <?php
+    </div>
+  </section>
+  <?php
+  if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+    echo do_shortcode( '[jetpack-related-posts]' );
   }
 }
