@@ -756,7 +756,7 @@ add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );
 
 // remove related posts from bottom of page to customize location
 function jetpackme_remove_rp() {
-    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+    if ( class_exists( 'Jetpack_RelatedPosts' ) && get_post_type() !== 'learn_post_type' ) {
         $jprp = Jetpack_RelatedPosts::init();
         $callback = array( $jprp, 'filter_add_target_to_dom' );
         remove_filter( 'the_content', $callback, 40 );
