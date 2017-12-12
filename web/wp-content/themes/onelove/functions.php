@@ -763,3 +763,14 @@ function jetpackme_remove_rp() {
     }
 }
 add_filter( 'wp', 'jetpackme_remove_rp', 20 );
+
+function jetpackcom_custom_heading( $headline, $label, $module ) {
+        if ( 'related-posts' == $module ) {
+                $headline = sprintf(
+                        '<h2 class="jp-relatedposts-custom-headline">%s</h2>',
+                        $label
+                );
+        }
+        return $headline;
+}
+add_filter( 'jetpack_sharing_headline_html', 'jetpackcom_custom_heading', 10, 3 );

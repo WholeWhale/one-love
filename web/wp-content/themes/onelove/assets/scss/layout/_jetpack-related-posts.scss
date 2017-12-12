@@ -1,7 +1,7 @@
 
 
 #jp-relatedposts {
-  display: block;.jp-relatedposts-items .jp-relatedposts-post {
+  html head + body & .jp-relatedposts-items-visual .jp-relatedposts-post {
     opacity: 1;
   }
   .jp-relatedposts-custom-headline {
@@ -10,8 +10,13 @@
   .jp-relatedposts-post-title,
   .jp-relatedposts-post-excerpt {
     @extend .card;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
     & > a {
-      text-decoration: none;
+      &,
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
