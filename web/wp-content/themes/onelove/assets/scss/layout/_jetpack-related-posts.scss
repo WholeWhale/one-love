@@ -1,0 +1,17 @@
+
+
+#jp-relatedposts {
+  display: block;.jp-relatedposts-items .jp-relatedposts-post {
+    opacity: 1;
+  }
+  .jp-relatedposts-custom-headline {
+    margin-bottom: 3.125rem;
+  }
+  .jp-relatedposts-post-title,
+  .jp-relatedposts-post-excerpt {
+    @extend .card;
+    & > a {
+      text-decoration: none;
+    }
+  }
+}
