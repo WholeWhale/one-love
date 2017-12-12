@@ -13,11 +13,11 @@ class Vc_Templates_Editor_Grid_Item extends Vc_Templates_Panel_Editor {
 
 	public function __construct() {
 		add_filter( 'vc_templates_render_category', array(
-			&$this,
+			$this,
 			'renderTemplateBlock',
 		), 10, 2 );
 		add_filter( 'vc_templates_render_template', array(
-			&$this,
+			$this,
 			'renderTemplateWindowGrid',
 		), 10, 2 );
 	}
@@ -82,8 +82,8 @@ class Vc_Templates_Editor_Grid_Item extends Vc_Templates_Panel_Editor {
 		$templateNameLower = strtolower( $templateName );
 		$templateType = esc_attr( isset( $templateData['type'] ) ? $templateData['type'] : 'custom' );
 		$customClass = esc_attr( isset( $templateData['custom_class'] ) ? $templateData['custom_class'] : '' );
-		$previewTemplateTitle = esc_attr( 'Preview template', 'js_composer' );
-		$addTemplateTitle = esc_attr( 'Preview template', 'js_composer' );
+		$previewTemplateTitle = esc_attr__( 'Preview template', 'js_composer' );
+		$addTemplateTitle = esc_attr__( 'Preview template', 'js_composer' );
 
 		echo <<<HTML
 			<button type="button" class="vc_ui-list-bar-item-trigger" title="$addTemplateTitle"

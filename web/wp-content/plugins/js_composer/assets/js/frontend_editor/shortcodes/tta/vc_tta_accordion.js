@@ -6,11 +6,11 @@
 		// controls_selector: '#vc_controls-template-vc_tta_accordion',
 		defaultSectionTitle: window.i18nLocale.section,
 		initialize: function () {
+			_.bindAll( this, 'buildSortable', 'updateSorting' );
 			window.InlineShortcodeView_vc_tta_accordion.__super__.initialize.call( this );
 		},
 		render: function () {
 			window.InlineShortcodeViewContainer.__super__.render.call( this );
-			_.bindAll( this, 'buildSortable', 'updateSorting' );
 			this.content(); // just to remove span inline-container anchor..
 			this.buildPagination();
 			return this;
@@ -60,17 +60,6 @@
 				  i >= 0;
 				  i -- ) {
 				shortcode = vc.builder.models[ i ].get( 'shortcode' );
-				if ( 'undefined' !== typeof(window.vc_settings_presets[ shortcode ]) ) {
-					vc.builder.models[ i ].attributes.params = _.extend(
-						vc.builder.models[ i ].attributes.params,
-						window.vc_settings_presets[ shortcode ]
-					);
-
-					// generate new random tab_id if needed
-					if ( 'vc_tta_section' === shortcode && 'undefined' !== typeof(vc.builder.models[ i ].attributes.params.tab_id ) ) {
-						vc.builder.models[ i ].attributes.params.tab_id = vc_guid() + '-cl';
-					}
-				}
 			}
 
 			vc.builder.render();
@@ -97,6 +86,9 @@
 			this.buildPagination();
 		},
 		buildSortable: function () {
+			if ( ! vc_user_access().shortcodeEdit( this.model.get( 'shortcode' ) ) ) {
+				return
+			}
 			if ( this.$el ) {
 				this.$el.find( '.vc_tta-panels' ).sortable( {
 					forcePlaceholderSize: true,

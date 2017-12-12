@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer helpers functions
+ * WPBakery WPBakery Page Builder helpers functions
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  *
  */
 
@@ -152,49 +152,6 @@ function vc_get_image_by_size( $id, $size ) {
 	}
 
 	return '';
-}
-
-/**
- * @param $width
- *
- * @deprecated 4.5
- * @since 4.2
- * @return string
- */
-function wpb_getColumnControls( $width ) {
-	_deprecated_function( 'wpb_getColumnControls', '4.5 (will be removed in 5.1)' );
-
-	switch ( $width ) {
-		case 'vc_col-md-2' :
-			$w = '1/6';
-			break;
-		case 'vc_col-sm-2' :
-			$w = '1/6';
-			break;
-		case 'vc_col-sm-3' :
-			$w = '1/4';
-			break;
-		case 'vc_col-sm-4' :
-			$w = '1/3';
-			break;
-		case 'vc_col-sm-6' :
-			$w = '1/2';
-			break;
-		case 'vc_col-sm-8' :
-			$w = '2/3';
-			break;
-		case 'vc_col-sm-9' :
-			$w = '3/4';
-			break;
-		case 'vc_col-sm-12' :
-			$w = '1/1';
-			break;
-
-		default :
-			$w = $width;
-	}
-
-	return $w;
 }
 
 /* Convert vc_col-sm-3 to 1/4
@@ -528,7 +485,7 @@ if ( ! function_exists( 'wpb_resize' ) ) {
 
 if ( ! function_exists( 'wpb_debug' ) ) {
 	/**
-	 * Returns bool if wpb_debug is provided in url - set visual composer debug mode.
+	 * Returns bool if wpb_debug is provided in url - set WPBakery Page Builder debug mode.
 	 * Used for example in shortcodes (end block comment for example)
 	 * @since 4.2
 	 * @return bool
@@ -915,22 +872,6 @@ function vc_parse_multi_attribute( $value, $default = array() ) {
 }
 
 /**
- * @param $string
- *
- * @deprecated 4.5
- * @since 4.2
- * @return string
- */
-function wpb_stripslashes_if_gpc_magic_quotes( $string ) {
-	_deprecated_function( 'wpb_stripslashes_if_gpc_magic_quotes', '4.5 (will be removed in 5.1)', 'stripslashes' );
-	if ( get_magic_quotes_gpc() ) {
-		return stripslashes( $string );
-	} else {
-		return $string;
-	}
-}
-
-/**
  * @param $v
  *
  * @since 4.2
@@ -1017,28 +958,6 @@ function vc_parse_options_string( $string, $tag, $param ) {
 	}
 
 	return $options;
-}
-
-/**
- * @since 4.2
- * @deprecated 4.2
- */
-function wpb_js_composer_check_version_schedule_deactivation() {
-	_deprecated_function( 'wpb_js_composer_check_version_schedule_deactivation', '4.2 (will be removed in 5.1)' );
-	wp_clear_scheduled_hook( 'wpb_check_for_update' );
-	delete_option( 'wpb_js_composer_show_new_version_message' );
-}
-
-/**
- * Helper function to add new third-party adaptation class.
- * @deprecated 4.4
- * @since 4.3
- *
- * @param Vc_Vendor_Interface $vendor - instance of class.
- */
-function vc_add_vendor( Vc_Vendor_Interface $vendor ) {
-	_deprecated_function( 'vc_add_vendor', '4.4 (will be removed in 5.1)', 'autoload logic' );
-	visual_composer()->vendorsManager()->add( $vendor );
 }
 
 /**
@@ -1370,40 +1289,6 @@ function vc_is_responsive_disabled() {
 	$disable_responsive = vc_settings()->get( 'not_responsive_css' );
 
 	return '1' === $disable_responsive;
-}
-
-/**
- * @deprecated 4.2
- * @since 4.2
- * @return mixed|string|void
- */
-function get_row_css_class() {
-	_deprecated_function( 'get_row_css_class', '4.2 (will be removed in 5.1)' );
-	$custom = vc_settings()->get( 'row_css_class' );
-
-	return ! empty( $custom ) ? $custom : 'vc_row-fluid';
-}
-
-/**
- * @deprecated and will be removed
- * @since 4.2
- * @return int
- */
-function vc_get_interface_version() {
-	_deprecated_function( 'vc_get_interface_version', '4.2 (will be removed in 5.1)' );
-
-	return 2;
-}
-
-/**
- * @deprecated and will be removed.
- * @since 4.2
- * @return int
- */
-function vc_get_initerface_version() {
-	_deprecated_function( 'vc_get_initerface_version', '4.2 (will be removed in 5.1)' );
-
-	return vc_get_interface_version();
 }
 
 /**

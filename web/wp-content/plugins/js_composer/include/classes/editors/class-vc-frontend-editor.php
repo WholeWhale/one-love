@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer front end editor
+ * WPBakery WPBakery Page Builder front end editor
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  *
  */
 
@@ -118,15 +118,15 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 	 */
 	public function addHooks() {
 		add_action( 'template_redirect', array(
-			&$this,
+			$this,
 			'loadShortcodes',
 		) );
 		add_filter( 'page_row_actions', array(
-			&$this,
+			$this,
 			'renderRowAction',
 		) );
 		add_filter( 'post_row_actions', array(
-			&$this,
+			$this,
 			'renderRowAction',
 		) );
 		add_shortcode( 'vc_container_anchor', 'vc_container_anchor' );
@@ -138,7 +138,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 	 */
 	public function hookLoadEdit() {
 		add_action( 'current_screen', array(
-			&$this,
+			$this,
 			'adminInit',
 		) );
 		do_action( 'vc_frontend_editor_hook_load_edit' );
@@ -159,23 +159,23 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 		! defined( 'CONCATENATE_SCRIPTS' ) && define( 'CONCATENATE_SCRIPTS', false );
 		visual_composer()->shared_templates->init();
 		add_filter( 'the_title', array(
-			&$this,
+			$this,
 			'setEmptyTitlePlaceholder',
 		) );
 
 		add_action( 'the_post', array(
-			&$this,
+			$this,
 			'parseEditableContent',
 		), 9999 ); // after all the_post actions ended
 
 		do_action( 'vc_inline_editor_page_view' );
 		add_filter( 'wp_enqueue_scripts', array(
-			&$this,
+			$this,
 			'loadIFrameJsCss',
 		) );
 
 		add_action( 'wp_footer', array(
-			&$this,
+			$this,
 			'printPostShortcodes',
 		) );
 	}
@@ -185,11 +185,11 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 	 */
 	public function buildPage() {
 		add_action( 'admin_bar_menu', array(
-			&$this,
+			$this,
 			'adminBarEditLink',
 		), 1000 );
 		add_filter( 'edit_post_link', array(
-			&$this,
+			$this,
 			'renderEditButton',
 		) );
 	}
@@ -243,7 +243,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 			remove_all_filters( 'the_content' );
 			// Used for just returning $post->post_content
 			add_filter( 'the_content', array(
-				&$this,
+				$this,
 				'editableContent',
 			) );
 		}
@@ -353,7 +353,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 		if ( $this->post_id ) {
 			$this->post = get_post( $this->post_id );
 		}
-		do_action_ref_array( 'the_post', array( &$this->post ) );
+		do_action_ref_array( 'the_post', array( $this->post ) );
 		$post = $this->post;
 		$this->post_id = $this->post->ID;
 	}
@@ -443,7 +443,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 		do_action( 'vc_frontend_editor_render' );
 
 		add_filter( 'admin_title', array(
-			&$this,
+			$this,
 			'setEditorTitle',
 		) );
 		$this->render( 'editor' );
@@ -454,7 +454,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 	 * @return string
 	 */
 	function setEditorTitle() {
-		return sprintf( __( 'Edit %s with Visual Composer', 'js_composer' ), $this->post_type->labels->singular_name );
+		return sprintf( __( 'Edit %s with WPBakery Page Builder', 'js_composer' ), $this->post_type->labels->singular_name );
 	}
 
 	/**
@@ -480,7 +480,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 	 */
 	function renderEditButton( $link ) {
 		if ( $this->showButton( get_the_ID() ) ) {
-			return $link . ' <a href="' . self::getInlineUrl() . '" id="vc_load-inline-editor" class="vc_inline-link">' . __( 'Edit with Visual Composer', 'js_composer' ) . '</a>';
+			return $link . ' <a href="' . self::getInlineUrl() . '" id="vc_load-inline-editor" class="vc_inline-link">' . __( 'Edit with WPBakery Page Builder', 'js_composer' ) . '</a>';
 		}
 
 		return $link;
@@ -495,7 +495,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 		$post = get_post();
 		if ( $this->showButton( $post->ID ) ) {
 			$actions['edit_vc'] = '<a
-		href="' . $this->getInlineUrl( '', $post->ID ) . '">' . __( 'Edit with Visual Composer', 'js_composer' ) . '</a>';
+		href="' . $this->getInlineUrl( '', $post->ID ) . '">' . __( 'Edit with WPBakery Page Builder', 'js_composer' ) . '</a>';
 		}
 
 		return $actions;
@@ -532,7 +532,7 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 			if ( $this->showButton( get_the_ID() ) ) {
 				$wp_admin_bar->add_menu( array(
 					'id' => 'vc_inline-admin-bar-link',
-					'title' => __( 'Edit with Visual Composer', 'js_composer' ),
+					'title' => __( 'Edit with WPBakery Page Builder', 'js_composer' ),
 					'href' => self::getInlineUrl(),
 					'meta' => array( 'class' => 'vc_inline-link' ),
 				) );
@@ -897,10 +897,16 @@ class Vc_Frontend_Editor implements Vc_Editor_Interface {
 		foreach ( $found[2] as $index => $s ) {
 			$id = md5( time() . '-' . $this->tag_index ++ );
 			$content = $found[5][ $index ];
+			$attrs = shortcode_parse_atts( $found[3][ $index ] );
+			if ( empty( $attrs ) ) {
+				$attrs = array();
+			} elseif ( ! is_array( $attrs ) ) {
+				$attrs = (array) $attrs;
+			}
 			$shortcode = array(
 				'tag' => $s,
 				'attrs_query' => $found[3][ $index ],
-				'attrs' => (array) shortcode_parse_atts( $found[3][ $index ] ),
+				'attrs' => $attrs,
 				'id' => $id,
 				'parent_id' => $parent_id,
 			);

@@ -59,7 +59,7 @@ class Vc_Sort {
 	 */
 	public function sortByKey( $key = 'weight' ) {
 		$this->key = $key;
-		uasort( $this->data, array( &$this, '_key' ) );
+		uasort( $this->data, array( $this, '_key' ) );
 
 		return array_merge( $this->data ); // reset array keys to 0..N
 	}

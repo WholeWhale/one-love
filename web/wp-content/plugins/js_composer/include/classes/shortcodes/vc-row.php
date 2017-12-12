@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer row
+ * WPBakery WPBakery Page Builder row
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  *
  */
 class WPBakeryShortCode_VC_Row extends WPBakeryShortCode {
@@ -57,6 +57,10 @@ class WPBakeryShortCode_VC_Row extends WPBakeryShortCode {
 		$controls_layout = $this->getLayoutsControl();
 
 		$controls_move = ' <a class="vc_control column_move vc_column-move" href="#" title="' . __( 'Drag row to reorder', 'js_composer' ) . '" data-vc-control="move"><i class="vc-composer-icon vc-c-icon-dragndrop"></i></a>';
+		$moveAccess = vc_user_access()->part( 'dragndrop' )->checkStateAny( true, null )->get();
+		if ( ! $moveAccess ) {
+			$controls_move = '';
+		}
 		$controls_add = ' <a class="vc_control column_add vc_column-add" href="#" title="' . __( 'Add column', 'js_composer' ) . '" data-vc-control="add"><i class="vc-composer-icon vc-c-icon-add"></i></a>';
 		$controls_delete = '<a class="vc_control column_delete vc_column-delete" href="#" title="' . __( 'Delete this row', 'js_composer' ) . '" data-vc-control="delete"><i class="vc-composer-icon vc-c-icon-delete_empty"></i></a>';
 		$controls_edit = ' <a class="vc_control column_edit vc_column-edit" href="#" title="' . __( 'Edit this row', 'js_composer' ) . '" data-vc-control="edit"><i class="vc-composer-icon vc-c-icon-mode_edit"></i></a>';

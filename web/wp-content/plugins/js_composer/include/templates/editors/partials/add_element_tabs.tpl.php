@@ -26,6 +26,9 @@ foreach ( $categories as $key => $name ) {
 	if ( 'deprecated' === $name ) {
 		$name = __( 'Deprecated', 'js_composer' );
 		$filter = '.js-category-deprecated';
+	} else if ( '_my_elements_' === $name ) {
+		$name = __( 'My Elements', 'js_composer' );
+		$filter = '.js-category-_my_elements_';
 	} else {
 		$filter = '.js-category-' . md5( $name );
 	}

@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WPBakery Visual Composer admin editor
+ * WPBakery WPBakery Page Builder admin editor
  *
- * @package WPBakeryVisualComposer
+ * @package WPBakeryPageBuilder
  *
  */
 
@@ -78,7 +78,7 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 			visual_composer()->registerAdminJavascript();
 
 			// meta box to render
-			add_meta_box( 'wpb_visual_composer', __( 'Visual Composer', 'js_composer' ), array(
+			add_meta_box( 'wpb_visual_composer', __( 'WPBakery Page Builder', 'js_composer' ), array(
 				$this,
 				'renderEditor',
 			), $post_type, 'normal', 'high' );
@@ -174,21 +174,6 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 			$this->enqueueCss(); //needed for navbar @todo split
 		}
 		do_action( 'vc_backend_editor_enqueue_js_css' );
-	}
-
-	/**
-	 * @deprecated 4.8
-	 * @return string
-	 */
-	public function showRulesValue() {
-		_deprecated_function( '\Vc_Backend_Editor::showRulesValue', '4.8 (will be removed in next release)' );
-		global $current_user;
-		wp_get_current_user();
-		/** @var $settings - get use group access rules */
-		$settings = vc_settings()->get( 'groups_access_rules' );
-		$role = is_object( $current_user ) && isset( $current_user->roles[0] ) ? $current_user->roles[0] : '';
-
-		return isset( $settings[ $role ]['show'] ) ? $settings[ $role ]['show'] : '';
 	}
 
 	public function registerBackendJavascript() {

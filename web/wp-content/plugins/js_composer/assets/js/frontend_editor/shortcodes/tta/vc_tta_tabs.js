@@ -110,6 +110,9 @@
 			this.buildPagination();
 		},
 		buildSortableNavigation: function () {
+			if ( ! vc_user_access().shortcodeEdit( this.model.get( 'shortcode' ) ) ) {
+				return
+			}
 			// this should be called when new tab added/removed/changed.
 			this.$el.find( '.vc_tta-tabs-container .vc_tta-tabs-list' ).sortable( {
 				items: '.vc_tta-tab',

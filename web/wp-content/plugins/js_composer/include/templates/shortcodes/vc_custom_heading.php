@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Custom_heading
  */
-$source = $text = $link = $google_fonts = $font_container = $el_id = $el_class = $css = $css_animation = $font_container_data = $google_fonts_data = '';
+$source = $text = $link = $google_fonts = $font_container = $el_id = $el_class = $css = $css_animation = $font_container_data = $google_fonts_data = array();
 // This is needed to extract $font_container_data and $google_fonts_data
 extract( $this->getAttributes( $atts ) );
 

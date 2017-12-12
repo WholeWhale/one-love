@@ -22,19 +22,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<ul class="wpb-content-layouts-container">
 						<li class="vc_add-element-deprecated-warning">
 							<div class="wpb_element_wrapper">
-								<?php echo vc_message_warning( __( 'Elements within this list are deprecated and are no longer supported in newer versions of Visual Composer.', 'js_composer' ) ) ?>
+								<?php echo vc_message_warning( __( 'Elements within this list are deprecated and are no longer supported in newer versions of WPBakery Page Builder.', 'js_composer' ) ) ?>
 							</div>
 						</li>
 						<li><?php echo $box->getControls() ?></li>
 						<?php if ( $box->isShowEmptyMessage() && true !== $box->getPartState() ) : ?>
 							<li class="vc_add-element-access-warning">
 								<div class="wpb_element_wrapper">
-									<?php echo vc_message_warning( __( 'Your user role have restricted access to content elements. If required, contact your site administrator to change Visual Composer Role Manager settings for your user role.', 'js_composer' ) ) ?>
+									<?php echo vc_message_warning( __( 'Your user role have restricted access to content elements. If required, contact your site administrator to change WPBakery Page Builder Role Manager settings for your user role.', 'js_composer' ) ) ?>
 								</div>
 							</li>
 						<?php endif; ?>
 					</ul>
 					<div class="vc_clearfix"></div>
+					<?php if ( vc_user_access()->part( 'presets' )->checkStateAny( true, null )->get() ) : ?>
+						<div class="vc_align_center">
+							<span class="vc_general vc_ui-button vc_ui-button-action vc_ui-button-shape-rounded vc_ui-button-fw" data-vc-manage-elements style="display:none;"><?php _e( 'Manage elements', 'js_composer' ); ?></span>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

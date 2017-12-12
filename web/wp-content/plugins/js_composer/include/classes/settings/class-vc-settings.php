@@ -405,15 +405,6 @@ class Vc_Settings {
 	}
 
 	/**
-	 * @deprecated since 4.4
-	 */
-	public function removeAllCssClasses() {
-		_deprecated_function( '\Vc_Settings::removeAllCssClasses', '4.4 (will be removed in 5.1)' );
-		delete_option( self::$field_prefix . 'row_css_class' );
-		delete_option( self::$field_prefix . 'column_css_classes' );
-	}
-
-	/**
 	 * @param $option_name
 	 *
 	 * @param bool $defaultValue
@@ -478,150 +469,6 @@ class Vc_Settings {
 	}
 
 	/**
-	 * Access groups
-	 * @deprecated 4.8
-	 */
-	public function groups_access_rules_callback() {
-		_deprecated_function( '\Vc_Settings::groups_access_rules_callback', '4.8 (will be removed in 5.1)' );
-		global $wp_roles;
-		$groups = is_object( $wp_roles ) ? $wp_roles->roles : array();
-
-		$settings = ( $settings = get_option( self::$field_prefix . 'groups_access_rules' ) ) ? $settings : array();
-		$show_types = array(
-			'all' => __( 'Show Visual Composer & default editor', 'js_composer' ),
-			'only' => __( 'Show only Visual Composer', 'js_composer' ),
-			'no' => __( "Don't allow to use Visual Composer", 'js_composer' ),
-		);
-		$shortcodes = WPBMap::getShortCodes();
-		$size_line = ceil( count( array_keys( $shortcodes ) ) / 3 );
-		?>
-		<div class="wpb_settings_accordion" id="wpb_js_settings_access_groups" xmlns="http://www.w3.org/1999/html">
-		<?php
-		if ( is_array( $groups ) ) :
-			foreach ( $groups as $key => $params ) :
-				if ( ( isset( $params['capabilities']['edit_posts'] ) && true === $params['capabilities']['edit_posts'] ) || ( isset( $params['capabilities']['edit_pages'] ) && true === $params['capabilities']['edit_pages'] ) ) :
-					$allowed_setting = isset( $settings[ $key ]['show'] ) ? $settings[ $key ]['show'] : 'all';
-					$shortcode_settings = isset( $settings[ $key ]['shortcodes'] ) ? $settings[ $key ]['shortcodes'] : array();
-					?>
-					<h3 id="wpb-settings-group-<?php echo $key ?>-header">
-						<a href="#wpb-settings-group-<?php echo $key ?>">
-							<?php echo $params['name'] ?>
-						</a>
-					</h3>
-					<div id="wpb-settings-group-<?php echo $key ?>" class="accordion-body">
-						<div class="visibility settings-block">
-							<label
-								for="wpb_composer_access_<?php echo $key ?>"><b><?php _e( 'Visual Composer access', 'js_composer' ) ?></b></label>
-							<select id="wpb_composer_access_<?php echo $key ?>"
-								name="<?php echo self::$field_prefix . 'groups_access_rules[' . $key . '][show]' ?>">
-								<?php foreach ( $show_types as $i_key => $name ) : ?>
-									<option
-										value="<?php echo $i_key ?>"<?php echo $allowed_setting == $i_key ? ' selected="true"' : '' ?>><?php echo $name ?></option>
-								<?php endforeach ?>
-							</select>
-						</div>
-						<div class="shortcodes settings-block">
-							<div class="title"><b><?php _e( 'Enabled shortcodes', 'js_composer' ); ?></b></div>
-							<?php $z = 1;
-							foreach ( $shortcodes as $sc_base => $el ) : ?>
-								<?php if ( ! in_array( $el['base'], array(
-									'vc_column',
-									'vc_row',
-									'vc_row_inner',
-									'vc_column_inner',
-								) )
-								) : ?>
-									<?php if ( 1 === $z ) : ?><div class="pull-left"><?php endif ?>
-									<label>
-										<input
-											type="checkbox"
-											<?php if ( isset( $shortcode_settings[ $sc_base ] ) && 1 === (int) $shortcode_settings[ $sc_base ] ) : ?>checked="true"
-											<?php endif ?>name="<?php echo self::$field_prefix . 'groups_access_rules[' . $key . '][shortcodes][' . $sc_base . ']' ?>"
-											value="1"/>
-										<?php
-										echo $el['name'];
-										if ( isset( $el['deprecated'] ) && false !== $el['deprecated'] ) {
-											echo ' <i>' . sprintf( __( '(deprecated since v%s)', 'js_composer' ), $el['deprecated'] ) . '</i>';
-										}
-										?>
-									</label>
-									<?php if ( $z == $size_line ) : ?></div><?php $z = 0; endif;
-									$z += 1; ?>
-								<?php endif ?>
-							<?php endforeach ?>
-							<?php if ( 1 !== $z ) : ?></div><?php endif ?>
-						<div class="vc_clearfix"></div>
-						<div class="select-all">
-							<a href="#"
-								class="wpb-settings-select-all-shortcodes"><?php echo __( 'Select All', 'js_composer' ) ?></a>
-							| <a href="#"
-								class="wpb-settings-select-none-shortcodes"><?php echo __( 'Select none', 'js_composer' ) ?></a>
-						</div>
-					</div>
-					</div>
-					<?php
-				endif;
-			endforeach;
-		endif;
-		?>
-		</div>
-		<p class="description"><?php _e( 'Define access rules for different user groups.', 'js_composer' ); ?></p>
-		<?php
-	}
-
-	/**
-	 * Content types checkboxes list callback function
-	 * @deprecated 4.8
-	 */
-	public function content_types_field_callback() {
-		_deprecated_function( '\Vc_Settings::content_types_field_callback', '4.8 (will be removed in 5.1)' );
-		$pt_array = ( $pt_array = get_option( 'wpb_js_content_types' ) ) ? ( $pt_array ) : vc_default_editor_post_types();
-		foreach ( $this->getPostTypes() as $pt ) {
-			if ( ! in_array( $pt, $this->getExcluded() ) ) {
-				$checked = ( in_array( $pt, $pt_array ) ) ? ' checked' : '';
-				?>
-				<label>
-					<input type="checkbox"<?php echo $checked; ?> value="<?php echo $pt; ?>"
-						id="wpb_js_post_types_<?php echo $pt; ?>"
-						name="<?php echo self::$field_prefix . 'content_types' ?>[]">
-					<?php echo $pt; ?>
-				</label><br>
-				<?php
-			}
-		}
-		?>
-		<p
-			class="description indicator-hint"><?php _e( 'Select content types available to Visual Composer.', 'js_composer' ); ?></p>
-		<?php
-	}
-
-	/**
-	 * Themes Content types checkboxes list callback function
-	 * @deprecated 4.8
-	 */
-	public function theme_content_types_field_callback() {
-		_deprecated_function( '\Vc_Settings::theme_content_types_field_callback', '4.8 (will be removed in 5.1)' );
-		$pt_array = ( $pt_array = get_option( 'wpb_js_theme_content_types' ) ) ? $pt_array : vc_manager()->editorPostTypes();
-		foreach ( $this->getPostTypes() as $pt ) {
-			if ( ! in_array( $pt, $this->getExcluded() ) ) {
-				$checked = ( in_array( $pt, $pt_array ) ) ? ' checked' : '';
-				?>
-				<label>
-					<input type="checkbox"<?php echo $checked; ?> value="<?php echo $pt; ?>"
-						id="wpb_js_post_types_<?php echo $pt; ?>"
-						name="<?php echo self::$field_prefix . 'theme_content_types' ?>[]">
-					<?php echo $pt; ?>
-				</label><br>
-				<?php
-			}
-		}
-		?>
-		<p
-			class="description indicator-hint"><?php _e( 'Select content types available to Visual Composer.', 'js_composer' ); ?></p>
-		<?php
-	}
-
-	/**
 	 *
 	 */
 	public function custom_css_field_callback() {
@@ -639,11 +486,11 @@ class Vc_Settings {
 		?>
 		<label>
 			<input type="checkbox"<?php echo( $checked ? ' checked' : '' ) ?> value="1"
-				id="wpb_js_not_responsive_css" name="<?php echo self::$field_prefix . 'not_responsive_css' ?>">
+					id="wpb_js_not_responsive_css" name="<?php echo self::$field_prefix . 'not_responsive_css' ?>">
 			<?php _e( 'Disable', 'js_composer' ) ?>
 		</label><br/>
 		<p
-			class="description indicator-hint"><?php _e( 'Disable content elements from "stacking" one on top other on small media screens (Example: mobile devices).', 'js_composer' ); ?></p>
+				class="description indicator-hint"><?php _e( 'Disable content elements from "stacking" one on top other on small media screens (Example: mobile devices).', 'js_composer' ); ?></p>
 		<?php
 	}
 
@@ -658,8 +505,8 @@ class Vc_Settings {
 				?>
 				<label>
 					<input type="checkbox"<?php echo $checked; ?> value="<?php echo $pt; ?>"
-						id="wpb_js_gf_subsets_<?php echo $pt; ?>"
-						name="<?php echo self::$field_prefix . 'google_fonts_subsets' ?>[]">
+							id="wpb_js_gf_subsets_<?php echo $pt; ?>"
+							name="<?php echo self::$field_prefix . 'google_fonts_subsets' ?>[]">
 					<?php echo $pt; ?>
 				</label><br>
 				<?php
@@ -667,7 +514,7 @@ class Vc_Settings {
 		}
 		?>
 		<p
-			class="description indicator-hint"><?php _e( 'Select subsets for Google Fonts available to content elements.', 'js_composer' ); ?></p>
+				class="description indicator-hint"><?php _e( 'Select subsets for Google Fonts available to content elements.', 'js_composer' ); ?></p>
 		<?php
 	}
 
@@ -739,15 +586,6 @@ class Vc_Settings {
 	}
 
 	/**
-	 * Row css class callback
-	 */
-	public function row_css_class_callback() {
-		_deprecated_function( '\Vc_Settings::row_css_class_callback', '4.4 (will be removed in 5.1)' );
-		$value = ( $value = get_option( self::$field_prefix . 'row_css_class' ) ) ? $value : '';
-		echo ! empty( $value ) ? $value : '<i>' . __( 'Empty value', 'js_composer' ) . '</i>';
-	}
-
-	/**
 	 * Not responsive checkbox callback function
 	 *
 	 */
@@ -757,11 +595,11 @@ class Vc_Settings {
 		?>
 		<label>
 			<input type="checkbox"<?php echo( $checked ? ' checked' : '' ) ?> value="1"
-				id="wpb_js_<?php echo $field; ?>" name="<?php echo self::$field_prefix . $field ?>">
+					id="wpb_js_<?php echo $field; ?>" name="<?php echo self::$field_prefix . $field ?>">
 			<?php _e( 'Enable', 'js_composer' ) ?>
 		</label><br/>
 		<p
-			class="description indicator-hint"><?php _e( 'Enable the use of custom design options (Note: when checked - custom css file will be used).', 'js_composer' ); ?></p>
+				class="description indicator-hint"><?php _e( 'Enable the use of custom design options (Note: when checked - custom css file will be used).', 'js_composer' ); ?></p>
 		<?php
 	}
 
@@ -822,20 +660,6 @@ class Vc_Settings {
 	}
 
 	/**
-	 * @deprecated 4.8 Remove after 2015-12-01
-	 *
-	 * @return string
-	 */
-	public function disableIfActivated() {
-		_deprecated_function( '\Vc_Settings::disableIfActivated', '4.8 (will be removed in 5.1)' );
-		if ( ! isset( $this->deactivate_license ) ) {
-			$this->deactivate_license = vc_license()->deactivation();
-		}
-
-		return empty( $this->deactivate_license ) ? '' : ' disabled="true" class="vc_updater-passive"';
-	}
-
-	/**
 	 * Callback function for settings section
 	 *
 	 * @param $tab
@@ -844,60 +668,10 @@ class Vc_Settings {
 		if ( 'wpb_js_composer_settings_color' === $tab['id'] ) : ?>
 			<div class="tab_intro">
 				<p>
-					<?php _e( 'Here you can tweak default Visual Composer content elements visual appearance. By default Visual Composer is using neutral light-grey theme. Changing "Main accent color" will affect all content elements if no specific "content block" related color is set.', 'js_composer' ) ?>
+					<?php _e( 'Here you can tweak default WPBakery Page Builder content elements visual appearance. By default WPBakery Page Builder is using neutral light-grey theme. Changing "Main accent color" will affect all content elements if no specific "content block" related color is set.', 'js_composer' ) ?>
 				</p>
 			</div>
 		<?php endif;
-	}
-
-	/**
-	 * @return array
-	 * @deprecated 4.8
-	 */
-	protected function getExcluded() {
-		_deprecated_function( '\Vc_Settings::getExcluded', '4.8 (will be removed in 5.1)' );
-		if ( ! isset( $this->vc_excluded_post_types ) ) {
-			$this->vc_excluded_post_types = apply_filters( 'vc_settings_exclude_post_type', array(
-				'attachment',
-				'revision',
-				'nav_menu_item',
-				'mediapage',
-			) );
-		}
-
-		return $this->vc_excluded_post_types;
-	}
-
-	/**
-	 * @return array
-	 * @deprecated 4.8
-	 */
-	protected function getPostTypes() {
-		_deprecated_function( '\Vc_Settings::getPostTypes', '4.8 (will be removed in 5.1)' );
-
-		return get_post_types( array( 'public' => true ) );
-	}
-
-	/**
-	 * Access rules for user's groups
-	 *
-	 * @param $rules - Array of selected rules for each user's group
-	 *
-	 * @deprecated 4.8
-	 *
-	 * @return array
-	 */
-	public function sanitize_group_access_rules_callback( $rules ) {
-		_deprecated_function( '\Vc_Settings::sanitize_group_access_rules_callback', '4.8 (will be removed in 5.1)' );
-		$sanitize_rules = array();
-		$groups = get_editable_roles();
-		foreach ( $groups as $key => $params ) {
-			if ( isset( $rules[ $key ] ) ) {
-				$sanitize_rules[ $key ] = $rules[ $key ];
-			}
-		}
-
-		return $sanitize_rules;
 	}
 
 	/**
@@ -907,39 +681,6 @@ class Vc_Settings {
 	 */
 	public function sanitize_not_responsive_css_callback( $rules ) {
 		return (bool) $rules;
-	}
-
-	/**
-	 * @param $value
-	 *
-	 * @return mixed
-	 */
-	public function sanitize_row_css_class_callback( $value ) {
-		_deprecated_function( '\Vc_Settings::row_css_class_callback', '4.4 (will be removed in 5.1)' );
-
-		return $value;
-	}
-
-	/**
-	 * Post types fields sanitize
-	 *
-	 * @param $post_types - Post types array selected by user
-	 *
-	 * @deprecated 4.8
-	 * @return array
-	 */
-	public function sanitize_post_types_callback( $post_types ) {
-		_deprecated_function( '\Vc_Settings::sanitize_post_types_callback', '4.8 (will be removed in 5.1)' );
-		$pt_array = array();
-		if ( isset( $post_types ) && is_array( $post_types ) ) {
-			foreach ( $post_types as $pt ) {
-				if ( ! in_array( $pt, $this->getExcluded() ) && in_array( $pt, $this->getPostTypes() ) ) {
-					$pt_array[] = $pt;
-				}
-			}
-		}
-
-		return $pt_array;
 	}
 
 	/**
@@ -1053,25 +794,6 @@ class Vc_Settings {
 	 */
 	public static function _isGutterValid( $gutter ) {
 		return self::_isNumberValid( $gutter );
-	}
-
-	/**
-	 * @deprecated 4.4
-	 * @return bool
-	 */
-	public static function requireNotification() {
-		_deprecated_function( '\Vc_Settings::requireNotification', '4.4 (will be removed in 5.1)' );
-		$row_css_class = ( $value = get_option( self::$field_prefix . 'row_css_class' ) ) ? $value : '';
-		$column_css_classes = ( $value = get_option( self::$field_prefix . 'column_css_classes' ) ) ? $value : '';
-
-		$notification = get_option( self::$notification_name );
-		if ( 'false' !== $notification && ( ! empty( $row_css_class ) || strlen( implode( '', array_values( $column_css_classes ) ) ) > 0 ) ) {
-			update_option( self::$notification_name, 'true' );
-
-			return true;
-		}
-
-		return false;
 	}
 
 	public function useCustomCss() {
@@ -1243,19 +965,14 @@ class Vc_Settings {
 	 * @param string $url
 	 */
 	protected static function getFileSystem( $url = '' ) {
-		if ( empty( $url ) ) {
-			$url = wp_nonce_url( 'admin.php?page=vc-general', 'wpb_js_settings_save_action' );
+		global $wp_filesystem;
+		$status = true;
+		if ( ! $wp_filesystem || ! is_object( $wp_filesystem ) ) {
+			require_once( ABSPATH . '/wp-admin/includes/file.php' );
+			$status = WP_Filesystem( false, false, true );
 		}
-		if ( false === ( $creds = request_filesystem_credentials( $url, '', false, false, null ) ) ) {
-			_e( 'This is required to enable file writing for js_composer', 'js_composer' );
-			exit(); // stop processing here
-		}
-		$upload_dir = wp_upload_dir();
-		if ( ! WP_Filesystem( $creds, $upload_dir['basedir'] ) ) {
-			request_filesystem_credentials( $url, '', true, false, null );
-			_e( 'This is required to enable file writing for js_composer', 'js_composer' );
-			exit();
-		}
+
+		return $status ? $wp_filesystem : false;
 	}
 
 	/**
@@ -1263,18 +980,5 @@ class Vc_Settings {
 	 */
 	public function getOptionGroup() {
 		return $this->option_group;
-	}
-}
-
-/**
- * Backward capability for third-party-plugins
- */
-class WPBakeryVisualComposerSettings extends Vc_Settings {
-	/**
-	 * @deprecated 5.0
-	 * WPBakeryVisualComposerSettings constructor.
-	 */
-	public function __construct() {
-		_deprecated_function( '\WPBakeryVisualComposerSettings::__construct', '4.8 (will be removed in 5.1)' );
 	}
 }

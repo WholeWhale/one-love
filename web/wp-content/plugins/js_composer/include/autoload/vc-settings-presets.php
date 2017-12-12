@@ -13,10 +13,10 @@ add_action( 'wp_ajax_vc_action_render_settings_preset_title_prompt', 'vc_action_
 add_action( 'wp_ajax_vc_action_render_settings_templates_prompt', 'vc_action_render_settings_templates_prompt' );
 add_action( 'vc_restore_default_settings_preset', 'vc_action_set_as_default_settings_preset', 10, 2 );
 add_action( 'vc_register_settings_preset', 'vc_register_settings_preset', 10, 4 );
+add_filter( 'vc_add_new_elements_to_box', 'vc_add_new_elements_to_box' );
+add_filter( 'vc_add_new_category_filter', 'vc_add_new_category_filter' );
 
 function vc_include_settings_preset_class() {
-	vc_user_access()->checkAdminNonce()->validateDie()->wpAny( 'edit_posts', 'edit_pages' )->validateDie()->part( 'presets' )->can()->validateDie();
-
 	require_once vc_path_dir( 'AUTOLOAD_DIR', 'class-vc-settings-presets.php' );
 }
 
@@ -237,4 +237,14 @@ function vc_action_render_settings_templates_prompt() {
  */
 function vc_register_settings_preset( $title, $shortcode, $params, $default = false ) {
 	vc_vendor_preset()->add( $title, $shortcode, $params, $default );
+}
+
+function vc_add_new_elements_to_box( $shortcodes ) {
+	require_once vc_path_dir( 'AUTOLOAD_DIR', 'class-vc-settings-presets.php' );
+	return Vc_Settings_Preset::addVcPresetsToShortcodes( $shortcodes );
+}
+
+function vc_add_new_category_filter( $cat ) {
+	require_once vc_path_dir( 'AUTOLOAD_DIR', 'class-vc-settings-presets.php' );
+	return Vc_Settings_Preset::addPresetCategory( $cat );
 }

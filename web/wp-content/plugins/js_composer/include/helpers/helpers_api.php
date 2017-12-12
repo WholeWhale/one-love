@@ -29,18 +29,6 @@ function vc_map( $attributes ) {
 	WPBMap::map( $attributes['base'], $attributes );
 }
 
-/* Backwards compatibility  **/
-/**
- * @param $attributes
- *
- * @deprecated, use vc_map instead
- */
-function wpb_map( $attributes ) {
-	_deprecated_function( 'wpb_map', '4.2 (will be removed in 5.1)', 'vc_map' );
-
-	vc_map( $attributes );
-}
-
 /**
  * @param $shortcode
  *
@@ -48,19 +36,6 @@ function wpb_map( $attributes ) {
  */
 function vc_remove_element( $shortcode ) {
 	WPBMap::dropShortcode( $shortcode );
-}
-
-/* Backwards compatibility  **/
-/**
- * @param $shortcode
- *
- * @since 4.2
- * @deprecated use vc_remove_element instead
- */
-function wpb_remove( $shortcode ) {
-	_deprecated_function( 'wpb_remove', '4.2 (will be removed in 5.1)', 'vc_remove_element' );
-
-	vc_remove_element( $shortcode );
 }
 
 /**
@@ -89,21 +64,6 @@ function vc_add_params( $shortcode, $attributes ) {
 			vc_add_param( $shortcode, $attr );
 		}
 	}
-}
-
-/**
- * Backwards compatibility
- *
- * @param $shortcode
- * @param $attributes
- *
- * @since 4.2
- * @deprecated
- */
-function wpb_add_param( $shortcode, $attributes ) {
-	_deprecated_function( 'wpb_add_param', '4.2 (will be removed in 5.1)', 'vc_add_param' );
-
-	vc_add_param( $shortcode, $attributes );
 }
 
 /**
@@ -234,7 +194,7 @@ if ( ! function_exists( 'vc_mode' ) ) {
 }
 if ( ! function_exists( 'vc_set_shortcodes_templates_dir' ) ) {
 	/**
-	 * Sets directory where Visual Composer should look for template files for content elements.
+	 * Sets directory where WPBakery Page Builder should look for template files for content elements.
 	 * @since 4.2
 	 *
 	 * @param string - full directory path to new template directory with trailing slash
@@ -256,20 +216,7 @@ if ( ! function_exists( 'vc_shortcodes_theme_templates_dir' ) ) {
 		return vc_manager()->getShortcodesTemplateDir( $template );
 	}
 }
-if ( ! function_exists( 'vc_set_template_dir' ) ) {
-	/**
-	 * Sets directory where Visual Composer should look for template files for content elements.
-	 * @since 4.2
-	 * @deprecated 4.2
-	 *
-	 * @param string - full directory path to new template directory with trailing slash
-	 */
-	function vc_set_template_dir( $dir ) {
-		_deprecated_function( 'vc_set_template_dir', '4.2 (will be removed in 5.1)', 'vc_set_shortcodes_templates_dir' );
 
-		vc_set_shortcodes_templates_dir( $dir );
-	}
-}
 /**
  * @param bool $value
  *
@@ -278,6 +225,7 @@ if ( ! function_exists( 'vc_set_template_dir' ) ) {
  * @since 4.3
  */
 function set_vc_is_inline( $value = true ) {
+	_deprecated_function( 'set_vc_is_inline', '5.2 (will be removed in 5.3)' );
 	global $vc_is_inline;
 	$vc_is_inline = $value;
 }
@@ -677,14 +625,30 @@ function vc_map_get_attributes( $tag, $atts = array() ) {
 	return shortcode_atts( vc_map_get_defaults( $tag ), $atts, $tag );
 }
 
-/**
- * New Vc now called Frontend editor
- * @deprecated 4.7
- * @return Vc_Frontend_Editor
- * @since 4.3
- */
-function new_vc() {
-	_deprecated_function( 'new_vc', '4.7 (will be removed in 5.1)', 'vc_frontend_editor' );
+function vc_convert_vc_color( $name ) {
+	$colors = array(
+		'blue' => '#5472d2',
+		'turquoise' => '#00c1cf',
+		'pink' => '#fe6c61',
+		'violet' => '#8d6dc4',
+		'peacoc' => '#4cadc9',
+		'chino' => '#cec2ab',
+		'mulled-wine' => '#50485b',
+		'vista-blue' => '#75d69c',
+		'orange' => '#f7be68',
+		'sky' => '#5aa1e3',
+		'green' => '#6dab3c',
+		'juicy-pink' => '#f4524d',
+		'sandy-brown' => '#f79468',
+		'purple' => '#b97ebb',
+		'black' => '#2a2a2a',
+		'grey' => '#ebebeb',
+		'white' => '#ffffff',
+	);
+	$name = str_replace( '_', '-', $name );
+	if ( isset( $colors[ $name ] ) ) {
+		return $colors[ $name ];
+	}
 
-	return vc_frontend_editor();
+	return '';
 }

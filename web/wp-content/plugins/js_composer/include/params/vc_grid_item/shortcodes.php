@@ -598,7 +598,7 @@ $list = array(
 				'description' => __( 'Border color.', 'js_composer' ),
 				'param_holder_class' => 'vc_colored-dropdown',
 			),
-			vc_add_css_animation(),
+			vc_map_add_css_animation(),
 			array(
 				'type' => 'textfield',
 				'heading' => __( 'Extra class name', 'js_composer' ),
