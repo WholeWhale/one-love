@@ -7,10 +7,19 @@
 get_header();
 
 add_action('foundationpress_post_before_comments','learn_author_info');
+add_action('foundationpress_post_before_comments','learn_related_posts');
+
 
 get_template_part("template-parts/learn");
 
+
 get_footer();
+
+function learn_related_posts() {
+  if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+    echo do_shortcode('[jprel]');
+  }
+}
 
 function learn_author_info() {
 

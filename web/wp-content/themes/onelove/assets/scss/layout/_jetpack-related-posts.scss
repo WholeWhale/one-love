@@ -20,3 +20,12 @@
     }
   }
 }
+
+.jp-relatedposts-grid ~ .jp-relatedposts-grid {
+  display: none;
+}
+@media (max-width: 767px) {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+    width: 100%;
+  }
+}

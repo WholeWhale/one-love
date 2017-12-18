@@ -756,7 +756,7 @@ add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );
 
 // remove related posts from bottom of page to customize location
 function jetpackme_remove_rp() {
-    if ( class_exists( 'Jetpack_RelatedPosts' ) && get_post_type() !== 'learn_post_type' ) {
+    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
         $jprp = Jetpack_RelatedPosts::init();
         $callback = array( $jprp, 'filter_add_target_to_dom' );
         remove_filter( 'the_content', $callback, 40 );
@@ -764,13 +764,54 @@ function jetpackme_remove_rp() {
 }
 add_filter( 'wp', 'jetpackme_remove_rp', 20 );
 
-function jetpackcom_custom_heading( $headline, $label, $module ) {
-        if ( 'related-posts' == $module ) {
-                $headline = sprintf(
-                        '<h2 class="jp-relatedposts-custom-headline">%s</h2>',
-                        $label
-                );
+function jetpackme_custom_related( $atts ) {
+
+    if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
+        $related = Jetpack_RelatedPosts::init_raw()
+            ->set_query_name( 'jetpackme-shortcode' ) // Optional, name can be anything
+            ->get_for_post_id(
+                get_the_ID(),
+                array( 'size' => 3 )
+            );
+
+
+        if ( $related ) {
+          ob_start();
+            ?>
+
+            <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+              <h2 class="jp-relatedposts-custom-headline">You might also like</h2>
+              <div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid ">
+                <?php
+                  foreach ( $related as $key=>$result ) {
+                      // Get the related post IDs
+                      ?>
+                      <div class="jp-relatedposts-post jp-relatedposts-post<?php echo $key; ?> jp-relatedposts-post-thumbs" data-post-id="<?php echo $result['id']; ?>" data-post-format="false">
+                          <a href="<?php echo get_post_permalink($result[ 'id' ]); ?>" title="<?php echo get_the_title( $result[ 'id' ] ); ?>">
+                            <div style="background-image:url(<?php echo get_the_post_thumbnail_url($result[ 'id' ]); ?>);height: 9.0625rem; background-position: top;background-size: cover;overflow: hidden; background-repeat: no-repeat;"></div>
+                          </a>
+                        <div class="card">
+                          <div class="vc_gitem-post-category-name">
+                            <h5 class="vc_gitem-post-category-name"><?php echo get_the_terms($result[ 'id' ],'learn_category')[0]->name; ?></h5>
+                          </div>
+                          <div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_title">
+                            <h4>
+                              <a href="<?php echo get_post_permalink($result[ 'id' ]); ?>"><?php echo max_title_length( get_the_title( $result[ 'id' ] ) ); ?></a>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                      <?php
+                  }
+                ?>
+              </div>
+            </div>
+          <?php
+          return ob_get_clean();
         }
-        return $headline;
+    }
+
+    return false;
 }
-add_filter( 'jetpack_sharing_headline_html', 'jetpackcom_custom_heading', 10, 3 );
+// Create a [jprel] shortcode
+add_shortcode( 'jprel', 'jetpackme_custom_related' );
