@@ -1,0 +1,31 @@
+
+
+#jp-relatedposts {
+  html head + body & .jp-relatedposts-items-visual .jp-relatedposts-post {
+    opacity: 1;
+  }
+  .jp-relatedposts-custom-headline {
+    margin-bottom: 3.125rem;
+  }
+  .jp-relatedposts-post-title,
+  .jp-relatedposts-post-excerpt {
+    @extend .card;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    & > a {
+      &,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.jp-relatedposts-grid ~ .jp-relatedposts-grid {
+  display: none;
+}
+@media (max-width: 767px) {
+  #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+    width: 100%;
+  }
+}
