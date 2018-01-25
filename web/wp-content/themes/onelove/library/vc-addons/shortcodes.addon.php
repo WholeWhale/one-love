@@ -571,3 +571,43 @@ function modal_video_output($atts) {
    <?php
   return ob_get_clean();
 }
+
+
+function add_filter_sort_params() {
+  $attributes = array(
+    array(
+      'type'        => 'dropdown',
+      'heading'     => "Sort",
+      'param_name'  => 'filter_sort',
+      'group'       => __( 'Filter', 'js_composer' ),
+      'value'       => array(
+        "Name"        => 'name',
+        "Term ID"     => 'term_id',
+        "Description" => 'description'
+      ),
+      'description' => __( "The filter sort order when displayed.", "my-text-domain" ),
+      'dependency'  => array(
+        'element'   => 'show_filter',
+        'value'     => array( 'yes' ),
+      ),
+    ),
+    array(
+      'type'        => 'dropdown',
+      'heading'     => "Order by",
+      'param_name'  => 'filter_orderby',
+      'group'       => __( 'Filter', 'js_composer' ),
+      'value'       => array(
+        "Ascending"   => 'asc',
+        "Descending"  => 'des',
+      ),
+      'description' => __( "The orderby from left to right.", "my-text-domain" ),
+      'dependency'  => array(
+        'element'   => 'show_filter',
+        'value'     => array( 'yes' ),
+      ),
+    )
+  );
+  vc_add_params( 'vc_basic_grid', $attributes );
+  vc_add_params( 'vc_masonry_grid', $attributes );
+}
+add_action( 'vc_before_init', 'add_filter_sort_params' );
